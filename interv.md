@@ -1,167 +1,172 @@
-Introduction as you’re an experienced application security consultant.
+# Introduction as you’re an experienced application security consultant.
 
 I'll start by introducing myself. I'm working as an Application Security Consultant in Anzen technologies for the past 3 years. With 3 years of experience in Application Security, I've done many security assessments of web applications and mobile applications, and that making me specialized in web and mobile security.
 I've handled many projects for various clients of different sectors like e-commerce, health care, finance, telecom etc.
 Currently I am working remotely with an e-commerce client handling their web and mobile applications and working on the closure of the reported vulnerabilities.
 
-What are the top 10 OWASP vulnerabilities?
-What are the risks associated with each vulnerability?
-How can these vulnerabilities be mitigated?
-What tools and techniques can be used to identify and prevent these vulnerabilities?
+# What are the top 10 OWASP vulnerabilities?
+## What are the risks associated with each vulnerability?
+## How can these vulnerabilities be mitigated?
+## What tools and techniques can be used to identify and prevent these vulnerabilities?
 Answer:
 here are the top 10 OWASP vulnerabilities, the risks associated with each vulnerability, how they can be mitigated, and the tools and techniques that can be used to identify and prevent them:
-1. Broken Access Control
-•	Risks: This vulnerability allows attackers to gain unauthorized access to sensitive data or resources.
-•	Mitigation: Implement proper access control mechanisms, such as role-based access control (RBAC).
-•	Tools and techniques: Use static analysis tools to scan for access control vulnerabilities.
-•	Path Traversal, CSRF, IDOR, Forced Browsing.
-2. Cryptographic Failures
-•	Risks: This vulnerability allows attackers to steal sensitive data, such as passwords or credit card numbers, by decrypting it.
-•	Mitigation: Use strong cryptographic algorithms and properly implement cryptographic libraries.
-•	Tools and techniques: Use dynamic analysis tools to scan for cryptographic vulnerabilities.
-•	Cleartext Transmission of Sensitive Information, Weak Encoding for Password
-3. Injection
-•	Risks: This vulnerability allows attackers to inject malicious code into an application, which can then be executed by other users.
-•	Mitigation: Sanitize all user input before it is processed by the application.
-•	Tools and techniques: Use static analysis tools to scan for injection vulnerabilities.
-4. Insecure Design
-•	Risks: This vulnerability allows attackers to exploit design flaws in an application, such as using hard-coded passwords or not properly validating user input.
-•	Mitigation: Design applications with security in mind.
-•	Tools and techniques: Use static analysis tools to scan for insecure design vulnerabilities.
-5. Security Misconfiguration
-•	Risks: This vulnerability allows attackers to exploit misconfigurations in an application's security settings, such as leaving default passwords in place or not properly securing sensitive data.
-•	Mitigation: Implement and enforce security best practices.
-•	Tools and techniques: Use dynamic analysis tools to scan for security misconfiguration vulnerabilities.
-6. Vulnerable and Outdated Components
-•	Risks: This vulnerability allows attackers to exploit vulnerabilities in third-party components that are used by an application.
-•	Mitigation: Keep all components up to date with the latest security patches.
-•	Tools and techniques: Use static analysis tools to scan for vulnerable components.
-7. Identification and Authentication Failures
-•	Risks: This vulnerability allows attackers to gain unauthorized access to an application by bypassing or abusing the authentication process.
-•	Mitigation: Implement strong authentication mechanisms, such as multi-factor authentication (MFA).
-•	Tools and techniques: Use dynamic analysis tools to scan for identification and authentication vulnerabilities.
-8. Software and Data Integrity Failures
-•	Risks: This vulnerability allows attackers to modify or delete sensitive data, such as financial records or medical records.
-•	Mitigation: Implement data integrity checks to ensure that data is not modified or deleted without authorization.
-•	Tools and techniques: Use static analysis tools to scan for software and data integrity vulnerabilities.
-9. Security Logging and Monitoring Failures
-•	Risks: This vulnerability allows attackers to evade detection by disabling or tampering with security logs.
-•	Mitigation: Implement effective security logging and monitoring practices.
-•	Tools and techniques: Use security information and event management (SIEM) tools to collect and analyze security logs.
-10. Server-Side Request Forgery (SSRF)
-•	Risks: This vulnerability allows attackers to force an application to make unauthorized requests to other servers.
-•	Mitigation: Implement proper input validation to prevent attackers from injecting malicious requests.
-•	Tools and techniques: Use static analysis tools to scan for SSRF vulnerabilities.
+#### 1. Broken Access Control
+-	**Risks:** This vulnerability allows attackers to gain unauthorized access to sensitive data or resources.
+-	**Mitigation:** Implement proper access control mechanisms, such as role-based access control (RBAC).
+-	**Tools and techniques:** Use static analysis tools to scan for access control vulnerabilities.
+-	Path Traversal, CSRF, IDOR, Forced Browsing.
+#### 2. Cryptographic Failures
+-	**Risks:** This vulnerability allows attackers to steal sensitive data, such as passwords or credit card numbers, by decrypting it.
+-	**Mitigation:** Use strong cryptographic algorithms and properly implement cryptographic libraries.
+-	**Tools and techniques:** Use dynamic analysis tools to scan for cryptographic vulnerabilities.
+-	Cleartext Transmission of Sensitive Information, Weak Encoding for Password
+#### 3. Injection
+-	**Risks:** This vulnerability allows attackers to inject malicious code into an application, which can then be executed by other users.
+-	**Mitigation:** Sanitize all user input before it is processed by the application.
+-	**Tools and techniques:** Use static analysis tools to scan for injection vulnerabilities.
+#### 4. Insecure Design
+-	**Risks:** This vulnerability allows attackers to exploit design flaws in an application, such as using hard-coded passwords or not properly validating user input.
+-	**Mitigation:** Design applications with security in mind.
+-	**Tools and techniques:** Use static analysis tools to scan for insecure design vulnerabilities.
+#### 5. Security Misconfiguration
+-	**Risks:** This vulnerability allows attackers to exploit misconfigurations in an application's security settings, such as leaving default passwords in place or not properly securing sensitive data.
+-	**Mitigation:** Implement and enforce security best practices.
+-	**Tools and techniques:** Use dynamic analysis tools to scan for security misconfiguration vulnerabilities.
+#### 6. Vulnerable and Outdated Components
+-	**Risks:** This vulnerability allows attackers to exploit vulnerabilities in third-party components that are used by an application.
+-	**Mitigation:** Keep all components up to date with the latest security patches.
+-	**Tools and techniques:** Use static analysis tools to scan for vulnerable components.
+#### 7. Identification and Authentication Failures
+-	**Risks:** This vulnerability allows attackers to gain unauthorized access to an application by bypassing or abusing the authentication process.
+-	**Mitigation:** Implement strong authentication mechanisms, such as multi-factor authentication (MFA).
+-	**Tools and techniques:** Use dynamic analysis tools to scan for identification and authentication vulnerabilities.
+#### 8. Software and Data Integrity Failures
+-	**Risks:** This vulnerability allows attackers to modify or delete sensitive data, such as financial records or medical records.
+-	**Mitigation:** Implement data integrity checks to ensure that data is not modified or deleted without authorization.
+-	**Tools and techniques:** Use static analysis tools to scan for software and data integrity vulnerabilities.
+#### 9. Security Logging and Monitoring Failures
+-	**Risks:** This vulnerability allows attackers to evade detection by disabling or tampering with security logs.
+-	**Mitigation:** Implement effective security logging and monitoring practices.
+-	**Tools and techniques:** Use security information and event management (SIEM) tools to collect and analyze security logs.
+#### 10. Server-Side Request Forgery (SSRF)
+-	**Risks:** This vulnerability allows attackers to force an application to make unauthorized requests to other servers.
+-	**Mitigation:** Implement proper input validation to prevent attackers from injecting malicious requests.
+-	**Tools and techniques:** Use static analysis tools to scan for SSRF vulnerabilities.
 
 
-Web applications assessment and threat modelling approach:
+# Web applications assessment and threat modelling approach:
 Sir, for starting an assessment, 
 if it is asked to do a grey box testing. 
 we first take a positive walkthrough of an application as per developer point of view. This gives us an idea of architecture design or data flow of an application. 
 We look for the user roles if any and ask for at least 3 credentials. For each user roles. 
 According to the application, we create test cases according to the functionality of an application. Various test cases can be made for an application.
-1. Unauthenticated
-2. Authenticated
+1. Authenticated
+2. Unauthenticated
 3. Privilege related
 4. Server related
 5. Session related
 6. Business flaw related
 7. Payment related
 
-Then we start with the threat modelling of an application
+Then we start with the threat modelling of an application, 
 Explain whole threat modelling.
-Find the attack scenario regarding the topics below and create test cases with 1 example along with Remediation.
 
-1. Authenticated related
-2. Unauthenticated related
-3. Privilege related
-4. Server related
-5. Business related
-6. Payment related
-7. Session related
+_Find the attack scenario regarding the topics below and create test cases with 1 example along with Remediation._
 
-Authenticated Related
-•	Deep URL
-•	CSRF
-•	SQL Injection
-•	XSS
-•	Clickjacking
-•	Captcha Related cases
-•	Cookie Management
+- 1. Authenticated related
+- 2. Unauthenticated related
+- 3. Privilege related
+- 4. Server related
+- 5. Session related
+- 6. Business related
+- 7. Payment related
 
-Unauthenticated Related
-•	HTTPS/HTTP
-•	Login Bypass
-•	Password Autocomplete Enabled
-•	Server Page Error
-•	Application Host
-•	HTTP methods
-•	XSS
-•	CSRF
-•	Clickjacking
-•	User Enumeration
-•	Brute Force
-•	User ID not case sensitive
-•	Password Related Cases
-•	Email Flooding
-•	File Upload
-•	Response Splitting
-•	Sensitive Info URL
-•	Weak Password Policy
-•	Improper Error Handling
-•	IDOR
-•	Directory Listing
+#### Authenticated Related
+-	Deep URL
+-	CSRF
+-	SQL Injection
+-	XSS
+-	Clickjacking
+-	Captcha Related cases
+-	Cookie Management
 
-If any question is asked on threat modelling, make sure to mention:
-What is STRIDE?
+#### Unauthenticated Related
+-	HTTPS/HTTP
+-	Login Bypass
+-	Password Autocomplete Enabled
+-	Server Page Error
+-	Application Host
+-	HTTP methods
+-	XSS
+-	CSRF
+-	Clickjacking
+-	User Enumeration
+-	Brute Force
+-	User ID not case sensitive
+-	Password Related Cases
+-	Email Flooding
+-	File Upload
+-	Response Splitting
+-	Sensitive Info URL
+-	Weak Password Policy
+-	Improper Error Handling
+-	IDOR
+-	Directory Listing
+
+If any question is asked on threat modelling, make sure to mention STRIDE
+
+### What is STRIDE?
 Ans: STRIDE is an acronym for the threat modeling system. It helps in categorizing all cyberattacks into the below techniques:
-•	Spoofing
-•	Tampering
-•	Repudiation
-•	Information disclosure
-•	Denial of service (DoS)
-•	Elevation of privilege
+-	Spoofing = Authentication
+-	Tampering = Integrity
+-	Repudiation = Non-Repudiation
+-	Information disclosure = Confidentiality
+-	Denial of service (DoS) = Availability
+-	Elevation of privilege = Authorization
 
-For threat modelling practice a tool like Microsoft threat modelling tool can be used
-Install it on personal laptops. 
-Office laptops would need an administrator.
+For threat modelling practice a tool like **Microsoft threat modelling tool** can be used.
 
-Threat Type	Security Control	Mitigation Techniques
-Spoofing Identity	Authentication	•	Appropriate authentication
-•	Protect secret data.
-•	Don’t store secrets
-Tampering with data	Integrity	•	Appropriate authorization
-•	Hashes
-•	MACs
-•	Digital signatures
-•	Tamper resistant protocols
-Repudiation	Non-Repudiation	•	Digital signatures
-•	Timestamps
-•	Audit trails
-Information Disclosure	Confidentiality	•	Authorization
-•	Privacy-enhanced protocols
-•	Encryption
-•	Protect secrets.
-•	Don’t store secrets
-Denial of Service	Availability	•	Appropriate authentication
-•	Appropriate authorization
-•	Filtering
-•	Throttling
-•	Quality of service
-Elevation of privilege	Authorization	•	Run with least privilege
+#### Threat Type	Security Control	Mitigation Techniques
+##### Spoofing Identity	Authentication	-	Appropriate authentication
+-	Protect secret data.
+-	Don’t store secrets
+
+##### Tampering with data	Integrity	-	Appropriate authorization
+-	Hashes
+-	MACs
+-	Digital signatures
+-	Tamper resistant protocols
+
+##### Repudiation	Non-Repudiation	-	Digital signatures
+-	Timestamps
+-	Audit trails
+
+##### Information Disclosure	Confidentiality	-	Authorization
+-	Privacy-enhanced protocols
+-	Encryption
+-	Protect secrets.
+-	Don’t store secrets
+
+##### Denial of Service	Availability	-	Appropriate authentication
+-	Appropriate authorization
+-	Filtering
+-	Throttling
+-	Quality of service
+
+##### Elevation of privilege	Authorization	-	Run with least privilege
 
 
 The simplest and most basic form of identifying a web server is to look at the Server field in the HTTP response header.
 Servers:
-•	Apache Web Server: Version 2.4.46
-•	IIS Web Server: Version 10.0.17763.1
-•	Nginx Web Server: Version 1.19
-•	LiteSpeed Web Server: Version 5.4.12
-•	Apache Tomcat: Version 10.0.7
-•	Node. Js: Version 14.7.1
-•	Lighttpd: Version 1.4.59
-•	Jigsaw Server
-•	Sun Java System Web Server
+-	Apache Web Server: Version 2.4.46
+-	IIS Web Server: Version 10.0.17763.1
+-	Nginx Web Server: Version 1.19
+-	LiteSpeed Web Server: Version 5.4.12
+-	Apache Tomcat: Version 10.0.7
+-	Node. Js: Version 14.7.1
+-	Lighttpd: Version 1.4.59
+-	Jigsaw Server
+-	Sun Java System Web Server
 
 
 Insecure Deserialization.
