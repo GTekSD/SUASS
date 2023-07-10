@@ -252,107 +252,107 @@ Make sure to answer all the mitigation questions with regards to OWASP:
 #### File Inclusion (LFI) vulnerabilities.
 
 1. Input Validation and Whitelisting:
-•	Implement strong input validation and sanitization to prevent malicious input.
-•	Use whitelisting to only allow known-safe characters, patterns, or file names in input.
+-	Implement strong input validation and sanitization to prevent malicious input.
+-	Use whitelisting to only allow known-safe characters, patterns, or file names in input.
 
 2. Secure File Access Mechanisms:
-•	Avoid using user-controlled input directly in file inclusion operations.
-•	Instead, use secure file access mechanisms provided by the programming language or framework.
+-	Avoid using user-controlled input directly in file inclusion operations.
+-	Instead, use secure file access mechanisms provided by the programming language or framework.
 
 3. Restricted File System Access:
-•	Implement proper file system access controls and permissions.
-•	Restrict access to sensitive files and directories by setting appropriate permissions.
-•	Apply the principle of least privilege, ensuring that the application has only the necessary access rights.
+-	Implement proper file system access controls and permissions.
+-	Restrict access to sensitive files and directories by setting appropriate permissions.
+-	Apply the principle of least privilege, ensuring that the application has only the necessary access rights.
 
 4. Path Hardening:
-•	Use absolute file paths instead of relative paths whenever possible.
-•	Avoid using user-supplied input as part of file paths.
-•	Perform input validation and sanitization on any user-controlled input used in file paths.
+-	Use absolute file paths instead of relative paths whenever possible.
+-	Avoid using user-supplied input as part of file paths.
+-	Perform input validation and sanitization on any user-controlled input used in file paths.
 
 5. Secure Configuration:
-•	Review and secure the configuration of the web server and application framework.
-•	Disable directory listing to prevent exposure of sensitive file and directory information.
+-	Review and secure the configuration of the web server and application framework.
+-	Disable directory listing to prevent exposure of sensitive file and directory information.
 
 6. File Extension Validation:
-•	Validate and restrict file extensions to prevent malicious files from being included.
-•	Implement a whitelist of allowed file extensions that can be included by the application.
+-	Validate and restrict file extensions to prevent malicious files from being included.
+-	Implement a whitelist of allowed file extensions that can be included by the application.
 
 7. Web Application Firewall (WAF):
-•	Utilize a Web Application Firewall that includes LFI protection features.
-•	Configure the WAF to detect and block potential LFI attacks.
+-	Utilize a Web Application Firewall that includes LFI protection features.
+-	Configure the WAF to detect and block potential LFI attacks.
 
 8. Secure Development Practices:
-•	Follow secure coding practices, such as input validation, output encoding, and proper error handling.
-•	Conduct secure code reviews and security testing to identify and address LFI vulnerabilities.
+-	Follow secure coding practices, such as input validation, output encoding, and proper error handling.
+-	Conduct secure code reviews and security testing to identify and address LFI vulnerabilities.
 
 
 #### For file traversal the following mitigations have to be followed:
 
 1. Input Validation and Whitelisting:
-•	Implement strong input validation and sanitization to prevent malicious input.
-•	Use whitelisting to only allow known-safe characters, patterns, or file names in input.
-•	Validate user-supplied input against a predefined set of allowed values or use regular expressions to ensure input adheres to expected patterns.
+-	Implement strong input validation and sanitization to prevent malicious input.
+-	Use whitelisting to only allow known-safe characters, patterns, or file names in input.
+-	Validate user-supplied input against a predefined set of allowed values or use regular expressions to ensure input adheres to expected patterns.
 
 2. Secure File Access Mechanisms:
-•	Avoid using user-controlled input directly in file access operations.
-•	Utilize secure file access mechanisms provided by the programming language or framework.
-•	Use platform-specific methods or APIs that handle file operations securely, such as canonicalization functions.
+-	Avoid using user-controlled input directly in file access operations.
+-	Utilize secure file access mechanisms provided by the programming language or framework.
+-	Use platform-specific methods or APIs that handle file operations securely, such as canonicalization functions.
 
 3. Path Normalization and Hardening:
-•	Normalize and sanitize file paths to remove any redundant or unnecessary elements (e.g., "./", "../").
-•	Convert relative paths to absolute paths before accessing files.
-•	Apply strict rules and filters to prevent traversal sequences (e.g., "../", "%2e%2e/") from being used to bypass directory restrictions.
+-	Normalize and sanitize file paths to remove any redundant or unnecessary elements (e.g., "./", "../").
+-	Convert relative paths to absolute paths before accessing files.
+-	Apply strict rules and filters to prevent traversal sequences (e.g., "../", "%2e%2e/") from being used to bypass directory restrictions.
 
 4. Secure File System Access Controls:
-•	Implement proper file system access controls and permissions.
-•	Restrict access to sensitive files and directories by setting appropriate permissions.
-•	Apply the principle of least privilege, ensuring that the application has only the necessary access rights.
+-	Implement proper file system access controls and permissions.
+-	Restrict access to sensitive files and directories by setting appropriate permissions.
+-	Apply the principle of least privilege, ensuring that the application has only the necessary access rights.
 
 5. Application-Specific Whitelists:
-•	Maintain application-specific whitelists of allowed files, directories, or paths.
-•	Validate and compare user-supplied input against the whitelist to prevent unauthorized file access.
+-	Maintain application-specific whitelists of allowed files, directories, or paths.
+-	Validate and compare user-supplied input against the whitelist to prevent unauthorized file access.
 
 6. Encrypted and Obfuscated File Names:
-•	Use encryption or obfuscation techniques to obscure file names and prevent predictable file access patterns.
-•	Store sensitive files with non-predictable, randomly generated names that are difficult for an attacker to guess.
+-	Use encryption or obfuscation techniques to obscure file names and prevent predictable file access patterns.
+-	Store sensitive files with non-predictable, randomly generated names that are difficult for an attacker to guess.
 
 7. Web Application Firewall (WAF):
-•	Deploy a Web Application Firewall that includes File Traversal protection features.
-•	Configure the WAF to detect and block potential File Traversal attacks.
+-	Deploy a Web Application Firewall that includes File Traversal protection features.
+-	Configure the WAF to detect and block potential File Traversal attacks.
 
 8. Secure Development Practices:
-•	Follow secure coding practices, such as input validation, output encoding, and proper error handling.
-•	Conduct secure code reviews and security testing to identify and address File Traversal vulnerabilities.
+-	Follow secure coding practices, such as input validation, output encoding, and proper error handling.
+-	Conduct secure code reviews and security testing to identify and address File Traversal vulnerabilities.
 
 
 #### For directory listing mitigations:
 
 1. Disable Directory Listing:
-•	Ensure that directory listing is disabled on the web server configuration.
-•	Check the server settings and configuration files to make sure that directory listing is turned off by default.
-•	This prevents the server from displaying the contents of a directory when there is no default file specified.
+-	Ensure that directory listing is disabled on the web server configuration.
+-	Check the server settings and configuration files to make sure that directory listing is turned off by default.
+-	This prevents the server from displaying the contents of a directory when there is no default file specified.
 
 2. Implement Default Documents:
-•	Configure the web server to use default documents (e.g., index.html, index.php) for each directory.
-•	Set up appropriate default files that are displayed when a user accesses a directory without specifying a file name.
-•	This helps to prevent the server from revealing the directory contents to users.
+-	Configure the web server to use default documents (e.g., index.html, index.php) for each directory.
+-	Set up appropriate default files that are displayed when a user accesses a directory without specifying a file name.
+-	This helps to prevent the server from revealing the directory contents to users.
 
 3. Secure File and Directory Permissions:
-•	Set appropriate file and directory permissions to restrict access to sensitive files and directories.
-•	Ensure that files and directories have the minimum necessary permissions based on their intended use and access requirements.
-•	Apply the principle of least privilege, allowing only the necessary permissions for files and directories.
+-	Set appropriate file and directory permissions to restrict access to sensitive files and directories.
+-	Ensure that files and directories have the minimum necessary permissions based on their intended use and access requirements.
+-	Apply the principle of least privilege, allowing only the necessary permissions for files and directories.
 
 4. Secure Configuration:
-•	Review and secure the configuration of the web server, ensuring that directory listing is disabled.
-•	Regularly check the web server configuration files to ensure that they have not been modified or inadvertently enabled directory listing.
+-	Review and secure the configuration of the web server, ensuring that directory listing is disabled.
+-	Regularly check the web server configuration files to ensure that they have not been modified or inadvertently enabled directory listing.
 
 5. Web Application Firewall (WAF):
-•	Utilize a Web Application Firewall that includes directory listing protection features.
-•	Configure the WAF to detect and block attempts to access directories without appropriate default documents or when directory listing is enabled.
+-	Utilize a Web Application Firewall that includes directory listing protection features.
+-	Configure the WAF to detect and block attempts to access directories without appropriate default documents or when directory listing is enabled.
 
 6. Secure Development Practices:
-•	Follow secure coding practices, such as properly validating and sanitizing user input.
-•	Avoid including user-supplied input directly in file paths or URLs without proper validation and encoding.
+-	Follow secure coding practices, such as properly validating and sanitizing user input.
+-	Avoid including user-supplied input directly in file paths or URLs without proper validation and encoding.
 
 
 ### RFI and SSRF difference.
