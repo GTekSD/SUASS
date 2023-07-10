@@ -169,44 +169,48 @@ Servers:
 -	Sun Java System Web Server
 
 
-Insecure Deserialization.
+### Insecure Deserialization.
 Insecure Deserialization is a vulnerability which occurs when untrusted data is used to abuse the logic of an application, execute malicious code upon it being deserialized.
-Example:
-A bank website uses object serialization to store a cookie containing user details, password, role, hash etc.
-a:4:{i:0;i:132;i:1;s:7:"Mallory";i:2;s:4:"user"; i:3;s:32:"b6a8b3bea87fe0e05022f8f3c88bc960";}
 
-An attacker changes the serialized object to give themselves admin privileges:
-a:4:{i:0;i:1;i:1;s:5:"Alice";i:2;s:5:"admin"; i:3;s:32:"b6a8b3bea87fe0e05022f8f3c88bc960";}
+**Example:**
+
+A bank website uses object serialization to store a cookie containing user details, password, role, hash etc. 
+
+`a:4:{i:0;i:132;i:1;s:7:"Mallory";i:2;s:4:"user"; i:3;s:32:"b6a8b3bea87fe0e05022f8f3c88bc960";}`
+
+An attacker changes the serialized object to give themselves admin privileges: 
+
+`a:4:{i:0;i:1;i:1;s:5:"Alice";i:2;s:5:"admin"; i:3;s:32:"b6a8b3bea87fe0e05022f8f3c88bc960";}`
 
 
-XXE with Example:
+### XXE with Example:
 Some applications use the XML format to transmit data between the browser and the server. Applications that do this virtually always use a standard library or platform API to process the XML data on the server.
 XML and HTML-- XML focus on transfer of data while HTML focus on presentation of data
 XML is an extensible markup language used to store and transport data between browser and server. XML parsers are used to process the data, if not properly configured could lead to arbitrary code execution.
 Some applications allow users to upload files which are then processed server-side. Some common file formats use XML or contain XML subcomponents. Examples of XML-based formats are office document formats like DOCX and image formats like SVG.
 Even if the application expects to receive a format like PNG or JPEG, the image processing library that is being used might support SVG images. Since the SVG format uses XML, an attacker can submit a malicious SVG image and so reach hidden attack surface for XXE vulnerabilities.
 
-SQL injection example bypassing WAF:
+### SQL injection example bypassing WAF:
 I was working on an ecommerce application where I had to bypass WAF. I had observed that whichever input I was trying had integrity checks but it was bypassing certain queries, so I thought it has WAF installed. I started using payloads through SQL map. To bypass WAF we have a payload called tamper. I wrote different scripts with Tamper payload and finally noticed that SQL injection was present in the cookie. I used SQL map on cookie and retrieved the database. I found user details with their address and numbers.
 
-What is blind SQL?
+### What is blind SQL?
 Blind SQL (Structured Query Language) injection is a type of SQL Injection attack that asks the database true or false questions and determines the answer based on the applications response.
 
-What is SSRF?
+### What is SSRF?
 Server-side request forgery (SSRF) vulnerabilities let an attacker send crafted requests from the back-end server of a vulnerable web application. Criminals usually use SSRF attacks to target internal systems that are behind firewalls and are not accessible from the external network.
 Server-Side Request Forgery Example:
 I was working on an ecommerce application. I checked for product in stock and observed the URL passing. The URL was to retrieve the stock status and return this to the user. I modified the request to specify a URL local to the server itself. I added localhost/admin which fetched the contents of the /admin URL and returned it back.
 
-Thick Client:
+### Thick Client:
 The thick clients are heavy applications which normally involve the installation of application on the client side (user computer). These applications take up memory and run completely on the computer’s resources. This means that the security of the application is dependent on the local computer.
 
-Default Directories
-/usr/share/tomcat{X}
-\inetpub\wwwroot
-/var/www/html
-/usr/local/nginx/conf
+##### Default Directories
+- /usr/share/tomcat{X}
+- \inetpub\wwwroot
+- /var/www/html
+- /usr/local/nginx/conf
 
-Sans top 25 (Remember at least 5 of them)
+### Sans top 25 (Remember at least 5 of them)
 •	Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
 •	Improper Input Validation
 •	Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
@@ -219,42 +223,37 @@ Sans top 25 (Remember at least 5 of them)
 •	Improper Certificate Validation
 
 
-LFI/File traversal/Directory Listing
+### LFI/File traversal/Directory Listing
 
 Local File Inclusion (LFI) and File Traversal (also known as Path Traversal) are both vulnerabilities that can be exploited in web applications to gain unauthorized access to files on a server. However, they differ in their nature and the way they exploit the application's file handling mechanisms.
 
-1. Local File Inclusion (LFI):
+#### 1. Local File Inclusion (LFI):
 Local File Inclusion occurs when an attacker is able to include (i.e., load or execute) files from the local file system of the server hosting the web application.
 The vulnerability typically arises when the application allows user-supplied input to be directly included or referenced in a file path without proper sanitization or validation.
 By manipulating the input, an attacker can traverse the file system and include sensitive files that are accessible by the application.
 The attacker can view the content of files, such as configuration files, log files, or even execute arbitrary code if the application allows the inclusion of executable files.
 
-
-2. File Traversal (Path Traversal):
+#### 2. File Traversal (Path Traversal):
 File Traversal, also known as Directory Traversal, refers to an attack technique where an attacker can access files located outside of the intended directory.
 The vulnerability arises when the application does not properly validate and sanitize user-supplied input used to construct file paths.
 By manipulating the input, an attacker can traverse directories and access files located in other directories or even on different parts of the file system.
 The attacker can potentially view sensitive files, modify files, or execute arbitrary commands depending on the application's permissions and the files accessible.
 
-
-3. Directory Listing:
+#### 3. Directory Listing:
 Directory Listing is not a vulnerability itself, but rather a feature or misconfiguration of a web server that allows the server to display the contents of a directory when there is no default file specified.
 When directory listing is enabled and proper access controls are not in place, it can expose the directory's contents, including sensitive files or directories that were not intended to be publicly accessible.
 If an attacker identifies a directory with directory listing enabled, they can easily navigate through the files and gain insights into the application's structure and potentially find vulnerabilities or sensitive information.
 
+_In summary, Local File Inclusion (LFI) and File Traversal (Path Traversal) are both file-based vulnerabilities that allow unauthorized access to files. LFI._
 
-In summary, Local File Inclusion (LFI) and File Traversal (Path Traversal) are both file-based vulnerabilities that allow unauthorized access to files. LFI.
-
-Mitigation for the 3 different vulnerabilities:
+### Mitigation for the 3 different vulnerabilities:
 Make sure to answer all the mitigation questions with regards to OWASP:
 
-File Inclusion (LFI) vulnerabilities.
+#### File Inclusion (LFI) vulnerabilities.
 
 1. Input Validation and Whitelisting:
 •	Implement strong input validation and sanitization to prevent malicious input.
 •	Use whitelisting to only allow known-safe characters, patterns, or file names in input.
-
-
 
 2. Secure File Access Mechanisms:
 •	Avoid using user-controlled input directly in file inclusion operations.
@@ -265,52 +264,29 @@ File Inclusion (LFI) vulnerabilities.
 •	Restrict access to sensitive files and directories by setting appropriate permissions.
 •	Apply the principle of least privilege, ensuring that the application has only the necessary access rights.
 
- 
-
-
-
 4. Path Hardening:
 •	Use absolute file paths instead of relative paths whenever possible.
 •	Avoid using user-supplied input as part of file paths.
 •	Perform input validation and sanitization on any user-controlled input used in file paths.
 
- 
-
-
-
 5. Secure Configuration:
 •	Review and secure the configuration of the web server and application framework.
 •	Disable directory listing to prevent exposure of sensitive file and directory information.
-
- 
-
-
 
 6. File Extension Validation:
 •	Validate and restrict file extensions to prevent malicious files from being included.
 •	Implement a whitelist of allowed file extensions that can be included by the application.
 
- 
-
-
-
 7. Web Application Firewall (WAF):
 •	Utilize a Web Application Firewall that includes LFI protection features.
 •	Configure the WAF to detect and block potential LFI attacks.
-
- 
-
-
 
 8. Secure Development Practices:
 •	Follow secure coding practices, such as input validation, output encoding, and proper error handling.
 •	Conduct secure code reviews and security testing to identify and address LFI vulnerabilities.
 
- 
 
-[19-06 12:01 pm] Ansh Bhide
-
-For file traversal the following mitigations have to be followed:
+#### For file traversal the following mitigations have to be followed:
 
 1. Input Validation and Whitelisting:
 •	Implement strong input validation and sanitization to prevent malicious input.
@@ -349,7 +325,7 @@ For file traversal the following mitigations have to be followed:
 •	Conduct secure code reviews and security testing to identify and address File Traversal vulnerabilities.
 
 
-For directory listing mitigations:
+#### For directory listing mitigations:
 
 1. Disable Directory Listing:
 •	Ensure that directory listing is disabled on the web server configuration.
@@ -379,7 +355,7 @@ For directory listing mitigations:
 •	Avoid including user-supplied input directly in file paths or URLs without proper validation and encoding.
 
 
-RFI and SSRF difference.
+### RFI and SSRF difference.
 Remote File Inclusion (RFI) is a vulnerability where an attacker can manipulate a web application to include and execute remote files hosted on external servers. This can lead to the execution of malicious code, unauthorized access to sensitive data, or even full control over the affected system. RFI occurs when the application does not properly validate or sanitize user-supplied input used to include files.
 
 On the other hand, 
@@ -387,116 +363,199 @@ Server-Side Request Forgery (SSRF) is a vulnerability where an attacker tricks t
 
 RFI allows an attacker to include and execute remote files on the server, while SSRF allows an attacker to manipulate the server's requests and potentially access internal or external resources. Both vulnerabilities can lead to serious security risks if not properly addressed.
  
-Android Obfuscation Techniques?
+### Android Obfuscation Techniques?
 Answer:
 Android obfuscation is the process of making Android apps more difficult to reverse engineer. This is done by renaming classes, methods, and variables, and by obfuscating the code logic.
+
 There are many different Android obfuscation techniques, but some of the most common include:
-•	Identifier renaming: This is the most basic form of obfuscation. It involves renaming classes, methods, and variables with meaningless names. This makes it more difficult for reverse engineers to understand the code logic.
-•	String encryption: This technique involves encrypting strings that contain sensitive information, such as API keys or passwords. This makes it more difficult for reverse engineers to extract this information from the app.
-•	Control flow obfuscation: This technique involves obfuscating the control flow of the code. This makes it more difficult for reverse engineers to understand how the code works.
-•	Code packing: This technique involves packing the app's code into a format that is difficult to decompile. This makes it more difficult for reverse engineers to access the app's source code.
+-	Identifier renaming: This is the most basic form of obfuscation. It involves renaming classes, methods, and variables with meaningless names. This makes it more difficult for reverse engineers to understand the code logic.
+-	String encryption: This technique involves encrypting strings that contain sensitive information, such as API keys or passwords. This makes it more difficult for reverse engineers to extract this information from the app.
+-	Control flow obfuscation: This technique involves obfuscating the control flow of the code. This makes it more difficult for reverse engineers to understand how the code works.
+-	Code packing: This technique involves packing the app's code into a format that is difficult to decompile. This makes it more difficult for reverse engineers to access the app's source code.
+
 Android obfuscation can be a valuable security tool. It can make it more difficult for attackers to reverse engineer your app and steal sensitive information. However, it is important to note that obfuscation is not a silver bullet. It can only make it more difficult for attackers to reverse engineer your app, but it cannot make it impossible.
+
 Here are some of the benefits of using Android obfuscation:
-•	Increased security: Obfuscated apps are more difficult to reverse engineer, which can make it more difficult for attackers to steal sensitive information.
-•	Reduced size: Obfuscation can reduce the size of your app by removing unused code and resources. This can make your app load faster and use less memory.
-•	Improved performance: Obfuscation can improve the performance of your app by removing unused code and resources. This can make your app run faster and more efficiently.
+-	Increased security: Obfuscated apps are more difficult to reverse engineer, which can make it more difficult for attackers to steal sensitive information.
+-	Reduced size: Obfuscation can reduce the size of your app by removing unused code and resources. This can make your app load faster and use less memory.
+-	Improved performance: Obfuscation can improve the performance of your app by removing unused code and resources. This can make your app run faster and more efficiently.
+
 Here are some of the drawbacks of using Android obfuscation:
-•	Can make debugging more difficult: Obfuscated apps can make debugging more difficult. This is because the code is more difficult to understand.
-•	Can impact app performance: Obfuscation can impact the performance of your app. This is because the code is more complex and takes longer to execute.
-•	Can be defeated: Obfuscation can be defeated by skilled reverse engineers. However, it can make it more difficult for them to do so.
+-	Can make debugging more difficult: Obfuscated apps can make debugging more difficult. This is because the code is more difficult to understand.
+-	Can impact app performance: Obfuscation can impact the performance of your app. This is because the code is more complex and takes longer to execute.
+-	Can be defeated: Obfuscation can be defeated by skilled reverse engineers. However, it can make it more difficult for them to do so.
 Overall, Android obfuscation is a valuable security tool that can help to protect your app from reverse engineering. However, it is important to weigh the benefits and drawbacks before deciding whether or not to use it.
 
-
-Android WebView exploits
+### Android WebView exploits
 Answer:
-Android
 
-Do you know Secure coding?
+### Do you know Secure coding?
 Answer:
-Android
- 
 
-Have you ever tried to break encryption? Which tool? How will you get key?
+### Have you ever tried to break encryption? Which tool? How will you get key?
 Answer:
-Android
- 
 
-Have you worked on payment gateway? How was the flow of that?
+### Have you worked on payment gateway? How was the flow of that?
 Answer:
-Android
 
-How to do threat modelling using tool
+### How to do threat modelling using tool
 Answer:
-Android
 
-How will you attack 'Inner HTML' and 'Inner Text'?
+### How will you attack 'Inner HTML' and 'Inner Text'?
 Answer:
-Android
- 
 
-How will you exploit DOM XSS? 
+### How will you exploit DOM XSS? 
 Answer:
-Android
 
-How will you implement OAUTH 2.0? How will you tell the developer?
+### How will you implement OAUTH 2.0? How will you tell the developer?
 Answer:
-Android
 
-How you can find CSRF in API
+### How you can find CSRF in API
 Answer:
-Android
 
-If a UAT web application has self-signed certificate, what attack can you perform?
-If application has implemented proper anti CSRF token which changes in every request, how will you perform CSRF?
-If same site cookie is set, and, HTTP only and Secure flags are set, how will you exploit XSS?
-Sihub report explanation-Authentication bypass explain.
-What is SSL? How is the data in transit encrypted? Are there any keys involved? What can you do in case of MITM? Can you decrypt?
-Difference between prepared statement and stored procedure
-API Authentication techniques?
-Application testing approach
-Blind SQL injection
-Can you do CSRF without Burp professional.
-Difference between SOP, CORS and CSP which one is implement in application.
-Explain XSS with exploit.
-How do you decrypt encryptions 
-How does a payment gateway work?
-How does Encryption work and its types?
-How payment gateway works
-How to bypass WAF
-How to detect WAF in application and what are the techniques of WAF bypass
-How to find Cloudflare IP
-How to find which WAF is implemented. 
-How to perform authentication based on the JWT token
-How you exploit clickjacking or phishing
-If the application is accepting third-party image which attacks you perform
-If the application is behind the reverse proxy, then how you perform no rate limit attack if token is not expiring.
-If the application is vulnerable to clickjacking, how will you do phishing. 
-In API how you perform Authentication Bypass
-latest zero-day vulnerability
-Log4j
-Methodologies of web application security
-OAuth is secure or not.
-OAuth working and attacks.
-SAML working and attacks.
-Web Application (AppSec) Approach
-What are the authentication techniques?
-What is CSRF? 
-What is different between encryption and encoding?
-What are different types of encryptions?
-What is Front end Encryption? JS Encryption? How will you decrypt?
-What is JWT token and attacks?
-What is OAuth?
-What is PCIDSS?
-What is RACE Condition?
+### If a UAT web application has self-signed certificate, what attack can you perform?
+Answer:
+
+### If application has implemented proper anti CSRF token which changes in every request, how will you perform CSRF?
+Answer:
+
+### If same site cookie is set, and, HTTP only and Secure flags are set, how will you exploit XSS?
+Answer:
+
+### Sihub report explanation-Authentication bypass explain.
+Answer:
+
+### What is SSL? How is the data in transit encrypted? Are there any keys involved? What can you do in case of MITM? Can you decrypt?
+Answer:
+
+### Difference between prepared statement and stored procedure
+Answer:
+
+### API Authentication techniques?
+Answer:
+
+### Application testing approach
+Answer:
+
+### Blind SQL injection
+Answer:
+
+### Can you do CSRF without Burp professional.
+Answer:
+
+### Difference between SOP, CORS and CSP which one is implement in application.
+Answer:
+
+### Explain XSS with exploit.
+Answer:
+
+### How do you decrypt encryptions 
+Answer:
+
+### How does a payment gateway work?
+Answer:
+
+### How does Encryption work and its types?
+Answer:
+
+### How payment gateway works
+Answer:
+
+### How to bypass WAF
+Answer:
+
+### How to detect WAF in application and what are the techniques of WAF bypass
+Answer:
+
+### How to find Cloudflare IP
+Answer:
+
+### How to find which WAF is implemented. 
+Answer:
+
+### How to perform authentication based on the JWT token
+Answer:
+
+### How you exploit clickjacking or phishing
+Answer:
+
+### If the application is accepting third-party image which attacks you perform
+Answer:
+
+### If the application is behind the reverse proxy, then how you perform no rate limit attack if token is not expiring.
+Answer:
+
+### If the application is vulnerable to clickjacking, how will you do phishing. 
+Answer:
+
+### In API how you perform Authentication Bypass
+Answer:
+
+### latest zero-day vulnerability
+Answer:
+
+### Log4j
+Answer:
+
+### Methodologies of web application security
+Answer:
+
+### OAuth is secure or not.
+Answer:
+
+### OAuth working and attacks.
+Answer:
+
+### SAML working and attacks.
+Answer:
+
+### Web Application (AppSec) Approach
+Answer:
+
+### What are the authentication techniques?
+Answer:
+
+### What is CSRF? 
+Answer:
+
+### ### What is different between encryption and encoding?
+Answer:
+
+### What are different types of encryptions?
+Answer:
+
+### What is Front end Encryption? JS Encryption? How will you decrypt?
+Answer:
+
+### What is JWT token and attacks?
+Answer:
+
+### What is OAuth?
+Answer:
+
+### What is PCIDSS?
+Answer:
+
+### What is RACE Condition?
 Answer:
 Race condition attacks (also called Time of Check to Time of Use, or TOCTTOU attacks) take advantage of the need that computing systems must execute some tasks in a specific sequence. In any such sequence, there is a small period of time when the system has carried out the first task but not started on the second.
 
-What is SAML?
-What is SSTI?
-What tool have you used for threat modelling? What standard it follows? 
-When to use Stride and when to use Dread model?
-Which WAF is implemented on billdesk?
-You logged into the application, you just changed your name using JWT token and logged out. JWT token expiry is 15 mins, what attack will you perform?
+### What is SAML?
+Answer:
+
+### What is SSTI?
+Answer:
+
+### What tool have you used for threat modelling? What standard it follows? 
+Answer:
+
+### When to use Stride and when to use Dread model?
+Answer:
+
+### Which WAF is implemented on billdesk?
+Answer:
+
+### You logged into the application, you just changed your name using JWT token and logged out. JWT token expiry is 15 mins, what attack will you perform?
 Answer:
 If I logged into an application, changed my name using a JWT token, and then logged out, I could perform a JWT token expiry attack. This attack would involve stealing the JWT token before it expires, and then using it to access the application as the victim.
 The JWT token would contain the victim's name, as well as other information, such as their expiration time. If I could steal the token before it expired, I could use it to access the application as the victim for up to 15 minutes. This would allow me to do things like change the victim's name, view their private data, or even make unauthorized payments on their behalf.
