@@ -391,9 +391,43 @@ Answer:
 
 ### Do you know Secure coding?
 Answer:
+Yes, I do, Secure coding is a set of principles and practices that software developers can follow to write code that is resistant to security vulnerabilities. There are many different secure coding practices, like:
+
+- 1. **Input validation** is the process of ensuring that user input is valid and does not contain malicious code.
+- 2. **Output encoding** is the process of converting data into a format that is safe to display or transmit.
+- 3. **Authentication and password management** are the processes of verifying the identity of a user and managing their passwords.
+- 4. **Session management** is the process of tracking the state of a user's session and ensuring that they are only able to access resources that they are authorized to access.
+- 5. **Access control** is the process of restricting access to resources based on the user's permissions.
+- 6. **Cryptographic practices** are the principles and practices of using cryptography to protect data.
+- 7. **Error handling and logging** are the processes of handling errors and logging events that can be used to troubleshoot security incidents.
+- 8. **Data protection** is the process of protecting data from unauthorized access, disclosure, modification, or destruction.
+- 9. **Communication security** is the process of securing communication channels to prevent unauthorized interception or modification of data.
+- 10. **System configuration** is the process of configuring systems to be secure.
+- 11. **Database security** is the process of securing databases from unauthorized access, disclosure, modification, or destruction.
+- 12. **File management** is the process of managing files to prevent unauthorized access, disclosure, modification, or destruction.
+- 13. **Memory management** is the process of managing memory to prevent unauthorized access, disclosure, modification, or destruction.
+
+Secure coding is an important part of software development, and following these principles can help to prevent security vulnerabilities.
 
 ### Have you ever tried to break encryption? Which tool? How will you get key?
 Answer:
+Weak hash/encryption algorithms:
+```
+Symmetric-key encryption: DES, RC4, Triple DES, Blowfish, 80/112-bit 2TDEA (two key triple DES)
+Asymmetric-key encryption: 1024-bit RSA or DSA, 160-bit ECDSA (elliptic curves)
+Hashing: MD5, SHA1, SHA-2 , SHA-3
+```
+
+Minimum Key length requirements:
+```
+  Key exchange: Diffie–Hellman key exchange with minimum 2048 bits
+  Message Integrity: HMAC-SHA2
+  Message Hash: SHA2 256 bits
+  Asymmetric encryption: RSA 2048 bits
+  Symmetric-key algorithm: AES 128 bits
+  Password Hashing: PBKDF2, Scrypt, Bcrypt
+  ECDH, ECDSA: 256 bits
+```
 
 ### Have you worked on payment gateway? How was the flow of that?
 Answer:
