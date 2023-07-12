@@ -681,7 +681,20 @@ Race condition attacks (also called Time of Check to Time of Use, or TOCTTOU att
 Answer:
 
 ### What is SSTI?
-Answer:
+Answer:**Server-side template injection** (SSTI) is a type of security vulnerability that can occur in web applications that use template engines. Template engines are used to generate dynamic web pages by combining static templates with user-supplied data. If user-supplied data is not properly sanitized, an attacker can inject malicious code into the template engine, which can then be executed on the server.
+
+SSTI attacks can be used to achieve a variety of malicious goals, including:
+
+**Remote code execution (RCE)**: The attacker can inject code that will be executed on the server. This code could be used to steal data, install malware, or perform other malicious activities.
+**Information disclosure:** The attacker can inject code that will extract sensitive information from the server, such as passwords or database credentials.
+**Defacement:** The attacker can inject code that will modify the appearance of the web page. This could be used to display malicious content, such as phishing links or malware downloads.
+
+SSTI attacks can be prevented by properly sanitizing user-supplied data before it is passed to the template engine. This can be done by using a variety of techniques, such as input validation, output encoding, and escaping.
+
+Here are some additional tips for preventing SSTI attacks:
+**1**.Use a secure template engine: There are a number of secure template engines available, such as Jinja2, Twig, and FreeMarker. These engines have built-in features that help to prevent SSTI attacks.
+**2**.Use a web application firewall (WAF): A WAF can help to protect your application from a variety of attacks, including SSTI.
+**3**.Stay up-to-date with security patches: Software vendors often release security patches to address vulnerabilities. It is important to install these patches as soon as they are available.
 
 ### What tool have you used for threat modelling? What standard it follows? 
 Answer:
