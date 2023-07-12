@@ -686,7 +686,9 @@ Answer:**Server-side template injection** (SSTI) is a type of security vulnerabi
 SSTI attacks can be used to achieve a variety of malicious goals, including:
 
 **Remote code execution (RCE)**: The attacker can inject code that will be executed on the server. This code could be used to steal data, install malware, or perform other malicious activities.
+
 **Information disclosure:** The attacker can inject code that will extract sensitive information from the server, such as passwords or database credentials.
+
 **Defacement:** The attacker can inject code that will modify the appearance of the web page. This could be used to display malicious content, such as phishing links or malware downloads.
 
 SSTI attacks can be prevented by properly sanitizing user-supplied data before it is passed to the template engine. This can be done by using a variety of techniques, such as input validation, output encoding, and escaping.
