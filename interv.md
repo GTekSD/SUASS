@@ -703,6 +703,12 @@ Answer:
 
 ### When to use Stride and when to use Dread model?
 Answer:
+**DREAD** methodology is used to rate, compare and prioritize the severity of risk presented by each threat that is classified using STRIDE.
+
+DREAD Risk = (Damage + Reproduciblity + Exploitability + Affected Users + Discoverability) / 5. Calculation always produces a number between 10. Higher the number means more serious the risk is.
+
+Following is a customized mathematical approach to implement DREAD methodology:-
+
 ##### Damage Potential
 
 If a threat exploit occurs, how much damage will be caused?
