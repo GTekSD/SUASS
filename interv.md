@@ -463,7 +463,22 @@ Answer:
 Answer:
 
 ### Difference between prepared statement and stored procedure
-Answer:
+Answer:Prepared statements
+
+    Are a type of SQL statement that can be pre-compiled and executed multiple times with different values.
+    Are typically used to improve performance by avoiding the need to recompile the statement each time it is executed.
+    Can help to protect against SQL injection attacks by preventing malicious code from being executed.
+    Are not stored in the database, but are created and executed by the application.
+
+Stored procedures
+
+    Are a type of SQL code that is stored on the database server.
+    Can be called from within an application to perform a specific task.
+    Can help to improve performance by reducing the number of round trips between the application and the database server.
+    Can help to improve security by centralizing the business logic in the database server.
+    Are stored in the database and can be called from multiple applications.
+ ![2023-07-12 12_36_06-Bard — Mozilla Firefox Private Browsing](https://github.com/GTekSD/csnotes/assets/110445358/4f380907-6165-4b03-8fcd-a6871d1f70dc)
+
 
 ### API Authentication techniques?
 Answer:
