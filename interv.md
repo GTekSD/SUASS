@@ -689,12 +689,19 @@ Once we receive all data , we do a walkthrough from our side to check everything
 After checking the application we identify the positive test cases that can be perform.
 
 **Test Cases Include**
+
 1.Authenticated related
+
 2.Unauthenticated related
+
 3.Privilage Related
+
 4.Business Related
+
 5.Session Related
+
 6.Application Infrastructure
+
 7.Input Validation
 
 ### What are the authentication techniques?
