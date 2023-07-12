@@ -703,9 +703,60 @@ Answer:
 
 ### When to use Stride and when to use Dread model?
 Answer:
+##### Damage Potential
+
+If a threat exploit occurs, how much damage will be caused?
+
+    0 = Nothing
+    5 = Information disclosure that could be used in combination with other vulnerabilities
+    8 = Individual/employer non sensitive user data is compromised.
+    9 = Administrative non sensitive data is compromised.
+    10 = Complete system or data destruction.
+    10 = Application unavailability.
+
+##### Reproducible
+
+How easy is it to reproduce the threat exploit?
+
+    0 = Very hard or impossible, even for administrators of the application.
+    5 = Complex steps are required for authorized user.
+    7.5 = Easy steps for Authenticated user
+    10 = Just a web browser and the address bar is sufficient, without authentication.
+
+##### Exploit-ability
+
+What is needed to exploit this threat?
+
+    2.5 = Advanced programming and networking knowledge, with custom or advanced attack tools.
+    5 = Exploit exits in public, using available attack tools.
+    9 = A Web Application Proxy tool
+    10 = Just a web browser
+
+##### Affected Users
+
+How many users will be affected?
+
+    0 = None
+    2.5 individual/employer that is already compromised.
+    6 = some users of individual or employer privileges, but not all.
+    8 = Administrative users
+    10 = All users
+
+##### Discover-ability
+
+· How easy is it to discover this threat?
+
+    0 = Very hard requires source code or administrative access.
+    5 = Can figure it out by monitoring and manipulating HTTP requests
+    8 = Details of faults like this are already in the public domain and can be easily discovered using a search engine.
+    10 = the information is visible in the web browser address bar or in a form.
+
+DREAD methodology can be customized to cater the needs of your application, during consultancy engagements it should be approved from the client before starting the security assessment so that after you perform the analysis the results produced by DREAD couldn’t be challenged.
 
 ### Which WAF is implemented on billdesk?
 Answer:
+
+BIG-IP Local Traffic Manager (F5 Networks)
 
 ### You logged into the application, you just changed your name using JWT token and logged out. JWT token expiry is 15 mins, what attack will you perform?
 Answer:
