@@ -541,8 +541,7 @@ Answer:
 Answer:
 
 ### SAML working and attacks.
-Answer:#### SAML
-SAML SSO works by transferring the user’s identity from one place (the identity provider) to another (the service provider). This is done through an exchange of digitally signed XML documents.
+Answer: SAML SSO works by transferring the user’s identity from one place (the identity provider) to another (the service provider). This is done through an exchange of digitally signed XML documents.
 
 Consider the following scenario: A user is logged into a system that acts as an identity provider. The user wants to log in to a remote application, such as a support or accounting application (the service provider). The following happens:
 ![SAML image](https://developers.onelogin.com/assets/img/pages/saml/sso-diagram.svg)
