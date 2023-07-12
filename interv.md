@@ -463,20 +463,10 @@ Answer:
 Answer:
 
 ### Difference between prepared statement and stored procedure
-Answer:Prepared statements
+Answer: Prepared statements are SQL queries that are pre-compiled and can be executed multiple times with different values. This can improve performance, as the database server only needs to compile the query once. Prepared statements also help to protect against SQL injection attacks, as the values are not embedded in the query itself.
 
-    Are a type of SQL statement that can be pre-compiled and executed multiple times with different values.
-    Are typically used to improve performance by avoiding the need to recompile the statement each time it is executed.
-    Can help to protect against SQL injection attacks by preventing malicious code from being executed.
-    Are not stored in the database, but are created and executed by the application.
+Stored procedures are a set of SQL statements that are stored on the database server. They can be executed as a single unit, and they can take parameters as input. Stored procedures can be used to encapsulate complex business logic, and they can also help to improve performance.
 
-Stored procedures
-
-    Are a type of SQL code that is stored on the database server.
-    Can be called from within an application to perform a specific task.
-    Can help to improve performance by reducing the number of round trips between the application and the database server.
-    Can help to improve security by centralizing the business logic in the database server.
-    Are stored in the database and can be called from multiple applications.
  ![2023-07-12 12_36_06-Bard — Mozilla Firefox Private Browsing](https://github.com/GTekSD/csnotes/assets/110445358/4f380907-6165-4b03-8fcd-a6871d1f70dc)
 
 
