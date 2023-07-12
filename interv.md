@@ -675,7 +675,8 @@ Consider the following scenario: A user is logged into a system that acts as an 
 6. The identity of the user is established and the user is provided with app access.
 
 ### Web Application (AppSec) Approach
-Answer:First we need to understand what type of testing is required.It can be a Black Box or Grey Box.
+Answer:
+First we need to understand what type of testing is required.It can be a Black Box or Grey Box.
 
 For Grey Box we first take walkthrough from client to understand the application and discuss in scope item.
 
