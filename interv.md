@@ -430,7 +430,42 @@ Minimum Key length requirements:
 ```
 
 ### Have you worked on payment gateway? How was the flow of that?
+### How does a payment gateway work?
 Answer:
+**What is a Payment gateway?**
+
+A payment gateway is an online service that allows businesses and individuals to accept payments from customers through their websites or mobile applications.
+
+It acts as a secure bridge between the customer’s payment method (such as a credit card or digital wallet) and the merchant’s bank account, facilitating the authorisation and processing of transactions.
+
+Types of Payment Gateways
+1. Hosted Payment Gateways
+2. Self-Hosted Payment Gateways
+3. API Payment Gateways
+4. Mobile Payment Gateways
+5. Local bank integration
+
+**How does a Payment gateway work?**
+
+A payment gateway works by securely transmitting payment information between a customer, a merchant, and the respective financial institutions involved. Here’s a clear breakdown of how it typically works:
+
+    Step 1: Customer places order and submits it on the website.
+    Step 2: Website directs customer to payment gateway where they enter bank/card details. Payment gateway then redirects to bank’s authorization page.
+    Step 3: Payment gateway verifies customer’s account balance.
+    Step 4: Payment gateway informs merchant based on bank’s response. If declined, merchant notifies customer of card/bank issue. If approved, merchant requests transaction from bank.
+    Step 5: Bank settles payment with payment gateway, which then settles with merchant.
+
+Once this process is completed, the customer gets a confirmation message of the order being placed.
+
+**How does a Payment gateway keep information secure?**
+
+A Payment gateway ensures the security of the information you put in by encrypting the data. Now that you have a pretty good idea of what is payment gateway and how it works, let us look at a list of things that a PG does to keep your data safe:
+
+    Firstly, the payment gateway transaction flow occurs via an HTTPS web address, ensuring security.
+    A hash function is used to validate the transaction request, utilizing a secret word known only to the merchant and payment gateway.
+    The IP of the requesting server is verified to detect any potential malicious activity, securing the payment page result.
+    Virtual Payer Authentication (VPA) is supported by acquirers, issuers, and payment gateways to enhance security. VPA, part of the 3-D secure protocol, adds an extra layer of authentication for online buyers and sellers.
+
 
 ### How to do threat modelling using tool
 Answer:
@@ -491,13 +526,7 @@ Answer:
 ### How do you decrypt encryptions 
 Answer:
 
-### How does a payment gateway work?
-Answer:
-
 ### How does Encryption work and its types?
-Answer:
-
-### How payment gateway works
 Answer:
 
 ### How to bypass WAF
