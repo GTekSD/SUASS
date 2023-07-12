@@ -705,7 +705,28 @@ After checking the application we identify the positive test cases that can be p
 7.Input Validation
 
 ### What are the authentication techniques?
-Answer:
+Answer:Authentication is the process of verifying the identity of a user or device. There are many different authentication techniques available, each with its own strengths and weaknesses.
+
+Some of the most common authentication techniques include:
+
+    Passwords: Passwords are the most common form of authentication. They are relatively easy to use and remember, but they can also be easily guessed or cracked.
+    Single-factor authentication (SFA): SFA is a type of authentication that requires only one factor to be verified. This factor is typically a password.
+    Two-factor authentication (2FA): 2FA is a type of authentication that requires two factors to be verified. The two factors are typically a password and a one-time code.
+    Multi-factor authentication (MFA): MFA is a type of authentication that requires more than two factors to be verified. The factors can be anything from passwords and one-time codes to biometrics and hardware tokens.
+    Biometric authentication: Biometric authentication uses physical characteristics, such as fingerprints, facial recognition, or voiceprints, to verify a user's identity.
+    Knowledge-based authentication: Knowledge-based authentication requires the user to answer questions that only they would know, such as their mother's maiden name or their childhood pet's name.
+    Challenge-response authentication: Challenge-response authentication requires the user to provide a response to a challenge, such as a mathematical problem or a CAPTCHA.
+
+The best authentication technique for a particular application will depend on the specific security requirements. For example, a bank might require 2FA for all users, while a social media website might only require SFA for most users.
+
+It is important to note that no authentication technique is foolproof. However, by using a combination of different authentication techniques, you can significantly increase the security of your applications.
+
+Here are some additional tips for choosing the right authentication technique:
+
+    Consider the sensitivity of the data that you are protecting.
+    Consider the user experience. Authentication should not be too difficult or time-consuming for users.
+    Consider the cost of implementing and maintaining the authentication technique.
+
 
 ### What is CSRF? 
 Answer:CSRF is also known as session riding attack is a web security vulnerability that tricks a web browser into executing an unwanted action.
