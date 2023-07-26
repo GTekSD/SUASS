@@ -1,4 +1,4 @@
-# SUASS- Secure ur Ass | Penetration Testesting Notes
+# SUASS- Secure ur Ass | Penetration Testing Notes
 
 Web Application Security
 
