@@ -1,30 +1,29 @@
 # Linux Basics & Important Commands
 #### cd - chdir (Change Directory).
 ```
-$ cd / 					: to come to root
-$ cd 					: come to default path
-$ cd /usr/bin 				: particular path
-$ .. 					: come one directory back
-$ ../../ 				: come 2 times back 
+$ cd /				: to come to root
+$ cd 				: come to default path
+$ cd /usr/bin 		: particular path
+$ .. 				: come one directory back
+$ ../../ 			: come 2 times back 
 ```
 
 #### pwd - print working directory.
 ```
-$ used to print working directory.
+$ pwd				: used to print working directory.
 ```
 
 #### touch - change file timestamps
 ```
-$ create a file
-$ touch textfile.txt
-$ touch file1 file2 file3 				: create more than one file.
+$ touch textfile.txt					: create a file
+$ touch file1 file2 file3 					: create more than one file.
 $ touch docfile{1..10} 					: will create 10 file named docfile
 $ touch -d tomorrow willcreatefileonnextday.txt 
 ```
 
 #### mousepad — simple text editor for Xfce
 ``` 
-$ mousepad textfile.txt					: used to open text editor
+$ mousepad textfile.txt				: used to open text editor
 ```
 
 #### nano Nano's ANOther editor. 
@@ -42,14 +41,14 @@ $ hit ESC > SHIFT + : > wq 				: to save file
 #### ls - list directory contents
 ```
 $ ls 						: lists the directory contents of files and directories
-$ ls -l or ll 					: use a long listing format
-$ ls -a or la 					: show hidden entries starting with .
+$ ls -l or ll 				: use a long listing format
+$ ls -a or la 				: show hidden entries starting with .
 $ ls -al 					: show hidden entries in long listing format.
 ```
 
 #### echo - display a line of text
 ```
-$ echo Hello me! 					: used to print the content.
+$ echo Hello me! 							: used to print the content.
 $ echo “save this txt in a file” > new.txt
 $ echo “this txt will be saved on next line” >> new.txt
 ```
@@ -61,7 +60,7 @@ $ cat filename.txt 					: display the content of a file.
 
 #### shred - overwrite a file to hide its contents, and optionally delete it
 ```
-$ shred filename.txt 					: no one can read this file
+$ shred filename.txt 				: no one can read this file
 ```
 
 #### mkdir - make directories
@@ -71,7 +70,7 @@ $ mkdir newfolder 					: used to create directories.
 
 #### cp - copy files and directories 
 ```
-$ cp textfile.txt /newfolder 				: used to copy file to directories
+$ cp textfile.txt /newfolder 			: used to copy file to directories
 ```
 
 #### mv - move (rename) files
@@ -83,7 +82,7 @@ $ mv filename.txt file.txt 				: used to renames files and directories
 #### rm - remove files or directories
 ```
 $ rm file.txt 						: used to delete files.
-$ rmdir newfolder/ 					: used to delete directory.
+$ rmdir newfolder/ 						: used to delete directory.
 $ rm -r or rm -rf newfolder/ 				: delete not empty directory.
 ```
 
@@ -94,12 +93,12 @@ $ ln -s text.txt newlinkfilelikeshortcut 		: used to link a file to new file.
 
 #### whoami - print effective user name
 ```
-$ whoami 						: print the user ID
+$ whoami 				: print the user ID
 ```
 
 #### users
 ```
-$ display the login names
+$ users				: display the login names
 ```
 
 #### sudo , sudoedit — execute a command as another user.
@@ -107,34 +106,34 @@ $ display the login names
 $ sudo su 						: to become a root user
 $ su 							: also can become root
 $ sudo <anycmd> 					: execute cmd with root privileges. 
-$ su username 						: to become that user.
-$ exit 							: to go back
+$ su username 					: to become that user.
+$ exit 						: to go back
 ```
 
 #### adduser, useradd - add or manipulate users
 ```
 $ useradd username 					: will add user quickly without asking anything.
-$ addusser username2 					: will ask information to give new user.
+$ adduser username2 				: will ask information to give new user.
 ```
 
 #### passwd - change user password
 ```
-$ sudo passwd username 					: to change password of username
+$ sudo passwd username 				: to change password of username
 ```
 
 #### apt - command-line interface (Debian based)
 ```
-$ apt update 						: download package information from all configured sources.
-$ apt-get install update 				: same
-$ apt upgrade 						: install available upgrades of all packages currently installed on the system
-$ apt-get install upgrade 				: same
-$ apt install <pakagename> 				: Install software 
-$ apt-get install <pakagename> same
+$ apt update 					: Download package information from all configured sources.
+$ apt-get install update 				: Download package information from all configured sources.
+$ apt upgrade 					: Install available upgrades of all packages currently installed on the system
+$ apt-get install upgrade 				: Install available upgrades of all packages currently installed on the system
+$ apt install <pakagename> 			: Install software 
+$ apt-get install <pakagename> 			: Install software 
 ```
 
 #### man - an interface to the system reference manuals
 ```
-$ man <any cmd/tool> 					: show manual
+$ man <any cmd/tool> 				: show manual
 ```
 
 #### whatis - display one-line manual page descriptions
@@ -149,21 +148,21 @@ $ which <cmd/tool> 					: pathname of the files (or links)
 
 #### whereis - locate the binary, source, and manual page files for a command
 ```
-$ whereis <cmd/tool> 					: show all pathnames of the files (or links)
+$ whereis <cmd/tool> 				: show all pathnames of the files (or links)
 ```
 
 #### diff, cmp - compare two files
 ```
-$ cmp file1.txt file1mod.txt 				: compare two files byte by byte
-$ diff file1.txt file2mod.txt 				: compare two files line by line
+$ cmp file1.txt file1mod.txt 			: compare two files byte by byte
+$ diff file1.txt file2mod.txt 			: compare two files line by line
 ```
 
 #### find, locate  - search for files
 ```
-$ find / -name “filename*” 				: search for files in a directory hierarchy
-$ find . -type f -name “.*” 				: also find hidden files
+$ find / -name “filename*” 			: search for files in a directory hierarchy
+$ find . -type f -name “.*” 			: also find hidden files
 $ find . -type f -empty 				: also find empty directory 
-$ file . -perm /a=x 					: find executable files.
+$ file . -perm /a=x 				: find executable files.
 $ locate filename 					: find files by name, quickly.
 ```
 
@@ -180,11 +179,11 @@ $ echo "3/4" | bc
 $ zip document 						: compress files in .zip format
 $ unzip document.zip 					: extract .zip files.
 
-$ gzip document 					: compress files in .gz format
+$ gzip document 						: compress files in .gz format
 $ gunzip document.gz 					: extract .gz files
 
 $ tar -czvf newzipname.tar /anydir files
-$ tar -xzvf document.tar 				: extract .tar files
+$ tar -xzvf document.tar 					: extract .tar files
 	|-c : Create an archive.
 	|-x : Extract an archive.
 	|-z : Compress the archive with gzip.
@@ -196,30 +195,33 @@ $ tar -czvf archive.tar.gz /home/ubuntu/Downloads /usr/local/stuff /home/ubuntu/
 #### Network Tools - configure a network interface
 ```
 $ sudo apt install net-tools 					: If not install
-$ ifconfig 							: show network info
+$ ifconfig 								: show network info
 $ ip address 							: show ip address
 $ ip address | grep eth0 | grep inet | awk '{print $2}' 	: just show ip
 $ cat /etc/resolv.conf 						: show the DNS
 $ resolvectl status 						: show DNS status.
 ```
+
 ```
-$ ping website.com 					: to check is it up or not
-$ ping -c 4 website.com 				: send only 4 packets to check
+$ ping website.com 						: to check is it up or not
+$ ping -c 4 website.com 					: send only 4 packets to check
 $ ping -c 4 -s 500 website.com 				: send 500bytes 4 packets
 ```
+
+netstat - Print network stuff
 ```
-- netstat - Print network stuff
-	$ netstat 					: show network stat
-	$ netstat -tulpn 				: show open ports in our sys
-	$ ss 						: short and better cmd for netstat
-	$ ss -tulpn 					: short cmd for netstat -tulpn
+$ netstat 					: show network stat
+$ netstat -tulpn 				: show open ports in our sys
+$ ss 						: short and better cmd for netstat
+$ ss -tulpn 					: short cmd for netstat -tulpn
 ```
+
+ufw - program for managing a netfilter firewall
 ```
-- ufw - program for managing a netfilter firewall
-	$ ufw allow 80 					: it allows port 80
-	$ ufw app list 					: show available apps
-	$ ufw status 					: show firewall active apps status
-	$ ufw enable 					: enable or disable ufw 
+$ ufw allow 80 					: it allows port 80
+$ ufw app list 					: show available apps
+$ ufw status 					: show firewall active apps status
+$ ufw enable 					: enable or disable ufw 
 ```
 
 #### System Information
@@ -237,19 +239,19 @@ $ df or df -H 						: report file system space usage
 $ ps 							: show the current processes.
 $ ps -aux 						: show more processes.
 $ top 							: display all processes eating ur stuff
-$ htop 							: same but pretty good to see.
+$ htop 						: same but pretty good to see.
 $ kill -9 <psid> 					: will kill the particular processes.
-$ pkill -f <psname> 					: will kill the process u mentioned.
+$ pkill -f <psname> 				: will kill the process u mentioned.
 ```
 
 #### System Control the systemd system and service manager
 ```
 $ systemctl start apache2 				: start the particular service
 $ systemctl stop apache2 				: stop the particular service
-$ systemctl restart apache2 				: restart the particular service
-$ systemctl status apache2 				: show status of the particular service
+$ systemctl restart apache2 			: restart the particular service
+$ systemctl status apache2 			: show status of the particular service
 $ history 						: show all executed commands
-$ sudo reboot						: will reboot the system
+$ sudo reboot					: will reboot the system
 $ sudo shutdown 					: it will shutdown the system in a minute
 $ sudo shutdown -h 					: it will shutdown the system right now.
 ```
@@ -259,56 +261,64 @@ $ sudo shutdown -h 					: it will shutdown the system right now.
 # Windows Basics & Important Commands
 #### Networking
 ```
-$ ipconfig						: display IP information
-$ ipconfig /all						: show all addresses including MAC and DNS
-$ ipconfig /all | findstr DNS				: filter DNS with findstr
-$ ipconfig /release					: release current IP address
-$ ipconfig /renew					: renew IP address
-$ ipconfig /displaydns					: display DNS with IP addresses
-$ ipconfig /displaydns | clip				: copy the output on clipboard
-$ ipconfig /flushdns					: remove old DNS entries
-$ nslookup target.com					: display IP and DNS
-$ nslookup target.com 8.8.8.8				: check DNS from Google
-$ nslookup -type=ptr target.com				: display more details
-$ netsh interface show interface			: show network interface
-$ netsh wlan show wlanreport				: give wireless report
-$ netsh interface ip show address | findstr "IP Add"	: show all IP addresses
-$ ping target.com					: check host is up or not
-$ ping -t target.com					: ping continuously
-$ tracert target.com					: trace route to target.com
-$ tracert -d target.com					: speed up tracert
-$ netstat						: show ports
-$ netstat -af						: show more
-$ netstat -o						: show with address
-$ netstat -e -t 5					:
+$ ipconfig								: display IP information
+$ ipconfig /all							: show all addresses including MAC and DNS
+$ ipconfig /all | findstr DNS					: filter DNS with findstr
+$ ipconfig /release							: release current IP address
+$ ipconfig /renew							: renew IP address
+$ ipconfig /displaydns						: display DNS with IP addresses
+$ ipconfig /displaydns | clip					: copy the output on clipboard
+$ ipconfig /flushdns						: remove old DNS entries
+
+$ nslookup target.com						: display IP and DNS
+$ nslookup target.com 8.8.8.8					: check DNS from Google
+$ nslookup -type=ptr target.com					: display more details
+
+$ netsh interface show interface					: show network interface
+$ netsh wlan show wlanreport					: give wireless report
+$ netsh interface ip show address | findstr "IP Add"		: show all IP addresses
+
+$ ping target.com							: check host is up or not
+$ ping -t target.com						: ping continuously
+
+$ tracert target.com						: trace route to target.com
+$ tracert -d target.com						: speed up tracert
+
+$ netstat								: show ports
+$ netstat -af							: show more
+$ netstat -o								: show with address
+$ netstat -e -t 5						
 ```
 
 #### File and System Management
 ```
-$ assoc							: view file association
-$ assoc .mp4=VLC.vlc					: assign file type
+$ assoc						: view file association
+$ assoc .mp4=VLC.vlc				: assign file type
 $ chkdsk /f						: fix errors on the disk
 $ chkdsk /r						: locate bad sectors and recover readable information
-$ sfc /scnnow						: scan integrity of all protected system files and repair files with problems when possible
+$ sfc /scnnow					: scan integrity of all protected system files and repair files with problems when possible
 ```
 
 #### DISM: Deployment Image Servicing and Management
 ```
 $ DISM /Online /Cleanup-Image /ScanHealth
 $ DISM /Online /Cleanup-Image /RestorHealth
-$ tasklist						: show all running processes
+
+$ tasklist							: show all running processes
 $ tasklist | findstr <prc_name>
-$ taskkill /f /pid 11232				: kill a process
-$ shutdown /r /fw /f /t /0				: restart computer into BIOS
-- Display
-$ cls							: clear screen
-$ getmac /v						: view all MAC addresses
+$ taskkill /f /pid 11232					: kill a process
+
+$ shutdown /r /fw /f /t /0					: restart computer into BIOS
+
+Display
+$ cls								: clear screen
+$ getmac /v							: view all MAC addresses
 ```
 
 #### Power Management
 ```
-$ powercfg /energy					: show issues with power.
-$ powercfg /battryreport				: show battery report.
+$ powercfg /energy						: show issues with power.
+$ powercfg /battryreport					: show battery report.
 ```
 
 #### Firewall
@@ -319,7 +329,7 @@ $ netsh advfirewall set allprofiles state on		: turn on firewall
 
 #### Routing
 ```
-$ route print						: show route table.
+$ route print							: show route table.
 $ route add 192.168.40.0 mask 255.255.255.0 10.7.1.44	: custom route.
-$ route delete 192.168.40.0				: delete custom route.
+$ route delete 192.168.40.0					: delete custom route.
 ```
