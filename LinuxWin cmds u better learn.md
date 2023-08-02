@@ -269,9 +269,9 @@ drwxr-xr-x 2 kali root 4096 Aug 12 06:54 Downloads
 ```
 **d rwx r-x r-x  2  kali  root  4096  Aug 7 15:06  Desktop**
 
-| d | rwx | r-x | r-x | 2 | kali | root | 4096 | Aug 7 | 15:06 | Desktop |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| file type | user permissions | group permissions | other (everyone) permissions | number of hard links | user (owner) name | group name | size | date/time last modified | filename/ directory name |
+| d | rwx | r-x | r-x | 2 | kali | root | 4096 | Aug 7 15:06 | Desktop |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| file type | user permissions | group permissions | other (everyone) permissions | number of hard links | user (owner) name | group name | size | date/time last modified | filename/directory name |
 
 
 r = 4 = read 	 
