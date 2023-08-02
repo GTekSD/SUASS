@@ -260,20 +260,19 @@ $ sudo shutdown -h 					: it will shutdown the system right now.
 
 # LINUX Permissions
 ```
-root@kali:~$	ls –l or ll
+root@kali:~ ls –l or ll
 total 20
 drwxr-xr-x 2 kali root 4096 Aug  7 15:06 Desktop
 drwxr-xr-x 2 kali root 4096 May 12 12:19 Documents
 drwxr-xr-x 2 kali root 4096 Aug 12 06:54 Downloads
 -rw-r—-r-- 1 kali root  621 Jan 25 20:25 file.php
 ```
-d rwx r-x r-x  2  kali  root  4096  Aug 7 15:06  Desktop
-```
-+---+-----+-----+-----+-----+-------+--------+-----+-------+-----+--------+
+**d rwx r-x r-x  2  kali  root  4096  Aug 7 15:06  Desktop**
+
 | d | rwx | r-x | r-x | 2 | kali | root | 4096 | Aug 7 | 15:06 | Desktop |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | file type | user permissions | group permissions | other (everyone) permissions | number of hard links | user (owner) name | group name | size | date/time last modified | filename/ directory name |
-+---+-----+-----+-----+-----+-------+--------+-----+-------+-----+--------+
-```
+
 
 r = 4 = read 	 
 w = 2 = write	
