@@ -258,6 +258,42 @@ $ sudo shutdown -h 					: it will shutdown the system right now.
 
 ------------
 
+# LINUX Permissions
+```
+root@kali:~$	ls –l or ll
+total 20
+drwxr-xr-x 2 kali root 4096 Aug  7 15:06 Desktop
+drwxr-xr-x 2 kali root 4096 May 12 12:19 Documents
+drwxr-xr-x 2 kali root 4096 Aug 12 06:54 Downloads
+-rw-r—-r-- 1 kali root  621 Jan 25 20:25 file.php
+```
+d rwx r-x r-x  2  kali  root  4096  Aug 7 15:06  Desktop
+```
++---+-----+-----+-----+-----+-------+--------+-----+-------+-----+--------+
+| d | rwx | r-x | r-x | 2 | kali | root | 4096 | Aug 7 | 15:06 | Desktop |
+| file type | user permissions | group permissions | other (everyone) permissions | number of hard links | user (owner) name | group name | size | date/time last modified | filename/ directory name |
++---+-----+-----+-----+-----+-------+--------+-----+-------+-----+--------+
+```
+
+r = 4 = read 	 
+w = 2 = write	
+x = 1 = execute 
+
+Example:
+```
+$ chmod +x file.txt
+$ chmod 726 file.txt
+```
+```
+002	-rw-rw-r--	drwxrwxr-x
+007	-rw-rw----	drwxrwx---
+022	-rw-r--r--	drwxr-xr-x
+027	-rw-r-----	drwxr-x---
+077	-rw-------	drwx------
+```
+
+------------
+ 
 # Windows Basics & Important Commands
 #### Networking
 ```
