@@ -43,9 +43,10 @@ c.	hackerone
 d.	intext: report a bug intext:reward
 e.	Bug Bounty Helper
 
+------------
  
 Section 2
-Linux Basics & Important Commands
+# Linux Basics & Important Commands
 •	cd - chdir (Change Directory).
 	cd / : to come to root
 	cd : come to default path
@@ -237,9 +238,10 @@ Linux Basics & Important Commands
 	sudo reboot: will reboot the system
 	sudo shutdown : it will shutdown the system in a minute
 	sudo shutdown -h : it will shutdown the system right now.
+------------
  
 Section 2
-Windows Basics & Important Commands
+# Windows Basics & Important Commands
 •	Networking
 o	ipconfig: display IP information
 o	ipconfig /all: show all addresses including MAC and DNS
@@ -294,9 +296,10 @@ o	netsh advfirewall set allprofiles state on: turn on firewall
 o	route print: show route table.
 o	route add 192.168.40.0 mask 255.255.255.0 10.7.1.44: custom route.
 o	route delete 192.168.40.0: delete custom route.
+------------
  
 Section 3
-LINUX Permissions
+# LINUX Permissions
 root@kali:~$	ls –l or ll
 total 20
 drwxr-xr-x 2 kali root 4096 Aug  7 15:06 Desktop
@@ -321,9 +324,11 @@ ex. 	chmod +x file.txt
 022	-rw-r--r--	drwxr-xr-x
 027	-rw-r-----	drwxr-x---
 077	-rw-------	drwx------
+
+------------
  
 Section 4
-Networking
+# Networking
 Types:
 o	LAN (Local Area Network)
 	Office or Home or Institute 
@@ -343,9 +348,10 @@ IPv4:
 IPv6:
 	e80 :: a00 : 27ff : fedb : 966a = 128 bits
 2^128 = A BIG NUMBER OVER THAN WORLD POPULATION
+------------
  
 Section 5
-Information Gathering/ Reconnaissance
+# Information Gathering/ Reconnaissance
 
 •	Learn about company from Wikipedia
 o	Learn what they do?
@@ -745,9 +751,11 @@ IT Helpdesk and Networking:
 •	Post-mortem and final press release
 •	Reassessment of network security and training based on post-mortem.
 •	Implementation of new defense and training
+
+------------
  
 Section 6
-SYSTEM PENETRATION-TESTING
+# SYSTEM PENETRATION-TESTING
 
 # HTTP status codes:
 	HTTP status 200 – Successful
@@ -989,9 +997,10 @@ o	Setup With TOR:
 $$$$$$$$$$$$$$$~PENTESTING~$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$~END~$$$$$$$$$$$$$$$$
 
+------------
  
 Section 7
-Web Applications PENTEST
+# Web Applications PENTEST
 BurpSuit is used for performing security testing of web applications.
 Browser ======= BurpSuit ======= Client 
 
@@ -2237,9 +2246,10 @@ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org" version="1.1"
 o	Upload payload.svg file on server and open into new tab
 o	Or view page source find the image link and open it.
 
+------------
  
 Section 8
-AWS PEN-TESTING
+# AWS PEN-TESTING
 
 1. Pentesting in the Cloud:
 	The cloud computing service models
@@ -2371,8 +2381,9 @@ o	A10-Server-Side Request Forgery (SSRF) (OWASP-2021)
 
  
  
+------------
 Section 9
-API PENTEST
+# API PENTEST
 
 API (Applications Programming Interface) penetration test is a security evaluation conducted by an external pentester to detect vulnerabilities that may exist in API integrations due to incorrect business logic, core programming issues etc, often by using the same techniques and methodology as a real-world attacker.
 
@@ -2393,9 +2404,12 @@ o	Use Shadon.io for ex:
 
 Active Reconnaissance:
 	
+
+
+------------
  
 Section 10
-Mobile PENTEST
+# Mobile PENTEST
 
 Android Application Security 
 APPLICATIONS
