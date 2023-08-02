@@ -274,9 +274,9 @@ drwxr-xr-x 2 kali root 4096 Aug 12 06:54 Downloads
 | file type | user permissions | group permissions | other (everyone) permissions | number of hard links | user (owner) name | group name | size | date/time last modified | filename/directory name |
 
 
-r = 4 = read 	 
-w = 2 = write	
-x = 1 = execute 
+	r = 4 = read 	 
+	w = 2 = write	
+	x = 1 = execute 
 
 Example:
 ```
