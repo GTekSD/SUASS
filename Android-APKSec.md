@@ -4,7 +4,6 @@
   - Check every file with notepad or DB Browser (Only for .db extension files) after logging into the target app, If sensitive data (username, email_id, client_id, password, mobile_number, bank_account_number, etc.) found in /data/data/com.pakage.name/ any.db (extension) file then we give this finding.
   - For POC of the file that contains sensitive data and note the path of that file as we have to mention this file name and path in our report.
 
-
 ## Finding 2: Insecure Data Storage
   - Check every other files with text editor after logging into the target app, If sensitive data (username, email_id, client_id, password, mobile_number, bank_account_number, etc.) found in /data/data/com.pakage.name/ any other file, then we give finding.
   - For POC of the file that contains sensitive data and note the path of that file as we have to mention this file name and path in our report.
@@ -21,55 +20,53 @@ Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC an
   - It must be false, If the value is set to `true` then it’s Finding.
 
 ## Finding 5: Application Data Backup is Enabled
-  - Decompile and open the “AndroidManifest.xml” file and Find this code: `android:allowBackup="true"`
+  - Decompile and open the `AndroidManifest.xml` file and Find this code: `android:allowBackup="true"`
   - It must be false, If the value is set to `true` then it’s Finding.
 
-
 ## Finding 6: Application UsesClearTextTraffic Enabled
-  - Decompile and open the “AndroidManifest.xml” file and Find this code: `android:usesCleartextTraffic="true"`
+  - Decompile and open the `AndroidManifest.xml` file and Find this code: `android:usesCleartextTraffic="true"`
   - It must be false, If the value is set to `true` then it’s Finding.
   
 ## Finding 7: Application Exported is Enabled
-  - Decompile and open the “AndroidManifest.xml” file and Find this code: `android:exported="true"`
+  - Decompile and open the `AndroidManifest.xml` file and Find this code: `android:exported="true"`
   - It must be false, If the value is set to `true` then it could be Finding then you need to use drozer to call that specific activity and check if it opens by drozer or not.
-  - To check Use `Drozer` run this commands. (Drozer Agent must be install and ON in the device)
+  - To check Use `Drozer` run this commands. (Drozer Agent app must be installed and ON in the device)
 ```
-    Starting a session
-        adb forward tcp:31415 tcp:31415
-        drozer console connect                    : If device connected with USB
-        drozer console connect --server <IP>      : If device cnnected with Wifi_ADB
+Starting a session:
+$ adb forward tcp:31415 tcp:31415
+$ drozer console connect                    : If device connected with USB
+$ drozer console connect --server <IP>      : If device cnnected with Wifi_ADB
 
-    Retrieving package information
-        run app.package.list -f <app name>
-        run app.package.info -a <package name>
+Retrieving package information:
+dz> run app.package.list -f <app name>
+dz> run app.package.info -a <package name>
 
-    Identifying the attack surface
-        run app.package.attacksurface <package name>
+Identifying the attack surface:
+dz> run app.package.attacksurface <package name>
 
-    Exploiting Activities
-        run app.activity.info -a <package name> -u
-        run app.activity.start --component <package name> <component name>
-        run app.activity.start --component <package name> <component name> --extra <type> <key> <value>
+Exploiting Activities:
+dz> run app.activity.info -a <package name> -u
+dz> run app.activity.start --component <package name> <component name>
+dz> run app.activity.start --component <package name> <component name> --extra <type> <key> <value>
 
-    Exploiting Content Provider (OPTIONAL)
-        run app.provider.info -a <package name>
-        run scanner.provider.finduris -a <package name>
-        run app.provider.query <uri>
-        run app.provider.update <uri> --selection <conditions> <selection arg> <column> <data>
-        run scanner.provider.sqltables -a <package name>
-        run scanner.provider.injection -a <package name>
-        run scanner.provider.traversal -a <package name>
+Exploiting Content Provider (OPTIONAL):
+dz> run app.provider.info -a <package name>
+dz> run scanner.provider.finduris -a <package name>
+dz> run app.provider.query <uri>
+dz> run app.provider.update <uri> --selection <conditions> <selection arg> <column> <data>
+dz> run scanner.provider.sqltables -a <package name>
+dz> run scanner.provider.injection -a <package name>
+dz> run scanner.provider.traversal -a <package name>
 
-    Exploiting Broadcast Receivers (OPTIONAL)
-        run app.broadcast.info -a <package name>
-        run app.broadcast.send --component <package name> <component name> --extra <type> <key> <value>
-        run app.broadcast.sniff --action <action>
+Exploiting Broadcast Receivers (OPTIONAL):
+dz> run app.broadcast.info -a <package name>
+dz> run app.broadcast.send --component <package name> <component name> --extra <type> <key> <value>
+dz> run app.broadcast.sniff --action <action>
 
-    Exploiting Service (OPTIONAL)
-        run app.service.info -a <package name>
-        run app.service.start --action <action> --component <package name> <component name>
-        run app.service.send <package name> <component name> --msg <what> <arg1> <arg2> --extra <type> <key> <value> --bundle-as-obj
-
+Exploiting Service (OPTIONAL):
+dz> run app.service.info -a <package name>
+dz> run app.service.start --action <action> --component <package name> <component name>
+dz> run app.service.send <package name> <component name> --msg <what> <arg1> <arg2> --extra <type> <key> <value> --bundle-as-obj
 
 ```
 9. If drozer can open any activity that contains any sensitive user data then the exported
@@ -79,7 +76,7 @@ activity is vulnerable means it’s Finding 7.
   - Connect the adb terminal with device/emulator using wifi adb or with USB.
   - Clear the app's storage and cache before running logcat.
   - Now, run the cmd `adb logcat` or `adb logcat > logs.save` to save captured logs, but it won't show you and result on terminal if you run 2nd cmd.
-  - Now, Open the targeted app and use every fun 
+  - Now, Open the targeted app and use every functionality such as loging with different methods, creating profiles, editing profiles, entering sensitive details, etc.
 
 12. Go to the terminal and run the command “adb logcat” and press enter, now open the
 app enter the credentials and log into the app. Explore the app by visiting every page.
