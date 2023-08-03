@@ -1,8 +1,13 @@
   # Android Penetration Testing
 
 ## Finding 1: Database Stored in Android Device Without Encryption
+  - Check every file with notepad or DB Browser (Only for .db extension files) after logging into the target app, If sensitive data (username, email_id, client_id, password, mobile_number, bank_account_number, etc.) found in /data/data/com.pakage.name/ any.db (extension) file then we give this finding.
+
 
 ## Finding 2: Insecure Data Storage
+  - Check every other files with text editor after logging into the target app, If sensitive data (username, email_id, client_id, password, mobile_number, bank_account_number, etc.) found in /data/data/com.pakage.name/ any other file, then we give finding.
+
+Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC and open files into Visual Studio Code, search keywords into folder.
 
 ## Finding 3: Root Detection Not Implemented
 
@@ -16,9 +21,7 @@ create a new folder and paste the copied folders here.
 5. Unzip the zip and open every file with notepad or DB Browser (Only for .db extension files)
 and look for sensitive data such as username, email id, client id, password, mobile number,
 bank account number, etc.
-6. If sensitive data found in .db (extension) file then we give finding 1: Database Store in
-Android Device without Encryption.
-7. If sensitive data found in any other file, then we give finding 2: Insecure Data Storage.
+
 8. For finding 3 POC, open root browser and go to “ data -> data -> com.application.name” and
 take POC of this screen, after that open the application folder and take another POC here
 (showing all folders of the application).
