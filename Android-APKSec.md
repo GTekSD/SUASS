@@ -76,3 +76,37 @@ Jadx GUI go to this link.
 kotlin code.
 5. If you haven’t found the MainActivity.class file, then open any activity which seems
 important for the application and check its code.
+
+
+
+
+
+Vulnerabilities covered in this app:
+
+    Root Detection
+    Emulator Detection
+    Insecure Data Storage – Shared Prefs - 1
+    Insecure Data Storage - Shared Prefs - 2
+    Insecure Data Storage - SQLite
+    Insecure Data Storage – Temp Files
+    Insecure Data Storage – SD Card
+    Keyboard Cache
+    Insecure Logging
+    Input Validations – XSS
+    Input Validations – SQLi
+    Input Validations – WebView
+    Unprotected Android Components – Activity
+    Unprotected Android Components –Service
+    Unprotected Android Components – Broadcast Receivers
+    Unprotected Android Components – Content Providers (Coming Soon)
+    Hard coding issues
+    Network intercepting – HTTP
+    Network intercepting – HTTPS
+    Network intercepting – Certificate Pinning
+    Misconfigured Network_Security_Config.xml
+    Android Debuggable
+    Android allowBackup
+    Custom URL Scheme
+    Broken Cryptography
+    QR Code Scanning (Coming Soon)
+    Fingerprint Authentication (Coming Soon)
