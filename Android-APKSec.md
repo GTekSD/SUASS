@@ -1,57 +1,40 @@
-  # Android Penetration Testing
+# Android Penetration Testing
 
 ## Finding 1: Database Stored in Android Device Without Encryption
   - Check every file with notepad or DB Browser (Only for .db extension files) after logging into the target app, If sensitive data (username, email_id, client_id, password, mobile_number, bank_account_number, etc.) found in /data/data/com.pakage.name/ any.db (extension) file then we give this finding.
+  - For POC of the file that contains sensitive data and note the path of that file as we have to mention this file name and path in our report.
 
 
 ## Finding 2: Insecure Data Storage
   - Check every other files with text editor after logging into the target app, If sensitive data (username, email_id, client_id, password, mobile_number, bank_account_number, etc.) found in /data/data/com.pakage.name/ any other file, then we give finding.
+  - For POC of the file that contains sensitive data and note the path of that file as we have to mention this file name and path in our report.
 
-Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC and open files into Visual Studio Code, search keywords into folder.
+Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC and open files into Visual Studio Code, search keywords into folder. (Device must be rooted)
 
 ## Finding 3: Root Detection Not Implemented
-
-Steps:
-1. Install the application in android device/emulator.
-2. After installing the application, enter login credentials and explore the application.
-3. Logout the application and open root browser, then go to path -> data->data-
->com.application.name-> Copy all the folders, go to internal storage of the device and
-create a new folder and paste the copied folders here.
-4. Now make a zip of it and send it to your computer.
-5. Unzip the zip and open every file with notepad or DB Browser (Only for .db extension files)
-and look for sensitive data such as username, email id, client id, password, mobile number,
-bank account number, etc.
-
-8. For finding 3 POC, open root browser and go to “ data -> data -> com.application.name” and
-take POC of this screen, after that open the application folder and take another POC here
-(showing all folders of the application).
-9. For Finding 1 and 2, take POC of the file that contains sensitive data and note the path of
-that file as we have to mention this file name and path in our report.
+  - Open root browser and go to "data/data/com.application.name/" and take POC of this screen, after that open the application folder and take another POC here (showing all folders of the application).
 
 ## Finding 4: Application Debuggable is Enabled
+  - Get target application apk into kali linux, and decompile using apktool
+  - Run the command `apktool d sample.apk` into kali.
+  - Go to the extracted folder and open “AndroidManifest.xml” and Find this code: `android:debuggable="true"`
+  - It must be false, If the value is set to `true` then it’s Finding.
 
 ## Finding 5: Application Data Backup is Enabled
+  - Decompile and open the “AndroidManifest.xml” file and Find this code: `android:allowBackup="true"`
+  - It must be false, If the value is set to `true` then it’s Finding.
+
 
 ## Finding 6: Application UsesClearTextTraffic Enabled
-
+  - Decompile and open the “AndroidManifest.xml” file and Find this code: `android:usesCleartextTraffic="true"`
+  - It must be false, If the value is set to `true` then it’s Finding.
+  
 ## Finding 7: Application Exported is Enabled
+  - Decompile and open the “AndroidManifest.xml” file and Find this code: `android:exported="true"`
+  - It must be false, If the value is set to `true` then it could be Finding.
+  - To check Use `Drozer`
 
-## Finding 8: Insecure Logging and Unintended Data Storage
-
-Steps:
-1. Get your application apk and send it your kali, if you downloaded the application from
-Google PlayStore then you need to extract the apk. To extract the apk download “APK
-Extractor” from playstore, install it and extract the apk.
-2. Now install “apktool” in your kali terminal.
-3. After installing apktool enter the command “apktool d sample.apk” to decompile the
-apk.
-4. Go to the extracted folder and open “AndroidManifest.xml” and
-Find this code:
-android:debuggable="true", if the value is set to true then it’s Finding 4.
-android:allowBackup="true", if the value is set to true then it’s Finding 5.
-android:usesCleartextTraffic="true", if the value is set to true then it’s Finding 6.
-android:exported="true", if the value is set to true then it’s Finding 7.
-5. For Finding 7 if the exported value is se to true then you need to use drozer to call that
+  - 5. For Finding 7 if the exported value is se to true then you need to use drozer to call that
 specific activity and check if it opens by drozer or not.
 6. To install the drozer kindly visit this link and instal it your kali Linux.
 7. After installing the drozer, download Wifi ADB Android Application from playstore and
@@ -60,8 +43,13 @@ of wifi ADB Application and connect your terminal to your device.
 8. Now run the drozer commands by visiting this link.
 9. If drozer can open any activity that contains any sensitive user data then the exported
 activity is vulnerable means it’s Finding 7.
-10. For Finding 8, connect the linux terminal with device/emulator using wifi adb.
-11. Now install the application in the device/emulator but don’t login the application.
+  
+## Finding 8: Insecure Logging and Unintended Data Storage
+  - Connect the adb terminal with device/emulator using wifi adb or with USB.
+  - Clear the app's storage and cache before running logcat.
+  - Now, run the cmd `adb logcat` or `adb logcat > logs.save` to save captured logs, but it won't show you and result on terminal if you run 2nd cmd.
+  - Now, Open the targeted app and use every fun 
+
 12. Go to the terminal and run the command “adb logcat” and press enter, now open the
 app enter the credentials and log into the app. Explore the app by visiting every page.
 13. Now stop the logcat by pressing ctrl+z. And search the logs for any sensitive data. If any
