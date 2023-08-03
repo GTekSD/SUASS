@@ -31,16 +31,47 @@ Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC an
   
 ## Finding 7: Application Exported is Enabled
   - Decompile and open the “AndroidManifest.xml” file and Find this code: `android:exported="true"`
-  - It must be false, If the value is set to `true` then it could be Finding.
-  - To check Use `Drozer`
+  - It must be false, If the value is set to `true` then it could be Finding then you need to use drozer to call that specific activity and check if it opens by drozer or not.
+  - To check Use `Drozer` run this commands. (Drozer Agent must be install and ON in the device)
+```
+    Starting a session
+        adb forward tcp:31415 tcp:31415
+        drozer console connect                    : If device connected with USB
+        drozer console connect --server <IP>      : If device cnnected with Wifi_ADB
 
-  - 5. For Finding 7 if the exported value is se to true then you need to use drozer to call that
-specific activity and check if it opens by drozer or not.
-6. To install the drozer kindly visit this link and instal it your kali Linux.
-7. After installing the drozer, download Wifi ADB Android Application from playstore and
-install it in your android device/emulator. Enter the command shown in the home page
-of wifi ADB Application and connect your terminal to your device.
-8. Now run the drozer commands by visiting this link.
+    Retrieving package information
+        run app.package.list -f <app name>
+        run app.package.info -a <package name>
+
+    Identifying the attack surface
+        run app.package.attacksurface <package name>
+
+    Exploiting Activities
+        run app.activity.info -a <package name> -u
+        run app.activity.start --component <package name> <component name>
+        run app.activity.start --component <package name> <component name> --extra <type> <key> <value>
+
+    Exploiting Content Provider (OPTIONAL)
+        run app.provider.info -a <package name>
+        run scanner.provider.finduris -a <package name>
+        run app.provider.query <uri>
+        run app.provider.update <uri> --selection <conditions> <selection arg> <column> <data>
+        run scanner.provider.sqltables -a <package name>
+        run scanner.provider.injection -a <package name>
+        run scanner.provider.traversal -a <package name>
+
+    Exploiting Broadcast Receivers (OPTIONAL)
+        run app.broadcast.info -a <package name>
+        run app.broadcast.send --component <package name> <component name> --extra <type> <key> <value>
+        run app.broadcast.sniff --action <action>
+
+    Exploiting Service (OPTIONAL)
+        run app.service.info -a <package name>
+        run app.service.start --action <action> --component <package name> <component name>
+        run app.service.send <package name> <component name> --msg <what> <arg1> <arg2> --extra <type> <key> <value> --bundle-as-obj
+
+
+```
 9. If drozer can open any activity that contains any sensitive user data then the exported
 activity is vulnerable means it’s Finding 7.
   
