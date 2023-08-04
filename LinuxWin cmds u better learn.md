@@ -281,7 +281,10 @@ drwxr-xr-x 2 kali root 4096 Aug 12 06:54 Downloads
 Example:
 ```
 $ chmod +x file.txt			: + (add) r / w / x || - (remove) r / w / x 
-$ chmod 726 file.txt		: 
+$ chmod 726 file.txt		: rwx to user, r to group, rw to others
+$ chmod u+rwx file.txt		: all permissions to user
+$ chmod g+rwx file.txt		: all permissions to group
+$ chmod o-rwx file.txt		: remove all permissions from other
 ```
 ```
 002	-rw-rw-r--	drwxrwxr-x
@@ -290,7 +293,6 @@ $ chmod 726 file.txt		:
 027	-rw-r-----	drwxr-x---
 077	-rw-------	drwx------
 ```
-
 ------------
  
 # Windows Basics & Important Commands
