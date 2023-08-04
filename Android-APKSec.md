@@ -129,3 +129,15 @@ Vulnerabilities covered in this app:
     Broken Cryptography
     QR Code Scanning (Coming Soon)
     Fingerprint Authentication (Coming Soon)
+
+
+
+Refrance:
+https://mas.owasp.org/MASTG/Tools/0x08a-Testing-Tools/
+https://lunarmonk.wordpress.com/tag/android/
+https://www.axcelsec.com/2018/01/mobile-penetration-testing-android.html
+https://www.linkedin.com/pulse/hacking-android-apps-through-exposed-components-tal-melamed
+https://oscp.medium.com/complete-android-pentesting-guide-203ed34035e3
+http://securityhorror.blogspot.com/p/android-pentest-guide.html
+
+androgoat owasp vulnerability assessment
