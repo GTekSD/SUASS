@@ -280,8 +280,8 @@ drwxr-xr-x 2 kali root 4096 Aug 12 06:54 Downloads
 
 Example:
 ```
-$ chmod +x file.txt
-$ chmod 726 file.txt
+$ chmod +x file.txt			: + (add) r / w / x || - (remove) r / w / x 
+$ chmod 726 file.txt		: 
 ```
 ```
 002	-rw-rw-r--	drwxrwxr-x
