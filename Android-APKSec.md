@@ -1,11 +1,14 @@
 # Android Penetration Testing
 
 ## Finding 1: Database Stored in Android Device Without Encryption
-  - Check every file with notepad or DB Browser (Only for .db extension files) after logging into the target app, If sensitive data (username, email_id, client_id, password, mobile_number, bank_account_number, etc.) found in /data/data/com.pakage.name/ any.db (extension) file then we give this finding.
+  - Install and use the app, executing all functions at least once. Data can be generated when entered by the user, sent by the endpoint, or shipped with the app.
+  - Check both internal and external local storage for any files created by the application that contain sensitive data. (username, email_id, client_id, password, mobile_number, bank_account_number, etc.)
+  - Determine whether SQLite databases (Only for .db extension files) are available and whether they contain sensitive information. SQLite databases are stored in `/data/data/<package-name>/databases`.
   - For POC of the file that contains sensitive data and note the path of that file as we have to mention this file name and path in our report.
 
 ## Finding 2: Insecure Data Storage
-  - Check every other files with text editor after logging into the target app, If sensitive data (username, email_id, client_id, password, mobile_number, bank_account_number, etc.) found in /data/data/com.pakage.name/ any other file, then we give finding.
+  - Install and use the app, executing all functions at least once. Data can be generated when entered by the user, sent by the endpoint, or shipped with the app.
+  - Check Shared Preferences that are stored as XML files (in `/data/data/<package-name>/shared_prefs`) for sensitive information. Shared Preferences are insecure and unencrypted by default. Some apps might opt to use secure-preferences to encrypt the values stored in Shared Preferences. If sensitive data found, then we give finding.
   - For POC of the file that contains sensitive data and note the path of that file as we have to mention this file name and path in our report.
 
 Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC and open files into Visual Studio Code, search keywords into folder. (Device must be rooted)
