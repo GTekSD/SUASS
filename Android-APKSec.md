@@ -24,7 +24,51 @@ Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC an
 
 ## Finding 5: Application Data Backup is Enabled
   - Decompile and open the `AndroidManifest.xml` file and Find this code: `android:allowBackup="true"`
-  - It must be false, If the value is set to `true` then it’s Finding.
+  - It must be false, If the value is set to `true` then it could be a Finding.
+
+  - After executing all available app functions, attempt to back up via adb. If the backup is successful, inspect the backup archive for sensitive data. Open a terminal and run the following command:
+```
+adb backup -apk -nosystem <package-name>
+```
+
+ADB should respond now with "Now unlock your device and confirm the backup operation" and you should be asked on the Android phone for a password. This is an optional step and you don't need to provide one. If the phone does not prompt this message, try the following command including the quotes:
+```
+adb backup "-apk -nosystem <package-name>"
+```
+
+The problem happens when your device has an adb version prior to 1.0.31. If that's the case you must use an adb version of 1.0.31 also on your host computer. Versions of adb after 1.0.32 broke the backwards compatibility.
+
+Approve the backup from your device by selecting the Back up my data option. After the backup process is finished, the file .ab will be in your working directory. Run the following command to convert the .ab file to tar.
+```
+dd if=mybackup.ab bs=24 skip=1|openssl zlib -d > mybackup.tar
+```
+
+In case you get the error openssl:Error: 'zlib' is an invalid command. you can try to use Python instead.
+```
+dd if=backup.ab bs=1 skip=24 | python -c "import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))" > backup.tar
+```
+
+The Android Backup Extractor is another alternative backup tool. To make the tool to work, you have to download the Oracle JCE Unlimited Strength Jurisdiction Policy Files for JRE7 or JRE8 and place them in the JRE lib/security folder. Run the following command to convert the tar file:
+```
+java -jar abe.jar unpack backup.ab
+```
+
+if it shows some Cipher information and usage, which means it hasn't unpacked successfully. In this case you can give a try with more arguments:
+
+```
+abe [-debug] [-useenv=yourenv] unpack <backup.ab> <backup.tar> [password]
+```
+
+[password] is the password when your android device asked you earlier. For example here is: 123
+
+```
+java -jar abe.jar unpack backup.ab backup.tar 123
+```
+
+Extract the tar file to your working directory.
+```
+tar xvf mybackup.tar
+```
 
 ## Finding 6: Application UsesClearTextTraffic Enabled
   - Decompile and open the `AndroidManifest.xml` file and Find this code: `android:usesCleartextTraffic="true"`
@@ -76,9 +120,15 @@ dz> run app.service.send <package name> <component name> --msg <what> <arg1> <ar
 activity is vulnerable means it’s Finding 7.
   
 ## Finding 8: Insecure Logging and Unintended Data Storage
+  - Use all the mobile app functions at least once, then identify the application's data directory and look for log files (`/data/data/<package-name>`). Check the application logs to determine whether log data has been generated; some mobile applications create and store their own logs in the data directory.
+  - Many application developers still use `System.out.println` or `printStackTrace` instead of a proper logging class. Therefore, your testing strategy must include all output generated while the application is starting, running and closing. To determine what data is directly printed by `System.out.println` or `printStackTrace`, you can use [Logcat](https://developer.android.com/tools/logcat).
   - Connect the adb terminal with device/emulator using wifi adb or with USB.
   - Clear the app's storage and cache before running logcat.
   - Now, run the cmd `adb logcat` or `adb logcat > logs.save` to save captured logs, but it won't show you and result on terminal if you run 2nd cmd.
+  - Remember that you can target a specific app by filtering the Logcat output as follows:
+  ```
+  adb logcat | grep "$(adb shell ps | grep <package-name> | awk '{print $2}')"
+  ```
   - Now, Open the targeted app and use every functionality such as loging with different methods, creating profiles, editing profiles, entering sensitive details, etc.
 
 12. Go to the terminal and run the command “adb logcat” and press enter, now open the
