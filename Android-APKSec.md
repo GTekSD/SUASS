@@ -28,6 +28,7 @@ Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC an
   - After executing all available app functions, attempt to back up via adb. If the backup is successful, inspect the backup archive for sensitive data. Open a terminal and run the following command:
   ```
   adb backup -apk -nosystem <package-name>
+                  or
   adb backup "-apk -nosystem <package-name>"
   ```
   - ADB should respond now with "Now unlock your device and confirm the backup operation" and you should be asked on the Android phone for a password. Enter random one, For example here is: 123
