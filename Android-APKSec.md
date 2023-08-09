@@ -25,43 +25,30 @@ Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC an
 ## Finding 5: Application Data Backup is Enabled
   - Decompile and open the `AndroidManifest.xml` file and Find this flag: `android:allowBackup="true"`
   - It must be false, If the value is set to `true` then it could be a Finding.
-
   - After executing all available app functions, attempt to back up via adb. If the backup is successful, inspect the backup archive for sensitive data. Open a terminal and run the following command:
   ```
   adb backup -apk -nosystem <package-name>
   adb backup "-apk -nosystem <package-name>"
   ```
-  - ADB should respond now with "Now unlock your device and confirm the backup operation" and you should be asked on the Android phone for a password. This is an optional step and you don't need to provide one. 
-  - Approve the backup from your device by selecting the Back up my data option. After the backup process is finished, the file .ab (ex: backup.ab) will be in your working directory. Run the following command to convert the .ab file to tar.
-  ```
-  dd if=backup.ab bs=24 skip=1|openssl zlib -d > backup.tar
-  ```
-  - In case you get the error `openssl:Error: 'zlib' is an invalid command.` you can try to use Python instead.
-    ```
-    dd if=backup.ab bs=1 skip=24 | python -c "import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))" > backup.tar
-    ```
-
-  - The Android Backup Extractor is another alternative backup tool. To make the tool to work, you have to download the Oracle JCE Unlimited Strength Jurisdiction Policy Files for JRE7 or JRE8 and place them in the JRE lib/security folder. Run the following command to convert the tar file:
-```
-java -jar abe.jar unpack backup.ab
-```
-
-  - if it shows some Cipher information and usage, which means it hasn't unpacked successfully. In this case you can give a try with more arguments:
-
-```
-abe [-debug] [-useenv=yourenv] unpack <backup.ab> <backup.tar> [password]
-```
-
+  - ADB should respond now with "Now unlock your device and confirm the backup operation" and you should be asked on the Android phone for a password. Enter random one, For example here is: 123
+  - Approve the backup from your device by selecting the Back up my data option. After the backup process is finished, the file .ab (ex: backup.ab) will be in your working directory. 
+  - To convert the .ab file to tar. Download the Android Backup Extractor is another alternative backup tool. Run the following command to convert the tar file: (If tool dosen't work, you have to download the Oracle JCE Unlimited Strength Jurisdiction Policy Files for JRE7 or JRE8 and place them in the JRE lib/security folder.)
+  `java -jar abe.jar abe unpack <backup.ab> <backup.tar> [password]`
   - `[password]` is the password when your android device asked you earlier. For example here is: 123
-
-```
-java -jar abe.jar unpack backup.ab backup.tar 123
-```
-
+  ```
+  java -jar abe.jar unpack backup.ab backup.tar 123
+  ```
+  - if it shows something like this, which means it has unpacked successfully.
+  ```
+ Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+Calculated MK checksum (use UTF-8: true): 916423B1691313FF3696A8DDC185E4AB9F557304B8DC70A3B0008D189C0E5161
+0% 1% 2% 4% 5% 7% 9% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 99% 100% 
+2769408 bytes written to backup.tar.
+  ```
   - Extract the tar file to your working directory.
-```
-tar xvf mybackup.tar
-```
+  ```
+  tar -xvf backup.tar
+  ```
 
 ## Finding 6: Application UsesClearTextTraffic Enabled
   - Decompile and open the `AndroidManifest.xml` file and Find this flag: `android:usesCleartextTraffic="true"`
