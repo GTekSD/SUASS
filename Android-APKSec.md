@@ -19,63 +19,56 @@ Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC an
 ## Finding 4: Application Debuggable is Enabled
   - Get target application apk into kali linux, and decompile using apktool
   - Run the command `apktool d sample.apk` into kali.
-  - Go to the extracted folder and open “AndroidManifest.xml” and Find this code: `android:debuggable="true"`
+  - Go to the extracted folder and open “AndroidManifest.xml” and Find this flag: `android:debuggable="true"`
   - It must be false, If the value is set to `true` then it’s Finding.
 
 ## Finding 5: Application Data Backup is Enabled
-  - Decompile and open the `AndroidManifest.xml` file and Find this code: `android:allowBackup="true"`
+  - Decompile and open the `AndroidManifest.xml` file and Find this flag: `android:allowBackup="true"`
   - It must be false, If the value is set to `true` then it could be a Finding.
 
   - After executing all available app functions, attempt to back up via adb. If the backup is successful, inspect the backup archive for sensitive data. Open a terminal and run the following command:
-```
-adb backup -apk -nosystem <package-name>
-```
+  ```
+  adb backup -apk -nosystem <package-name>
+  adb backup "-apk -nosystem <package-name>"
+  ```
+  - ADB should respond now with "Now unlock your device and confirm the backup operation" and you should be asked on the Android phone for a password. This is an optional step and you don't need to provide one. 
+  - Approve the backup from your device by selecting the Back up my data option. After the backup process is finished, the file .ab (ex: backup.ab) will be in your working directory. Run the following command to convert the .ab file to tar.
+  ```
+  dd if=backup.ab bs=24 skip=1|openssl zlib -d > backup.tar
+  ```
+  - In case you get the error `openssl:Error: 'zlib' is an invalid command.` you can try to use Python instead.
+    ```
+    dd if=backup.ab bs=1 skip=24 | python -c "import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))" > backup.tar
+    ```
 
-ADB should respond now with "Now unlock your device and confirm the backup operation" and you should be asked on the Android phone for a password. This is an optional step and you don't need to provide one. If the phone does not prompt this message, try the following command including the quotes:
-```
-adb backup "-apk -nosystem <package-name>"
-```
-
-The problem happens when your device has an adb version prior to 1.0.31. If that's the case you must use an adb version of 1.0.31 also on your host computer. Versions of adb after 1.0.32 broke the backwards compatibility.
-
-Approve the backup from your device by selecting the Back up my data option. After the backup process is finished, the file .ab will be in your working directory. Run the following command to convert the .ab file to tar.
-```
-dd if=mybackup.ab bs=24 skip=1|openssl zlib -d > mybackup.tar
-```
-
-In case you get the error openssl:Error: 'zlib' is an invalid command. you can try to use Python instead.
-```
-dd if=backup.ab bs=1 skip=24 | python -c "import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))" > backup.tar
-```
-
-The Android Backup Extractor is another alternative backup tool. To make the tool to work, you have to download the Oracle JCE Unlimited Strength Jurisdiction Policy Files for JRE7 or JRE8 and place them in the JRE lib/security folder. Run the following command to convert the tar file:
+  - The Android Backup Extractor is another alternative backup tool. To make the tool to work, you have to download the Oracle JCE Unlimited Strength Jurisdiction Policy Files for JRE7 or JRE8 and place them in the JRE lib/security folder. Run the following command to convert the tar file:
 ```
 java -jar abe.jar unpack backup.ab
 ```
 
-if it shows some Cipher information and usage, which means it hasn't unpacked successfully. In this case you can give a try with more arguments:
+  - if it shows some Cipher information and usage, which means it hasn't unpacked successfully. In this case you can give a try with more arguments:
 
 ```
 abe [-debug] [-useenv=yourenv] unpack <backup.ab> <backup.tar> [password]
 ```
 
-[password] is the password when your android device asked you earlier. For example here is: 123
+  - `[password]` is the password when your android device asked you earlier. For example here is: 123
 
 ```
 java -jar abe.jar unpack backup.ab backup.tar 123
 ```
 
-Extract the tar file to your working directory.
+  - Extract the tar file to your working directory.
 ```
 tar xvf mybackup.tar
 ```
 
 ## Finding 6: Application UsesClearTextTraffic Enabled
-  - Decompile and open the `AndroidManifest.xml` file and Find this code: `android:usesCleartextTraffic="true"`
+  - Decompile and open the `AndroidManifest.xml` file and Find this flag: `android:usesCleartextTraffic="true"`
   - It must be false, If the value is set to `true` then it’s Finding.
   
 ## Finding 7: Application Exported is Enabled
-  - Decompile and open the `AndroidManifest.xml` file and Find this code: `android:exported="true"`
+  - Decompile and open the `AndroidManifest.xml` file and Find this flag: `android:exported="true"`
   - It must be false, If the value is set to `true` then it could be Finding then you need to use drozer to call that specific activity and check if it opens by drozer or not.
   - To check Use `Drozer` run this commands. (Drozer Agent app must be installed and ON in the device)
 ```
