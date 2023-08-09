@@ -17,9 +17,11 @@ Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC an
   - Open root browser and go to "data/data/com.application.name/" and take POC of this screen, after that open the application folder and take another POC here (showing all folders of the application).
 
 ## Finding 4: Application Debuggable is Enabled
-  - Get target application apk into kali linux, and decompile using apktool
-  - Run the command `apktool d sample.apk` into kali.
-  - Go to the extracted folder and open “AndroidManifest.xml” and Find this flag: `android:debuggable="true"`
+  - Get target application apk into kali linux, and decompile using [Apktool](https://github.com/iBotPeaches/Apktool). Run the following command:
+    ```
+    apktool d sample.apk
+    ```
+  - Go to the extracted folder and open `AndroidManifest.xml` and Find this flag: `android:debuggable="true"`
   - It must be false, If the value is set to `true` then it’s Finding.
 
 ## Finding 5: Application Data Backup is Enabled
@@ -33,7 +35,7 @@ Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC an
   ```
   - ADB should respond now with "Now unlock your device and confirm the backup operation" and you should be asked on the Android phone for a password. Enter random one, For example here is: 123
   - Approve the backup from your device by selecting the Back up my data option. After the backup process is finished, the file .ab (ex: backup.ab) will be in your working directory. 
-  - To convert the .ab file to tar. Download the Android Backup Extractor is another alternative backup tool. Run the following command to convert the tar file: (If tool dosen't work, you have to download the Oracle JCE Unlimited Strength Jurisdiction Policy Files for JRE7 or JRE8 and place them in the JRE lib/security folder.)
+  - To convert the .ab file to tar. Download the [Android Backup Extractor](https://github.com/nelenkov/android-backup-extractor/releases) is another alternative backup tool. Run the following command to convert the tar file: _(If tool dosen't work, you have to download the Oracle JCE Unlimited Strength Jurisdiction Policy Files for JRE7 or JRE8 and place them in the JRE lib/security folder.)_
   `java -jar abe.jar abe unpack <backup.ab> <backup.tar> [password]`
   - `[password]` is the password when your android device asked you earlier. For example here is: 123
   ```
@@ -50,6 +52,7 @@ Calculated MK checksum (use UTF-8: true): 916423B1691313FF3696A8DDC185E4AB9F5573
   ```
   tar -xvf backup.tar
   ```
+  - Check into extracted folder for any files created by the application that contain sensitive data. If found then it's a Finding.
 
 ## Finding 6: Application UsesClearTextTraffic Enabled
   - Decompile and open the `AndroidManifest.xml` file and Find this flag: `android:usesCleartextTraffic="true"`
@@ -111,11 +114,7 @@ activity is vulnerable means it’s Finding 7.
   adb logcat | grep "$(adb shell ps | grep <package-name> | awk '{print $2}')"
   ```
   - Now, Open the targeted app and use every functionality such as loging with different methods, creating profiles, editing profiles, entering sensitive details, etc.
-
-12. Go to the terminal and run the command “adb logcat” and press enter, now open the
-app enter the credentials and log into the app. Explore the app by visiting every page.
-13. Now stop the logcat by pressing ctrl+z. And search the logs for any sensitive data. If any
-sensitive data is found in the logs, then its Finding 8.
+  - Now stop the logcat by pressing ctrl+z. And search the logs for any sensitive data. If any sensitive data is found in the logs, then it's Finding.
 
 ## Finding 9: Successful Reverse Engineering
 
