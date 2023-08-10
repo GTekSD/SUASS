@@ -125,10 +125,13 @@ activity is vulnerable means it’s Finding 7.
   - If you haven’t found the MainActivity.class file, then open any activity which seems important for the application and check its code.
 
 
--------------
 
 
-Vulnerabilities covered in this app:
+-------------------
+-------------------
+
+
+List of Vulnerabilities
 
     Root Detection
     Emulator Detection
