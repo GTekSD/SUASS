@@ -11,7 +11,7 @@
   - Check Shared Preferences that are stored as XML files (in `/data/data/<package-name>/shared_prefs`) for sensitive information. Shared Preferences are insecure and unencrypted by default. Some apps might opt to use secure-preferences to encrypt the values stored in Shared Preferences. If sensitive data found, then we give finding.
   - For POC of the file that contains sensitive data and note the path of that file as we have to mention this file name and path in our report.
 
-Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC and open files into Visual Studio Code, search keywords into folder. (Device must be rooted)
+Tip: Make a zip of `/data/data/com.pakage.name/` and transfer and unzip into PC and open files into Visual Studio Code, search keywords into folder. (Device must be rooted)
 
 ## Finding 3: Root Detection Not Implemented
   - Open root browser and go to "data/data/com.application.name/" and take POC of this screen, after that open the application folder and take another POC here (showing all folders of the application).
@@ -25,7 +25,7 @@ Tip: Make a zip of /data/data/com.pakage.name/ and transfer and unzip into PC an
   - It must be false, If the value is set to `true` then it’s Finding.
 
 ## Finding 5: Application Data Backup is Enabled
-  - Decompile and open the `AndroidManifest.xml` file and Find this flag: `android:allowBackup="true"`
+  - Decompile and open the `AndroidManifest.xml` file and Find this flag: [`android:allowBackup="true"`](https://developer.android.com/guide/topics/manifest/application-element#allowbackup)
   - It must be false, If the value is set to `true` then it could be a Finding.
   - After executing all available app functions, attempt to back up via adb. If the backup is successful, inspect the backup archive for sensitive data. Open a terminal and run the following command:
   ```
@@ -55,11 +55,11 @@ Calculated MK checksum (use UTF-8: true): 916423B1691313FF3696A8DDC185E4AB9F5573
   - Check into extracted folder for any files created by the application that contain sensitive data. If found then it's a Finding.
 
 ## Finding 6: Application UsesClearTextTraffic Enabled
-  - Decompile and open the `AndroidManifest.xml` file and Find this flag: `android:usesCleartextTraffic="true"`
+  - Decompile and open the `AndroidManifest.xml` file and Find this flag: [`android:usesCleartextTraffic="true"`](https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic)
   - It must be false, If the value is set to `true` then it’s Finding.
   
 ## Finding 7: Application Exported is Enabled
-  - Decompile and open the `AndroidManifest.xml` file and Find this flag: `android:exported="true"`
+  - Decompile and open the `AndroidManifest.xml` file and Find this flag: [`android:exported="true"`](https://developer.android.com/topic/security/risks/android-exported)
   - It must be false, If the value is set to `true` then it could be Finding then you need to use drozer to call that specific activity and check if it opens by drozer or not.
   - To check Use `Drozer` run this commands. (Drozer Agent app must be installed and ON in the device)
 ```
@@ -118,16 +118,11 @@ activity is vulnerable means it’s Finding 7.
 
 ## Finding 9: Successful Reverse Engineering
 
-Steps:
-1. Get the apk in your normal Windows/Linux Computer and upload the apk on this online
-decompilers to decompile the apk by visiting this link or this link.
-2. Now download this decompiled apk, zip folder and unzip it.
-3. Search for classes.dex file, and open it using the Jadx GUI Application. To download the
-Jadx GUI go to this link.
-4. In the Jadx GUI, open every folder and search for MainActivity.class file and check the java or
-kotlin code.
-5. If you haven’t found the MainActivity.class file, then open any activity which seems
-important for the application and check its code.
+  - Get the apk in your normal Windows/Linux Computer and upload the apk on this online decompilers to decompile the apk by visiting this link or this link.
+  - Now download this decompiled apk, zip folder and unzip it.
+  - Search for classes.dex file, and open it using the Jadx GUI Application. To download the Jadx GUI go to this link.
+  - In the Jadx GUI, open every folder and search for MainActivity.class file and check the java or kotlin code.
+  - If you haven’t found the MainActivity.class file, then open any activity which seems important for the application and check its code.
 
 
 
