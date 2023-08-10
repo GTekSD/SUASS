@@ -14,18 +14,18 @@
 Tip: Make a zip of `/data/data/com.pakage.name/` and transfer and unzip into PC and open files into Visual Studio Code, search keywords into folder. (Device must be rooted)
 
 ## Finding 3: Root Detection Not Implemented
-  - Open root browser and go to "data/data/com.application.name/" and take POC of this screen, after that open the application folder and take another POC here (showing all folders of the application).
+  - Open root browser and go to `"data/data/com.application.name/"` and take POC of this screen, after that open the application folder and take another POC here (showing all folders of the application).
 
 ## Finding 4: Application Debuggable is Enabled
   - Get target application apk into kali linux, and decompile using [Apktool](https://github.com/iBotPeaches/Apktool). Run the following command:
     ```
     apktool d sample.apk
     ```
-  - Go to the extracted folder and open `AndroidManifest.xml` and Find this flag: `android:debuggable="true"`
+  - Go to the extracted folder and open `AndroidManifest.xml` and Find this flag: [`android:debuggable="true"`](https://developer.android.com/topic/security/risks/android-debuggable)
   - It must be false, If the value is set to `true` then it’s Finding.
 
 ## Finding 5: Application Data Backup is Enabled
-  - Decompile and open the `AndroidManifest.xml` file and Find this flag: [`android:allowBackup="true"`](https://developer.android.com/guide/topics/manifest/application-element#allowbackup)
+  - Decompile and open the [`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro) file and Find this flag: [`android:allowBackup="true"`](https://developer.android.com/guide/topics/data/autobackup)
   - It must be false, If the value is set to `true` then it could be a Finding.
   - After executing all available app functions, attempt to back up via adb. If the backup is successful, inspect the backup archive for sensitive data. Open a terminal and run the following command:
   ```
@@ -55,11 +55,11 @@ Calculated MK checksum (use UTF-8: true): 916423B1691313FF3696A8DDC185E4AB9F5573
   - Check into extracted folder for any files created by the application that contain sensitive data. If found then it's a Finding.
 
 ## Finding 6: Application UsesClearTextTraffic Enabled
-  - Decompile and open the `AndroidManifest.xml` file and Find this flag: [`android:usesCleartextTraffic="true"`](https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic)
+  - Decompile and open the [`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro) file and Find this flag: [`android:usesCleartextTraffic="true"`](https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic)
   - It must be false, If the value is set to `true` then it’s Finding.
   
 ## Finding 7: Application Exported is Enabled
-  - Decompile and open the `AndroidManifest.xml` file and Find this flag: [`android:exported="true"`](https://developer.android.com/topic/security/risks/android-exported)
+  - Decompile and open the [`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro) file and Find this flag: [`android:exported="true"`](https://developer.android.com/topic/security/risks/android-exported)
   - It must be false, If the value is set to `true` then it could be Finding then you need to use drozer to call that specific activity and check if it opens by drozer or not.
   - To check Use `Drozer` run this commands. (Drozer Agent app must be installed and ON in the device)
 ```
@@ -125,7 +125,7 @@ activity is vulnerable means it’s Finding 7.
   - If you haven’t found the MainActivity.class file, then open any activity which seems important for the application and check its code.
 
 
-
+-------------
 
 
 Vulnerabilities covered in this app:
