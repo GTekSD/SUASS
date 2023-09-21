@@ -55,3 +55,38 @@
 
 #### HTTP status 504 - Gateway timeout
 - This means, that the server has not responded within the specified time period.
+
+
+### Clickjacking detection
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clickjacking detection</title>
+    <style>
+        body {
+            background-image: url(https://irp-cdn.multiscreensite.com/ee90ae2b/dms3rep/multi/stock-vector-hacked-glitched-abstract-digital-background-vector-illustration-761155144.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center; 
+        }
+
+        h1 {
+            font-family: "Courier New", Courier, monospace;
+            color: red;
+        }
+
+        iframe {
+            display: block; 
+            margin: 0 auto; 
+            width: 1200px; 
+            height: 520px;
+        }
+    </style>
+</head>
+<body>
+    <h1>This web application is vulnerable to clickjacking!</h1>
+    <iframe src="https://gteksd.github.io"></iframe>
+</body>
+</html>
+```
