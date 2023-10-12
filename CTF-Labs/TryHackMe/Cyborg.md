@@ -27,7 +27,7 @@ Answer the questions below:
    ```
 7. What is the user.txt flag?
    ```
-   glag{dsfa9f7d0syga98sf0asdgy90ds6}
+   flag{dsfa9f7d0syga98sf0asdgy90ds6}
    ```
 9. What is the root.txt flag?
    ```
