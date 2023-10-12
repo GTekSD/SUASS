@@ -1,5 +1,5 @@
 # Pickle Rick - A Rick and Morty CTF. Help turn Rick back into a human!
-![Pickle Rick](https://github.com/GTekSD/SUASS/assets/55411358/315ffe46-8d9e-4b49-9325-db534565ba82)
+[![Pickle Rick](https://github.com/GTekSD/SUASS/assets/55411358/315ffe46-8d9e-4b49-9325-db534565ba82)](https://tryhackme.com/room/picklerick)
 
 This Rick and Morty-themed challenge requires you to exploit a web server and find three ingredients to help Rick make his potion and transform himself back into a human from a pickle.
 
@@ -94,5 +94,31 @@ ________________________________________________
 
 [Status: 301, Size: 313, Words: 20, Lines: 10, Duration: 126ms]
     * FUZZ: assets
-
+[Status: 200, Size: 17, Words: 17, Lines: 1, Duration: 98ms]
+    * FUZZ: robots.txt
+[Status: 403, Size: 299, Words: 54, Lines: 4, Duration: 102ms]
+    * FUZZ: server-status
 ```
+lets open `http://10.10.239.74/robots.txt` and we found something `Wubbalubbadubdub`
+
+now lets open up assets `http://10.10.239.74/assets`
+```
+Index of /assets
+[ICO]	Name	Last modified	Size	Description
+[PARENTDIR]	Parent Directory	 	- 	 
+[TXT]	bootstrap.min.css	2019-02-10 16:37 	119K	 
+[ ]	bootstrap.min.js	2019-02-10 16:37 	37K	 
+[IMG]	fail.gif	2019-02-10 16:37 	49K	 
+[ ]	jquery.min.js	2019-02-10 16:37 	85K	 
+[IMG]	picklerick.gif	2019-02-10 16:37 	222K	 
+[IMG]	portal.jpg	2019-02-10 16:37 	50K	 
+[IMG]	rickandmorty.jpeg	2019-02-10 16:37 	488K	 
+Apache/2.4.18 (Ubuntu) Server at 10.10.239.74 Port 80
+```
+here is something portal.jpg, portal seems like login page, lets tey this one
+`http://10.10.239.74/portal.php`
+intresting it redirects to `http://10.10.239.74/login.php`
+
+As I found Username: `R1ckRul3s` and found something `Wubbalubbadubdub` it could be password, lets use it.
+
+Woah! it works.
