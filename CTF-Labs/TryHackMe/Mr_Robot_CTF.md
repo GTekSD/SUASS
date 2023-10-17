@@ -1,11 +1,9 @@
-Mr Robot CTF
+# Mr Robot CTF - Based on the Mr. Robot show, can you root this box?
 
-Based on the Mr. Robot show, can you root this box?
-
-![image](https://github.com/GTekSD/SUASS/assets/55411358/e368defa-d2ce-4917-b6a2-1054956ea8a3)
+[![image](https://github.com/GTekSD/SUASS/assets/55411358/e368defa-d2ce-4917-b6a2-1054956ea8a3)](https://tryhackme.com/room/mrrobot)
 
 
- Task 1 Connect to our network
+### Task 1 Connect to our network
 
 To deploy the Mr. Robot virtual machine, you will first need to connect to our network.
 Answer the questions below
@@ -29,7 +27,7 @@ You are now ready to use our machines on our network!
 Now when you deploy material, you will see an internal IP address of your Virtual Machine.
 
 
- Task 2 Hack the machine
+### Task 2 Hack the machine
 
 ![image](https://github.com/GTekSD/SUASS/assets/55411358/4195d313-b5b4-4e32-98c4-2962a74f6c1e)
 
@@ -44,3 +42,8 @@ What is key 1?
 What is key 2?
 
 What is key 3?
+
+
+   -----------------
+
+## Let's Start
