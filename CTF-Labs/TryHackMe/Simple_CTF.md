@@ -1,11 +1,9 @@
-Simple CTF
+# Simple CTF - Beginner level ctf
 
-Beginner level ctf
+[![image](https://github.com/GTekSD/SUASS/assets/55411358/b9f5a6a3-f1f5-46f6-8a67-902c0817472b)](https://tryhackme.com/room/easyctf)
 
-![image](https://github.com/GTekSD/SUASS/assets/55411358/b9f5a6a3-f1f5-46f6-8a67-902c0817472b)
 
-https://tryhackme.com/room/easyctf
- Task 1 Simple CTF
+### Task 1 Simple CTF
 Deploy the machine and attempt the questions!
 Answer the questions below
 
