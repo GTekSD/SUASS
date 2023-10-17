@@ -1,11 +1,9 @@
-Attacktive Directory
+# Attacktive Directory - 99% of Corporate networks run off of AD. But can you exploit a vulnerable Domain Controller?
 
-99% of Corporate networks run off of AD. But can you exploit a vulnerable Domain Controller?
-
-![image](https://github.com/GTekSD/SUASS/assets/55411358/f397c8c6-ca99-4d0a-87fb-8df8655da5ff)
+[![image](https://github.com/GTekSD/SUASS/assets/55411358/f397c8c6-ca99-4d0a-87fb-8df8655da5ff)](https://tryhackme.com/room/attacktivedirectory)
 
 
- Task 1 Intro Deploy The Machine
+### Task 1 Intro Deploy The Machine
 Accessing Attacktive Directory
 
 To access the Virtual Machine, you will need to first connect to our network using OpenVPN. Here is a mini walkthrough of getting connected.
@@ -25,7 +23,7 @@ Alternatively, you can deploy the In-Browser Kali or Attack Box and automaticall
 Once connected to the VPN, deploy the machine and get hacking!
 
 
- Task 2 Intro Setup
+### Task 2 Intro Setup
 
 Installing Impacket:
 
@@ -82,7 +80,7 @@ Install Impacket, Bloodhound and Neo4j
 
 
 
- Task 3 Enumeration Welcome to Attacktive Directory
+### Task 3 Enumeration Welcome to Attacktive Directory
 
 Welcome to Attacktive Directory
 
@@ -112,7 +110,7 @@ What invalid TLD do people commonly use for their Active Directory Domain?
 
 
 
- Task 4 Enumeration Enumerating Users via Kerberos
+### Task 4 Enumeration Enumerating Users via Kerberos
 
 Introduction:
 
@@ -132,7 +130,7 @@ What notable account is discovered? (These should jump out at you)
 What is the other notable account is discovered? (These should jump out at you)
 
 
- Task 5 Exploitation Abusing Kerberos
+### Task 5 Exploitation Abusing Kerberos
 
 Introduction
 
@@ -154,7 +152,7 @@ What mode is the hash?
 Now crack the hash with the modified password list provided, what is the user accounts password?
 
 
- Task 6 Enumeration Back to the Basics
+### Task 6 Enumeration Back to the Basics
 
 Enumeration:
 
@@ -174,7 +172,7 @@ What is the content of the file?
 Decoding the contents of the file, what is the full contents?
 
 
- Task 7 Domain Privilege Escalation Elevating Privileges within the Domain
+### Task 7 Domain Privilege Escalation Elevating Privileges within the Domain
 
 Let's Sync Up!
 
@@ -197,7 +195,7 @@ What method of attack could allow us to authenticate as the user without the pas
 Using a tool called Evil-WinRM what option will allow us to use a hash?
 
 
- Task 8 Flag Submission Flag Submission Panel
+### Task 8 Flag Submission Flag Submission Panel
 
 Flag Submission Panel
 
