@@ -1,7 +1,7 @@
 # Awesome Bug Bounty Tools
 
 ## Contents
-- Recon
+- [Recon](#recon)
   - Subdomain Enumeration
   - Port Scanning
   - Screenshots
@@ -141,6 +141,7 @@
 - [x8](https://github.com/Sh1Yo/x8) - Hidden parameters discovery suite written in Rust.
 
 ## Fuzzing
+
 - [wfuzz](https://github.com/xmendez/wfuzz) - Web application fuzzer
 - [ffuf](https://github.com/ffuf/ffuf) - Fast web fuzzer written in Go
 - [fuzzdb](https://github.com/fuzzdb-project/fuzzdb) - Dictionary of attack patterns and primitives for black-box application fault injection and resource discovery.
@@ -154,24 +155,29 @@
 # Exploitation
 
 ## Command Injection
+
 - [commix](https://github.com/commixproject/commix) - Automated All-in-One OS command injection and exploitation tool.
 
 ## CORS Misconfiguration
+
 - [Corsy](https://github.com/s0md3v/Corsy) - CORS Misconfiguration Scanner
 - [CORStest](https://github.com/RUB-NDS/CORStest) - A simple CORS misconfiguration scanner
 - [cors-scanner](https://github.com/laconicwolf/cors-scanner) - A multi-threaded scanner that helps identify CORS flaws/misconfigurations
 - [CorsMe](https://github.com/Shivangx01b/CorsMe) - Cross Origin Resource Sharing MisConfiguration Scanner
 
 ## CRLF Injection
+
 - [CRLFsuite](https://github.com/Nefcore/CRLFsuite) - A fast tool specially designed to scan CRLF injection
 - [crlfuzz](https://github.com/dwisiswant0/crlfuzz) - A fast tool to scan CRLF vulnerability written in Go
 - [CRLF-Injection-Scanner](https://github.com/MichaelStott/CRLF-Injection-Scanner) - Command line tool for testing CRLF injection on a list of domains.
 - [Injectus](https://github.com/BountyStrike/Injectus) - CRLF and open redirect fuzzer
 
 ## CSRF Injection
+
 - [XSRFProbe](https://github.com/0xInfection/XSRFProbe) - The Prime Cross Site Request Forgery (CSRF) Audit and Exploitation Toolkit.
 
 ## Directory Traversal
+
 - [dotdotpwn](https://github.com/wireghoul/dotdotpwn) - DotDotPwn - The Directory Traversal Fuzzer
 - [FDsploit](https://github.com/chrispetrou/FDsploit) - File Inclusion & Directory Traversal fuzzing, enumeration & exploitation tool.
 - [off-by-slash](https://github.com/bayotop/off-by-slash) - Burp extension to detect alias traversal via NGINX misconfiguration at scale.
@@ -185,6 +191,7 @@
 - [LFI-files](https://github.com/hussein98d/LFI-files) - Wordlist to bruteforce for LFI
 
 ## GraphQL Injection
+
 - [inql](https://github.com/doyensec/inql) - InQL - A Burp Extension for GraphQL Security Testing
 - [GraphQLmap](https://github.com/swisskyrepo/GraphQLmap) - GraphQLmap is a scripting engine to interact with a GraphQL endpoint for pentesting purposes.
 - [shapeshifter](https://github.com/szski/shapeshifter) - GraphQL security testing tool
@@ -192,24 +199,29 @@
 - [clairvoyance](https://github.com/nikitastupin/clairvoyance) - Obtain GraphQL API schema despite disabled introspection!
 
 ## Header Injection
+
 - [headi](https://github.com/mlcsec/headi) - Customizable and automated HTTP header injection.
 
 ## Insecure Deserialization
+
 - [ysoserial](https://github.com/frohoff/ysoserial) - A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization.
 - [GadgetProbe](https://github.com/BishopFox/GadgetProbe) - Probe endpoints consuming Java serialized objects to identify classes, libraries, and library versions on remote Java classpaths.
 - [ysoserial.net](https://github.com/pwntester/ysoserial.net) - Deserialization payload generator for a variety of .NET formatters
 - [phpggc](https://github.com/ambionics/phpggc) - PHPGGC is a library of PHP unserialize() payloads along with a tool to generate them, from command line or programmatically.
 
 ## Insecure Direct Object References
+
 - [Autorize](https://github.com/Quitten/Autorize) - Automatic authorization enforcement detection extension for Burp Suite written in Jython developed by Barak Tawily
 
 ## Open Redirect
+
 - [Oralyzer](https://github.com/r0075h3ll/Oralyzer) - Open Redirection Analyzer
 - [Injectus](https://github.com/BountyStrike/Injectus) - CRLF and open redirect fuzzer
 - [dom-red](https://github.com/Naategh/dom-red) - Small script to check a list of domains against open redirect vulnerability
 - [OpenRedireX](https://github.com/devanshbatham/OpenRedireX) - A Fuzzer for OpenRedirect issues
 
 ## Race Condition
+
 - [razzer](https://github.com/compsec-snu/razzer) - A Kernel fuzzer focusing on race bugs
 - [racepwn](https://github.com/racepwn/racepwn) - Race Condition framework
 - [requests-racer](https://github.com/nccgroup/requests-racer) - Small Python library that makes it easy to exploit race conditions in web apps with Requests.
@@ -217,12 +229,14 @@
 - [race-the-web](https://github.com/TheHackerDev/race-the-web) - Tests for race conditions in web applications. Includes a RESTful API to integrate into a continuous integration pipeline.
 
 ## Request Smuggling
+
 - [http-request-smuggling](https://github.com/anshumanpattnaik/http-request-smuggling) - HTTP Request Smuggling Detection Tool
 - [smuggler](https://github.com/defparam/smuggler) - Smuggler - An HTTP Request Smuggling / Desync testing tool written in Python 3
 - [h2csmuggler](https://github.com/BishopFox/h2csmuggler) - HTTP Request Smuggling over HTTP/2 Cleartext](h2c)
 - [tiscripts](https://github.com/defparam/tiscripts) - These scripts I use to create Request Smuggling Desync payloads for CLTE and TECL style attacks.
 
 ## Server Side Request Forgery
+
 - [SSRFmap](https://github.com/swisskyrepo/SSRFmap) - Automatic SSRF fuzzer and exploitation tool
 - [Gopherus](https://github.com/tarunkant/Gopherus) - This tool generates gopher link for exploiting SSRF and gaining RCE in various servers
 - [ground-control](https://github.com/jobertabma/ground-control) - A collection of scripts that run on my web server. Mainly for debugging SSRF, blind XSS, and XXE vulnerabilities.
@@ -245,6 +259,7 @@
 - [dnsFookup](https://github.com/makuga01/dnsFookup) - DNS rebinding toolkit
 
 ## SQL Injection
+
 - [sqlmap](https://github.com/sqlmapproject/sqlmap) - Automatic SQL injection and database takeover tool
 - [NoSQLMap](https://github.com/codingo/NoSQLMap) - Automated NoSQL database enumeration and web application exploitation tool.
 - [SQLiScanner](https://github.com/0xbug/SQLiScanner) - Automatic SQL injection with Charles and sqlmap api
@@ -261,6 +276,7 @@
 - [nosqli](https://github.com/Charlie-belmer/nosqli) - NoSql Injection CLI tool, for finding vulnerable websites using MongoDB.
 
 ## XSS Injection
+
 - [XSStrike](https://github.com/s0md3v/XSStrike) - Most advanced XSS scanner.
 - [xssor2](https://github.com/evilcos/xssor2) - XSS'OR - Hack with JavaScript.
 - [xsscrapy](https://github.com/DanMcInerney/xsscrapy) - XSS spider - 66/66 wavsep XSS detected
@@ -300,6 +316,7 @@
 - [XSSwagger](https://github.com/vavkamil/XSSwagger) - A simple Swagger-ui scanner that can detect old versions vulnerable to various XSS attacks
 
 ## XXE Injection
+
 - [ground-control](https://github.com/jobertabma/ground-control) - A collection of scripts that run on my web server. Mainly for debugging SSRF, blind XSS, and XXE vulnerabilities.
 - [dtd-finder](https://github.com/GoSecure/dtd-finder) - List DTDs and generate XXE payloads using those local DTDs.
 - [docem](https://github.com/whitel1st/docem) - Uility to embed XXE and XSS payloads in docx,odt,pptx,etc (OXML_XEE on steroids)
@@ -313,6 +330,7 @@
 # Miscellaneous
 
 ## Passwords
+
 - [thc-hydra](https://github.com/vanhauser-thc/thc-hydra) - Hydra is a parallelized login cracker which supports numerous protocols to attack.
 - [DefaultCreds-cheat-sheet](https://github.com/ihebski/DefaultCreds-cheat-sheet) - One place for all the default credentials to assist the Blue/Red teamers activities on finding devices with default password
 - [changeme](https://github.com/ztgrace/changeme) - A default credential scanner.
@@ -320,6 +338,7 @@
 - [patator](https://github.com/lanjelot/patator) - Patator is a multi-purpose brute-forcer, with a modular design and a flexible usage.
 
 ## Secrets
+
 - [git-secrets](https://github.com/awslabs/git-secrets) - Prevents you from committing secrets and credentials into git repositories
 - [gitleaks](https://github.com/zricethezav/gitleaks) - Scan git repos](or files) for secrets using regex and entropy
 - [truffleHog](https://github.com/dxa4481/truffleHog) - Searches through git repositories for high entropy strings and secrets, digging deep into commit history
@@ -343,6 +362,7 @@
 - [Trufflehog-Chrome-Extension](https://github.com/trufflesecurity/Trufflehog-Chrome-Extension) - Trufflehog- Chrome-Extension
 
 ## Git
+
 - [GitTools](https://github.com/internetwache/GitTools) - A repository with 3 tools for pwn'ing websites with .git repositories available
 - [gitjacker](https://github.com/liamg/gitjacker) - Leak git repositories from misconfigured websites
 - [git-dumper](https://github.com/arthaud/git-dumper) - A tool to dump a git repository from a website
@@ -350,6 +370,7 @@
 - [dvcs-ripper](https://github.com/kost/dvcs-ripper) - Rip web accessible](distributed) version control systems: SVN/GIT/HG...
 
 ## Buckets
+
 - [S3Scanner](https://github.com/sa7mon/S3Scanner) - Scan for open AWS S3 buckets and dump the contents
 - [AWSBucketDump](https://github.com/jordanpotti/AWSBucketDump) - Security Tool to Look For Interesting Files in S3 Buckets
 - [CloudScraper](https://github.com/jordanpotti/CloudScraper) - CloudScraper: Tool to enumerate targets in search of cloud resources. S3 Buckets, Azure Blobs, Digital Ocean Storage Space.
@@ -369,6 +390,7 @@
 - [S3Cruze](https://github.com/JR0ch17/S3Cruze) - All-in-one AWS S3 bucket tool for pentesters.
 
 ## CMS
+
 - [wpscan](https://github.com/wpscanteam/wpscan) - WPScan is a free, for non-commercial use, black box WordPress security scanner
 - [WPSpider](https://github.com/cyc10n3/WPSpider) - A centralized dashboard for running and scheduling WordPress scans powered by wpscan utility.
 - [wprecon](https://github.com/blackcrw/wprecon) - Wordpress Recon
@@ -377,6 +399,7 @@
 - [pyfiscan](https://github.com/fgeek/pyfiscan) - Free web-application vulnerability and version scanner
 
 ## JSON Web Token
+
 - [jwt_tool](https://github.com/ticarpi/jwt_tool) - A toolkit for testing, tweaking and cracking JSON Web Tokens
 - [c-jwt-cracker](https://github.com/brendan-rius/c-jwt-cracker) - JWT brute force cracker written in C
 - [jwt-heartbreaker](https://github.com/wallarm/jwt-heartbreaker) - The Burp extension to check JWT](JSON Web Tokens) for using keys from known from public sources
@@ -386,16 +409,19 @@
 - [jwt-cracker](https://github.com/lmammino/jwt-cracker) - Simple HS256 JWT token brute force cracker
 
 ## postMessage
+
 - [postMessage-tracker](https://github.com/fransr/postMessage-tracker) - A Chrome Extension to track postMessage usage (url, domain and stack) both by logging using CORS and also visually as an extension
 - [iconPostMessage_Fuzz_Tool](https://github.com/kiranreddyrebel/PostMessage_Fuzz_Tool) - #BugBounty #BugBounty Tools #WebDeveloper Tool
 
 ## Subdomain Takeover
+
 - [subjack](https://github.com/haccer/subjack) - Subdomain Takeover tool written in Go
 - [SubOver](https://github.com/Ice3man543/SubOver) - A Powerful Subdomain Takeover Tool
 - [autoSubTakeover](https://github.com/JordyZomer/autoSubTakeover) - A tool used to check if a CNAME resolves to the scope address. If the CNAME resolves to a non-scope address it might be worth checking out if subdomain takeover is possible.
 - [NSBrute](https://github.com/shivsahni/NSBrute) - Python utility to takeover domains vulnerable to AWS NS
 
 ## Takeover
+
 - [can-i-take-over-xyz](https://github.com/EdOverflow/can-i-take-over-xyz) - "Can I take over XYZ?" — a list of services and how to claim](sub)domains with dangling DNS records.
 - [cnames](https://github.com/cybercdh/cnames) - take a list of resolved subdomains and output any corresponding CNAMES en masse.
 - [subHijack](https://github.com/vavkamil/old-repos-backup/tree/master/subHijack-master) - Hijacking forgotten & misconfigured subdomains
@@ -406,6 +432,7 @@
 - [dnsReaper](https://github.com/punk-security/dnsReaper) - DNS Reaper is yet another sub-domain takeover tool, but with an emphasis on accuracy, speed and the number of signatures in our arsenal!
 
 ## Vulnerability Scanners
+
 - [nuclei](https://github.com/projectdiscovery/nuclei) - Nuclei is a fast tool for configurable targeted scanning based on templates offering massive extensibility and ease of use.
 - [Sn1per](https://github.com/1N3/Sn1per) - Automated pentest framework for offensive security experts
 - [metasploit-framework](https://github.com/rapid7/metasploit-framework) - Metasploit Framework
@@ -423,6 +450,7 @@
 - [OWASP ZAP](https://github.com/zaproxy/zaproxy) - World’s most popular free web security tools and is actively maintained by a dedicated international team of volunteers
 
 ## Uncategorized
+
 - [JSONBee](https://github.com/zigoo0/JSONBee) - A ready to use JSONP endpoints/payloads to help bypass content security policy](CSP) of different websites.
 - [CyberChef](https://github.com/gchq/CyberChef) - The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis
 - [bountyplz](https://github.com/fransr/bountyplz) - Automated security reporting from markdown templates (HackerOne and Bugcrowd are currently the platforms supported)
@@ -433,6 +461,7 @@
 - [awesome-vulnerable-apps](https://github.com/vavkamil/awesome-vulnerable-apps) - Awesome Vulnerable
 
 ## Applications
+
 - [XFFenum](https://github.com/vavkamil/XFFenum) - X-Forwarded-For [403 forbidden] enumeration
 - [httpx](https://github.com/projectdiscovery/httpx) - httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads.
 
@@ -440,4 +469,3 @@
 _Contributions welcome! Read the contribution guidelines (contributing.md) first._
 _License (https://creativecommons.org/publicdomain/zero/1.0)_
 _To the extent possible under law, vavkamil has waived all copyright and related or neighboring rights to this work._
-_
