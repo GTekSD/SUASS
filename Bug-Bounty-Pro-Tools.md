@@ -2,14 +2,14 @@
 
 ## Contents
 - Recon
-- Subdomain Enumeration
-- Port Scanning
-- Screenshots
-- Technologies
-- Content Discovery
-- Links
-- Parameters
-- Fuzzing
+  - Subdomain Enumeration
+  - Port Scanning
+  - Screenshots
+  - Technologies
+  - Content Discovery
+  - Links
+  - Parameters
+  - Fuzzing
 - Exploitation
   - Command Injection
   - CORS Misconfiguration
@@ -39,9 +39,7 @@
   - Subdomain Takeover
   - Uncategorized
 
-## Recon
-
-Lorem ipsum dolor sit amet
+# Recon
 
 ## Subdomain Enumeration
 
@@ -153,8 +151,7 @@ Lorem ipsum dolor sit amet
 - [qsfuzz](https://github.com/ameenmaali/qsfuzz) - qsfuzz (Query String Fuzz) allows you to build your own rules to fuzz query strings and easily identify vulnerabilities.
 - [vaf](https://github.com/d4rckh/vaf) - very advanced (web) fuzzer written in Nim.
 
-## Exploitation
-Lorem ipsum dolor sit amet
+# Exploitation
 
 ## Command Injection
 - [commix](https://github.com/commixproject/commix) - Automated All-in-One OS command injection and exploitation tool.
@@ -314,7 +311,6 @@ Lorem ipsum dolor sit amet
 - [metahttp](https://github.com/vp777/metahttp) - A bash script that automates the scanning of a target network for HTTP resources through XXE
 
 # Miscellaneous
-Lorem ipsum dolor sit amet
 
 ## Passwords
 - [thc-hydra](https://github.com/vanhauser-thc/thc-hydra) - Hydra is a parallelized login cracker which supports numerous protocols to attack.
@@ -441,6 +437,7 @@ Lorem ipsum dolor sit amet
 - [httpx](https://github.com/projectdiscovery/httpx) - httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads.
 
 ## Contribute
-Contributions welcome! Read the contribution guidelines](contributing.md) first.
-License(https://creativecommons.org/publicdomain/zero/1.0)
-To the extent possible under law, vavkamil has waived all copyright and related or neighboring rights to this work.
+_Contributions welcome! Read the contribution guidelines (contributing.md) first._
+_License (https://creativecommons.org/publicdomain/zero/1.0)_
+_To the extent possible under law, vavkamil has waived all copyright and related or neighboring rights to this work._
+_
