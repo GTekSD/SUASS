@@ -39,7 +39,7 @@
   - [Subdomain Takeover](#subdomain-takeover)
   - [Uncategorized](#uncategorized)
 
-
+---------------------------------------------------
 # Recon
 
 ## Subdomain Enumeration
@@ -152,6 +152,8 @@
 - [fuzzapi](https://github.com/Fuzzapi/fuzzapi) - Fuzzapi is a tool used for REST API pentesting and uses API_Fuzzer gem
 - [qsfuzz](https://github.com/ameenmaali/qsfuzz) - qsfuzz (Query String Fuzz) allows you to build your own rules to fuzz query strings and easily identify vulnerabilities.
 - [vaf](https://github.com/d4rckh/vaf) - very advanced (web) fuzzer written in Nim.
+
+
 
 # Exploitation
 
@@ -327,6 +329,8 @@
 - [SSRFXXEinjector](https://github.com/enjoiz/XXEinjector) - Tool for automatic exploitation of XXE vulnerability using direct and different out of band methods.
 - [oxml_xxe](https://github.com/BuffaloWill/oxml_xxe) - A tool for embedding XXE/XML exploits into different filetypes
 - [metahttp](https://github.com/vp777/metahttp) - A bash script that automates the scanning of a target network for HTTP resources through XXE
+
+
 
 # Miscellaneous
 
