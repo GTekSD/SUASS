@@ -1,43 +1,46 @@
 # Awesome Bug Bounty Tools
 
+# Awesome Bug Bounty Tools
+
 ## Contents
 - [Recon](#recon)
-  - Subdomain Enumeration
-  - Port Scanning
-  - Screenshots
-  - Technologies
-  - Content Discovery
-  - Links
-  - Parameters
-  - Fuzzing
-- Exploitation
-  - Command Injection
-  - CORS Misconfiguration
-  - CRLF Injection
-  - CSRF Injection
-  - Directory Traversal
-  - File Inclusion
-  - GraphQL Injection
-  - Header Injection
-  - Insecure Deserialization
-  - Insecure Direct Object References
-  - Open Redirect
-  - Race Condition
-  - Request Smuggling
-  - Server Side Request Forgery
-  - SQL Injection
-  - XSS Injection
-  - XXE Injection
-- Miscellaneous
-  - Passwords
-  - Secrets
-  - Git
-  - Buckets
-  - CMS
-  - JSON Web Token
-  - postMessage
-  - Subdomain Takeover
-  - Uncategorized
+  - [Subdomain Enumeration](#subdomain-enumeration)
+  - [Port Scanning](#port-scanning)
+  - [Screenshots](#screenshots)
+  - [Technologies](#technologies)
+  - [Content Discovery](#content-discovery)
+  - [Links](#links)
+  - [Parameters](#parameters)
+  - [Fuzzing](#fuzzing)
+- [Exploitation](#exploitation)
+  - [Command Injection](#command-injection)
+  - [CORS Misconfiguration](#cors-misconfiguration)
+  - [CRLF Injection](#crlf-injection)
+  - [CSRF Injection](#csrf-injection)
+  - [Directory Traversal](#directory-traversal)
+  - [File Inclusion](#file-inclusion)
+  - [GraphQL Injection](#graphql-injection)
+  - [Header Injection](#header-injection)
+  - [Insecure Deserialization](#insecure-deserialization)
+  - [Insecure Direct Object References](#insecure-direct-object-references)
+  - [Open Redirect](#open-redirect)
+  - [Race Condition](#race-condition)
+  - [Request Smuggling](#request-smuggling)
+  - [Server Side Request Forgery](#server-side-request-forgery)
+  - [SQL Injection](#sql-injection)
+  - [XSS Injection](#xss-injection)
+  - [XXE Injection](#xxe-injection)
+- [Miscellaneous](#miscellaneous)
+  - [Passwords](#passwords)
+  - [Secrets](#secrets)
+  - [Git](#git)
+  - [Buckets](#buckets)
+  - [CMS](#cms)
+  - [JSON Web Token](#json-web-token)
+  - [postMessage](#postmessage)
+  - [Subdomain Takeover](#subdomain-takeover)
+  - [Uncategorized](#uncategorized)
+
 
 # Recon
 
