@@ -1,6 +1,4 @@
-# Awesome Bug Bounty Tools
-
-# Awesome Bug Bounty Tools
+# Bug-Bounty ToolKit | Don't be a n00b
 
 ## Contents
 - [Recon](#recon)
