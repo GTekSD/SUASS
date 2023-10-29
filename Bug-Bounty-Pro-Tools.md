@@ -1,4 +1,5 @@
 # Bug-Bounty ToolKit | Don't be a n00b
+![logo_1920x1080_mid](https://github.com/GTekSD/SUASS/assets/55411358/f69c9715-9633-4148-ab9f-1803a304a75a)
 
 ## Contents
 - [Recon](#recon)
