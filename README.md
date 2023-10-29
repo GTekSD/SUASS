@@ -1,6 +1,6 @@
 # SUASS - Secure ur Ass | Penetration Testing Notes
 
-![SUASS Logo](https://github.com/GTekSD/SUASS/assets/55411358/3c21fe4e-d10b-4c31-a382-1d483607eea0) <!-- Optional: You can include a logo or banner here -->
+![SUASS Logo](https://github.com/GTekSD/SUASS/assets/55411358/91eaf0d2-6c00-48e9-9dd1-b0e315230949) <!-- Optional: You can include a logo or banner here -->
 
 Welcome to the "SUASS - Secure ur Ass | Penetration Testing Notes" repository! This is a comprehensive resource for cybersecurity professionals, students, beginners, and anyone interested in the field of cybersecurity. Here, you'll find a wide range of cybersecurity study materials to help you enhance your knowledge and skills.
 
