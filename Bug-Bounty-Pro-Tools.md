@@ -38,7 +38,11 @@
   - [JSON Web Token](#json-web-token)
   - [postMessage](#postmessage)
   - [Subdomain Takeover](#subdomain-takeover)
+  - [Takeover](#takeover)
+  - [Vulnerability Scanners](#vulnerability-scanners)
   - [Uncategorized](#uncategorized)
+  - [Applications](#applications)
+
 
 ---------------------------------------------------
 # Recon
