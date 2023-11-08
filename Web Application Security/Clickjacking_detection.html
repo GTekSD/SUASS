@@ -1,0 +1,41 @@
+/* This code demonstrates the vulnerability of a web application to clickjacking. (Code written by Suhas Dhole)*/
+/* To use this code to test a specific website for clickjacking vulnerability, you need to replace "example.com" with the URL of the website you want to test. */
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clickjacking detection</title>
+    <style>
+        body {
+            background-image: url(https://irp-cdn.multiscreensite.com/ee90ae2b/dms3rep/multi/stock-vector-hacked-glitched-abstract-digital-background-vector-illustration-761155144.jpg);
+            /* Sets the background image to the specified URL */
+  
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: "Courier New", Courier, monospace;
+            color: red;
+        }
+
+        iframe {
+            display: block;
+            margin: 0 auto;
+            width: 1200px;
+            height: 520px;
+        }
+
+        p {
+            font-family: "Courier New", Courier, monospace;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>This web application is vulnerable to clickjacking!</h1>
+    <p>Affected URL: <a href="https://example.com" style="color: white;" target="_blank"> https://example.com </a></p>
+    <iframe src="https://example.com"></iframe>
+</body>
+</html>
