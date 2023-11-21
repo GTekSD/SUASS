@@ -21,10 +21,13 @@ Tip: Make a zip of `/data/data/com.pakage.name/` and transfer and unzip into PC 
 3.  Check for the presence of root-only system binaries. You can also check for the presence of system binaries that are only available to root users. For example, you can check for the existence of the su binary or the busybox binary. 
     ```
     The following list of Su binaries are often looked for on rooted devices.
-    
+
+    /cache
+    /data
     /data/local/
     /data/local/bin/
     /data/local/xbin/
+    /dev
     /sbin/
     /sbin/su
     /su/bin/
@@ -41,9 +44,6 @@ Tip: Make a zip of `/data/data/com.pakage.name/` and transfer and unzip into PC 
     /system/xbin/
     /system/xbin/mu
     /system/xbin/su
-    /cache
-    /data
-    /dev
     ```
 5.  Use the Google SafetyNet Attestation API. The Google SafetyNet Attestation API is a more reliable way to detect root devices. This API checks the device's integrity and returns a response that indicates whether the device is rooted or not.
 
