@@ -15,6 +15,69 @@ Tip: Make a zip of `/data/data/com.pakage.name/` and transfer and unzip into PC 
 
 ## Finding 3: Root Detection Not Implemented
   - Open root browser and go to `"data/data/com.application.name/"` and take POC of this screen, after that open the application folder and take another POC here (showing all folders of the application).
+  - Here are the steps on how to prevent an app from running in a rooted Android device:
+1.  Check for the presence of root-only files or directories. This is one of the most common methods for root detection. You can check for the presence of files or directories that are only accessible to root users. For example, you can check for the existence of the /su directory or the su binary.
+2.  Check for the presence of root-only permissions. You can also check for the presence of permissions that are only granted to root users. For example, you can check for the SU permission or the MOUNT_UNMOUNT_FILESYSTEMS permission.
+3.  Check for the presence of root-only system binaries. You can also check for the presence of system binaries that are only available to root users. For example, you can check for the existence of the su binary or the busybox binary. 
+    ```
+    /data/local/
+    /data/local/bin/
+    /data/local/xbin/
+    /sbin/
+    /sbin/su
+    /su/bin/
+    /system/app/Superuser.apk
+    /system/bin/
+    /system/bin/su
+    /system/bin/.ext/
+    /system/bin/.ext/.su
+    /system/bin/failsafe/
+    /system/sd/xbin/
+    /system/su
+    /system/usr/we-need-root/
+    /system/usr/we-need-root/su-backup
+    /system/xbin/
+    /system/xbin/mu
+    /system/xbin/su
+    /cache
+    /data
+    /dev
+    ```
+5.  Use the Google SafetyNet Attestation API. The Google SafetyNet Attestation API is a more reliable way to detect root devices. This API checks the device's integrity and returns a response that indicates whether the device is rooted or not.
+
+ - Once you have determined that the device is rooted, you can take appropriate action. For example, you can refuse to run the app, or you can display a warning message.
+ - Here is an example of how to implement root detection in an Android APK: (This code will check for the presence of root-only files, directories, permissions, and system binaries. If any of these are found, the method will return true, indicating that the device is rooted. Otherwise, the method will return false.)
+```
+import android.content.Context;
+import android.os.Build;
+
+public class RootDetector {
+    public static boolean isRooted(Context context) {
+        // Check for the presence of root-only files or directories.
+        if (new File("/su").exists()) {
+            return true;
+        }
+        // Check for the presence of root-only permissions.
+        if (context.getPackageManager().checkPermission("SU", "android") == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        // Check for the presence of root-only system binaries.
+        if (new File("/system/bin/su").exists()) {
+            return true;
+        }
+        // Use the Google SafetyNet Attestation API.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            String safetyNetResponse = SafetyNet.getAttestationResponse(context);
+            if (safetyNetResponse != null) {
+                return false;
+            }
+        }
+
+        return false;
+    }
+}
+```
+
 
 ## Finding 4: Application Debuggable is Enabled
   - Get target application apk into kali linux, and decompile using [Apktool](https://github.com/iBotPeaches/Apktool). Run the following command:
