@@ -49,36 +49,36 @@ Tip: Make a zip of `/data/data/com.pakage.name/` and transfer and unzip into PC 
 
  - Once you have determined that the device is rooted, you can take appropriate action. For example, you can refuse to run the app, or you can display a warning message.
  - Here is an example of how to implement root detection in an Android APK: (This code will check for the presence of root-only files, directories, permissions, and system binaries. If any of these are found, the method will return true, indicating that the device is rooted. Otherwise, the method will return false.)
-```
-import android.content.Context;
-import android.os.Build;
-
-public class RootDetector {
-    public static boolean isRooted(Context context) {
-        // Check for the presence of root-only files or directories.
-        if (new File("/su").exists()) {
-            return true;
-        }
-        // Check for the presence of root-only permissions.
-        if (context.getPackageManager().checkPermission("SU", "android") == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        }
-        // Check for the presence of root-only system binaries.
-        if (new File("/system/bin/su").exists()) {
-            return true;
-        }
-        // Use the Google SafetyNet Attestation API.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            String safetyNetResponse = SafetyNet.getAttestationResponse(context);
-            if (safetyNetResponse != null) {
-                return false;
-            }
-        }
-
-        return false;
-    }
-}
-```
+      ```
+      import android.content.Context;
+      import android.os.Build;
+      
+      public class RootDetector {
+          public static boolean isRooted(Context context) {
+              // Check for the presence of root-only files or directories.
+              if (new File("/su").exists()) {
+                  return true;
+              }
+              // Check for the presence of root-only permissions.
+              if (context.getPackageManager().checkPermission("SU", "android") == PackageManager.PERMISSION_GRANTED) {
+                  return true;
+              }
+              // Check for the presence of root-only system binaries.
+              if (new File("/system/bin/su").exists()) {
+                  return true;
+              }
+              // Use the Google SafetyNet Attestation API.
+              if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                  String safetyNetResponse = SafetyNet.getAttestationResponse(context);
+                  if (safetyNetResponse != null) {
+                      return false;
+                  }
+              }
+      
+              return false;
+          }
+      }
+      ```
 
 
 ## Finding 4: Application Debuggable is Enabled
