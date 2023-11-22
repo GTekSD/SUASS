@@ -25,7 +25,7 @@
 20. Cookie Theft
 21. Credential Reuse
 
-Sensitive Data Exposure:
+## Sensitive Data Exposure:
 22. Inadequate Encryption
 23. Insecure Direct Object References (IDOR)
 25. Unencrypted Data Storage
