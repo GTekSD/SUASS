@@ -4,15 +4,33 @@
 
 ## Contents
 - [Recon](#recon)
-  - [External Infrastructure](#subdomain-enumeration)
-  - [Internal Infrastructure](#subdomain-enumeration)
+  - [External Infrastructure](#external-infrastructure)
+  - [Internal Infrastructure](#internal-infrastructure)
   
-- [Mapping Network](#exploitation)
+- [Mapping Network](#mapping-network)
   - [Command Injection](#command-injection)
 
-
-- [Vulnerability Assessment & Penetration Testing](#miscellaneous)
-  - [Passwords](#passwords)
+- [Vulnerability Assessment & Penetration Testing](#vulnerability-assessment-&-penetration-testing)
+  - [FTP (Port 21)]
+  - [SSH (Port 22)]
+  - [SMTP (Port 25)]
+  - [DNS (Port 53)]
+  - [Jenkins]
+  - [IIS]
+  - [Kerberos (Port 88)]
+  - [RPC (Port 111)]
+  - [Rusersd (Port 1026)]
+  - [NFS (2049)]
+  - [LDAP (Port 389)]
+  - [SMB (Port 445)]
+  - [MSSRPC (Port 135)]
+  - [RTSP (Port 554 & 8554)]
+  - [MSSQL (Port 1433)]
+  - [MySQL (Port 3306)]
+  - [Redis (Port 6379)]
+  - [Banner Grabbing
+  - [PJL (Port 9100)]
+  - [Memcache (Port 11211)]
 
 
 # Recon
