@@ -296,13 +296,25 @@ $ chmod o-rwx file.txt		: remove all permissions from other
 ------------
  
 # Windows Basics & Important Commands
+
+#### Windows Package Manager
+```
+$ winget search <appname>					: To search for a tool/ Find and show basic info of packages
+$ winget install <package>					: Install a package.
+$ winget uninstall <package>					: Remove a package.
+$ winget upgrade						: Update a software package.
+$ winget upgrade all						: Updates all available packages to the latest application.
+$ winget list							: List all installed apps on Windows.
+
+```
+
 #### Networking
 ```
-$ ipconfig								: display IP information
+$ ipconfig							: display IP information
 $ ipconfig /all							: show all addresses including MAC and DNS
 $ ipconfig /all | findstr DNS					: filter DNS with findstr
-$ ipconfig /release							: release current IP address
-$ ipconfig /renew							: renew IP address
+$ ipconfig /release						: release current IP address
+$ ipconfig /renew						: renew IP address
 $ ipconfig /displaydns						: display DNS with IP addresses
 $ ipconfig /displaydns | clip					: copy the output on clipboard
 $ ipconfig /flushdns						: remove old DNS entries
@@ -311,19 +323,19 @@ $ nslookup target.com						: display IP and DNS
 $ nslookup target.com 8.8.8.8					: check DNS from Google
 $ nslookup -type=ptr target.com					: display more details
 
-$ netsh interface show interface					: show network interface
+$ netsh interface show interface				: show network interface
 $ netsh wlan show wlanreport					: give wireless report
 $ netsh interface ip show address | findstr "IP Add"		: show all IP addresses
 
-$ ping target.com							: check host is up or not
+$ ping target.com						: check host is up or not
 $ ping -t target.com						: ping continuously
 
 $ tracert target.com						: trace route to target.com
 $ tracert -d target.com						: speed up tracert
 
-$ netstat								: show ports
+$ netstat							: show ports
 $ netstat -af							: show more
-$ netstat -o								: show with address
+$ netstat -o							: show with address
 $ netstat -e -t 5						
 ```
 
@@ -331,8 +343,8 @@ $ netstat -e -t 5
 ```
 $ assoc						: view file association
 $ assoc .mp4=VLC.vlc				: assign file type
-$ chkdsk /f						: fix errors on the disk
-$ chkdsk /r						: locate bad sectors and recover readable information
+$ chkdsk /f					: fix errors on the disk
+$ chkdsk /r					: locate bad sectors and recover readable information
 $ sfc /scnnow					: scan integrity of all protected system files and repair files with problems when possible
 ```
 
@@ -360,13 +372,13 @@ $ powercfg /battryreport					: show battery report.
 
 #### Firewall
 ```
-$ netsh advfirewall set allprofiles state off		: turn off firewall.
-$ netsh advfirewall set allprofiles state on		: turn on firewall
+$ netsh advfirewall set allprofiles state off			: turn off firewall.
+$ netsh advfirewall set allprofiles state on			: turn on firewall
 ```
 
 #### Routing
 ```
 $ route print							: show route table.
-$ route add 192.168.40.0 mask 255.255.255.0 10.7.1.44	: custom route.
+$ route add 192.168.40.0 mask 255.255.255.0 10.7.1.44		: custom route.
 $ route delete 192.168.40.0					: delete custom route.
 ```
