@@ -51,5 +51,17 @@
 
 ## Nessus Vulnerability Scanner
 
-Advanced Scan > Host Discovery
+Advanced Scan 
+> Settings
+  - DISCOVERY
+    - Host Discovery
+      -  - [x] UDP
+     
+    - Port Scanning
+      - Port scan range: 0-65535
+      -  - [x] UDP
+     
+> Plugins
+  - Backdoors: `DISABLED`
+  - Denial of Service: `DISABLED`
 
