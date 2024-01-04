@@ -21,4 +21,35 @@ Note: Before starting this exercise, you should create an AWS account using the 
 
  1. Open the link https://aws.amazon.com/ into the browser.
  2. The AWS Web Services - Cloud Computing Services page appears. Click on AWS Management Console from the My Account drop-down menu as shown in the screenshot below.
- 3. ![1](https://github.com/GTekSD/SUASS/assets/55411358/5d397059-4f1b-47c2-8b9e-388c3af2145e)
+    ![1](https://github.com/GTekSD/SUASS/assets/55411358/5d397059-4f1b-47c2-8b9e-388c3af2145e)
+
+ 3. The AWS Web Services Sign-in page appears. Type the AWS administrator account ID and click on Next. Note: In the next window, type the characters seen in the image and click on submit.
+ 4. In the Password field, type the password, and click on Sign-in.
+ 5. Select Services from the menu bar and click on IAM under the Security, Identity, & Compliance section.
+ 6. The Welcome to the Identity and Access Management (IAM) page appears. Click on User groups in the left pane under Access management.
+ 7. Now, click on Create group.
+ 8. In the Create user group section, type the group name in the User group name field (here, the group name is Testing_Group).
+ 9. Copyrights @ 2022 EC-Council International Ltd.50Certified Cybersecurity Technician
+ 10. In the Create user group section, type the group name in the User group name field (here, the group name is Testing_Group).
+ 11. Scroll down to Attach permissions policies. In the Attach permissions policies section, search for IAMUserChangePassword. The match record gets filtered. Check IAMUserChangePassword.
+ 12. Next, clear the filter and search for DatabaseAdministrator. The match record gets filtered. Check DatabaseAdministrator.
+ 13. Scroll down the page and click on Create group.
+ 14. Testing_Group will be created under Groups as shown in the screenshot below.
+ 15. Select Users from the Identity and Access Management (IAM) section, and click on Add user to create a new user.
+ 16. The Add user page appears. In the User name field, provide any name (here, the username is Alice).
+ 17. Under Select AWS access type, check Access key - Programmatic access and Password - AWS Management Console access. Choose the Custom password radio button and type the password in the password field (here, we use User@123). Require password reset is optional; however, check this setting. Next, click on Next: Permissions.
+ 18. In the Set permissions section, the Add user to group is selected, by default. Check the newly created group (here, the group is Testing_Group). We have now added the user to the group. Click on Next: Tags.
+ 19. Tags are optional; however, tagging will help us search for Tag keys easily later. Type Department in the field under Key and Testing under Value (optional). Click on Next: Review to proceed to reviewing IAM User creation.
+ 20. On the Review page, we will be able to view the settings and IAM User properties before creating the user. Once you have verified the settings, click on Create user.
+ 21. After you click on Create user, a Success message is displayed. You have an option to Send Email to get the login instructions for the newly created IAM User. Click on Close (lower right corner of the page) to return to the IAM page. It will redirect you to the Users page.
+ 22. Next, let us attach a policy to the user. Select the user for whom you want to add a policy and click the user name. In this instance, let us select Alice as shown in the screenshot below.
+ 23. The Summary page appears (here, it appears for Alice). Click on Add permissions.
+ 24. In the Grant permissions page, click on Attach existing policies directly.
+ 25. In the Filter policies field, search for amazons3readonlyaccess. This will display all pre-configured policies for S3. Select AmazonS3ReadOnlyAccess, and click on Next: Review.
+ 26. In the Permissions summary page, review the assigned policies to the IAM User. After you have reviewed the policies, click on Add permissions.
+ 27. The policy that was assigned will be displayed once you view the IAM User (here, Alice). The policy is displayed under Attached directly.
+ 28. Next, we will create a custom IAM policy. Click on Policies under the Identity and Access Management (IAM) console. Click on Create policy.
+ 29. Click the link Choose a service, specify the service that you wish to use and edit the permissions. In this example, let us use CloudFront on Service.
+ 30. Expand the Actions menu to select the Access level for CloudFront service. In this example, let us enable only Read access for CloudFront. Note: The number of Read access policies might vary in your lab environment.
+ 31. Scroll down and expand the Resources section. Select All resources radio button.
+ 32. Expand Request conditions. Check MFA required, and click on Next: Tags.
