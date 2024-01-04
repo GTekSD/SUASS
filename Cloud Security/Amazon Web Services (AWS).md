@@ -21,3 +21,4 @@ Note: Before starting this exercise, you should create an AWS account using the 
 
  1. Open the link https://aws.amazon.com/ into the browser.
  2. The AWS Web Services - Cloud Computing Services page appears. Click on AWS Management Console from the My Account drop-down menu as shown in the screenshot below.
+ 3. ![1](https://github.com/GTekSD/SUASS/assets/55411358/5d397059-4f1b-47c2-8b9e-388c3af2145e)
