@@ -56,35 +56,33 @@ Note: Before starting this exercise, you should create an AWS account using the 
      ![12](https://github.com/GTekSD/SUASS/assets/55411358/3da013ac-0fd3-4b24-a1da-3b35e37cf2bd)
 
  16. Under Select AWS access type, check `Access key - Programmatic access and Password - AWS Management Console access`. Choose the Custom password radio button and type the password in the password field (here, we use **"User@123"**). Require password reset is optional; however, check this setting. Next, click on Next: Permissions.
-     ![13](https://github.com/GTekSD/SUASS/assets/55411358/b9e35de8-ac3a-495f-ab6c-ab41c5878e14)
-
  17. In the Set permissions section, the Add user to group is selected, by default. Check the newly created group (here, the group is Testing_Group). We have now added the user to the group. Click on Next: Tags.
+     ![13](https://github.com/GTekSD/SUASS/assets/55411358/b9e35de8-ac3a-495f-ab6c-ab41c5878e14)
+ 19. Tags are optional; however, tagging will help us search for Tag keys easily later. Type Department in the field under Key and Testing under Value (optional). Click on Next: Review to proceed to reviewing IAM User creation.
      ![14](https://github.com/GTekSD/SUASS/assets/55411358/487c12d3-5730-40c1-8552-f159d76018eb)
-
- 18. Tags are optional; however, tagging will help us search for Tag keys easily later. Type Department in the field under Key and Testing under Value (optional). Click on Next: Review to proceed to reviewing IAM User creation.
      ![15](https://github.com/GTekSD/SUASS/assets/55411358/555f73f3-39d7-484d-87d9-0f4b847edd24)
 
- 19. On the Review page, we will be able to view the settings and IAM User properties before creating the user. Once you have verified the settings, click on Create user.
+ 20. On the Review page, we will be able to view the settings and IAM User properties before creating the user. Once you have verified the settings, click on Create user.
      ![16](https://github.com/GTekSD/SUASS/assets/55411358/d29c0023-80b6-4a1d-851b-c6b7a6a1d924)
 
- 20. After you click on Create user, a Success message is displayed. You have an option to Send Email to get the login instructions for the newly created IAM User. Click on Close (lower right corner of the page) to return to the IAM page. It will redirect you to the Users page.
+ 21. After you click on Create user, a Success message is displayed. You have an option to Send Email to get the login instructions for the newly created IAM User. Click on Close (lower right corner of the page) to return to the IAM page. It will redirect you to the Users page.
      ![17](https://github.com/GTekSD/SUASS/assets/55411358/4c0af24c-7584-4fbf-b08a-51f250dbb31d)
      ![18](https://github.com/GTekSD/SUASS/assets/55411358/24cbd794-3464-43ef-b7d6-cee7d771568c)
 
- 21. Next, let us attach a policy to the user. Select the user for whom you want to add a policy and click the user name. In this instance, let us select Alice as shown in the screenshot below.
+ 22. Next, let us attach a policy to the user. Select the user for whom you want to add a policy and click the user name. In this instance, let us select Alice as shown in the screenshot below.
      ![19](https://github.com/GTekSD/SUASS/assets/55411358/be88b8cf-ddf6-4b5a-873c-2019a220cb9e)
 
 
- 22. The Summary page appears (here, it appears for Alice). Click on Add permissions.
+ 23. The Summary page appears (here, it appears for Alice). Click on Add permissions.
      
- 23. In the Grant permissions page, click on Attach existing policies directly.
- 24. In the Filter policies field, search for amazons3readonlyaccess. This will display all pre-configured policies for S3. Select AmazonS3ReadOnlyAccess, and click on Next: Review.
- 25. In the Permissions summary page, review the assigned policies to the IAM User. After you have reviewed the policies, click on Add permissions.
- 26. The policy that was assigned will be displayed once you view the IAM User (here, Alice). The policy is displayed under Attached directly.
- 27. Next, we will create a custom IAM policy. Click on Policies under the Identity and Access Management (IAM) console. Click on Create policy.
- 28. Click the link Choose a service, specify the service that you wish to use and edit the permissions. In this example, let us use CloudFront on Service.
- 29. Expand the Actions menu to select the Access level for CloudFront service. In this example, let us enable only Read access for CloudFront. Note: The number of Read access policies might vary in your lab environment.
- 30. Scroll down and expand the Resources section. Select All resources radio button.
+ 24. In the Grant permissions page, click on Attach existing policies directly.
+ 25. In the Filter policies field, search for amazons3readonlyaccess. This will display all pre-configured policies for S3. Select AmazonS3ReadOnlyAccess, and click on Next: Review.
+ 26. In the Permissions summary page, review the assigned policies to the IAM User. After you have reviewed the policies, click on Add permissions.
+ 27. The policy that was assigned will be displayed once you view the IAM User (here, Alice). The policy is displayed under Attached directly.
+ 28. Next, we will create a custom IAM policy. Click on Policies under the Identity and Access Management (IAM) console. Click on Create policy.
+ 29. Click the link Choose a service, specify the service that you wish to use and edit the permissions. In this example, let us use CloudFront on Service.
+ 30. Expand the Actions menu to select the Access level for CloudFront service. In this example, let us enable only Read access for CloudFront. Note: The number of Read access policies might vary in your lab environment.
+ 31. Scroll down and expand the Resources section. Select All resources radio button.
  49. Expand Request conditions. Check MFA required, and click on Next: Tags.
  50. In the Add tags section click on Next: Review.
  51. In the Review policy section, provide a name for the policy in the Name field and add a description in the Description field.
