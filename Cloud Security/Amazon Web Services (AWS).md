@@ -22,25 +22,26 @@ Note: Before starting this exercise, you should create an AWS account using the 
  1. Open the link https://aws.amazon.com/ into the browser.
  2. The AWS Web Services - Cloud Computing Services page appears. Click on `AWS Management Console` from the My Account drop-down menu as shown in the screenshot below.
     ![1](https://github.com/GTekSD/SUASS/assets/55411358/5d397059-4f1b-47c2-8b9e-388c3af2145e)
+ 
  3. The AWS Web Services Sign-in page appears. Type the AWS administrator account ID and click on **Next**. Note: In the next window, type the characters seen in the image and click on submit.
     ![2](https://github.com/GTekSD/SUASS/assets/55411358/1ac6e35c-f900-4378-ad78-6fce3446a440)
 
- 5. In the Password field, type the password, and click on **Sign-in**.
+ 4. In the Password field, type the password, and click on **Sign-in**.
     ![3](https://github.com/GTekSD/SUASS/assets/55411358/c880fdd6-e6fe-44bf-8bcb-e476b320438f)
 
- 7. Select Services from the menu bar and click on `IAM` under the `Security, Identity, & Compliance` section.
+ 5. Select `Services` from the menu bar and click on `IAM` under the `Security, Identity, & Compliance` section.
     ![4](https://github.com/GTekSD/SUASS/assets/55411358/730bcd65-b8b3-4e2f-a089-5184786e15a4)
 
- 9. The Welcome to the **Identity and Access Management (IAM)** page appears. Click on `User groups` in the left pane under **Access management**.
+ 6. The Welcome to the **Identity and Access Management (IAM)** page appears. Click on `User groups` in the left pane under **Access management**.
      ![5](https://github.com/GTekSD/SUASS/assets/55411358/04f0132d-3a40-4185-9163-a5c086305be2)
 
- 8. Now, click on `Create group`.
+ 9. Now, click on `Create group`.
      ![6](https://github.com/GTekSD/SUASS/assets/55411358/fd34a73d-314a-48ae-9b0b-8f645b01a2ec)
 
- 9. In the **Create user group** section, type the group name in the User group name field (here, the group name is **"Testing_Group"**).
+ 10. In the **Create user group** section, type the group name in the User group name field (here, the group name is **"Testing_Group"**).
      ![7](https://github.com/GTekSD/SUASS/assets/55411358/222ed7ef-0fdd-4f3b-9a24-aa6d3bb0e66f)
      
- 10. Scroll down to **Attach permissions policies**. In the Attach permissions policies section, search for **IAMUserChangePassword**. The match record gets filtered. Check `IAMUserChangePassword`.
+ 11. Scroll down to **Attach permissions policies**. In the Attach permissions policies section, search for **IAMUserChangePassword**. The match record gets filtered. Check `IAMUserChangePassword`.
      ![8](https://github.com/GTekSD/SUASS/assets/55411358/9fb9e635-83fe-4213-8ac0-02f14c2c3285)
 
  12. Scroll down the page and click on `Create group`.
@@ -49,10 +50,10 @@ Note: Before starting this exercise, you should create an AWS account using the 
  13. **Testing_Group** will be created under Groups as shown in the screenshot below.
      ![10](https://github.com/GTekSD/SUASS/assets/55411358/17623b4f-16db-4d54-9d43-d3041330733d)
 
- 14. Select `Users` from the Identity and Access Management (IAM) section, and click on `Add user` to create a new user.
+ 14. Select `Users` from the Identity and Access Management (IAM) section, and click on `Create user` to create a new user.
      ![11](https://github.com/GTekSD/SUASS/assets/55411358/b55b3d17-ecc0-4fa9-aa09-d0998f266ae9)
 
- 15. The Add user page appears. In the User name field, provide any name (here, the username is **"Alice"**).
+ 15. The Create user page appears. In the User name field, provide any name (here, the username is **"Alice"**).
      ![12](https://github.com/GTekSD/SUASS/assets/55411358/3da013ac-0fd3-4b24-a1da-3b35e37cf2bd)
 
  16. Under Select AWS access type, check `Access key - Programmatic access and Password - AWS Management Console access`. Choose the Custom password radio button and type the password in the password field (here, we use **"User@123"**). Require password reset is optional; however, check this setting. Next, click on Next: Permissions.
