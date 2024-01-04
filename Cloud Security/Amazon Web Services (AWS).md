@@ -35,42 +35,44 @@ Note: Before starting this exercise, you should create an AWS account using the 
  6. The Welcome to the **Identity and Access Management (IAM)** page appears. Click on `User groups` in the left pane under **Access management**.
      ![5](https://github.com/GTekSD/SUASS/assets/55411358/04f0132d-3a40-4185-9163-a5c086305be2)
 
- 9. Now, click on `Create group`.
+ 7. Now, click on `Create group`.
      ![6](https://github.com/GTekSD/SUASS/assets/55411358/fd34a73d-314a-48ae-9b0b-8f645b01a2ec)
 
- 10. In the **Create user group** section, type the group name in the User group name field (here, the group name is **"Testing_Group"**).
+ 8. In the **Create user group** section, type the group name in the User group name field (here, the group name is **"Testing_Group"**).
      ![7](https://github.com/GTekSD/SUASS/assets/55411358/222ed7ef-0fdd-4f3b-9a24-aa6d3bb0e66f)
      
- 11. Scroll down to **Attach permissions policies**. In the Attach permissions policies section, search for **IAMUserChangePassword**. The match record gets filtered. Check `IAMUserChangePassword`.
+ 9. Scroll down to **Attach permissions policies**. In the Attach permissions policies section, search for **IAMUserChangePassword**. The match record gets filtered. Check `IAMUserChangePassword`.
      ![8](https://github.com/GTekSD/SUASS/assets/55411358/9fb9e635-83fe-4213-8ac0-02f14c2c3285)
 
- 12. Scroll down the page and click on `Create group`.
+ 10. Scroll down the page and click on `Create group`.
      ![9](https://github.com/GTekSD/SUASS/assets/55411358/58d91b47-88b4-45b3-9bd5-a74caff1da45)
 
- 13. **Testing_Group** will be created under Groups as shown in the screenshot below.
+ 11. **Testing_Group** will be created under Groups as shown in the screenshot below.
      ![10](https://github.com/GTekSD/SUASS/assets/55411358/17623b4f-16db-4d54-9d43-d3041330733d)
 
- 14. Select `Users` from the Identity and Access Management (IAM) section, and click on `Create user` to create a new user.
+ 12. Select `Users` from the Identity and Access Management (IAM) section, and click on `Create user` to create a new user.
      ![11](https://github.com/GTekSD/SUASS/assets/55411358/b55b3d17-ecc0-4fa9-aa09-d0998f266ae9)
 
- 15. The Create user page appears. In the User name field, provide any name (here, the username is **"Alice"**).
+ 13. The **Create user** page appears. In the User name field, provide any name (here, the username is **"Alice"**). Under Select AWS access type, check `Provide user access to the AWS Management Console`. Choose the `I want to create an IAM user` option.
      ![12](https://github.com/GTekSD/SUASS/assets/55411358/3da013ac-0fd3-4b24-a1da-3b35e37cf2bd)
 
- 16. Under Select AWS access type, check `Access key - Programmatic access and Password - AWS Management Console access`. Choose the Custom password radio button and type the password in the password field (here, we use **"User@123"**). Require password reset is optional; however, check this setting. Next, click on Next: Permissions.
- 17. In the Set permissions section, the Add user to group is selected, by default. Check the newly created group (here, the group is Testing_Group). We have now added the user to the group. Click on Next: Tags.
-     ![13](https://github.com/GTekSD/SUASS/assets/55411358/b9e35de8-ac3a-495f-ab6c-ab41c5878e14)
- 19. Tags are optional; however, tagging will help us search for Tag keys easily later. Type Department in the field under Key and Testing under Value (optional). Click on Next: Review to proceed to reviewing IAM User creation.
-     ![14](https://github.com/GTekSD/SUASS/assets/55411358/487c12d3-5730-40c1-8552-f159d76018eb)
+ 14. Under **Console password**, Choose the `Custom password` radio button and type the password in the password field (here, we use **"User@123"**). Require password reset is optional; however, check this setting. Next, click on Next: Permissions.
+     ![13](https://github.com/GTekSD/SUASS/assets/55411358/b9e35de8-ac3a-495f-ab6c-ab41c5878e14) 
+ 
+ 15. In the Set permissions section, the Add user to group is selected, by default. Check the newly created group (here, the group is Testing_Group). We have now added the user to the group. Click on Next: Tags.
+     ![14](https://github.com/GTekSD/SUASS/assets/55411358/487c12d3-5730-40c1-8552-f159d76018eb) 
+ 
+ 16. Tags are optional; however, tagging will help us search for Tag keys easily later. Type Department in the field under Key and Testing under Value (optional). Click on Next: Review to proceed to reviewing IAM User creation.
      ![15](https://github.com/GTekSD/SUASS/assets/55411358/555f73f3-39d7-484d-87d9-0f4b847edd24)
 
- 20. On the Review page, we will be able to view the settings and IAM User properties before creating the user. Once you have verified the settings, click on Create user.
+ 17. On the Review page, we will be able to view the settings and IAM User properties before creating the user. Once you have verified the settings, click on Create user.
      ![16](https://github.com/GTekSD/SUASS/assets/55411358/d29c0023-80b6-4a1d-851b-c6b7a6a1d924)
 
- 21. After you click on Create user, a Success message is displayed. You have an option to Send Email to get the login instructions for the newly created IAM User. Click on Close (lower right corner of the page) to return to the IAM page. It will redirect you to the Users page.
+ 18. After you click on Create user, a Success message is displayed. You have an option to Send Email to get the login instructions for the newly created IAM User. Click on Close (lower right corner of the page) to return to the IAM page. It will redirect you to the Users page.
      ![17](https://github.com/GTekSD/SUASS/assets/55411358/4c0af24c-7584-4fbf-b08a-51f250dbb31d)
      ![18](https://github.com/GTekSD/SUASS/assets/55411358/24cbd794-3464-43ef-b7d6-cee7d771568c)
 
- 22. Next, let us attach a policy to the user. Select the user for whom you want to add a policy and click the user name. In this instance, let us select Alice as shown in the screenshot below.
+ 19. Next, let us attach a policy to the user. Select the user for whom you want to add a policy and click the user name. In this instance, let us select Alice as shown in the screenshot below.
      ![19](https://github.com/GTekSD/SUASS/assets/55411358/be88b8cf-ddf6-4b5a-873c-2019a220cb9e)
 
 
