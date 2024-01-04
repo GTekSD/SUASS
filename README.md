@@ -7,6 +7,13 @@ Welcome to the "SUASS - Secure ur Ass | Penetration Testing Notes" repository! T
 ## Table of Contents
 - [Introduction](#introduction)
 - [Contents](#contents)
+  - [CTF-Labs/TryHackMe](#ctf-labstryhackme)
+  - [Cloud Security](#cloud-security)
+  - [Download](#download)
+  - [Mobile Security](#mobile-security)
+  - [Network Security](#network-security)
+  - [Web Application Security](#web-application-security)
+  - [Additional Materials](#additional-materials)
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
 - [License](#license)
@@ -17,17 +24,42 @@ Cybersecurity is a critical field in today's digital world, and this repository 
 
 ## Contents
 
-Our repository includes a variety of materials, such as:
-- **Penetration Testing Notes:** In-depth notes and guides on penetration testing techniques, tools, and methodologies.
-- **Security Best Practices:** Tips and guidelines for enhancing security, both for individuals and organizations.
-- **Resources:** Links to online courses, books, blogs, and other cybersecurity learning materials.
-- **Tools:** Recommendations for cybersecurity tools and software to aid your work.
+### CTF-Labs/TryHackMe
+
+Explore hands-on cybersecurity challenges and labs available on platforms like TryHackMe. Sharpen your skills in a practical environment.
+
+### Cloud Security
+
+Materials related to securing cloud environments, including best practices, tools, and resources for various cloud platforms.
+
+### Download
+
+A collection of downloadable resources relevant to cybersecurity learning, tools, eBooks, or other related content.
+
+### Mobile Security
+
+Study materials focusing on mobile device security, including guides, tools, and best practices.
+
+### Network Security
+
+Information and resources covering network security concepts, protocols, tools, and techniques.
+
+### Web Application Security
+
+Guides, tutorials, and resources addressing security concerns related to web applications, including vulnerabilities, testing methodologies, and mitigation strategies.
+
+### Additional Materials
+
+- **Bug Bounty Pro Tools.md:** Resources and tools utilized in bug bounty programs.
+- **Linux/Windows Commands You Should Learn.md:** Essential command-line operations for Linux and Windows systems.
+- **Rapid-Fire Interview Questions.md:** A compilation of rapid-fire interview questions for cybersecurity roles.
+- **Red Teaming in a Nutshell.md:** Overview and concepts related to red teaming in cybersecurity.
 
 Feel free to explore the repository to discover all the resources we have to offer.
 
 ## Getting Started
 
-To get started with "SUASS - Secure ur Ass | Penetration Testing Notes," follow these steps:
+To get started with "SUASS - Secure ur Ass | Cybersecurity Knowledge Hub," follow these steps:
 
 1. Browse the repository's [contents](#contents) to find the specific materials you're interested in.
 2. Click on individual files or folders to access the study materials you need.
@@ -42,6 +74,7 @@ We encourage contributions from the cybersecurity community to make this reposit
 3. Create a pull request to merge your changes into this main repository.
 
 We appreciate your contributions and collaborative efforts to expand this resource.
+
 
 ## License
 
