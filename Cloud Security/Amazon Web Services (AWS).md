@@ -108,26 +108,20 @@ Note: Before starting this exercise, you should create an AWS account using the 
  53. Click on the Dashboard under the Identity and Access Management (IAM) section. You can see the IAM users sign-in link under AWS Account, copy the link.
 ![29](https://github.com/GTekSD/SUASS/assets/55411358/6d9d3d4f-54b5-4b1f-b5e6-39487ae20ef5)
  
- 54. 
+ 54. Open the Google Chrome browser in incognito mode, paste the copied URL, and press the Enter button. The new sign-in page appears. Type the IAM user name and Password that we created in the previous step (IAM user name: Alice and Password: User@123). Click on Sign in button
 ![30](https://github.com/GTekSD/SUASS/assets/55411358/845f3bd1-1b05-4cc9-a609-9c94e88ad0fc)
 
- 56. Open the Google Chrome browser in incognito mode, paste the copied URL, and press the Enter button.
- ![31](https://github.com/GTekSD/SUASS/assets/55411358/5000324a-cb92-450c-8ce0-f4054c113bd0)
-
- 57. The new sign-in page appears. Type the IAM user name and Password that we created in the previous step (IAM user name: Alice and Password: User@123). Click on Sign in button
-![32](https://github.com/GTekSD/SUASS/assets/55411358/b35be8c1-91a8-422c-977c-a987a465ccc7)
- 
  58. A new page will open wherein you can reset the password. Change the password and click on Confirm password change button.
- ![33](https://github.com/GTekSD/SUASS/assets/55411358/2885a706-4b2d-4bb8-b77e-9847afd410f3)
+![31](https://github.com/GTekSD/SUASS/assets/55411358/5000324a-cb92-450c-8ce0-f4054c113bd0)
  
  59. User Alice is now logged in as an IAM user.
- ![34](https://github.com/GTekSD/SUASS/assets/55411358/f08d8c82-0642-4fef-8c08-804f5b128518) 
-
+![32](https://github.com/GTekSD/SUASS/assets/55411358/b35be8c1-91a8-422c-977c-a987a465ccc7)
  
  60. We have given only Read permission to Alice who can access only limited resources.
- 
+ ![33](https://github.com/GTekSD/SUASS/assets/55411358/2885a706-4b2d-4bb8-b77e-9847afd410f3)
  
  61. Click “Alice” from the upper section of the page and the drop-down menu appears. You can see that the user has been added as an IAM User.
+ ![34](https://github.com/GTekSD/SUASS/assets/55411358/f08d8c82-0642-4fef-8c08-804f5b128518) 
  
  
  62. Next, try to access the IAM service. Expand All services under AWS services field and then select IAM under Security, Identity, & Compliance.
