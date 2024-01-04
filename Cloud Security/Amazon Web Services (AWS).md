@@ -53,3 +53,19 @@ Note: Before starting this exercise, you should create an AWS account using the 
  30. Expand the Actions menu to select the Access level for CloudFront service. In this example, let us enable only Read access for CloudFront. Note: The number of Read access policies might vary in your lab environment.
  31. Scroll down and expand the Resources section. Select All resources radio button.
  32. Expand Request conditions. Check MFA required, and click on Next: Tags.
+ 33. In the Add tags section click on Next: Review.
+ 34. In the Review policy section, provide a name for the policy in the Name field and add a description in the Description field.
+ 35. Scroll down and click on Create policy.
+ 36. The new policy will be successfully created. To check the created policy, click on Policies, type the name of the policy in the search box of Filter policies, then click on the selected policy.
+ 37. Click on the Dashboard under the Identity and Access Management (IAM) section.
+ 38. You can see the IAM users sign-in link under AWS Account, copy the link.
+ 39. Open the Google Chrome browser in incognito mode, paste the copied URL, and press the Enter button.
+ 40. The new sign-in page appears. Type the IAM user name and Password that we created in the previous step (IAM user name: Alice and Password: User@123). Click on Sign in button
+ 41. A new page will open wherein you can reset the password. Change the password and click on Confirm password change button.
+ 42. User Alice is now logged in as an IAM user.
+ 43. We have given only Read permission to Alice who can access only limited resources.
+ 44. Click “Alice” from the upper section of the page and the drop-down menu appears. You can see that the user has been added as an IAM User.
+ 45. Next, try to access the IAM service. Expand All services under AWS services field and then select IAM under Security, Identity, & Compliance.
+ 46. Errors appear as shown in the screenshot below. The IAM User Alice does not have permission to access IAM services.
+ 47. As described above, a security professional can create an IAM Group, Users, and custom policies in AWS.
+ 48. Log out from the AWS platform and close all open windows.
