@@ -1,9 +1,9 @@
-# EXERCISE 1: IMPLEMENT AWS IDENTITY AND ACCESS MANAGEMENT
+# EXERCISE 1: IMPLEMENT AWS IDENTITY AND ACCESS MANAGEMENT (IAM)
 Amazon Web Services (AWS) provides on-demand cloud computing services to individuals, organizations, the government, etc. on a pay-per-use basis.
 AWS IAM enables security professionals to control access to AWS services and resources securely. It allows establishment of access rules and permissions for specific users and applications. It controls who is authenticated (signed in) and authorized (has permissions) for resource access. This helps security professionals assign role-based access control for accessing critical information within the enterprise.
 
 ### OBJECTIVE
-This lab will demonstrate how to create an IAM group and IAM user, attach a policy to the user, and enable Multi-Factor Authentication (MFA)
+This exercise will demonstrate how to create an IAM group and IAM user, attach a policy to the user, and enable Multi-Factor Authentication (MFA)
 that enables adding two-factor authentication for individual users in order to ensure additional security for the user accounts in AWS.
 In this lab, you will learn to do the following:
  - Create IAM Group in AWS
@@ -100,8 +100,10 @@ Note: Before starting this exercise, you should create an AWS account using the 
  61. Click “Alice” from the upper section of the page and the drop-down menu appears. You can see that the user has been added as an IAM User.
  62. Next, try to access the IAM service. Expand All services under AWS services field and then select IAM under Security, Identity, & Compliance.
  63. Errors appear as shown in the screenshot below. The IAM User Alice does not have permission to access IAM services.
- 64. As described above, a security professional can create an IAM Group, Users, and custom policies in AWS.
- 65. Log out from the AWS platform and close all open windows.
+     ![35](https://github.com/GTekSD/SUASS/assets/55411358/7327c2d8-bfdc-4430-9510-b471121e4e38)
+
+ 65. As described above, a security professional can create an IAM Group, Users, and custom policies in AWS.
+ 66. Log out from the AWS platform and close all open windows.
 
 ![20](https://github.com/GTekSD/SUASS/assets/55411358/1e13bc2f-69df-4b03-be25-a8d4689005a6)
 ![21](https://github.com/GTekSD/SUASS/assets/55411358/f89bc8ef-5f3a-4e3c-8b3a-e5400cce0be7)
@@ -118,7 +120,6 @@ Note: Before starting this exercise, you should create an AWS account using the 
 ![32](https://github.com/GTekSD/SUASS/assets/55411358/b35be8c1-91a8-422c-977c-a987a465ccc7)
 ![33](https://github.com/GTekSD/SUASS/assets/55411358/2885a706-4b2d-4bb8-b77e-9847afd410f3)
 ![34](https://github.com/GTekSD/SUASS/assets/55411358/f08d8c82-0642-4fef-8c08-804f5b128518)
-![35](https://github.com/GTekSD/SUASS/assets/55411358/7327c2d8-bfdc-4430-9510-b471121e4e38)
 
 
 # EXERCISE 2: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
