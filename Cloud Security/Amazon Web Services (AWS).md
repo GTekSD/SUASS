@@ -20,33 +20,33 @@ Note: Before starting this exercise, you should create an AWS account using the 
 ### TASKS
 
  1. Open the link https://aws.amazon.com/ into the browser.
- 2. The AWS Web Services - Cloud Computing Services page appears. Click on AWS Management Console from the My Account drop-down menu as shown in the screenshot below.
+ 2. The AWS Web Services - Cloud Computing Services page appears. Click on `AWS Management Console` from the My Account drop-down menu as shown in the screenshot below.
     ![1](https://github.com/GTekSD/SUASS/assets/55411358/5d397059-4f1b-47c2-8b9e-388c3af2145e)
- 3. The AWS Web Services Sign-in page appears. Type the AWS administrator account ID and click on Next. Note: In the next window, type the characters seen in the image and click on submit.
+ 3. The AWS Web Services Sign-in page appears. Type the AWS administrator account ID and click on **Next**. Note: In the next window, type the characters seen in the image and click on submit.
     ![2](https://github.com/GTekSD/SUASS/assets/55411358/1ac6e35c-f900-4378-ad78-6fce3446a440)
 
- 5. In the Password field, type the password, and click on Sign-in.
+ 5. In the Password field, type the password, and click on **Sign-in**.
     ![3](https://github.com/GTekSD/SUASS/assets/55411358/c880fdd6-e6fe-44bf-8bcb-e476b320438f)
 
- 7. Select Services from the menu bar and click on IAM under the Security, Identity, & Compliance section.
+ 7. Select Services from the menu bar and click on `IAM` under the `Security, Identity, & Compliance` section.
     ![4](https://github.com/GTekSD/SUASS/assets/55411358/730bcd65-b8b3-4e2f-a089-5184786e15a4)
 
- 9. The Welcome to the Identity and Access Management (IAM) page appears. Click on User groups in the left pane under Access management.
+ 9. The Welcome to the **Identity and Access Management (IAM)** page appears. Click on `User groups` in the left pane under **Access management**.
      ![5](https://github.com/GTekSD/SUASS/assets/55411358/04f0132d-3a40-4185-9163-a5c086305be2)
 
- 11. Now, click on Create group.
+ 11. Now, click on `Create group`.
      ![6](https://github.com/GTekSD/SUASS/assets/55411358/fd34a73d-314a-48ae-9b0b-8f645b01a2ec)
 
- 13. In the Create user group section, type the group name in the User group name field (here, the group name is Testing_Group).
+ 13. In the **Create user group** section, type the group name in the User group name field (here, the group name is **"Testing_Group"**).
      ![7](https://github.com/GTekSD/SUASS/assets/55411358/222ed7ef-0fdd-4f3b-9a24-aa6d3bb0e66f)
      
- 16. Scroll down to Attach permissions policies. In the Attach permissions policies section, search for IAMUserChangePassword. The match record gets filtered. Check IAMUserChangePassword.
- 17. Next, clear the filter and search for DatabaseAdministrator. The match record gets filtered. Check DatabaseAdministrator.
- 18. Scroll down the page and click on Create group.
- 19. Testing_Group will be created under Groups as shown in the screenshot below.
- 20. Select Users from the Identity and Access Management (IAM) section, and click on Add user to create a new user.
- 21. The Add user page appears. In the User name field, provide any name (here, the username is Alice).
- 22. Under Select AWS access type, check Access key - Programmatic access and Password - AWS Management Console access. Choose the Custom password radio button and type the password in the password field (here, we use User@123). Require password reset is optional; however, check this setting. Next, click on Next: Permissions.
+ 16. Scroll down to **Attach permissions policies**. In the Attach permissions policies section, search for **IAMUserChangePassword**. The match record gets filtered. Check `IAMUserChangePassword`.
+ 17. Next, clear the filter and search for **DatabaseAdministrator**. The match record gets filtered. Check `DatabaseAdministrator`.
+ 18. Scroll down the page and click on `Create group`.
+ 19. **Testing_Group** will be created under Groups as shown in the screenshot below.
+ 20. Select `Users` from the Identity and Access Management (IAM) section, and click on `Add user` to create a new user.
+ 21. The Add user page appears. In the User name field, provide any name (here, the username is **"Alice"**).
+ 22. Under Select AWS access type, check `Access key - Programmatic access and Password - AWS Management Console access`. Choose the Custom password radio button and type the password in the password field (here, we use **"User@123"**). Require password reset is optional; however, check this setting. Next, click on Next: Permissions.
  23. In the Set permissions section, the Add user to group is selected, by default. Check the newly created group (here, the group is Testing_Group). We have now added the user to the group. Click on Next: Tags.
  24. Tags are optional; however, tagging will help us search for Tag keys easily later. Type Department in the field under Key and Testing under Value (optional). Click on Next: Review to proceed to reviewing IAM User creation.
  25. On the Review page, we will be able to view the settings and IAM User properties before creating the user. Once you have verified the settings, click on Create user.
