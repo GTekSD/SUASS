@@ -4,33 +4,18 @@
 
 Welcome to the "SUASS - Secure ur Ass | Penetration Testing Notes" repository! This is a comprehensive resource for cybersecurity professionals, students, beginners, and anyone interested in the field of cybersecurity. Here, you'll find a wide range of cybersecurity study materials to help you enhance your knowledge and skills.
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Contents](#contents)
-  - [CTF-Labs/TryHackMe](#ctf-labstryhackme)
-  - [Cloud Security](#cloud-security)
-  - [Download](#download)
-  - [Mobile Security](#mobile-security)
-  - [Network Security](#network-security)
-  - [Web Application Security](#web-application-security)
-  - [Additional Materials](#additional-materials)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [License](#license)
-
 - ## Table of Contents
 - [Introduction](#introduction)
 - [Contents](#contents)
   - [CTF-Labs/TryHackMe](./CTF-Labs/TryHackMe)
   - [Cloud Security](./Cloud%20Security)
-  - [Download](./Download)
   - [Mobile Security](./Mobile%20Security)
   - [Network Security](./Network%20Security)
   - [Web Application Security](./Web%20Application%20Security)
   - [Additional Materials](#additional-materials)
-    - [Bug Bounty Pro Tools](./Bug%20Bounty%20Pro%20Tools.md)
+    - [Bug Bounty Pro Tools](./Bug-Bounty-Pro-Tools.md)
     - [Linux/Windows Commands You Should Learn](./LinuxWin%20cmds%20u%20better%20learn.md)
-    - [Rapid-Fire Interview Questions](./Rapid-Fire_lnterview-questions.md)
+    - [Rapid-Fire Interview Questions](./Rapid-Fire_Interview-questions.md)
     - [Red Teaming in a Nutshell](./Red_Teaming_in_nutshell.md)
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
