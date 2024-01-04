@@ -34,55 +34,57 @@ Note: Before starting this exercise, you should create an AWS account using the 
  9. The Welcome to the **Identity and Access Management (IAM)** page appears. Click on `User groups` in the left pane under **Access management**.
      ![5](https://github.com/GTekSD/SUASS/assets/55411358/04f0132d-3a40-4185-9163-a5c086305be2)
 
- 11. Now, click on `Create group`.
+ 8. Now, click on `Create group`.
      ![6](https://github.com/GTekSD/SUASS/assets/55411358/fd34a73d-314a-48ae-9b0b-8f645b01a2ec)
 
- 13. In the **Create user group** section, type the group name in the User group name field (here, the group name is **"Testing_Group"**).
+ 9. In the **Create user group** section, type the group name in the User group name field (here, the group name is **"Testing_Group"**).
      ![7](https://github.com/GTekSD/SUASS/assets/55411358/222ed7ef-0fdd-4f3b-9a24-aa6d3bb0e66f)
      
- 14. Scroll down to **Attach permissions policies**. In the Attach permissions policies section, search for **IAMUserChangePassword**. The match record gets filtered. Check `IAMUserChangePassword`.
+ 10. Scroll down to **Attach permissions policies**. In the Attach permissions policies section, search for **IAMUserChangePassword**. The match record gets filtered. Check `IAMUserChangePassword`.
      ![8](https://github.com/GTekSD/SUASS/assets/55411358/9fb9e635-83fe-4213-8ac0-02f14c2c3285)
 
- 15. Scroll down the page and click on `Create group`.
+ 12. Scroll down the page and click on `Create group`.
      ![9](https://github.com/GTekSD/SUASS/assets/55411358/58d91b47-88b4-45b3-9bd5-a74caff1da45)
 
- 21. **Testing_Group** will be created under Groups as shown in the screenshot below.
+ 13. **Testing_Group** will be created under Groups as shown in the screenshot below.
      ![10](https://github.com/GTekSD/SUASS/assets/55411358/17623b4f-16db-4d54-9d43-d3041330733d)
 
- 23. Select `Users` from the Identity and Access Management (IAM) section, and click on `Add user` to create a new user.
+ 14. Select `Users` from the Identity and Access Management (IAM) section, and click on `Add user` to create a new user.
      ![11](https://github.com/GTekSD/SUASS/assets/55411358/b55b3d17-ecc0-4fa9-aa09-d0998f266ae9)
 
- 25. The Add user page appears. In the User name field, provide any name (here, the username is **"Alice"**).
+ 15. The Add user page appears. In the User name field, provide any name (here, the username is **"Alice"**).
      ![12](https://github.com/GTekSD/SUASS/assets/55411358/3da013ac-0fd3-4b24-a1da-3b35e37cf2bd)
 
- 27. Under Select AWS access type, check `Access key - Programmatic access and Password - AWS Management Console access`. Choose the Custom password radio button and type the password in the password field (here, we use **"User@123"**). Require password reset is optional; however, check this setting. Next, click on Next: Permissions.
+ 16. Under Select AWS access type, check `Access key - Programmatic access and Password - AWS Management Console access`. Choose the Custom password radio button and type the password in the password field (here, we use **"User@123"**). Require password reset is optional; however, check this setting. Next, click on Next: Permissions.
      ![13](https://github.com/GTekSD/SUASS/assets/55411358/b9e35de8-ac3a-495f-ab6c-ab41c5878e14)
 
- 29. In the Set permissions section, the Add user to group is selected, by default. Check the newly created group (here, the group is Testing_Group). We have now added the user to the group. Click on Next: Tags.
+ 17. In the Set permissions section, the Add user to group is selected, by default. Check the newly created group (here, the group is Testing_Group). We have now added the user to the group. Click on Next: Tags.
      ![14](https://github.com/GTekSD/SUASS/assets/55411358/487c12d3-5730-40c1-8552-f159d76018eb)
 
- 31. Tags are optional; however, tagging will help us search for Tag keys easily later. Type Department in the field under Key and Testing under Value (optional). Click on Next: Review to proceed to reviewing IAM User creation.
+ 18. Tags are optional; however, tagging will help us search for Tag keys easily later. Type Department in the field under Key and Testing under Value (optional). Click on Next: Review to proceed to reviewing IAM User creation.
      ![15](https://github.com/GTekSD/SUASS/assets/55411358/555f73f3-39d7-484d-87d9-0f4b847edd24)
 
- 33. On the Review page, we will be able to view the settings and IAM User properties before creating the user. Once you have verified the settings, click on Create user.
+ 19. On the Review page, we will be able to view the settings and IAM User properties before creating the user. Once you have verified the settings, click on Create user.
      ![16](https://github.com/GTekSD/SUASS/assets/55411358/d29c0023-80b6-4a1d-851b-c6b7a6a1d924)
 
- 35. After you click on Create user, a Success message is displayed. You have an option to Send Email to get the login instructions for the newly created IAM User. Click on Close (lower right corner of the page) to return to the IAM page. It will redirect you to the Users page.
+ 20. After you click on Create user, a Success message is displayed. You have an option to Send Email to get the login instructions for the newly created IAM User. Click on Close (lower right corner of the page) to return to the IAM page. It will redirect you to the Users page.
      ![17](https://github.com/GTekSD/SUASS/assets/55411358/4c0af24c-7584-4fbf-b08a-51f250dbb31d)
-
- 37. Next, let us attach a policy to the user. Select the user for whom you want to add a policy and click the user name. In this instance, let us select Alice as shown in the screenshot below.
      ![18](https://github.com/GTekSD/SUASS/assets/55411358/24cbd794-3464-43ef-b7d6-cee7d771568c)
 
- 39. The Summary page appears (here, it appears for Alice). Click on Add permissions.
+ 21. Next, let us attach a policy to the user. Select the user for whom you want to add a policy and click the user name. In this instance, let us select Alice as shown in the screenshot below.
+     ![19](https://github.com/GTekSD/SUASS/assets/55411358/be88b8cf-ddf6-4b5a-873c-2019a220cb9e)
+
+
+ 22. The Summary page appears (here, it appears for Alice). Click on Add permissions.
      
- 41. In the Grant permissions page, click on Attach existing policies directly.
- 42. In the Filter policies field, search for amazons3readonlyaccess. This will display all pre-configured policies for S3. Select AmazonS3ReadOnlyAccess, and click on Next: Review.
- 43. In the Permissions summary page, review the assigned policies to the IAM User. After you have reviewed the policies, click on Add permissions.
- 44. The policy that was assigned will be displayed once you view the IAM User (here, Alice). The policy is displayed under Attached directly.
- 45. Next, we will create a custom IAM policy. Click on Policies under the Identity and Access Management (IAM) console. Click on Create policy.
- 46. Click the link Choose a service, specify the service that you wish to use and edit the permissions. In this example, let us use CloudFront on Service.
- 47. Expand the Actions menu to select the Access level for CloudFront service. In this example, let us enable only Read access for CloudFront. Note: The number of Read access policies might vary in your lab environment.
- 48. Scroll down and expand the Resources section. Select All resources radio button.
+ 23. In the Grant permissions page, click on Attach existing policies directly.
+ 24. In the Filter policies field, search for amazons3readonlyaccess. This will display all pre-configured policies for S3. Select AmazonS3ReadOnlyAccess, and click on Next: Review.
+ 25. In the Permissions summary page, review the assigned policies to the IAM User. After you have reviewed the policies, click on Add permissions.
+ 26. The policy that was assigned will be displayed once you view the IAM User (here, Alice). The policy is displayed under Attached directly.
+ 27. Next, we will create a custom IAM policy. Click on Policies under the Identity and Access Management (IAM) console. Click on Create policy.
+ 28. Click the link Choose a service, specify the service that you wish to use and edit the permissions. In this example, let us use CloudFront on Service.
+ 29. Expand the Actions menu to select the Access level for CloudFront service. In this example, let us enable only Read access for CloudFront. Note: The number of Read access policies might vary in your lab environment.
+ 30. Scroll down and expand the Resources section. Select All resources radio button.
  49. Expand Request conditions. Check MFA required, and click on Next: Tags.
  50. In the Add tags section click on Next: Review.
  51. In the Review policy section, provide a name for the policy in the Name field and add a description in the Description field.
@@ -100,5 +102,23 @@ Note: Before starting this exercise, you should create an AWS account using the 
  63. Errors appear as shown in the screenshot below. The IAM User Alice does not have permission to access IAM services.
  64. As described above, a security professional can create an IAM Group, Users, and custom policies in AWS.
  65. Log out from the AWS platform and close all open windows.
+
+![20](https://github.com/GTekSD/SUASS/assets/55411358/1e13bc2f-69df-4b03-be25-a8d4689005a6)
+![21](https://github.com/GTekSD/SUASS/assets/55411358/f89bc8ef-5f3a-4e3c-8b3a-e5400cce0be7)
+![22](https://github.com/GTekSD/SUASS/assets/55411358/71c09380-9de3-44ad-91b7-be215deae803)
+![23](https://github.com/GTekSD/SUASS/assets/55411358/c7abee69-9317-4f6a-a60e-31986c4050b3)
+![24](https://github.com/GTekSD/SUASS/assets/55411358/e17f5d94-a2eb-4b45-ad10-bdcb52335a93)
+![25](https://github.com/GTekSD/SUASS/assets/55411358/d46bc3a9-8873-4f3a-ace5-6577d8a736ee)
+![26](https://github.com/GTekSD/SUASS/assets/55411358/6cea0dc8-eb2b-4a45-bbd2-8ec02ca95e3d)
+![27](https://github.com/GTekSD/SUASS/assets/55411358/d3f36dd1-40c2-4311-a7f2-ef15904e8bfb)
+![28](https://github.com/GTekSD/SUASS/assets/55411358/ab215dbf-231e-449c-8408-7ae04c5f89ef)
+![29](https://github.com/GTekSD/SUASS/assets/55411358/6d9d3d4f-54b5-4b1f-b5e6-39487ae20ef5)
+![30](https://github.com/GTekSD/SUASS/assets/55411358/845f3bd1-1b05-4cc9-a609-9c94e88ad0fc)
+![31](https://github.com/GTekSD/SUASS/assets/55411358/5000324a-cb92-450c-8ce0-f4054c113bd0)
+![32](https://github.com/GTekSD/SUASS/assets/55411358/b35be8c1-91a8-422c-977c-a987a465ccc7)
+![33](https://github.com/GTekSD/SUASS/assets/55411358/2885a706-4b2d-4bb8-b77e-9847afd410f3)
+![34](https://github.com/GTekSD/SUASS/assets/55411358/f08d8c82-0642-4fef-8c08-804f5b128518)
+![35](https://github.com/GTekSD/SUASS/assets/55411358/7327c2d8-bfdc-4430-9510-b471121e4e38)
+
 
 # EXERCISE 2: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
