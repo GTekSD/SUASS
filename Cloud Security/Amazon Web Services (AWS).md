@@ -59,16 +59,14 @@ Note: Before starting this exercise, you should create an AWS account using the 
  14. Under **Console password**, Choose the `Custom password` radio button and type the password in the password field (here, we use **"User@123"**). Require password reset is optional; however, check this setting. Next, click on Next: Permissions.
      ![13](https://github.com/GTekSD/SUASS/assets/55411358/b9e35de8-ac3a-495f-ab6c-ab41c5878e14) 
  
- 15. In the Set permissions section, the Add user to group is selected, by default. Check the newly created group (here, the group is Testing_Group). We have now added the user to the group. Click on Next: Tags.
+ 15. In the **Set permissions** section, the Add user to group is selected, by default. Check the newly created group (here, the group is **"Testing_Group"**). We have now added the user to the group. Click on Next: Tags.
      ![14](https://github.com/GTekSD/SUASS/assets/55411358/487c12d3-5730-40c1-8552-f159d76018eb) 
  
- 16. Tags are optional; however, tagging will help us search for Tag keys easily later. Type Department in the field under Key and Testing under Value (optional). Click on Next: Review to proceed to reviewing IAM User creation.
+ 16. Tags are optional; however, tagging will help us search for Tag keys easily later. Click on **Create User**: Review to proceed to reviewing IAM User creation.
      ![15](https://github.com/GTekSD/SUASS/assets/55411358/555f73f3-39d7-484d-87d9-0f4b847edd24)
 
- 17. On the Review page, we will be able to view the settings and IAM User properties before creating the user. Once you have verified the settings, click on Create user.
+ 17. On the Review page, we will be able to view the settings and IAM User properties before creating the user. Once you have verified the settings, click on `Create user`. After you click on Create user, a Success message is displayed. You have an option to Send Email to get the login instructions for the newly created IAM User. Click on `Return to users list`. It will redirect you to the Users page.
      ![16](https://github.com/GTekSD/SUASS/assets/55411358/d29c0023-80b6-4a1d-851b-c6b7a6a1d924)
-
- 18. After you click on Create user, a Success message is displayed. You have an option to Send Email to get the login instructions for the newly created IAM User. Click on Close (lower right corner of the page) to return to the IAM page. It will redirect you to the Users page.
      ![17](https://github.com/GTekSD/SUASS/assets/55411358/4c0af24c-7584-4fbf-b08a-51f250dbb31d)
      ![18](https://github.com/GTekSD/SUASS/assets/55411358/24cbd794-3464-43ef-b7d6-cee7d771568c)
 
