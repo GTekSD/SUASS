@@ -93,22 +93,22 @@ Note: Before starting this exercise, you should create an AWS account using the 
  30. Expand the `Actions` menu to select the **Access level** for CloudFront service. In this example, let us enable only `Read` access for CloudFront. Note: The number of Read access policies might vary in your lab environment.
  ![24](https://github.com/GTekSD/SUASS/assets/55411358/e17f5d94-a2eb-4b45-ad10-bdcb52335a93)
  
- 31. Scroll down and expand the `Resources` section. Select `All` resources radio button.
+ 31. Scroll down and expand the `Resources` section. Select `All` resources radio button. Expand `Request conditions`. Check `User is MFA Authenticated`, and click on **Next**: Review and create.
  ![25](https://github.com/GTekSD/SUASS/assets/55411358/d46bc3a9-8873-4f3a-ace5-6577d8a736ee) 
 
- 49. Expand `Request conditions`. Check `User is MFA Authenticated`, and click on **Next**: Review and create.
+ 49. In the **Review and Create** section, provide a name for the policy in the Name field and add a description in the Description field.
  ![26](https://github.com/GTekSD/SUASS/assets/55411358/6cea0dc8-eb2b-4a45-bbd2-8ec02ca95e3d)
  
- 51. In the **Review and Create** section, provide a name for the policy in the Name field and add a description in the Description field.
+ 51. Scroll down, In the Add tags section click on `Create policy`.
 ![27](https://github.com/GTekSD/SUASS/assets/55411358/d3f36dd1-40c2-4311-a7f2-ef15904e8bfb)
  
- 52. Scroll down, In the Add tags section click on `Create policy`.
+ 52. The new policy will be successfully created. To check the created policy, click on Policies, type the name of the policy in the search box of Filter policies, then click on the selected policy.
 ![28](https://github.com/GTekSD/SUASS/assets/55411358/ab215dbf-231e-449c-8408-7ae04c5f89ef)
 
- 53. The new policy will be successfully created. To check the created policy, click on Policies, type the name of the policy in the search box of Filter policies, then click on the selected policy.
+ 53. Click on the Dashboard under the Identity and Access Management (IAM) section. You can see the IAM users sign-in link under AWS Account, copy the link.
 ![29](https://github.com/GTekSD/SUASS/assets/55411358/6d9d3d4f-54b5-4b1f-b5e6-39487ae20ef5)
  
- 54. Click on the Dashboard under the Identity and Access Management (IAM) section. You can see the IAM users sign-in link under AWS Account, copy the link.
+ 54. 
 ![30](https://github.com/GTekSD/SUASS/assets/55411358/845f3bd1-1b05-4cc9-a609-9c94e88ad0fc)
 
  56. Open the Google Chrome browser in incognito mode, paste the copied URL, and press the Enter button.
