@@ -1,0 +1,278 @@
+EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Key management involves generating, using, protecting, storing, backing up, and deleting encryption keys.
+LAB SCENARIO
+Security professionals follow different data security methods to protect data stored on the cloud. Generally, data are encrypted to protect its 
+confidentiality and integrity. Securing the encryption keys from unauthorized access is a major concern for security professionals. Amazon Web 
+Services (AWS) Key Management Service (KMS) provides a key management service for secured storing and rotating of encryption keys with 
+strict access control. It is important for a security professional to understand AWS KMS and learn how to create and manage cryptographic keys 
+and as well as implement the keys in AWS services and applications.
+OBJECTIVE
+In this lab, you will learn to do the following:
+• Create KMS Master Key
+• Encrypt AWS S3 using AWS KMS Master Key
+• Encrypt EBS Volume using AWS KMS Mater Key
+• Encrypt Amazon Redshift Using KMS Master Key
+OVERVIEW OF KEY MANAGEMENT
+Cloud Key management is linked with Cloud Identity and Access Management and Cloud Audit Logs for controlling and monitoring access to 
+individual keys and their use.
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 88
+Note: You need to execute Exercise 3 of this module before executing this lab as the user and group created in the previous lab are used in 
+this lab.
+Note: Ensure that Admin Machine-1 and PfSense Firewall virtual machines are running.
+1. In the Admin Machine-1 virtual machine, double-click on the Google Chrome icon on the Desktop to open the browser.
+2. The Google Chrome browser opens. Go to the address bar, type https://aws.amazon.com/, and press Enter.
+3. The AWS Web Services - Cloud Computing Services page appears. Click on AWS Management Console from the My Account drop-down 
+menu as shown in the screenshot below. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 89
+4. The AWS Web Services Sign-in page appears. Type the AWS administrator account ID, and click on Next.
+5. In the Password field, type the password, and click on Sign-in.
+6. Type KMS in the Search field, and then select Key Management Service from the search result. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 90
+7. The KMS Console page appears. Click on Customer managed keys in the left pane. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 91
+8. The Customer managed keys section appears. Click on Create key. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 92
+9. By default, the Symmetric key is selected. Click on Next to continue.
+10. Type CCT_User_MasterKey in the Alias field, which will serve as the name of your Master Key. The Description is optional; however, entering 
+a brief description of what the key does is recommended. Under the Tags section, you can Add Tags that can help identify the Master Key 
+using Tag key and Tag value. Click on Next. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 93 EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 94
+11. To allow users to perform encryption and decryption, we must assign key permissions for the users. In this example, we will permit Alice to 
+use the Master Key and click Next. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 95
+12. At this step, there is an option to Add another AWS account. However, we have already added the user Alice. Therefore, click on Next to 
+continue. EXERCISE 4: IMPLEMENT KEY 
+MANAGEMENT 
+SERVICES IN 
+AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 96
+13. You can Review and edit key policy, which is in JSON format. Click on Finish to create the Master Key. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 97
+14. The key has been created successfully, and it now appears in the Customer managed keys section. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 98
+15. After creating the key, you can go to Customer managed keys and click on the key (here, it is CCT_User_Masterkey) in the Alias column to 
+view the Master Key properties. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 99
+16. In the AWS Management Console, click on Services from the menu bar and enter S3 in the search field. Click on S3 Scalable Storage in the 
+Cloud from the search results. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 100
+17. The S3 buckets page appears. Click on Create bucket. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 101
+18. The Create bucket pop-up appears. Under General configuration, type the name of the bucket in the Bucket name field (here, the bucket 
+name is testing-group), and retain the other default settings. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 102
+19. Retain default settings for all other sections, scroll down and click on Create bucket. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 103
+20. The S3 buckets page appears.
+21. Click on the bucket for which you want to configure the encryption settings (here, click on testing-group). EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 104
+22. The testing-group bucket page appears. Click on Properties, and then click on the Edit button under the Bucket Versioning section. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 105
+23. Click on the Enable radio button under Bucket Versioning to enable it, and then scroll down and select Save changes. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 106
+24. In the testing-group bucket page scroll down to Server access logging and click on Edit. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 107
+25. Click on the Enable radio button under Server access logging Similarly and click on Browse S3 to select the target bucket. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 108
+26. In the Choose destination to upload resources window select testing-group s3 bucket and click on Choose path. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 109
+27. The testing-group appears in Target bucket, scroll down and click on Save changes. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 110
+28. Next, in the testing-group bucket page, scroll down and click on Edit button under Default encryption. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 111
+29. In the Edit default encryption window select Enable radio button and choose the AWS Key Management Service key (SSE-KMS) radio 
+button from the list of encryption key types, and select AWS managed key aws/s3 under AWS KMS key section, which will use the default 
+AWS Managed Keys. Click on Save changes. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 112 EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 113
+30. We have created the testing-group bucket for encrypting data. The user can push data into this bucket.
+31. The user can also use a customer managed key for this bucket. Let us see how to use the customer managed key for the testing-group 
+bucket to encrypt the data.
+32. Go to Key Management Services (KMS), and select Customer managed keys. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 114
+33. Under the Customer managed keys pane, click on CCT_User_MasterKey Alias. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 115
+34. Under the CCT_user_MasterKey’s General configuration, select the Amazon Resource Names (ARN) key which uniquely identify AWS 
+resourceskey under the ARN field and copy it. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 116
+35. Open Notepad and paste the copied link.
+36. Switch to the browser. Navigate to S3 Management Console and select testing-group under Bucket name. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 117
+37. The testing-group pane opens. Select the Properties tab. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 118
+38. Scroll down and click on Edit button under Default encryption. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 119
+39. Switch to Notepad and copy the key that we had pasted in Step 35.
+40. Again, switch back to the Default Encryption and select the Enter AWS KMS key ARN radio button and paste the key that was copied in 
+Step 35 in the AWS KMS key ARN. Click on Save changes. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 120
+41. In this way, with the help of Customer Managed Keys, the user can encrypt and protect storage data.
+42. Amazon EBS supports KMS. Its encryption provides security to data at rest by encrypting data volumes, boot volumes, and snapshots 
+using Amazon-managed keys or keys created and managed using the AWS KMS.
+43. Click on Services from the menu bar, and search for EC2. From the search results, click on EC2 Virtual Servers in the Cloud as shown in the 
+screenshot below. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN 
+AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 121
+44. Once the EC2 Service Console page opens, click on Volumes in the left pane under Elastic Block Store. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 122
+45. To create a new volume, click on Create Volume. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 123
+46. In the Create Volume page, select the Volume Type and specify the size of the volume in the Size (GiB) field. If you need the disk to restore 
+existing data, you can select a Snapshot ID, in which you have saved another volume’s Snapshot. Check Encryption: Encrypt this volume. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 124
+47. In the Master Key field, select the Customer Managed Key we created: CCT_User_MasterKey. After entering the required details, scroll 
+down and click on Create Volume. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 125
+48. The Volume created successfully dialog message will appear once the disk is created. Click on Close. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 126
+49. In this way, the KMS Master Key is used to encrypt the EBS volume.
+50. As we have encrypted EBS Volume, we will now encrypt Amazon Redshift using KMS Master Key.
+51. Go to main search bar and search for redshift and select Amazon Redshift. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 127
+52. Close the welcome popup that appears. Click on Create cluster in the Redshift dashboard. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 128
+53. The Cluster configuration page appears. (Here, we are selecting the Production option to create a new Redshift cluster. If you are in free 
+trial, select a Free trial option, and proceed. Please note that if you select the Production option, your account will be charged as per the AWS 
+pricing model so make sure that you delete the Redshift cluster service after performing the lab.) Scroll down the page to view the detailed 
+configuration of the cluster. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 129
+54. Type the password Dbuser123 in the Admin user password field. Keep the remaining default settings as it is and click on Create cluster. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 130 EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 131
+55. The redshift-cluster-1 is now being created. Observe, that it is showed under the Status column as Modifying and Creating. Wait until the 
+cluster is fully created. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 132
+56. Once the cluster is fully created, you can see that the cluster’s Status is Available. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 133
+57. Click on the newly created cluster link (here, the cluster link is redshift-cluster-1) to modify the cluster setting.
+58. The newly created cluster redshift-cluster-1 page appears. Click on Edit button. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 134
+59. The Edit cluster redshift-cluster-1 page appears, scroll down to Database configurations. Click on Open tab. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 135
+60. You will be redirected to Properties section. In the Properties section click on Edit drop down and select Edit encryption. In Edit encryption 
+window, choose the Use AWS Key Management Service (AWS KMS) radio button, then choose Use key from current account, and finally 
+choose CCT_User_Masterkey in KMS key ID drop-down. Click Save changes. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 136 EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 137
+61. See the cluster’s status in Status column. It shows Modifying and Resizing. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 138
+62. On the AWS Web Console, click on Services and search for KMS. Select Key Management Service. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 139
+63. Once the KMS Console page appears, click on Customer managed keys (here CCT_User_MasterKey). EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 140
+64. Scroll down until the Key users section. Click on Add. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 141
+65. Use the search box to filter the IAM users. Type Alice as shown in the screenshot below and check Alice. We will add the IAM User Alice so 
+that the user can access the Master Key. Click on Add. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 142
+66. After you have added the user, it will appear as added in the Key users section. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 143
+67. Thus, a security professional can implement AWS KMS.
+68. Now ensure that you delete the created cluster. To do this, type redshift in the main search bar and select Amazon Redshift.
+69. Select the Clusters icon from AWS icon bar on the left. Select the created cluster from the list and click Actions from the drop-down 
+menu. Click Delete.
+Note: If the status of the cluster is still Modifying and Resizing wait for it to change to Available, then delete the Cluster. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 144
+70. The Delete redshift-cluster-1 popup appears. Uncheck the Create Final Snapshot and click Delete cluster to delete the created cluster. EXERCISE 4: IMPLEMENT KEY MANAGEMENT SERVICES IN AWS
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 145
+71. Log out from the AWS platform and close all open windows.
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 146
+EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+S3 buckets are used by customers and end-users to store text documents, PDFs, videos, images, etc.
+LAB SCENARIO
+In the cloud, data is stored on Internet-connected servers in data centres. It is important that security professionals understand and implement 
+the data storage security features for data encryption and access management tools provided by service providers to secure the data stored in 
+the data centres.
+OBJECTIVE
+This lab will demonstrate how to restrict access to S3 resources by creating bucket policies, Access Control Lists (ACLs), and IAM policies to 
+provide access to selected entities.
+In this lab, you will learn to do the following:
+• Assign Permissions to Amazon S3 Using ACL
+• Assign Permissions to Amazon S3 Using Bucket Policy
+OVERVIEW OF AWS STORAGE
+Amazon S3 allows upload and retrieval data at any time and from anywhere on the Internet. It stores data as objects (text file/photo/video) 
+within buckets. In the default state, all the Amazon S3 buckets are accessed by authorized users. Restrict access to S3 resources by combining 
+bucket policies, ACLs and IAM polices to give access to the right entities.
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 147
+Note: Before starting this lab, you should create an AWS account using the following: https://portal.aws.amazon.com/billing/signup. Once the 
+registration is completed, perform the following tasks.
+Note: Ensure that Admin Machine-1 and PfSense Firewall virtual machines are running.
+1. In the Admin Machine-1 virtual machine, double-click on the Google Chrome icon on the Desktop to open the browser.
+2. The Google Chrome browser opens. Go to the address bar, type https://aws.amazon.com/, and press Enter.
+Note: If you are already logged in, skip the login steps.
+3. The AWS Web Services - Cloud Computing Services page appears. Click on AWS Management Console from the My Account drop-down 
+menu as shown in the screenshot below.
+4. The AWS Web Services Sign-in page appears. Type the AWS administrator account ID, and click on Next.
+Note: In the next window, type the characters seen in the image and click on submit. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 148
+5. In the Password field, type the password, and click on Sign-in.
+6. Click on Services. In the search field, type S3, and then click on S3 Scalable Storage in the Cloud from the search results. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 149
+7. The S3 buckets page appears. Click on Create bucket. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 150
+8. The Create bucket pop-up appears. Under General configuration, type the name of the bucket in the Bucket name field (here, the bucket 
+name is testing-group1), and retain the other default settings. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 151
+9. Retain default settings for all other sections, scroll down and click on Create bucket. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 152
+10. The new bucket is created.
+11. Select the testing-group1 S3 bucket. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 153
+12. The Amazon S3 > testing-group1 page appears. Click on the Permissions tab. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 154
+13. By default, the Block all public access tab is selected; click on Edit. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 155
+14. Uncheck Block all public access and click on Save changes. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 156
+15. The confirmation dialog appears. Type confirm and click on Confirm. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 157
+16. The Successfully edited Block Public Access settings for this bucket message appears. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 158
+17. Next, scroll down to Access control List under the Permissions tab and click on Edit. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 159
+18. In the Edit access control list (ACL) window, we will set all permissions to our ACL on our AWS account, under the Bucket owner section 
+ensure that all the permissions are checked under Objects and Bucket ACL. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 160
+19. Scroll down and click on Save changes to apply the permissions on the AWS account. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 161
+20. Public access settings have been updated successfully. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 162
+21. We have created a bucket policy with the name testing-group1. We need the ARN of the bucket policy. Right-click on Amazon S3 in the left 
+corner and click on Open link in new tab. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 163
+22. Check the bucket for which you want to know the ARN number (here, testing-group1). The details of testing-group1 appear. Click on Copy 
+ARN.EXERCISE 5:
+SECURE AMAZON 
+WEB SERVICES 
+STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 164
+23. Open Notepad and paste the copied ARN into it. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 165
+24. Switch to the browser and close the second browser tab. You will return to the first browser tab.
+25. Scroll down to Bucket Policy under the Permissions tab and click on Edit and click on Policy generator link. A new tab of the browser 
+opens switch to a new tab. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 166
+26. The AWS Policy Generator page appears, as shown in the screenshot below. Set Select Type of Policy to S3 Bucket Policy. Set Effect to 
+Allow. In the Principal field, let us specify a wildcard (“*”) to allow all principals for now. Set AWS Service to Amazon S3. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 167
+27. Switch to Notepad and copy the ARN that we have pasted. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 168
+28. Go to the browser and check the All Actions checkbox, paste the copied ARN value in the Amazon Resource Name (ARN) field, and click 
+on Add Statement. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 169
+29. Once the statement is added, click on Generate Policy in the Step 3: Generate Policy section. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 170
+30. The Policy JSON Document pop-up appears, along with the generated JSON code. Copy the code as shown in the screenshot below and 
+click on Close. EXERCISE 5: SECURE AMAZON WEB SERVICES 
+STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 171
+31. Switch to the first tab of the web browser S3 Management Console to configure Bucket Policy. Paste the copied JSON code from the 
+Bucket policy editor, scroll down and click on Save changes. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 172 EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 173
+32. Now the bucket has public access. EXERCISE 5: SECURE AMAZON WEB SERVICES STORAGE
+Copyrights @ 2022 EC-Council International Ltd. Certified Cybersecurity Technician 174
+33. As described above, the security professional can assign permissions to S3 using bucket policy.
+34. Log out from the AWS platform and close all open windows.
+35. Turn off Admin Machine-1 and PfSense Firewall virtual machines.
