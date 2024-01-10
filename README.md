@@ -9,6 +9,8 @@ Welcome to the "SUASS - Secure ur Ass | Penetration Testing Notes" repository! T
 - [Contents](#contents)
   - [CTF-Labs/TryHackMe](./CTF-Labs/TryHackMe)
   - [Cloud Security](./Cloud%20Security)
+    - [Amazon Web Services (AWS)](./Cloud%20Security/Amazon%20Web%20Services%20(AWS))
+    - [Google Cloud Platform (GCP)](./Cloud%20Security/Google%20Cloud%20Platform%20(GCP))
   - [Mobile Security](./Mobile%20Security)
   - [Network Security](./Network%20Security)
   - [Web Application Security](./Web%20Application%20Security)
