@@ -103,10 +103,20 @@ For more information on nmap, check out the nmap room.
 Notes: Flags for each user account are available for submission. You can retrieve the flags for user accounts via RDP (Note: the login format is spookysec.local\User at the Window's login prompt) and Administrator via Evil-WinRM.
 Answer the questions below
 
-What tool will allow us to enumerate port 139/445?
+- What tool will allow us to enumerate port 139/445?
+```
+enum4linux
+```
 
-What is the NetBIOS-Domain Name of the machine?
-What invalid TLD do people commonly use for their Active Directory Domain?
+- What is the NetBIOS-Domain Name of the machine?
+```
+THM-AD
+```
+
+- What invalid TLD do people commonly use for their Active Directory Domain?
+```
+.local
+```
 
 
 
@@ -123,11 +133,20 @@ Enumeration:
 For this box, a modified User List and Password List will be used to cut down on time of enumeration of users and password hash cracking. It is NOT recommended to brute force credentials due to account lockout policies that we cannot enumerate on the domain controller.
 Answer the questions below
 
-What command within Kerbrute will allow us to enumerate valid usernames?
+- What command within Kerbrute will allow us to enumerate valid usernames?
+```
+userenum
+```
 
-What notable account is discovered? (These should jump out at you)
+- What notable account is discovered? (These should jump out at you)
+```
+svc-admin
+```
 
-What is the other notable account is discovered? (These should jump out at you)
+- What is the other notable account is discovered? (These should jump out at you)
+```
+backup
+```
 
 
 ### Task 5 Exploitation Abusing Kerberos
@@ -143,13 +162,25 @@ Impacket has a tool called "GetNPUsers.py" (located in impacket/examples/GetNPUs
 Remember:  Impacket may also need you to use a python version >=3.7. In the AttackBox you can do this by running your command with python3.9 /opt/impacket/examples/GetNPUsers.py.
 Answer the questions below
 
-We have two user accounts that we could potentially query a ticket from. Which user account can you query a ticket from with no password?
+- We have two user accounts that we could potentially query a ticket from. Which user account can you query a ticket from with no password?
+```
+svc-admin
+```
 
-Looking at the Hashcat Examples Wiki page, what type of Kerberos hash did we retrieve from the KDC? (Specify the full name)
+- Looking at the Hashcat Examples Wiki page, what type of Kerberos hash did we retrieve from the KDC? (Specify the full name)
+```
+Kerberos 5 AS-REP etype 23
+```
 
-What mode is the hash?
+- What mode is the hash?
+```
+18200
+```
 
-Now crack the hash with the modified password list provided, what is the user accounts password?
+- Now crack the hash with the modified password list provided, what is the user accounts password?
+```
+management2005
+```
 
 
 ### Task 6 Enumeration Back to the Basics
@@ -159,17 +190,35 @@ Enumeration:
 With a user's account credentials we now have significantly more access within the domain. We can now attempt to enumerate any shares that the domain controller may be giving out.
 Answer the questions below
 
-What utility can we use to map remote SMB shares?
+- What utility can we use to map remote SMB shares?
+```
+smbclient
+```
 
-Which option will list shares?
+- Which option will list shares?
+```
+-L
+```
 
-How many remote shares is the server listing?
+- How many remote shares is the server listing?
+```
+6
+```
 
-There is one particular share that we have access to that contains a text file. Which share is it?
+- There is one particular share that we have access to that contains a text file. Which share is it?
+```
+backup
+```
 
-What is the content of the file?
+- What is the content of the file?
+```
+YmFja3VwQHNwb29reXNlYy5sb2NhbDpiYWNrdXAyNTE3ODYw
+```
 
-Decoding the contents of the file, what is the full contents?
+- Decoding the contents of the file, what is the full contents?
+```
+backup@spookysec.local:backup2517860
+```
 
 
 ### Task 7 Domain Privilege Escalation Elevating Privileges within the Domain
@@ -186,13 +235,25 @@ Well, it is the backup account for the Domain Controller. This account has a uni
 Knowing this, we can use another tool within Impacket called "secretsdump.py". This will allow us to retrieve all of the password hashes that this user account (that is synced with the domain controller) has to offer. Exploiting this, we will effectively have full control over the AD Domain.
 Answer the questions below
 
-What method allowed us to dump NTDS.DIT?
+- What method allowed us to dump NTDS.DIT?
+```
+DRSUAPI
+```
 
-What is the Administrators NTLM hash?
+- What is the Administrators NTLM hash?
+```
+0e0363213e37b94221497260b0bcb4fc
+```
 
-What method of attack could allow us to authenticate as the user without the password?
+- What method of attack could allow us to authenticate as the user without the password?
+```
+Pass The Hash
+```
 
-Using a tool called Evil-WinRM what option will allow us to use a hash?
+- Using a tool called Evil-WinRM what option will allow us to use a hash?
+```
+-H
+```
 
 
 ### Task 8 Flag Submission Flag Submission Panel
@@ -203,10 +264,18 @@ Submit the flags for each user account. They can be located on each user's deskt
 
 If you enjoyed this box, you may also enjoy my blog post!
 Answer the questions below
-svc-admin
 
-backup
+- svc-admin
+```
+Flag: TryHackMe{K3rb3r0s_Pr3_4uth}
+```
 
-Administrator
+- backup
+```
 
+```
 
+- Administrator
+```
+
+```
