@@ -272,10 +272,10 @@ Flag: TryHackMe{K3rb3r0s_Pr3_4uth}
 
 - backup
 ```
-
+TryHackMe{B4ckM3UpSc0tty!}
 ```
 
 - Administrator
 ```
-
+TryHackMe{4tiveD1rectoryM4st3r}
 ```
