@@ -13,8 +13,11 @@ Connect to our network using OpenVPN. Here is a mini walkthrough of connecting:
 Go to your access page and download your configuration file.
 
 Use an OpenVPN client to connect. In my example I am on Linux, on the access page we have a windows tutorial.
-
-(change "ben.ovpn" to your config file)
+```
+┌──(gteksd㉿PHENTHESTER)-[~/Downloads]
+└─$ sudo openvpn GTekSD.ovpn
+```
+(change "GTekSD.ovpn" to your config file)
 
 When you run this you see lots of text, at the end it will say Initialization Sequence Completed
 
@@ -37,11 +40,37 @@ Can you root this Mr. Robot styled machine? This is a virtual machine meant for 
 Credit to Leon Johnson for creating this machine. This machine is used here with the explicit permission of the creator <3 
 Answer the questions below
 
-What is key 1?
+```
+┌──(gteksd㉿PHENTHESTER)-[~]
+└─$ curl http://10.10.221.160/key-1-of-3.txt
+073403c8a58a1f80d943455fb30724b9
+```
 
+What is key 1?
+```
+073403c8a58a1f80d943455fb30724b9
+```
+
+```
+robot@linux:-$ cat key-2-of-3.txt
+cat key-2-of-3.txt
+822c73956184f694993bede3eb39f959
+```
 What is key 2?
+```
+822c73956184f694993bede3eb39f959
+```
+
+```
+nmap> !cat /root/key-3-of-3.txt
+!cat /root/key-3-of-3.txt
+04787ddef27c3dee1ee161b21670b4e4
+```
 
 What is key 3?
+```
+04787ddef27c3dee1ee161b21670b4e4
+```
 
 
    -----------------
