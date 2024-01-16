@@ -50,14 +50,44 @@ Many people have written lot about it. However, i have few points to mention her
 ### Subdomain Enumeration
 
 - [SubEnum](https://github.com/bing0o/SubEnum) - Bash script for Subdomain Enumeration using 4 tools and 3 online services
+  ```
+  $ subenum -d target.com              - Basic usage
+  $ subenum -l domains.txt -r          - Agains a list of domains and Resolve The Found Subdomains
+  ```
 - [Sublist3r](https://github.com/aboul3la/Sublist3r) - Fast subdomains enumeration tool for penetration testers
+  ```
+  $ python sublist3r.py -d target.com                                       - To enumerate subdomains of specific domain.
+  $ python sublist3r.py -e google,yahoo,virustotal -d target.com            - To enumerate subdomains and use specific engines such Google, Yahoo and Virustotal engines.
+  ```
 - [Amass](https://github.com/OWASP/Amass) - In-depth Attack Surface Mapping and Asset Discovery
+  ```
+  $ amass enum -passive -d target.com -src -config config.ini
+  $ amass enum -active -d target.com -src -config config.ini
+  ```
 - [Findomain](https://github.com/Findomain/Findomain) - The fastest and cross-platform subdomain enumerator, do not waste your time.
+  ```
+  $ findomain -t target.com
+  ```
 - [censys-subdomain-finder](https://github.com/christophetd/censys-subdomain-finder) - Perform subdomain enumeration using the certificate transparency logs from Censys.
+  ```
+  
+  ```
 - [censys-enumeration](https://github.com/0xbharath/censys-enumeration) - A script to extract subdomains/emails for a given domain using SSL/TLS certificate dataset on Censys
+  ```
+  
+  ```
 - [tugarecon](https://github.com/LordNeoStark/tugarecon) - Fast subdomains enumeration tool for penetration testers.
+  ```
+  
+  ```
 - [knock](https://github.com/guelfoweb/knock) - Knockpy is a python tool designed to enumerate subdomains on a target domain through a wordlist.
+  ```
+  
+  ```
 - [hakrevdns](https://github.com/hakluke/hakrevdns) - Small, fast tool for performing reverse DNS lookups en masse.
+  ```
+  
+  ```
 - [subfinder](https://github.com/projectdiscovery/subfinder) - Subfinder is a subdomain discovery tool that discovers valid subdomains for websites.
   ```
   subfinder -silent -d <target.com> -o <output.txt>
@@ -66,7 +96,7 @@ Many people have written lot about it. However, i have few points to mention her
   ```
   assetfinder -subs-only <target.com> | tee <output.txt>
   ```
-- Crt.sh subdomain enumeration
+- [Crt.sh](https://crt.sh/) - Crt.sh is a website that can be used to find SSL or TLS certificates for a specific domain.
   ```
   curl -fsSL "https://crt.sh/?CN=%25.target.com&exclude=expired" | pup 'td :contains(".target.com") text{}' | sort -n | uniq -c | sort -rn | column -t
   ```
@@ -80,7 +110,13 @@ VHostScan (https://github.com/codingo/VHostScan)
 Google Transparency Report (transparencyreport.google.com)
 CertSpotter
 CertDB
-Crt.sh
+
+### Dorking: gain access to sensitive information
+- https://www.exploit-db.com/google-hacking-database
+- https://dorks.faisalahmed.me/
+- https://vsec7.github.io/
+- https://github.com/techgaun/github-dorks
+
 
 Active Recon
 This is where we interact directly with the client infrastructure. The tools that could be utilized in this activity include, but are not limited to, the following:-
