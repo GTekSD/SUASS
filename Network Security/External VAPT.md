@@ -1,5 +1,4 @@
 # External Vulnerability Assessment and Penetration Testing
---------------
 You conduct vulnerability scanning from  outside of the company’s network. External scanners usually target the IT infrastructure exposed to the internet, including open ports in the network firewall and web application firewalls.
 
 
