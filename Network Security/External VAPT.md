@@ -66,23 +66,29 @@ Many people have written lot about it. However, i have few points to mention her
   ```
 - [Findomain](https://github.com/Findomain/Findomain) - The fastest and cross-platform subdomain enumerator, do not waste your time.
   ```
-  $ findomain -t target.com
+  $ findomain -t target.com                                                  - To enumerate subdomains of specific domain.
   ```
 - [censys-subdomain-finder](https://github.com/christophetd/censys-subdomain-finder) - Perform subdomain enumeration using the certificate transparency logs from Censys.
   ```
-  
+  $ python censys-subdomain-finder.py target.com -o output.txt              - Output the list of subdomains to a text file:
   ```
 - [censys-enumeration](https://github.com/0xbharath/censys-enumeration) - A script to extract subdomains/emails for a given domain using SSL/TLS certificate dataset on Censys
   ```
-  
+  $ python censys_enumeration.py --no-emails targets.txt           - Only subdomain enumeration.
+  $ python censys_enumeration.py --verbose targets.txt             - Verbose output
   ```
 - [tugarecon](https://github.com/LordNeoStark/tugarecon) - Fast subdomains enumeration tool for penetration testers.
   ```
-  
+  $ python3 tugarecon.py -d target.com
+  $ python3 tugarecon.py -d target.com --savemap
+  $ python3 tugarecon.py -d target.com --bruteforce
+  $ python3 tugarecon.py -d target.com --bruteforce --full
+  $ python3 tugarecon.py -d target.com -b --full
+  $ python3 tugarecon.py -r
   ```
 - [knock](https://github.com/guelfoweb/knock) - Knockpy is a python tool designed to enumerate subdomains on a target domain through a wordlist.
   ```
-  
+  $ knockpy domain.com -o /path/to/new/folder
   ```
 - [hakrevdns](https://github.com/hakluke/hakrevdns) - Small, fast tool for performing reverse DNS lookups en masse.
   ```
