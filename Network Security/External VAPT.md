@@ -36,28 +36,18 @@ Preferred timings of test Some client would want you to initiate the test when n
 
 # 1. Information gathering / Reconnaissance
 
-### Passive Recon:
+## Passive Recon:
 
 Many people have written lot about it. However, i have few points to mention here. Whether you have IP address or a domain name, you need to find ASN (Autonomous System Number) belonging to that company first. The benefit — it will help you find all the IP ranges that belong to the company. You can use below links to find ASN from a domain name or IP address.
 
-- https://hackertarget.com/as-ip-lookup/
-- Networksdb.io
-- BGP looking glasses (https://bgp.he.net/)
-- You would also want to look at subdomain enumeration. Utilize the following tools
+- [HackerTarget.com](https://hackertarget.com/as-ip-lookup/) - HackerTarget.com is an open-source platform that provides online security scanning solutions and assessments.
+- [NetworksDB.io](https://networksdb.io/) - NetworksDB.io is a database of public networks, IP addresses, and domain names owned by companies and organizations worldwide.
+- [Hurricane Electric BGP Toolkit](https://bgp.he.net/) - The Hurricane Electric BGP Toolkit is a tool that uses internal BGP data, data from routeviews, and other sources.
+- [MX](https://mxtoolbox.com/NetworkTools.aspx) - MxToolbox is a tool that offers free and paid monitoring and lookup tools for email, DNS, blacklist, network performance, and websites.
+- [ViewDNS.info](https://viewdns.info/) - ViewDNS.info is a source for DNS-related tools and information.
+- You would also want to look at subdomain enumeration. Utilize the following tools.
 
-
-Censys
-Shodan
-Spiderfoot
-Virustotal
-ViewDNS.info
-VHostScan (https://github.com/codingo/VHostScan)
-Google Transparency Report (transparencyreport.google.com)
-CertSpotter
-CertDB
-Crt.sh
-
-## Subdomain Enumeration
+### Subdomain Enumeration
 
 - [SubEnum](https://github.com/bing0o/SubEnum) - Bash script for Subdomain Enumeration using 4 tools and 3 online services
 - [Sublist3r](https://github.com/aboul3la/Sublist3r) - Fast subdomains enumeration tool for penetration testers
@@ -69,10 +59,28 @@ Crt.sh
 - [knock](https://github.com/guelfoweb/knock) - Knockpy is a python tool designed to enumerate subdomains on a target domain through a wordlist.
 - [hakrevdns](https://github.com/hakluke/hakrevdns) - Small, fast tool for performing reverse DNS lookups en masse.
 - [subfinder](https://github.com/projectdiscovery/subfinder) - Subfinder is a subdomain discovery tool that discovers valid subdomains for websites.
+  ```
+  subfinder -silent -d <target.com> -o <output.txt>
+  ```
 - [assetfinder](https://github.com/tomnomnom/assetfinder) - Find domains and subdomains related to a given domain
+  ```
+  assetfinder -subs-only <target.com> | tee <output.txt>
+  ```
 - Crt.sh subdomain enumeration
-- ```curl -fsSL "https://crt.sh/?CN=%25.target.com&exclude=expired" | pup 'td :contains(".target.com") text{}' | sort -n | uniq -c | sort -rn | column -t```
+  ```
+  curl -fsSL "https://crt.sh/?CN=%25.target.com&exclude=expired" | pup 'td :contains(".target.com") text{}' | sort -n | uniq -c | sort -rn | column -t
+  ```
 
+Censys
+Shodan
+Spiderfoot
+Virustotal
+ViewDNS.info
+VHostScan (https://github.com/codingo/VHostScan)
+Google Transparency Report (transparencyreport.google.com)
+CertSpotter
+CertDB
+Crt.sh
 
 Active Recon
 This is where we interact directly with the client infrastructure. The tools that could be utilized in this activity include, but are not limited to, the following:-
