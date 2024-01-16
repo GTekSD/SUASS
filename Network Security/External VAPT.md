@@ -90,10 +90,6 @@ Many people have written lot about it. However, i have few points to mention her
   ```
   $ knockpy domain.com -o /path/to/new/folder
   ```
-- [hakrevdns](https://github.com/hakluke/hakrevdns) - Small, fast tool for performing reverse DNS lookups en masse.
-  ```
-  
-  ```
 - [subfinder](https://github.com/projectdiscovery/subfinder) - Subfinder is a subdomain discovery tool that discovers valid subdomains for websites.
   ```
   subfinder -silent -d <target.com> -o <output.txt>
