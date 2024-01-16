@@ -1,7 +1,7 @@
-# External VAPT
+# External Vulnerability Assessment and Penetration Testing
 --------------
 
-# Recon
+# 1. Information gathering and reconnaissance
 
 ## Subdomain Enumeration
 
