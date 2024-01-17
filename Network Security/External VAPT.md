@@ -141,3 +141,11 @@ Advanced Scan
   - Backdoors: `DISABLED`
   - Denial of Service: `DISABLED`
 
+
+
+
+
+## Hacking Vulnerable Web Applications Without Going To Jail
+ - http://blog.taddong.com/2011/10/hacking-vulnerable-web-applications.html
+ - https://www.irongeek.com/i.php?page=security/deliberately-insecure-web-applications-for-learning-web-app-security
+ - http://scanme.nmap.org/
