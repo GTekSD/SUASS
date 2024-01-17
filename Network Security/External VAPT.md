@@ -36,8 +36,6 @@ Preferred timings of test Some client would want you to initiate the test when n
 
 # 1. Information gathering / Reconnaissance
 
-## Passive Recon:
-
 Many people have written lot about it. However, i have few points to mention here. Whether you have IP address or a domain name, you need to find ASN (Autonomous System Number) belonging to that company first. The benefit — it will help you find all the IP ranges that belong to the company. You can use below links to find ASN from a domain name or IP address.
 
 - [HackerTarget.com](https://hackertarget.com/as-ip-lookup/) - HackerTarget.com is an open-source platform that provides online security scanning solutions and assessments.
@@ -92,38 +90,35 @@ Many people have written lot about it. However, i have few points to mention her
   ```
 - [subfinder](https://github.com/projectdiscovery/subfinder) - Subfinder is a subdomain discovery tool that discovers valid subdomains for websites.
   ```
-  subfinder -silent -d <target.com> -o <output.txt>
+  $ subfinder -silent -d <target.com> -o <output.txt>
   ```
 - [assetfinder](https://github.com/tomnomnom/assetfinder) - Find domains and subdomains related to a given domain
   ```
-  assetfinder -subs-only <target.com> | tee <output.txt>
+  $ assetfinder -subs-only <target.com> | tee <output.txt>
   ```
 - [Crt.sh](https://crt.sh/) - Crt.sh is a website that can be used to find SSL or TLS certificates for a specific domain.
   ```
-  curl -fsSL "https://crt.sh/?CN=%25.target.com&exclude=expired" | pup 'td :contains(".target.com") text{}' | sort -n | uniq -c | sort -rn | column -t
+  $ curl -fsSL "https://crt.sh/?CN=%25.target.com&exclude=expired" | pup 'td :contains(".target.com") text{}' | sort -n | uniq -c | sort -rn | column -t
   ```
 
-
 ### Dorking: gain access to sensitive information
-- https://www.exploit-db.com/google-hacking-database
-- https://dorks.faisalahmed.me/
-- https://vsec7.github.io/
-- https://github.com/techgaun/github-dorks
 
+- [The Exploit Database](https://www.exploit-db.com/google-hacking-database)
+- [Bug Bounty Helper](https://dorks.faisalahmed.me/)
+- [Git Dork Helper](https://vsec7.github.io/)
+- [Github Dorks](https://github.com/techgaun/github-dorks)
+- [Shodan Dorks](https://github.com/humblelad/Shodan-Dorks)
+- [Googler Dorking](https://github.com/jarun/googler)
+  ```
+  $ googler -n 100 -s 1 --np --unfilter site:*.target.com >> output.txt
+  $ googler -n 100 -s 101 --np --unfilter site:*.target.com >> output.txt
+  $ googler -n 100 -s 201 --np --unfilter site:*.target.com >> output.txt
+  $ googler -n 100 -s 301 --np --unfilter site:*.target.com >> output.txt
+  ```
 
-Active Recon
 This is where we interact directly with the client infrastructure. The tools that could be utilized in this activity include, but are not limited to, the following:-
 
-Knock (https://github.com/guelfoweb/knock)
-Fierce
-Sublist3r
-Aquatone
-Nmap
-masscan
-So that’s all for now. We will expand on this series soon.
-
-
-## Port Scanning
+### Port Scanning
 
 - [nmap](https://github.com/nmap/nmap) - Nmap - the Network Mapper. Github mirror of the official SVN repository.
 - [testssl](https://github.com/drwetter/testssl.sh) - Testing TLS/SSL encryption anywhere on any port.
