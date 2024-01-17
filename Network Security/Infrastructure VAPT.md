@@ -55,7 +55,7 @@
 - Bruteforce Hostnames with DNS
 - Google Dorking
   - Site: [Domain]
-  - 2filetype:"xls | xlsx | doc | docx | ppt | pptx | pdf" site:[Domain] "FOUO" | "NOFORN" | "Confidential"
+  - filetype:"xls | xlsx | doc | docx | ppt | pptx | pdf" site:[Domain] "FOUO" | "NOFORN" | "Confidential"
   - filetype:xml inurl:sitemap
   - and many more
 - Reverse DNS Lookup
