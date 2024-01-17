@@ -134,9 +134,9 @@
   - Enumerating users with rusers
 - NFS (2049)
   - Checking for Accessible mounts
-    - showmount -e [IP
+    - showmount -e [IP]
   - Mounting
-    - mount -t nfs [-o vers=2 <ip>:<remote_folder> <local_folder> -o nolock
+    - mount -t nfs [-o vers=2] <ip>:<remote_folder> <local_folder> -o nolock
 - LDAP (Port 389)
   - Listing public information
     - nmap -n -sV --script "ldap* and not brute" <IP>
@@ -265,7 +265,7 @@
     - Dumping Database
       - SELECT [database with keys]
       - KEYS *
-      - GET [KEY
+      - GET [KEY]
 - PJL (Port 9100)
   - PRET can be used for interacting with PJL
     - https://github.com/RUB-NDS/PRET
