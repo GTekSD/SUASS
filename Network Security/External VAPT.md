@@ -103,15 +103,6 @@ Many people have written lot about it. However, i have few points to mention her
   curl -fsSL "https://crt.sh/?CN=%25.target.com&exclude=expired" | pup 'td :contains(".target.com") text{}' | sort -n | uniq -c | sort -rn | column -t
   ```
 
-Censys
-Shodan
-Spiderfoot
-Virustotal
-ViewDNS.info
-VHostScan (https://github.com/codingo/VHostScan)
-Google Transparency Report (transparencyreport.google.com)
-CertSpotter
-CertDB
 
 ### Dorking: gain access to sensitive information
 - https://www.exploit-db.com/google-hacking-database
