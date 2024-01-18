@@ -192,6 +192,22 @@ NSE scripts can be loaded into Nmap using the `-sC` flag. The `-sC` flag runs [a
 $ nmap -sC scanme.nmap.org
 ```
 
+### Nmap Full Scan 
+To scan a list of target IP addresses or hostnames for open ports, services, vulnerabilities, and potential security issues.
+```
+nmap -Pn -sV -sC --script vuln -p- -iL scope_list.txt -oN Output.txt
+```
+Options:
+- -Pn: Disable host discovery (ping probes). Assume all hosts are online. This is useful for scanning hosts that block ping requests. Nmap won't waste time checking if hosts are online, assuming they are.
+- -sV: Enable service version detection. Attempt to determine the exact service running on open ports. Nmap will try to determine the specific applications or services running on open ports.
+- -sC: Run default Nmap scripts for service version detection and vulnerability scanning.
+- --script vuln: Run Nmap's vulnerability scripts specifically. These scripts try to identify known vulnerabilities in services.
+- -p-: Scan all 65535 ports (full port scan). Nmap will probe every possible port on each target.
+- -iL scope_list.txt: Read target IP addresses or hostnames from a text file named "scope_list.txt".
+- -oN Output.txt: Save scan results in normal format to a file named "Output.txt".
+
+
+
 #### Findings and their NSE scripts
 
 - BEAST Security vulnerability
