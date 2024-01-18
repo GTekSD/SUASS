@@ -8,7 +8,7 @@
   
 - [Mapping Network](#mapping-network)
 
-- [Vulnerability Assessment & Penetration Testing](#Vulnerability-Assessment-and-PT)
+- [Vulnerability Assessment & Penetration Testing](#vulnerability-assessment-and-pt)
 
 
 
@@ -42,51 +42,59 @@
 
 
 # Mapping Network
-- Identitfying Live Hosts
-- Port Scan
+- **Identitfying Live Hosts**
+
+- **Port Scan**
   - Service Scan
   - Version Scan
   - Scanning with NSE/Scripts
   - OS Scan
   - UDP as well as TCP Scan
-- SNMP Enumeration
+
+- **SNMP Enumeration**
   - snmpcheck
   - snmpwalk
-- NetBIOS Enumeration
+
+- **NetBIOS Enumeration**
   - nbtscan
   - nmblookup
-  - Visualizing Network on MindMaps
+- Visualizing Network on MindMaps
 
 
 # Vulnerability Assessment and PT
-- FTP (Port 21)
+- **FTP (Port 21)**
   - Grabbing Banner for Versions
   - Anonymous Login
   - FTP Bounce
   - Default or Guessable Passwords
-- SSH (Port 22)
+
+- **SSH (Port 22)**
   - Grabbing Banner for Versions
   - Null Password
   - Default or Guessable Passwords
-- SMTP (Port 25)
+
+- **SMTP (Port 25)**
   - Grabbing Banner for Versions
   - Connect with Telnet
   - SMTP Relay
   - User Enumeration
-- DNS (Port 53)
+
+- **DNS (Port 53)**
   - DNS Hostname Bruteforce
   - DNS Reverse Lookup
   - DNS Service Record Enumeration
   - DNS Service Discovery
   - DNS Zone Transfer
-- Jenkins
+
+- **Jenkins**
   - Pages accessible without authentication like
     - /people
     - /asynchPeople
     - /securityRealm/user/admin/search/index?q=
   - Vulnerable Versions Exploitation
     - https://github.com/gquere/pwn_jenkins
-- IIS
+
+- **IIS**
   - Enumerating .config files
   - Trace.AXD enabled debugging
   - Path Traversal
@@ -103,21 +111,26 @@
     - /admin::$INDEX_ALLOCATION/admin.php
   - Grabbing Banner for Version
   - Directory BruteForce
-- Kerberos (Port 88)
+
+- **Kerberos (Port 88)**
   - Active Directory Attacks (We're not going to cover this here)
   - Bruteforcing Usernames with nmap
     - krb5-enum-users.nse
-- RPC (Port 111)
+
+- **RPC (Port 111)**
   - Enumerating Basic Information using rpcinfo
   - Connect to RPC with RPC Client
-- Rusersd (Port 1026)
+
+- **Rusersd (Port 1026)**
   - Enumerating users with rusers
-- NFS (2049)
+
+- **NFS (2049)**
   - Checking for Accessible mounts
     - showmount -e [IP]
   - Mounting
     - mount -t nfs [-o vers=2] <ip>:<remote_folder> <local_folder> -o nolock
-- LDAP (Port 389)
+
+- **LDAP (Port 389)**
   - Listing public information
     - nmap -n -sV --script "ldap* and not brute" <IP>
   - Checking Null Credentials
@@ -144,7 +157,8 @@
     - ldapsearch -x -h <IP> -D '<DOMAIN>\<username>' -w '<password>' -b "CN=Remote Desktop
     - Users,CN=Builtin,DC=<1_SUBDOMAIN>,DC=<TDL>"
   - For graphical Interface, jxplorer can be used
-- SMB (Port 445)
+
+- **SMB (Port 445)**
   - Anonymous Credentials
   - Grabbing Banner for Versions
   - Null Sessions
@@ -176,16 +190,19 @@
     - With Credential
       - mount -t cifs -o "username=user,password=password" //x.x.x.x/share /mnt/share
   - SMB Relay attack
-- MSSRPC (Port 135)
+
+- **MSSRPC (Port 135)**
   - Endpoint Mapper Service Discovery
   - Hidden DCERPC Server Discovery
   - Remote Management Interface Discovery
   - DCERPC TCP Service Auditor
-- RTSP (Port 554 & 8554)
+
+- **RTSP (Port 554 & 8554)**
   - Gathering RTSP Methods
   - RTSP Url Bruteforce
   - Camerader can be used to access RTSP
-- MSSQL (Port 1433)
+
+- **MSSQL (Port 1433)**
   - Banner Grabbing
   - Basic Information Gathering
     - nmap --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-
@@ -200,7 +217,8 @@
   - MSSQL Privilege Escalation
     - auxiliary/admin/mssql/mssql_escalate_dbowner
     - auxiliary/admin/mssql/mssql_escalate_execute_as
-- MySQL (Port 3306)
+
+- **MySQL (Port 3306)**
   - Enumerating with nmap
     - nmap -sV -p 3306 --script mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-
     - password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-
@@ -223,18 +241,21 @@
   - Extracting credentials
     - mysql -u root --password=<PASSWORD> -e "SELECT User,Host,authentication_string FROM
     - mysql.user;"
-- Postgresql (Port 5432)
+
+- **Postgresql (Port 5432)**
   - Banner Grabbing
   - DB Name Flag Injection
-- VNC (Port 5900)
+
+- **VNC (Port 5900)**
   - UnAuth VNC Access
   - VNC Password
     - Password Location (Password will be encrypted)
       - ~/.vnc/passwd
     - Decrypting Password
       - vncpwd.exe [encrypted password]
-- Redis (Port 6379)
-- Banner Grabbing
+
+- **Redis (Port 6379)**
+  - Banner Grabbing
   - Try accessing redis without credentials
   - Enumeration after login
   - Extracting information
@@ -246,10 +267,12 @@
       - SELECT [database with keys]
       - KEYS *
       - GET [KEY]
-- PJL (Port 9100)
+
+- **PJL (Port 9100)**
   - PRET can be used for interacting with PJL
     - https://github.com/RUB-NDS/PRET
-- Memcache (Port 11211)
+
+- **Memcache (Port 11211)**
   - Extracting Stats
     - memcstat --servers=127.0.0.1
   - Extracting Memcdump
