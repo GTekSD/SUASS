@@ -44,6 +44,10 @@ Many people have written lot about it. However, i have few points to mention her
 - [MX](https://mxtoolbox.com/NetworkTools.aspx) - MxToolbox is a tool that offers free and paid monitoring and lookup tools for email, DNS, blacklist, network performance, and websites.
 - [ViewDNS.info](https://viewdns.info/) - ViewDNS.info is a source for DNS-related tools and information.
 - You would also want to look at subdomain enumeration. Utilize the following tools.
+- [OWASP Amass](https://github.com/owasp-amass/amass) : Discover targets for enumerations 
+  ```
+  amass intel -org TARGET
+  ```
 
 ### Subdomain Enumeration
 
