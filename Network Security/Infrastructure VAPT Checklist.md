@@ -1,3 +1,5 @@
+![image](https://github.com/GTekSD/SUASS/assets/55411358/ccc98858-caad-4a47-80f9-185ae38c2a0d)
+
 # Infrastructure Vulnerability Assessment and Penetration Testing Checklist
 
 ## Contents
