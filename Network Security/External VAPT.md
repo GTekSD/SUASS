@@ -144,7 +144,8 @@ Advanced Scan
 
 ## Nmap: the Network Mapper - Free Security Scanner
 
-### The six port states recognized by Nmap: `open`, `closed`, `filtered`, `unfiltered`, `open|filtered`, or `closed|filtered`.
+### The six port states recognized by Nmap: 
+`open`, `closed`, `filtered`, `unfiltered`, `open|filtered`, or `closed|filtered`.
 
 - `open` - An application is actively accepting TCP connections, UDP datagrams or SCTP associations on this port. Finding these is often the primary goal of port scanning. Security-minded people know that each open port is an avenue for attack. Attackers and pen-testers want to exploit the open ports, while administrators try to close or protect them with firewalls without thwarting legitimate users. Open ports are also interesting for non-security scans because they show services available for use on the network. 
 
@@ -158,27 +159,109 @@ Advanced Scan
 
 - `closed|filtered` - This state is used when Nmap is unable to determine whether a port is closed or filtered. It is only used for the IP ID idle scan.
 
+
+### Port Scanning
+By default, Nmap scans the 1,000 most popular ports. You can specify a different range of ports to scan using the `-p` flag. 
+
+For example, to scan the ports 22, 80, and 443, you would use the following command:
+```
+nmap -p 22,80,443 scanme.nmap.org
+```
+
+You can also scan all 65,535 ports by using the `-p-` flag
+```
+nmap -p- scanme.nmap.org
+```
+
+### Service and Operating System Detection
+Nmap can detect the services and operating systems running on a host. This information can be useful for security auditing and penetration testing. To detect services, Nmap uses a database of known services. To detect operating systems, Nmap uses a variety of methods, including fingerprinting.
+```
+nmap -sV -O scanme.nmap.org
+```
+
 ### NSE Scripting
-Nmap NSE (Nmap Scripting Engine) is a library of scripts that can be
-used to extend Nmap's functionality. NSE scripts can be used for a
-variety of purposes, including:
+Nmap NSE (Nmap Scripting Engine) is a library of scripts that can be used to extend Nmap's functionality. NSE scripts can be used for a variety of purposes, including:
 - Port scanning
 - Service detection
 - Operating system detection
 - Vulnerability detection
 - Intrusion detection
 
-NSE scripts can be loaded into Nmap using the `-sC` flag
+NSE scripts can be loaded into Nmap using the `-sC` flag.
 ```
 $ nmap -sC scanme.nmap.org
 ```
 
+#### Findings
 
-### Scan all TCP ports
-
+- BEAST Security vulnerability
+- Server vulnerable to SSL Lucky13 Attack
+- SSL / TLS Versions Supported
+- SSL Cipher Suites Supported
+- SSL DROWN Attack vulnerability (Decrypting RSA with Obsolete and Weakened encryption)
+- SSL Medium Strength Cipher Suites Supported (SWEET32)
+- SSL RC4 Cipher Suites Supported (Bar Mitzvah)
+- SSL Version 2 and 3 Protocol Detection
+- SSL Weak Cipher Suites Supported
+- SSLv3 Padding Oracle on Downgraded Legacy Encryption Vulnerability (POODLE)
+- TLS Version 1.0 Protocol Deprecated
+- TLS Version 1.1 Protocol Deprecated
 
 ```
-root@Kali:~# nmap 10.211.55.6 -sC
+nmap --script ssl-enum-ciphers <target ip>
+```
+
+
+- Nginx v1.16.1 is vulnerable to Information Disclosure vulnerability
+```
+nmap -sV <target ip>
+```
+
+- SSL/TLS Diffie-Hellman Modulus <= 1024 Bits (Logjam)	
+```
+nmap --script ssl-dh-params <target ip>
+```
+
+- SSL Certificate Chain Contains RSA Keys Less Than 2048 bits
+- SSL Certificate Expiry
+- SSL Certificate Signed Using Weak Hashing Algorithm
+- SSL Self-Signed Certificate
+```
+nmap --script ssl-cert <target ip>
+```
+
+- Obsolete CBC ciphers Enabled
+- SSH Server CBC Mode Ciphers Enabled
+- SSH Weak Key Exchange Algorithms Enabled
+- SSH Weak MAC Algorithms Enabled
+```
+nmap --script ssh2-enum-algos <target ip>
+```
+
+- HTTP TRACE / TRACK Methods Allowed
+```
+nmap --script http-methods <target ip>
+```
+
+- HSTS Missing from HTTPS Server
+```
+nmap --script http-security-headers <target ip>
+```
+
+- Microsoft SQL Server Unsupported Version Detection (remote check)
+```
+nmap -p 1433 --script ms-sql-info <target ip>
+```
+
+- Unencrypted Telnet Server
+```
+nmap -p 23 --script telnet-encryption <target ip>
+```
+
+### Example
+
+```
+root@Kali:~# nmap -sC 10.211.55.6
 ..
 21/tcp   open   ftp
 | ftp-anon: Anonymous FTP login allowed (FTP code 230)
@@ -213,6 +296,41 @@ root@Kali:~# nmap 10.211.55.6 -sC
 
 ## testssl.sh: Testing TLS/SSL encryption anywhere on any port 
 
+```
+     -e, --each-cipher             checks each local cipher remotely
+     -E, --cipher-per-proto        checks those per protocol
+     -s, --std, --categories       tests standard cipher categories by strength
+     -f, --fs, --nsa               checks forward secrecy settings
+     -p, --protocols               checks TLS/SSL protocols (including SPDY/HTTP2)
+     -g, --grease                  tests several server implementation bugs like GREASE and size limitations
+     -S, --server-defaults         displays the server's default picks and certificate info
+     -P, --server-preference       displays the server's picks: protocol+cipher
+     -x, --single-cipher <pattern> tests matched <pattern> of ciphers
+                                   (if <pattern> not a number: word match)
+     -c, --client-simulation       test client simulations, see which client negotiates with cipher and protocol
+     -h, --header, --headers       tests HSTS, HPKP, server/app banner, security headers, cookie, reverse proxy, IPv4 address
+
+     -U, --vulnerable              tests all (of the following) vulnerabilities (if applicable)
+     -H, --heartbleed              tests for Heartbleed vulnerability
+     -I, --ccs, --ccs-injection    tests for CCS injection vulnerability
+     -T, --ticketbleed             tests for Ticketbleed vulnerability in BigIP loadbalancers
+     --BB, --robot                 tests for Return of Bleichenbacher's Oracle Threat (ROBOT) vulnerability
+     --SI, --starttls-injection    tests for STARTTLS injection issues
+     -R, --renegotiation           tests for renegotiation vulnerabilities
+     -C, --compression, --crime    tests for CRIME vulnerability (TLS compression issue)
+     -B, --breach                  tests for BREACH vulnerability (HTTP compression issue)
+     -O, --poodle                  tests for POODLE (SSL) vulnerability
+     -Z, --tls-fallback            checks TLS_FALLBACK_SCSV mitigation
+     -W, --sweet32                 tests 64 bit block ciphers (3DES, RC2 and IDEA): SWEET32 vulnerability
+     -A, --beast                   tests for BEAST vulnerability
+     -L, --lucky13                 tests for LUCKY13
+     -WS, --winshock               tests for winshock vulnerability
+     -F, --freak                   tests for FREAK vulnerability
+     -J, --logjam                  tests for LOGJAM vulnerability
+     -D, --drown                   tests for DROWN vulnerability
+     -4, --rc4, --appelbaum        which RC4 ciphers are being offered?
+
+```
 
 ## Hacking Vulnerable Web Applications Without Going To Jail
  - http://blog.taddong.com/2011/10/hacking-vulnerable-web-applications.html
