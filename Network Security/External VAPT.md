@@ -187,12 +187,12 @@ Nmap NSE (Nmap Scripting Engine) is a library of scripts that can be used to ext
 - Vulnerability detection
 - Intrusion detection
 
-NSE scripts can be loaded into Nmap using the `-sC` flag.
+NSE scripts can be loaded into Nmap using the `-sC` flag. The `-sC` flag runs [a set list of default scripts](https://nmap.org/nsedoc/categories/default.html) against your target.
 ```
 $ nmap -sC scanme.nmap.org
 ```
 
-#### Findings
+#### Findings and their NSE scripts
 
 - BEAST Security vulnerability
 - Server vulnerable to SSL Lucky13 Attack
@@ -206,7 +206,6 @@ $ nmap -sC scanme.nmap.org
 - SSLv3 Padding Oracle on Downgraded Legacy Encryption Vulnerability (POODLE)
 - TLS Version 1.0 Protocol Deprecated
 - TLS Version 1.1 Protocol Deprecated
-
 ```
 nmap --script ssl-enum-ciphers <target ip>
 ```
@@ -217,10 +216,12 @@ nmap --script ssl-enum-ciphers <target ip>
 nmap -sV <target ip>
 ```
 
+
 - SSL/TLS Diffie-Hellman Modulus <= 1024 Bits (Logjam)	
 ```
 nmap --script ssl-dh-params <target ip>
 ```
+
 
 - SSL Certificate Chain Contains RSA Keys Less Than 2048 bits
 - SSL Certificate Expiry
@@ -248,10 +249,12 @@ nmap --script http-methods <target ip>
 nmap --script http-security-headers <target ip>
 ```
 
+
 - Microsoft SQL Server Unsupported Version Detection (remote check)
 ```
 nmap -p 1433 --script ms-sql-info <target ip>
 ```
+
 
 - Unencrypted Telnet Server
 ```
