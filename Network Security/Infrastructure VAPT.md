@@ -1,5 +1,4 @@
 # Infrastructure Vulnerability Assessment and Penetration Testing Checklist
---------------
 
 ## Contents
 - [Recon](#recon)
@@ -10,7 +9,7 @@
 
 - [Vulnerability Assessment & Penetration Testing](#vulnerability-assessment-and-pt)
 
-
+-------------------
 
 # Recon
 ## External Infrastructure
