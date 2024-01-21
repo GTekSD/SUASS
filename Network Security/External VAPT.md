@@ -145,6 +145,17 @@ Advanced Scan
   - Backdoors: `DISABLED`
   - Denial of Service: `DISABLED`
 
+### FAQ
+#### Why do we DISABLED these plugins?
+- **Reduced Risk of System Disruption:** Disabling these plugins might prevent accidental crashes or outages caused by certain scans.
+- **Compliance with Client Restrictions:** Some clients might prohibit these scans due to concerns about potential impacts.
+
+**Backdoors Plugin:**
+The Nessus Backdoors plugin family is a collection of plugins designed to detect the presence of backdoors on systems. Backdoors are unauthorized access points that attackers can use to gain remote control of a system. They can be installed in a variety of ways, such as through malware, vulnerabilities in software, or physical access to the system.
+
+**Denial of Service:**
+The Nessus Denial of Service plugin is a collection of plugins designed to detect vulnerabilities in systems that could be exploited to cause denial-of-service (DoS) attacks.
+DoS attacks aim to overwhelm a system with traffic or requests, making it unavailable to legitimate users.
 
 ## Nmap: the Network Mapper - Free Security Scanner
 
