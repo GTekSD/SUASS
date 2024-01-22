@@ -159,20 +159,20 @@ DoS attacks aim to overwhelm a system with traffic or requests, making it unavai
 
 ## Nmap: the Network Mapper - Free Security Scanner
 
-### The six port states recognized by Nmap: 
+### The six port states: 
 `open`, `closed`, `filtered`, `unfiltered`, `open|filtered`, or `closed|filtered`.
 
-- `open` - An application is actively accepting TCP connections, UDP datagrams or SCTP associations on this port. Finding these is often the primary goal of port scanning. Security-minded people know that each open port is an avenue for attack. Attackers and pen-testers want to exploit the open ports, while administrators try to close or protect them with firewalls without thwarting legitimate users. Open ports are also interesting for non-security scans because they show services available for use on the network. 
+- `open` - The Open state indicates that an application on the target system is actively listening for connections/packets on that port.
 
-- `closed` - A closed port is accessible (it receives and responds to Nmap probe packets), but there is no application listening on it. They can be helpful in showing that a host is up on an IP address (host discovery, or ping scanning), and as part of OS detection. Because closed ports are reachable, it may be worth scanning later in case some open up. Administrators may want to consider blocking such ports with a firewall. Then they would appear in the filtered state, discussed next. 
+- `closed` - The Closed state indicates there isn’t any application listening on that port. However, the port state could change to Open in the future.
 
-- `filtered` - Nmap cannot determine whether the port is open because packet filtering prevents its probes from reaching the port. The filtering could be from a dedicated firewall device, router rules, or host-based firewall software. These ports frustrate attackers because they provide so little information. Sometimes they respond with ICMP error messages such as type 3 code 13 (destination unreachable: communication administratively prohibited), but filters that simply drop probes without responding are far more common. This forces Nmap to retry several times just in case the probe was dropped due to network congestion rather than filtering. This slows down the scan dramatically.
+- `filtered` - The Filtered state indicates that either a firewall, a filter, or some kind of network hurdle is blocking the port and hence NMAP isn’t able to determine whether it is open or closed.
 
-- `unfiltered` - The unfiltered state means that a port is accessible, but Nmap is unable to determine whether it is open or closed. Only the ACK scan, which is used to map firewall rulesets, classifies ports into this state. Scanning unfiltered ports with other scan types such as Window scan, SYN scan, or FIN scan, may help resolve whether the port is open. 
+- `unfiltered` - The Unfiltered state indicates that ports are responding to NMAP probes; however, it isn’t possible to determine whether they are open or closed.
 
-- `open|filtered` - Nmap places ports in this state when it is unable to determine whether a port is open or filtered. This occurs for scan types in which open ports give no response. The lack of response could also mean that a packet filter dropped the probe or any response it elicited. So Nmap does not know for sure whether the port is open or being filtered. The UDP, IP protocol, FIN, NULL, and Xmas scans classify ports this way.
+- `open|filtered` - he Open/Filtered state indicates that the port is either filtered or open; however, NMAP isn’t precisely able to determine the state.
 
-- `closed|filtered` - This state is used when Nmap is unable to determine whether a port is closed or filtered. It is only used for the IP ID idle scan.
+- `closed|filtered` - The Closed/Filtered state indicates that the port is either filtered or closed; however, NMAP isn’t precisely able to determine the state.
 
 
 ### Port Scanning
@@ -206,6 +206,136 @@ NSE scripts can be loaded into Nmap using the `-sC` flag. The `-sC` flag runs [a
 ```
 $ nmap -sC scanme.nmap.org
 ```
+
+### HTTP Enumeration
+
+```
+nmap --script http-enum <target>
+```
+
+### HTTP Methods
+
+```
+nmap --script http* <target>
+```
+• http-methods
+• http-title
+• http-method-tamper
+• http-trace
+• http-fetch
+• http-wordpress-enum
+• http-devframework
+• http NSE Library
+
+### SMB Enumeration
+
+```
+nmap -p 445 --script smb* <target>
+```
+• smb-os-discovery
+• smb-vuln-ms17-010
+• smb-protocols
+• smb-mbenum
+• smb-enum-users
+• smb-enum-processes
+• smb-enum-services
+
+### DNS Enumeration
+
+```
+nmap -p 53 --script dns* <target>
+```
+• dns-cache-snoop
+• dns-service-discovery
+• dns-recursion
+• dns-brute
+• dns-zone-transfer
+• dns-nsid
+• dns-nsec-enum
+• dns-fuzz
+• dns-srv-enum
+
+### FTP Enumeration
+
+```
+nmap -p 21 --script ftp* <target>
+```
+• ftp-syst
+• ftp-anon
+• ftp-vsftpd-backdoor
+• ftp-brute
+• ftp NSE
+• ftp-bounce
+• ftp-vuln-cve2010-4221
+• ftp-libopie
+
+### MySQL Enumeration
+
+```
+nmap -p 3306 --script mysql* <target>
+```
+• mysql-info
+• mysql-databases
+• mysql-enum
+• mysql-brute
+• mysql-query
+• mysql-empty-password
+• mysql-vuln-cve2012-2122
+• mysql-users
+• mysql-variables
+
+### SSH Enumeration
+
+```
+nmap -p 22 --script ssh* <target>
+```
+• ssh2-enum-algos
+• ssh-brute
+• ssh-auth-methods
+• ssh-run
+• ssh-hostkey
+• sshv1
+• ssh-publickey-acceptance
+
+### SMTP Enumeration
+
+```
+nmap -p 25 --script smtp* <target>
+```
+• smtp-commands
+• smtp-open-relay
+• smtp-enum-users
+• smtp-commands
+• smtp-brute
+• smtp-ntlm-info
+• smtp-strangeport
+• smtp-vuln-cve2011-1764
+
+### VNC Enumeration
+
+```
+nmap -p 5900 --script *vnc* <target>
+```
+• vnc-info 
+• vnc-brute
+• realvnc-auth-bypass
+• vnc-title
+
+### Service Banner Grabbing
+
+```
+nmap --script banner <target>
+```
+
+### Detecting Vulnerabilities
+
+```
+nmap -sV --script *vuln* <target>
+```
+#### Additional scripts: 
+Clone these two repo into `/usr/share/nmap/scripts` directory. 
+- https://github.com/scipag/vulscan
+- https://github.com/vulnersCom/nmap-vulners
 
 ### Nmap Full Scan 
 To scan a list of target IP addresses or hostnames for open ports, services, vulnerabilities, and potential security issues.
