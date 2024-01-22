@@ -371,21 +371,20 @@ $ testssl 45.33.32.156:80
 ```
 $ testssl 45.33.32.156:8080
 ```
+### Scan Using an Input File
+testssl dosen't allow you to scan a list of IP addresses line -iL in nmap.
+But here is the solution, [IRCMDUF.sh](https://github.com/GTekSD/fast/blob/main/IRCMDUF.sh)
+```
+IRCMDUF.sh "testssl -E -s -p -S -h -U" list_of_ip_add.txt
+```
+
+### testssl Full Scan 
+```
+$ testssl -E -s -p -S -h -U <target>:<port>
+```
+This command will checks per protocol, standard cipher categories by strength, TLS/SSL protocols, certificate info, headers, and all of the following vulnerabilities.
 
 ```
-     -e, --each-cipher             checks each local cipher remotely
-     -E, --cipher-per-proto        checks those per protocol
-     -s, --std, --categories       tests standard cipher categories by strength
-     -f, --fs, --nsa               checks forward secrecy settings
-     -p, --protocols               checks TLS/SSL protocols (including SPDY/HTTP2)
-     -g, --grease                  tests several server implementation bugs like GREASE and size limitations
-     -S, --server-defaults         displays the server's default picks and certificate info
-     -P, --server-preference       displays the server's picks: protocol+cipher
-     -x, --single-cipher <pattern> tests matched <pattern> of ciphers
-                                   (if <pattern> not a number: word match)
-     -c, --client-simulation       test client simulations, see which client negotiates with cipher and protocol
-     -h, --header, --headers       tests HSTS, HPKP, server/app banner, security headers, cookie, reverse proxy, IPv4 address
-
      -U, --vulnerable              tests all (of the following) vulnerabilities (if applicable)
      -H, --heartbleed              tests for Heartbleed vulnerability
      -I, --ccs, --ccs-injection    tests for CCS injection vulnerability
@@ -405,7 +404,6 @@ $ testssl 45.33.32.156:8080
      -J, --logjam                  tests for LOGJAM vulnerability
      -D, --drown                   tests for DROWN vulnerability
      -4, --rc4, --appelbaum        which RC4 ciphers are being offered?
-
 ```
 
 ## Hacking Vulnerable Web Applications Without Going To Jail
