@@ -3,28 +3,30 @@
 # WiFi Penetration Testing
 
 ## Table of Contents
-1. Basic commands
-2. Open networks
-2.1. Captive portals
-2.2. Man in the Middle attack
-3. WEP cracking
-3.1. No clients
-4. WPA2-PSK cracking
-4.1. Cracking the 4-way-handshake
-4.2. PMKID attack
-5. WPA2-Enterprise
-5.1. Fake Access Points
-5.2. Brute force
-5.3. EAP methods supported
-6. Other attacks
-6.1. Krack Attack
-6.2. OSINT
-6.3. Wifi Jamming
-6.4. Other frameworks
-7. Post-exploitation
-7.1. Attacking the router
-7.2. Types of scanners
-7.3. Spoofing
+
+1. [Basic Commands](#basic-commands)
+2. [Open Networks](#open-networks)
+   1. [Captive Portals](#captive-portals)
+   2. [Man in the Middle Attack](#man-in-the-middle-attack)
+3. [WEP Cracking](#wep-cracking)
+   1. [No Clients](#no-clients)
+4. [WPA2-PSK Cracking](#wpa2-psk-cracking)
+   1. [Cracking the 4-Way-Handshake](#cracking-the-4-way-handshake)
+   2. [PMKID Attack](#pmkid-attack)
+5. [WPA2-Enterprise](#wpa2-enterprise)
+   1. [Fake Access Points](#fake-access-points)
+   2. [Brute Force](#brute-force)
+   3. [EAP Methods Supported](#eap-methods-supported)
+6. [Other Attacks](#other-attacks)
+   1. [Krack Attack](#krack-attack)
+   2. [OSINT](#osint)
+   3. [Wifi Jamming](#wifi-jamming)
+   4. [Other Frameworks](#other-frameworks)
+7. [Post-Exploitation](#post-exploitation)
+   1. [Attacking the Router](#attacking-the-router)
+   2. [Types of Scanners](#types-of-scanners)
+   3. [Spoofing](#spoofing)
+
 
 ## 1. Basic commands
 
@@ -111,7 +113,7 @@ For the character set it is possible to use l (lowercase letters), u (uppercase 
 #### 2.1.1. Fake captive portals
 1. Clone a website using [HTTrack](https://www.httrack.com/)
 
-2. Install [Wifiphiser](https://github.com/wifiphisher/wifiphisher). Add the HTTrack result in a new folder in `wifiphisher/data/phishingpages/new_page/html` and a configuration file in `wifiphisher/data/phishingpages/new_page/config.ini`.
+2. Install [Wifiphiser](https://github.com/wifiphisher/wifiphisher). Add the HTTrack result in a new folder in `wifiphisher/data/phishing-pages/new_page/html` and a configuration file in `wifiphisher/data/phishing-pages/new_page/config.ini`.
 
 3. Recompile the project using python setup.py install or the binary in bin.
 
@@ -121,8 +123,7 @@ cd bin && ./wifiphisher -aI $IFACE -e $ESSID --force-hostapd -p $PLUGIN -nE
 ```
 
 #### 2.1.2. Bypass 1: MAC spoofing
-The first method to bypass a captive portal is to change your MAC address to one of an already
-authenticated user
+The first method to bypass a captive portal is to change your MAC address to one of an already authenticated user
 
 1. Scan the network and get the list of IP and MAC addresses. You can use nmap
 
@@ -131,9 +132,7 @@ authenticated user
 Also, you can use scripts to automate the process like [Poliva script](https://github.com/poliva/random-scripts/blob/master/wifi/hotspot-bypass.sh) or [Hackcaptiveportals](https://github.com/systematicat/hack-captive-portals)
 
 #### 2.1.3. Bypass 2: DNS tunnelling
-A second method is creating a DNS tunnel. For this, it is necessary to have an accessible DNS
-server of your own. You can use this method to bypass the captive portal and get "free" Wifi in
-hotel, airports...
+A second method is creating a DNS tunnel. For this, it is necessary to have an accessible DNS server of your own. You can use this method to bypass the captive portal and get "free" Wifi in hotel, airports...
 
 1. Check the domain names are resolved:
 ```
