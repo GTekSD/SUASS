@@ -270,67 +270,86 @@ hashcat -a 0 -m 16800 $HASH_FILE $WORDLIST --force
 ### 5.1 Fake Access Points
 
 #### Virtual machines download
-Operating system | Platform | Credentials Size Link
-Ubuntu 16.04.5 VMware ricardojoserf:wifi 3.25 GB MEGA
-Kali 2019.1 VMware root:wifi 4.99 GB MEGA
-Ubuntu 16.04.5 VirtualBox (OVA) ricardojoserf:wifi 3.18 GB MEGA
-Kali 2019.1 VirtualBox (OVA) root:wifi 5.56 GB MEGA
-Local installation
+
+| Operating system | Platform | Credentials | Size | Link |
+|---|---|---|---|---|
+| Ubuntu 16.04.5 | VMware | ricardojoserf:wifi | 3.25 GB | [MEGA](https://mega.nz/file/5glEzKKa#SCmh95KdM28uPt-h8J5xtu4pQrnn_3yrI2kLnaSq3nw) |
+| Kali 2019.1 | VMware | root:wifi | 4.99 GB | [MEGA](https://mega.nz/file/11sDVSoB#KMq5yWvuGUFwGhqzd-5hE21Xsfxsp0UMauQKntMbs38) |
+| Ubuntu 16.04.5 | VirtualBox (OVA) | ricardojoserf:wifi | 3.18 GB | [MEGA](https://mega.nz/file/N5slGZLC#Dx1rBEMoNOAqdaEpB7BHhRi26HDxkJlyoQNk0frWDkw) |
+| Kali 2019.1 | VirtualBox (OVA) | root:wifi | 5.56 GB | [MEGA](https://mega.nz/file/pl0j3ZwC#zE_skdeUCLoOSQHvtHrvejmA4Ktn9Qk0Sk0qI1d4KeI) |
+
+#### Local installation
 In case you do not want to use the virtual machine, you can install everything using:
+```
 git clone https://github.com/ricardojoserf/WPA_Enterprise_Attack
+```
+```
 cd WPA_Enterprise_Attack && sudo sh install.sh
-Hostapd & Freeradius-wpe
+```
+
+#### Hostapd & Freeradius-wpe
 Start the Access Point using:
+```
 sh freeradius_wpe_init.sh $AP_NAME $INTERFACE
+```
+
 When a client connects, read logs with:
+```
 sh freeradius_wpe_read.sh
-Hostapd-wpe
+```
+
+#### Hostapd-wpe
+```
 sh hostapd_wpe_init.sh $AP_NAME $INTERFACE
+```
 
-5.2 Brute force
-Airhammer
+### 5.2 Brute force
+- [Airhammer](https://github.com/Wh1t3Rh1n0/air-hammer)
 
-5.3 EAP methods supported
+### 5.3 EAP methods supported
 Find supported EAP methods
-EAP_buster
+- [EAP_buster](https://github.com/blackarrowsec/EAP_buster)
 
 
 ## 6. Other attacks
 
 6.1. Krack Attack
-Krack Attack Scripts
+- [Krack Attack Scripts](https://github.com/vanhoefm/krackattacks-scripts)
 
 6.2. OSINT
-Wigle
+- [Wigle](https://wigle.net/)
 
 6.3. Wifi Jamming
-Wifijammer - This program can send deauthentication packets to both APs and clients.
+- [Wifijammer](https://github.com/DanMcInerney/wifijammer) - This program can send deauthentication packets to both APs and clients.
 An example to deauthenticate all the devices except a Fake Acess Point:
+```
 sudo ./wifijammer -i $IFACE -s $FAKE_AP_MAC
+```
 
 6.4. Other frameworks
-Linux:
-Sniffair
-Wifi Pumpkin - Framework for Rogue WiFi Access Point Attack
-Eaphammer - Framework for Fake Access Points
-Windows:
-Acrylic - Useful for recon phase
-Ekahau - Useful for Wi-Fi planning
-Vistumbler - Useful for wardriving
+- Linux:
+  - [Sniffair](https://github.com/Tylous/SniffAir)
+  - [Wifi Pumpkin](https://github.com/P0cL4bs/WiFi-Pumpkin) - Framework for Rogue WiFi Access Point Attack
+  - [Eaphammer](https://github.com/P0cL4bs/WiFi-Pumpkin) - Framework for Fake Access Points
+
+- Windows:
+  - [Acrylic](https://www.acrylicwifi.com/) - Useful for recon phase
+  - [Ekahau](https://www.ekahau.com/) - Useful for Wi-Fi planning
+  - [Vistumbler](https://www.vistumbler.net/) - Useful for wardriving
 
 
 
 ## 7. Post-exploitation
 Once you are connected to the network
 
-7.1. Attacking the router
-Routersploit - Exploitation Framework for Embedded Devices - Test "use
+### 7.1. Attacking the router
+- [Routersploit](https://github.com/threat9/routersploit) - Exploitation Framework for Embedded Devices - Test "use
 scanners/autopwn"
 
-7.2. Types of scanners
-Nmap/Zenmap - Security Scanner, Port Scanner, & Network Exploration Tool
-Masscan - The faster version of nmap (it can break things, so be careful)
-Netdiscover - ARP sniffing. Very useful if the networks are very well segmented
+### 7.2. Types of scanners
+- Nmap/Zenmap - Security Scanner, Port Scanner, & Network Exploration Tool
+- Masscan - The faster version of nmap (it can break things, so be careful)
+- Netdiscover - ARP sniffing. Very useful if the networks are very well segmented
 
-7.3. Spoofing
-Ettercap - Check if you can do a MitM attack and sniff all the traffic in the network.
+### 7.3. Spoofing
+- Ettercap - Check if you can do a MitM attack and sniff all the traffic in the network.
