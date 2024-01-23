@@ -14,6 +14,7 @@ Welcome to the "SUASS - Secure ur Ass | Penetration Testing Notes" repository! T
   - [Mobile Security](./Mobile%20Security)
   - [Network Security](./Network%20Security)
   - [Web Application Security](./Web%20Application%20Security)
+  - [Wireless Security](./Wireless%20Security)
   - [Additional Materials](#additional-materials)
     - [Bug Bounty Pro Tools](./Bug-Bounty-Pro-Tools.md)
     - [Linux/Windows Commands You Should Learn](./LinuxWin%20cmds%20u%20better%20learn.md)
@@ -53,6 +54,11 @@ Information and resources covering network security concepts, protocols, tools, 
 ### Web Application Security
 
 Guides, tutorials, and resources addressing security concerns related to web applications, including vulnerabilities, testing methodologies, and mitigation strategies.
+
+### Wireless Security
+
+Explore the world of wireless security, covering topics such as Wi-Fi security, WEP Cracking, WPA2-PSK Cracking, and Post-Exploitation.
+
 
 ### Additional Materials
 
