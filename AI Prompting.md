@@ -1,3 +1,4 @@
+![gitopenai](https://github.com/GTekSD/SUASS/assets/55411358/17412590-18db-49c8-9cd1-d9e753dc0c52)
 # ChatGPT Prompting
 
 ## PROMPT
