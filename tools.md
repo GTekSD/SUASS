@@ -2,12 +2,12 @@
 
 ## Network
 
-- Zenmap
-- Nessus
+- [Zenmap](https://nmap.org/zenmap/)
+- [Nessus](https://www.tenable.com/nessus/resource-center)
 
 ## Web Application
 
-- Burpsuite
+- [Burp Suite](https://portswigger.net/burp)
 
 ## Mobile Application
 
@@ -23,23 +23,23 @@
 
 ## API
 
-- Postman
+- [Postman](https://www.postman.com/downloads/)
 
 ## Thick Client
 
-- Echo mirage
-- Ethereal/Wireshark
+- [Echo mirage](https://sourceforge.net/projects/echomirage.oldbutgold.p/)
+- Ethereal/[Wireshark](https://www.wireshark.org/download.html)
 - Interactive TCP relay
 - JAVA snoop
-- Process monitor
-- WinHex tool
-- Reghsot
-- sigcheck
-- Process Hacker
+- (Sysinternals) [Process monitor](https://learn.microsoft.com/en-us/sysinternals/downloads/)
+- [WinHex tool](https://www.x-ways.net/winhex/)
+- [Regshot](https://github.com/Seabreg/Regshot)
+- [sigcheck](https://github.com/reverseame/sigcheck)
+- [Process Hacker](https://github.com/PKRoma/ProcessHacker)
 - JetBrains DotPeek
 - IDA Pro / Olly dbg
 - CFF Explorer
-- Dnspy
+- [DnSpy](https://github.com/dnSpy/dnSpy)
 
 ## Tools in kali
 
