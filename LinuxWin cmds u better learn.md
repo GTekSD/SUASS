@@ -1,9 +1,14 @@
-# Linux Basics & Important Commands
+# Basics & Important Command$ u need to Kn0w RN!
+
+- [Linux Commands](#linux-commands)
+- [Windows Commands](#windows-commands)
+----------------
+# Linux Commands
 #### cd - chdir (Change Directory).
 ```
 $ cd /				: to come to root
 $ cd 				: come to default path
-$ cd /usr/bin 		: particular path
+$ cd /usr/bin 			: particular path
 $ .. 				: come one directory back
 $ ../../ 			: come 2 times back 
 ```
@@ -15,9 +20,9 @@ $ pwd				: used to print working directory.
 
 #### touch - change file timestamps
 ```
-$ touch textfile.txt					: create a file
+$ touch textfile.txt						: create a file
 $ touch file1 file2 file3 					: create more than one file.
-$ touch docfile{1..10} 					: will create 10 file named docfile
+$ touch docfile{1..10} 						: will create 10 file named docfile
 $ touch -d tomorrow willcreatefileonnextday.txt 
 ```
 
@@ -41,8 +46,8 @@ $ hit ESC > SHIFT + : > wq 				: to save file
 #### ls - list directory contents
 ```
 $ ls 						: lists the directory contents of files and directories
-$ ls -l or ll 				: use a long listing format
-$ ls -a or la 				: show hidden entries starting with .
+$ ls -l or ll 					: use a long listing format
+$ ls -a or la 					: show hidden entries starting with .
 $ ls -al 					: show hidden entries in long listing format.
 ```
 
@@ -60,7 +65,7 @@ $ cat filename.txt 					: display the content of a file.
 
 #### shred - overwrite a file to hide its contents, and optionally delete it
 ```
-$ shred filename.txt 				: no one can read this file
+$ shred filename.txt 					: no one can read this file
 ```
 
 #### mkdir - make directories
@@ -70,7 +75,7 @@ $ mkdir newfolder 					: used to create directories.
 
 #### cp - copy files and directories 
 ```
-$ cp textfile.txt /newfolder 			: used to copy file to directories
+$ cp textfile.txt /newfolder 				: used to copy file to directories
 ```
 
 #### mv - move (rename) files
@@ -82,7 +87,7 @@ $ mv filename.txt file.txt 				: used to renames files and directories
 #### rm - remove files or directories
 ```
 $ rm file.txt 						: used to delete files.
-$ rmdir newfolder/ 						: used to delete directory.
+$ rmdir newfolder/ 					: used to delete directory.
 $ rm -r or rm -rf newfolder/ 				: delete not empty directory.
 ```
 
@@ -93,7 +98,7 @@ $ ln -s text.txt newlinkfilelikeshortcut 		: used to link a file to new file.
 
 #### whoami - print effective user name
 ```
-$ whoami 				: print the user ID
+$ whoami 			: print the user ID
 ```
 
 #### users
@@ -106,14 +111,14 @@ $ users				: display the login names
 $ sudo su 						: to become a root user
 $ su 							: also can become root
 $ sudo <anycmd> 					: execute cmd with root privileges. 
-$ su username 					: to become that user.
-$ exit 						: to go back
+$ su username 						: to become that user.
+$ exit 							: to go back
 ```
 
 #### adduser, useradd - add or manipulate users
 ```
 $ useradd username 					: will add user quickly without asking anything.
-$ adduser username2 				: will ask information to give new user.
+$ adduser username2 					: will ask information to give new user.
 ```
 
 #### passwd - change user password
@@ -123,12 +128,12 @@ $ sudo passwd username 				: to change password of username
 
 #### apt - command-line interface (Debian based)
 ```
-$ apt update 					: Download package information from all configured sources.
+$ apt update 						: Download package information from all configured sources.
 $ apt-get install update 				: Download package information from all configured sources.
-$ apt upgrade 					: Install available upgrades of all packages currently installed on the system
+$ apt upgrade 						: Install available upgrades of all packages currently installed on the system
 $ apt-get install upgrade 				: Install available upgrades of all packages currently installed on the system
-$ apt install <pakagename> 			: Install software 
-$ apt-get install <pakagename> 			: Install software 
+$ apt install <pakagename> 				: Install software 
+$ apt-get install <pakagename> 				: Install software 
 ```
 
 #### man - an interface to the system reference manuals
@@ -148,21 +153,21 @@ $ which <cmd/tool> 					: pathname of the files (or links)
 
 #### whereis - locate the binary, source, and manual page files for a command
 ```
-$ whereis <cmd/tool> 				: show all pathnames of the files (or links)
+$ whereis <cmd/tool> 					: show all pathnames of the files (or links)
 ```
 
 #### diff, cmp - compare two files
 ```
-$ cmp file1.txt file1mod.txt 			: compare two files byte by byte
-$ diff file1.txt file2mod.txt 			: compare two files line by line
+$ cmp file1.txt file1mod.txt 				: compare two files byte by byte
+$ diff file1.txt file2mod.txt 				: compare two files line by line
 ```
 
 #### find, locate  - search for files
 ```
-$ find / -name “filename*” 			: search for files in a directory hierarchy
-$ find . -type f -name “.*” 			: also find hidden files
+$ find / -name “filename*” 				: search for files in a directory hierarchy
+$ find . -type f -name “.*” 				: also find hidden files
 $ find . -type f -empty 				: also find empty directory 
-$ file . -perm /a=x 				: find executable files.
+$ file . -perm /a=x 					: find executable files.
 $ locate filename 					: find files by name, quickly.
 ```
 
@@ -176,11 +181,11 @@ $ echo "3/4" | bc
 
 #### Package and Compress (archive) files
 ```
-$ zip document 						: compress files in .zip format
-$ unzip document.zip 					: extract .zip files.
+$ zip document 							: compress files in .zip format
+$ unzip document.zip 						: extract .zip files.
 
 $ gzip document 						: compress files in .gz format
-$ gunzip document.gz 					: extract .gz files
+$ gunzip document.gz 						: extract .gz files
 
 $ tar -czvf newzipname.tar /anydir files
 $ tar -xzvf document.tar 					: extract .tar files
@@ -195,7 +200,7 @@ $ tar -czvf archive.tar.gz /home/ubuntu/Downloads /usr/local/stuff /home/ubuntu/
 #### Network Tools - configure a network interface
 ```
 $ sudo apt install net-tools 					: If not install
-$ ifconfig 								: show network info
+$ ifconfig 							: show network info
 $ ip address 							: show ip address
 $ ip address | grep eth0 | grep inet | awk '{print $2}' 	: just show ip
 $ cat /etc/resolv.conf 						: show the DNS
@@ -203,9 +208,9 @@ $ resolvectl status 						: show DNS status.
 ```
 
 ```
-$ ping website.com 						: to check is it up or not
-$ ping -c 4 website.com 					: send only 4 packets to check
-$ ping -c 4 -s 500 website.com 				: send 500bytes 4 packets
+$ ping website.com 				: to check is it up or not
+$ ping -c 4 website.com 			: send only 4 packets to check
+$ ping -c 4 -s 500 website.com 			: send 500bytes 4 packets
 ```
 
 netstat - Print network stuff
@@ -226,34 +231,34 @@ $ ufw enable 					: enable or disable ufw
 
 #### System Information
 ```
-$ uname 						: displays the current system's information.
-$ uname -a 						: print all information
-$ apt install neofetch 					: must install
-$ neofetch 						: show sys all info in pretty 
-$ free 							: Display amount of free and used memory in the system
-$ df or df -H 						: report file system space usage
+$ uname 					: displays the current system's information.
+$ uname -a 					: print all information
+$ apt install neofetch 				: must install
+$ neofetch 					: show sys all info in pretty 
+$ free 						: Display amount of free and used memory in the system
+$ df or df -H 					: report file system space usage
 ```
 
 #### System Processes
 ```
-$ ps 							: show the current processes.
-$ ps -aux 						: show more processes.
-$ top 							: display all processes eating ur stuff
+$ ps 						: show the current processes.
+$ ps -aux 					: show more processes.
+$ top 						: display all processes eating ur stuff
 $ htop 						: same but pretty good to see.
-$ kill -9 <psid> 					: will kill the particular processes.
+$ kill -9 <psid> 				: will kill the particular processes.
 $ pkill -f <psname> 				: will kill the process u mentioned.
 ```
 
 #### System Control the systemd system and service manager
 ```
-$ systemctl start apache2 				: start the particular service
-$ systemctl stop apache2 				: stop the particular service
+$ systemctl start apache2 			: start the particular service
+$ systemctl stop apache2 			: stop the particular service
 $ systemctl restart apache2 			: restart the particular service
 $ systemctl status apache2 			: show status of the particular service
-$ history 						: show all executed commands
+$ history 					: show all executed commands
 $ sudo reboot					: will reboot the system
-$ sudo shutdown 					: it will shutdown the system in a minute
-$ sudo shutdown -h 					: it will shutdown the system right now.
+$ sudo shutdown 				: it will shutdown the system in a minute
+$ sudo shutdown -h 				: it will shutdown the system right now.
 ```
 
 ------------
@@ -280,7 +285,7 @@ drwxr-xr-x 2 kali root 4096 Aug 12 06:54 Downloads
 
 Example:
 ```
-$ chmod +x file.txt			: + (add) r / w / x || - (remove) r / w / x 
+$ chmod +x file.txt		: + (add) r / w / x || - (remove) r / w / x 
 $ chmod 726 file.txt		: rwx to user, r to group, rw to others
 $ chmod u+rwx file.txt		: all permissions to user
 $ chmod g+rwx file.txt		: all permissions to group
@@ -295,7 +300,7 @@ $ chmod o-rwx file.txt		: remove all permissions from other
 ```
 ------------
  
-# Windows Basics & Important Commands
+# Windows Commands
 
 #### Windows Package Manager
 ```
