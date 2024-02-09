@@ -1,262 +1,178 @@
-# Basics & Important Commands to Know
+# Basics & Important Command$ u need to Kn0w RN!
 
-- [Basics \& Important Commands to Know](#basics--important-commands-to-know)
-	- [Linux Basics \& Important Commands](#linux-basics--important-commands)
-- [LINUX Permissions](#linux-permissions)
-	- [Windows Basics \& Important Commands](#windows-basics--important-commands)
-
-
-## Linux Basics & Important Commands
-
-#### cd
-
-chdir (Change Directory).
-
-```shell
+- [Linux Commands](#linux-commands)
+- [Windows Commands](#windows-commands)
+----------------
+# Linux Commands
+#### cd - chdir (Change Directory).
+```
 $ cd /				: to come to root
 $ cd 				: come to default path
-$ cd /usr/bin 		: particular path
+$ cd /usr/bin 			: particular path
 $ .. 				: come one directory back
-$ ../../ 			: come 2 times back
+$ ../../ 			: come 2 times back 
 ```
 
-#### pwd
-
-print working directory.
-
-```shell
+#### pwd - print working directory.
+```
 $ pwd				: used to print working directory.
 ```
 
-#### touch
-
-change file timestamps
-
-```shell
-$ touch textfile.txt					: create a file
+#### touch - change file timestamps
+```
+$ touch textfile.txt						: create a file
 $ touch file1 file2 file3 					: create more than one file.
-$ touch docfile{1..10} 					: will create 10 file named docfile
-$ touch -d tomorrow willcreatefileonnextday.txt
+$ touch docfile{1..10} 						: will create 10 file named docfile
+$ touch -d tomorrow willcreatefileonnextday.txt 
 ```
 
-#### mousepad
-
-simple text editor for Xfce
-
-```shell
+#### mousepad — simple text editor for Xfce
+``` 
 $ mousepad textfile.txt				: used to open text editor
 ```
 
-#### nano
-
-Nano's ANOther editor.
-
-```shell
+#### nano Nano's ANOther editor. 
+```
 $ nano filename.txt
-$ CTRL + X > Y > FILENAME > ENTER 			: to save
+$ CTRL + X > Y > FILENAME > ENTER 			: to save 
 ```
 
-#### vim
-
-Vi IMproved, a programmer's text editor
-
-```shell
+#### vim - Vi IMproved, a programmer's text editor
+```
 $ hit i to start typing
 $ hit ESC > SHIFT + : > wq 				: to save file
 ```
 
-#### ls
-
-list directory contents
-
-```shell
+#### ls - list directory contents
+```
 $ ls 						: lists the directory contents of files and directories
-$ ls -l or ll 				: use a long listing format
-$ ls -a or la 				: show hidden entries starting with .
+$ ls -l or ll 					: use a long listing format
+$ ls -a or la 					: show hidden entries starting with .
 $ ls -al 					: show hidden entries in long listing format.
 ```
 
-#### echo
-
-display a line of text
-
-```shell
+#### echo - display a line of text
+```
 $ echo Hello me! 							: used to print the content.
 $ echo “save this txt in a file” > new.txt
 $ echo “this txt will be saved on next line” >> new.txt
 ```
 
-#### cat
-
-concatenate files and print on the standard output
-
-```shell
+#### cat - concatenate files and print on the standard output
+```
 $ cat filename.txt 					: display the content of a file.
 ```
 
-#### shred
-
-overwrite a file to hide its contents, and optionally delete it
-
-```shell
-$ shred filename.txt 				: no one can read this file
+#### shred - overwrite a file to hide its contents, and optionally delete it
+```
+$ shred filename.txt 					: no one can read this file
 ```
 
-#### mkdir
-
-make directories
-
-```shell
+#### mkdir - make directories
+```
 $ mkdir newfolder 					: used to create directories.
 ```
 
-#### cp
-
-copy files and directories
-
-```shell
-$ cp textfile.txt /newfolder 			: used to copy file to directories
+#### cp - copy files and directories 
+```
+$ cp textfile.txt /newfolder 				: used to copy file to directories
 ```
 
-#### mv
-
-move (rename) files
-
-```shell
+#### mv - move (rename) files
+```
 $ mv textfile.txt /newfolder/textfile.txt 		: used to move files and directories
 $ mv filename.txt file.txt 				: used to renames files and directories
 ```
 
-#### rm
-
-remove files or directories
-
-```shell
+#### rm - remove files or directories
+```
 $ rm file.txt 						: used to delete files.
-$ rmdir newfolder/ 						: used to delete directory.
+$ rmdir newfolder/ 					: used to delete directory.
 $ rm -r or rm -rf newfolder/ 				: delete not empty directory.
 ```
 
-#### ln
-
-make links between files
-
-```shell
+#### ln - make links between files
+```
 $ ln -s text.txt newlinkfilelikeshortcut 		: used to link a file to new file.
 ```
 
-#### whoami
-
-print effective user name
-
-```shell
-$ whoami 				: print the user ID
+#### whoami - print effective user name
+```
+$ whoami 			: print the user ID
 ```
 
 #### users
-
-```shell
+```
 $ users				: display the login names
 ```
 
-#### sudo
-
-execute a command as another user.
-
-```shell
+#### sudo , sudoedit — execute a command as another user.
+```
 $ sudo su 						: to become a root user
 $ su 							: also can become root
-$ sudo <anycmd> 					: execute cmd with root privileges.
-$ su username 					: to become that user.
-$ exit 						: to go back
+$ sudo <anycmd> 					: execute cmd with root privileges. 
+$ su username 						: to become that user.
+$ exit 							: to go back
 ```
 
-#### adduser, useradd
-
-add or manipulate users
-
-```shell
+#### adduser, useradd - add or manipulate users
+```
 $ useradd username 					: will add user quickly without asking anything.
-$ adduser username2 				: will ask information to give new user.
+$ adduser username2 					: will ask information to give new user.
 ```
 
-#### passwd
-
-change user password
-
-```shell
+#### passwd - change user password
+```
 $ sudo passwd username 				: to change password of username
 ```
 
-#### apt
-
-package manager (for Debian based OS)
-
-```shell
-$ apt update 					: Download package information from all configured sources.
+#### apt - command-line interface (Debian based)
+```
+$ apt update 						: Download package information from all configured sources.
 $ apt-get install update 				: Download package information from all configured sources.
-$ apt upgrade 					: Install available upgrades of all packages currently installed on the system
+$ apt upgrade 						: Install available upgrades of all packages currently installed on the system
 $ apt-get install upgrade 				: Install available upgrades of all packages currently installed on the system
-$ apt install <pakagename> 			: Install software
-$ apt-get install <pakagename> 			: Install software
+$ apt install <pakagename> 				: Install software 
+$ apt-get install <pakagename> 				: Install software 
 ```
 
-#### man
-
-an interface to the system reference manuals
-
-```shell
+#### man - an interface to the system reference manuals
+```
 $ man <any cmd/tool> 				: show manual
 ```
 
-#### whatis
-
-display one-line manual page descriptions
-
-```shell
+#### whatis - display one-line manual page descriptions
+```
 $ whatis <any cmd/tool> 				: show one line description
 ```
 
-#### which
-
-locate a command
-
-```shell
+#### which - locate a command
+```
 $ which <cmd/tool> 					: pathname of the files (or links)
 ```
 
-#### whereis
-
-locate the binary, source, and manual page files for a command
-
-```shell
-$ whereis <cmd/tool> 				: show all pathnames of the files (or links)
+#### whereis - locate the binary, source, and manual page files for a command
+```
+$ whereis <cmd/tool> 					: show all pathnames of the files (or links)
 ```
 
-#### diff, cmp
-
-compare two files
-
-```shell
-$ cmp file1.txt file1mod.txt 			: compare two files byte by byte
-$ diff file1.txt file2mod.txt 			: compare two files line by line
+#### diff, cmp - compare two files
+```
+$ cmp file1.txt file1mod.txt 				: compare two files byte by byte
+$ diff file1.txt file2mod.txt 				: compare two files line by line
 ```
 
-#### find, locate
-
-search for files
-
-```shell
-$ find / -name “filename*” 			: search for files in a directory hierarchy
-$ find . -type f -name “.*” 			: also find hidden files
-$ find . -type f -empty 				: also find empty directory
-$ file . -perm /a=x 				: find executable files.
+#### find, locate  - search for files
+```
+$ find / -name “filename*” 				: search for files in a directory hierarchy
+$ find . -type f -name “.*” 				: also find hidden files
+$ find . -type f -empty 				: also find empty directory 
+$ file . -perm /a=x 					: find executable files.
 $ locate filename 					: find files by name, quickly.
 ```
 
 #### Simple Math
-
-```shell
+```
 $ echo "3+4" | bc 					: simple math, u will get result
 $ echo "3-4" | bc 					: bc will give u the answer
 $ echo "3*4" | bc
@@ -264,13 +180,12 @@ $ echo "3/4" | bc
 ```
 
 #### Package and Compress (archive) files
-
-```shell
-$ zip document 						: compress files in .zip format
-$ unzip document.zip 					: extract .zip files.
+```
+$ zip document 							: compress files in .zip format
+$ unzip document.zip 						: extract .zip files.
 
 $ gzip document 						: compress files in .gz format
-$ gunzip document.gz 					: extract .gz files
+$ gunzip document.gz 						: extract .gz files
 
 $ tar -czvf newzipname.tar /anydir files
 $ tar -xzvf document.tar 					: extract .tar files
@@ -282,87 +197,74 @@ $ tar -xzvf document.tar 					: extract .tar files
 $ tar -czvf archive.tar.gz /home/ubuntu/Downloads /usr/local/stuff /home/ubuntu/Documents
 ```
 
-#### Network Tools
-
-configure a network interface
-
-```shell
+#### Network Tools - configure a network interface
+```
 $ sudo apt install net-tools 					: If not install
-$ ifconfig 								: show network info
+$ ifconfig 							: show network info
 $ ip address 							: show ip address
 $ ip address | grep eth0 | grep inet | awk '{print $2}' 	: just show ip
 $ cat /etc/resolv.conf 						: show the DNS
 $ resolvectl status 						: show DNS status.
 ```
 
-```shell
-$ ping website.com 						: to check is it up or not
-$ ping -c 4 website.com 					: send only 4 packets to check
-$ ping -c 4 -s 500 website.com 				: send 500bytes 4 packets
+```
+$ ping website.com 				: to check is it up or not
+$ ping -c 4 website.com 			: send only 4 packets to check
+$ ping -c 4 -s 500 website.com 			: send 500bytes 4 packets
 ```
 
-netstat
-
-Print network stuff
-
-```shell
+netstat - Print network stuff
+```
 $ netstat 					: show network stat
 $ netstat -tulpn 				: show open ports in our sys
 $ ss 						: short and better cmd for netstat
 $ ss -tulpn 					: short cmd for netstat -tulpn
 ```
 
-ufw
-
-program for managing a netfilter firewall
-
-```shell
+ufw - program for managing a netfilter firewall
+```
 $ ufw allow 80 					: it allows port 80
 $ ufw app list 					: show available apps
 $ ufw status 					: show firewall active apps status
-$ ufw enable 					: enable or disable ufw
+$ ufw enable 					: enable or disable ufw 
 ```
 
 #### System Information
-
-```shell
-$ uname 						: displays the current system's information.
-$ uname -a 						: print all information
-$ apt install neofetch 					: must install
-$ neofetch 						: show sys all info in pretty
-$ free 							: Display amount of free and used memory in the system
-$ df or df -H 						: report file system space usage
+```
+$ uname 					: displays the current system's information.
+$ uname -a 					: print all information
+$ apt install neofetch 				: must install
+$ neofetch 					: show sys all info in pretty 
+$ free 						: Display amount of free and used memory in the system
+$ df or df -H 					: report file system space usage
 ```
 
 #### System Processes
-
-```shell
-$ ps 							: show the current processes.
-$ ps -aux 						: show more processes.
-$ top 							: display all processes eating ur stuff
+```
+$ ps 						: show the current processes.
+$ ps -aux 					: show more processes.
+$ top 						: display all processes eating ur stuff
 $ htop 						: same but pretty good to see.
-$ kill -9 <psid> 					: will kill the particular processes.
+$ kill -9 <psid> 				: will kill the particular processes.
 $ pkill -f <psname> 				: will kill the process u mentioned.
 ```
 
 #### System Control the systemd system and service manager
-
-```shell
-$ systemctl start apache2 				: start the particular service
-$ systemctl stop apache2 				: stop the particular service
+```
+$ systemctl start apache2 			: start the particular service
+$ systemctl stop apache2 			: stop the particular service
 $ systemctl restart apache2 			: restart the particular service
 $ systemctl status apache2 			: show status of the particular service
-$ history 						: show all executed commands
+$ history 					: show all executed commands
 $ sudo reboot					: will reboot the system
-$ sudo shutdown 					: it will shutdown the system in a minute
-$ sudo shutdown -h 					: it will shutdown the system right now.
+$ sudo shutdown 				: it will shutdown the system in a minute
+$ sudo shutdown -h 				: it will shutdown the system right now.
 ```
 
----
+------------
 
 # LINUX Permissions
-
-```shell
+```
 root@kali:~ ls –l or ll
 total 20
 drwxr-xr-x 2 kali root 4096 Aug  7 15:06 Desktop
@@ -370,42 +272,38 @@ drwxr-xr-x 2 kali root 4096 May 12 12:19 Documents
 drwxr-xr-x 2 kali root 4096 Aug 12 06:54 Downloads
 -rw-r—-r-- 1 kali root  621 Jan 25 20:25 file.php
 ```
+**d rwx r-x r-x  2  kali  root  4096  Aug 7 15:06  Desktop**
 
-**d rwx r-x r-x 2 kali root 4096 Aug 7 15:06 Desktop**
-
-| d         | rwx              | r-x               | r-x                          | 2                    | kali              | root       | 4096 | Aug 7 15:06             | Desktop                 |
-| --------- | ---------------- | ----------------- | ---------------------------- | -------------------- | ----------------- | ---------- | ---- | ----------------------- | ----------------------- |
+| d | rwx | r-x | r-x | 2 | kali | root | 4096 | Aug 7 15:06 | Desktop |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | file type | user permissions | group permissions | other (everyone) permissions | number of hard links | user (owner) name | group name | size | date/time last modified | filename/directory name |
 
-    r = 4 = read
-    w = 2 = write
-    x = 1 = execute
+
+	r = 4 = read 	 
+	w = 2 = write	
+	x = 1 = execute 
 
 Example:
-
-```shell
-$ chmod +x file.txt			: + (add) r / w / x || - (remove) r / w / x
+```
+$ chmod +x file.txt		: + (add) r / w / x || - (remove) r / w / x 
 $ chmod 726 file.txt		: rwx to user, r to group, rw to others
 $ chmod u+rwx file.txt		: all permissions to user
 $ chmod g+rwx file.txt		: all permissions to group
 $ chmod o-rwx file.txt		: remove all permissions from other
 ```
-
-```shell
+```
 002	-rw-rw-r--	drwxrwxr-x
 007	-rw-rw----	drwxrwx---
 022	-rw-r--r--	drwxr-xr-x
 027	-rw-r-----	drwxr-x---
 077	-rw-------	drwx------
 ```
-
----
-
-## Windows Basics & Important Commands
+------------
+ 
+# Windows Commands
 
 #### Windows Package Manager
-
-````shell
+```
 $ winget search <appname>					: To search for a tool/ Find and show basic info of packages
 $ winget install <package>					: Install a package.
 $ winget uninstall <package>					: Remove a package.
@@ -413,11 +311,10 @@ $ winget upgrade						: Update a software package.
 $ winget upgrade all						: Updates all available packages to the latest application.
 $ winget list							: List all installed apps on Windows.
 
-```shell
+```
 
 #### Networking
-
-```shell
+```
 $ ipconfig							: display IP information
 $ ipconfig /all							: show all addresses including MAC and DNS
 $ ipconfig /all | findstr DNS					: filter DNS with findstr
@@ -444,12 +341,11 @@ $ tracert -d target.com						: speed up tracert
 $ netstat							: show ports
 $ netstat -af							: show more
 $ netstat -o							: show with address
-$ netstat -e -t 5
-````
+$ netstat -e -t 5						
+```
 
 #### File and System Management
-
-```shell
+```
 $ assoc						: view file association
 $ assoc .mp4=VLC.vlc				: assign file type
 $ chkdsk /f					: fix errors on the disk
@@ -457,11 +353,8 @@ $ chkdsk /r					: locate bad sectors and recover readable information
 $ sfc /scnnow					: scan integrity of all protected system files and repair files with problems when possible
 ```
 
-#### DISM
-
-Deployment Image Servicing and Management
-
-```shell
+#### DISM: Deployment Image Servicing and Management
+```
 $ DISM /Online /Cleanup-Image /ScanHealth
 $ DISM /Online /Cleanup-Image /RestorHealth
 
@@ -477,22 +370,19 @@ $ getmac /v							: view all MAC addresses
 ```
 
 #### Power Management
-
-```shell
+```
 $ powercfg /energy						: show issues with power.
 $ powercfg /battryreport					: show battery report.
 ```
 
 #### Firewall
-
-```shell
+```
 $ netsh advfirewall set allprofiles state off			: turn off firewall.
 $ netsh advfirewall set allprofiles state on			: turn on firewall
 ```
 
 #### Routing
-
-```shell
+```
 $ route print							: show route table.
 $ route add 192.168.40.0 mask 255.255.255.0 10.7.1.44		: custom route.
 $ route delete 192.168.40.0					: delete custom route.
