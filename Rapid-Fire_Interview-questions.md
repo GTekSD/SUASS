@@ -129,7 +129,7 @@ Ans: STRIDE is an acronym for the threat modeling system. It helps in categorizi
 
 For threat modelling practice a tool like **Microsoft threat modelling tool** can be used.
 
-### Q. Q.Threat Type	Security Control	Mitigation Techniques
+## Q. Threat Type	Security Control	Mitigation Techniques
 ### Q. Spoofing Identity	Authentication	-	Appropriate authentication
 -	Protect secret data.
 -	Don’t store secrets
@@ -158,7 +158,6 @@ For threat modelling practice a tool like **Microsoft threat modelling tool** ca
 
 ### Q. Elevation of privilege	Authorization	-	Run with least privilege
 
-
 The simplest and most basic form of identifying a web server is to look at the Server field in the HTTP response header.
 Servers:
 -	Apache Web Server: Version 2.4.46
@@ -172,10 +171,10 @@ Servers:
 -	Sun Java System Web Server
 
 
-### Q. Insecure Deserialization.
+## Q. Insecure Deserialization.
 Insecure Deserialization is a vulnerability which occurs when untrusted data is used to abuse the logic of an application, execute malicious code upon it being deserialized.
 
-**Example:**
+### Example:
 
 A bank website uses object serialization to store a cookie containing user details, password, role, hash etc. 
 
@@ -186,34 +185,45 @@ An attacker changes the serialized object to give themselves admin privileges:
 `a:4:{i:0;i:1;i:1;s:5:"Alice";i:2;s:5:"admin"; i:3;s:32:"b6a8b3bea87fe0e05022f8f3c88bc960";}`
 
 
-### XXE with Example:
+## XXE - XML External Entity
 Some applications use the XML format to transmit data between the browser and the server. Applications that do this virtually always use a standard library or platform API to process the XML data on the server.
-XML and HTML-- XML focus on transfer of data while HTML focus on presentation of data
-XML is an extensible markup language used to store and transport data between browser and server. XML parsers are used to process the data, if not properly configured could lead to arbitrary code execution.
-Some applications allow users to upload files which are then processed server-side. Some common file formats use XML or contain XML subcomponents. Examples of XML-based formats are office document formats like DOCX and image formats like SVG.
-Even if the application expects to receive a format like PNG or JPEG, the image processing library that is being used might support SVG images. Since the SVG format uses XML, an attacker can submit a malicious SVG image and so reach hidden attack surface for XXE vulnerabilities.
+- **XML and HTML:** XML focus on transfer of data while HTML focus on presentation of data.
+- XML is an extensible markup language used to store and transport data between browser and server.
+- **XML parsers** are used to process the data, if not properly configured could lead to arbitrary code execution.
+- Some applications allow users to upload files which are then processed server-side. Some common file formats use XML or contain XML subcomponents.
+- Examples of XML-based formats are office document formats like DOCX and image formats like SVG.
+- Even if the application expects to receive a format like PNG or JPEG, the image processing library that is being used might support SVG images. Since the SVG format uses XML, an attacker can submit a malicious SVG image and so reach hidden attack surface for XXE vulnerabilities.
 
-### SQL injection example bypassing WAF:
-I was working on an ecommerce application where I had to bypass WAF. I had observed that whichever input I was trying had integrity checks but it was bypassing certain queries, so I thought it has WAF installed. I started using payloads through SQL map. To bypass WAF we have a payload called tamper. I wrote different scripts with Tamper payload and finally noticed that SQL injection was present in the cookie. I used SQL map on cookie and retrieved the database. I found user details with their address and numbers.
+## SQL injection example bypassing WAF:
+I was working on an ecommerce application where I had to bypass WAF. 
+I had observed that whichever input I was trying had integrity checks but it was bypassing certain queries, so I thought it has WAF installed. 
+I started using payloads through SQLmap to bypass WAF we have a payload called tamper. 
+I wrote different scripts with Tamper payload and finally noticed that SQL injection was present in the cookie. 
+I used SQL map on cookie and retrieved the database. I found user details with their address and numbers.
+```
+sqlmap -u "Target.com" --identify-waf --random-agent -v 3 --tamper="between,randomcase,space2comment" --dbs
+```
 
 ### What is blind SQL?
 Blind SQL (Structured Query Language) injection is a type of SQL Injection attack that asks the database true or false questions and determines the answer based on the applications response.
 
-### What is SSRF?
-Server-side request forgery (SSRF) vulnerabilities let an attacker send crafted requests from the back-end server of a vulnerable web application. Criminals usually use SSRF attacks to target internal systems that are behind firewalls and are not accessible from the external network.
-Server-Side Request Forgery Example:
-I was working on an ecommerce application. I checked for product in stock and observed the URL passing. The URL was to retrieve the stock status and return this to the user. I modified the request to specify a URL local to the server itself. I added localhost/admin which fetched the contents of the /admin URL and returned it back.
+## SSRF - Server-Side Request Forgery
+Server-side request forgery (SSRF) vulnerabilities let an attacker send crafted requests from the back-end server of a vulnerable web application. 
+Criminals usually use SSRF attacks to target internal systems that are behind firewalls and are not accessible from the external network.
 
-### Thick Client:
+### Example:
+I was working on an ecommerce application. I checked for product in stock and observed the URL passing. The URL was to retrieve the stock status and return this to the user. I modified the request to specify a URL local to the server itself. I added `localhost/admin` which fetched the contents of the `/admin` URL and returned it back.
+
+## Thick Client:
 The thick clients are heavy applications which normally involve the installation of application on the client side (user computer). These applications take up memory and run completely on the computer’s resources. This means that the security of the application is dependent on the local computer.
 
-### Q. Default Directories
-- /usr/share/tomcat{X}
-- \inetpub\wwwroot
-- /var/www/html
-- /usr/local/nginx/conf
+### Default Directories
+- `/usr/share/tomcat{X}`
+- `\inetpub\wwwroot`
+- `/var/www/html`
+- `/usr/local/nginx/conf`
 
-### Sans top 25 (Remember at least 5 of them)
+## Sans top 25 (Remember at least 5 of them)
 •	Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
 •	Improper Input Validation
 •	Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
@@ -226,33 +236,40 @@ The thick clients are heavy applications which normally involve the installation
 •	Improper Certificate Validation
 
 
-### LFI/File traversal/Directory Listing
-
+## LFI / File traversal / Directory Listing
 Local File Inclusion (LFI) and File Traversal (also known as Path Traversal) are both vulnerabilities that can be exploited in web applications to gain unauthorized access to files on a server. However, they differ in their nature and the way they exploit the application's file handling mechanisms.
 
-### Q.1. Local File Inclusion (LFI):
+### Local File Inclusion (LFI):
 Local File Inclusion occurs when an attacker is able to include (i.e., load or execute) files from the local file system of the server hosting the web application.
+
 The vulnerability typically arises when the application allows user-supplied input to be directly included or referenced in a file path without proper sanitization or validation.
+
 By manipulating the input, an attacker can traverse the file system and include sensitive files that are accessible by the application.
+
 The attacker can view the content of files, such as configuration files, log files, or even execute arbitrary code if the application allows the inclusion of executable files.
 
-### Q.2. File Traversal (Path Traversal):
-File Traversal, also known as Directory Traversal, refers to an attack technique where an attacker can access files located outside of the intended directory.
+### File Traversal (Path Traversal):
+File Traversal, also known as Directory Traversal or Path Traversal, refers to an attack technique where an attacker can access files located outside of the intended directory.
+
 The vulnerability arises when the application does not properly validate and sanitize user-supplied input used to construct file paths.
+
 By manipulating the input, an attacker can traverse directories and access files located in other directories or even on different parts of the file system.
+
 The attacker can potentially view sensitive files, modify files, or execute arbitrary commands depending on the application's permissions and the files accessible.
 
-### Q.3. Directory Listing:
+### Directory Listing:
 Directory Listing is not a vulnerability itself, but rather a feature or misconfiguration of a web server that allows the server to display the contents of a directory when there is no default file specified.
+
 When directory listing is enabled and proper access controls are not in place, it can expose the directory's contents, including sensitive files or directories that were not intended to be publicly accessible.
+
 If an attacker identifies a directory with directory listing enabled, they can easily navigate through the files and gain insights into the application's structure and potentially find vulnerabilities or sensitive information.
 
-_In summary, Local File Inclusion (LFI) and File Traversal (Path Traversal) are both file-based vulnerabilities that allow unauthorized access to files. LFI._
+**_In summary, Local File Inclusion (LFI) and File Traversal (Path Traversal) are both file-based vulnerabilities that allow unauthorized access to files._**
 
-### Mitigation for the 3 different vulnerabilities:
+## Mitigation for the 3 different vulnerabilities:
 Make sure to answer all the mitigation questions with regards to OWASP:
 
-### Q.File Inclusion (LFI) vulnerabilities.
+### Local File Inclusion (LFI) Mitigation:
 
 1. Input Validation and Whitelisting:
 -	Implement strong input validation and sanitization to prevent malicious input.
@@ -289,7 +306,7 @@ Make sure to answer all the mitigation questions with regards to OWASP:
 -	Conduct secure code reviews and security testing to identify and address LFI vulnerabilities.
 
 
-### Q.For file traversal the following mitigations have to be followed:
+### File traversal (Directory Traversal \ Path Traversal) Mitigations:
 
 1. Input Validation and Whitelisting:
 -	Implement strong input validation and sanitization to prevent malicious input.
@@ -328,7 +345,7 @@ Make sure to answer all the mitigation questions with regards to OWASP:
 -	Conduct secure code reviews and security testing to identify and address File Traversal vulnerabilities.
 
 
-### Q.For directory listing mitigations:
+### Directory listing Mitigations:
 
 1. Disable Directory Listing:
 -	Ensure that directory listing is disabled on the web server configuration.
@@ -358,41 +375,40 @@ Make sure to answer all the mitigation questions with regards to OWASP:
 -	Avoid including user-supplied input directly in file paths or URLs without proper validation and encoding.
 
 
-### RFI and SSRF difference.
-Remote File Inclusion (RFI) is a vulnerability where an attacker can manipulate a web application to include and execute remote files hosted on external servers. This can lead to the execution of malicious code, unauthorized access to sensitive data, or even full control over the affected system. RFI occurs when the application does not properly validate or sanitize user-supplied input used to include files.
+## RFI and SSRF Difference.
+**Remote File Inclusion (RFI)** is a vulnerability where an attacker can manipulate a web application to include and execute remote files hosted on external servers. This can lead to the execution of malicious code, unauthorized access to sensitive data, or even full control over the affected system. RFI occurs when the application does not properly validate or sanitize user-supplied input used to include files.
 
 On the other hand, 
-Server-Side Request Forgery (SSRF) is a vulnerability where an attacker tricks the server into making unintended requests to other internal or external resources. By manipulating the server's requests, an attacker may gain unauthorized access to internal systems, retrieve sensitive data, or exploit vulnerabilities in other services. SSRF typically occurs when an application allows the attacker to specify the target URL or the protocol for making requests.
+**Server-Side Request Forgery (SSRF)** is a vulnerability where an attacker tricks the server into making unintended requests to other internal or external resources. By manipulating the server's requests, an attacker may gain unauthorized access to internal systems, retrieve sensitive data, or exploit vulnerabilities in other services. SSRF typically occurs when an application allows the attacker to specify the target URL or the protocol for making requests.
 
 RFI allows an attacker to include and execute remote files on the server, while SSRF allows an attacker to manipulate the server's requests and potentially access internal or external resources. Both vulnerabilities can lead to serious security risks if not properly addressed.
  
-### Android Obfuscation Techniques?
-Answer:
+## Android Obfuscation Techniques:
 Android obfuscation is the process of making Android apps more difficult to reverse engineer. This is done by renaming classes, methods, and variables, and by obfuscating the code logic.
 
-There are many different Android obfuscation techniques, but some of the most common include:
--	Identifier renaming: This is the most basic form of obfuscation. It involves renaming classes, methods, and variables with meaningless names. This makes it more difficult for reverse engineers to understand the code logic.
--	String encryption: This technique involves encrypting strings that contain sensitive information, such as API keys or passwords. This makes it more difficult for reverse engineers to extract this information from the app.
--	Control flow obfuscation: This technique involves obfuscating the control flow of the code. This makes it more difficult for reverse engineers to understand how the code works.
--	Code packing: This technique involves packing the app's code into a format that is difficult to decompile. This makes it more difficult for reverse engineers to access the app's source code.
+### There are many different Android obfuscation techniques, but some of the most common include:
+-	**Identifier renaming:** This is the most basic form of obfuscation. It involves renaming classes, methods, and variables with meaningless names. This makes it more difficult for reverse engineers to understand the code logic.
+-	**String encryption:** This technique involves encrypting strings that contain sensitive information, such as API keys or passwords. This makes it more difficult for reverse engineers to extract this information from the app.
+-	**Control flow obfuscation:** This technique involves obfuscating the control flow of the code. This makes it more difficult for reverse engineers to understand how the code works.
+-	**Code packing:** This technique involves packing the app's code into a format that is difficult to decompile. This makes it more difficult for reverse engineers to access the app's source code.
 
 Android obfuscation can be a valuable security tool. It can make it more difficult for attackers to reverse engineer your app and steal sensitive information. However, it is important to note that obfuscation is not a silver bullet. It can only make it more difficult for attackers to reverse engineer your app, but it cannot make it impossible.
 
-Here are some of the benefits of using Android obfuscation:
--	Increased security: Obfuscated apps are more difficult to reverse engineer, which can make it more difficult for attackers to steal sensitive information.
--	Reduced size: Obfuscation can reduce the size of your app by removing unused code and resources. This can make your app load faster and use less memory.
--	Improved performance: Obfuscation can improve the performance of your app by removing unused code and resources. This can make your app run faster and more efficiently.
+### Here are some of the benefits of using Android obfuscation:
+-	**Increased security:** Obfuscated apps are more difficult to reverse engineer, which can make it more difficult for attackers to steal sensitive information.
+-	**Reduced size:** Obfuscation can reduce the size of your app by removing unused code and resources. This can make your app load faster and use less memory.
+-	**Improved performance:** Obfuscation can improve the performance of your app by removing unused code and resources. This can make your app run faster and more efficiently.
 
-Here are some of the drawbacks of using Android obfuscation:
--	Can make debugging more difficult: Obfuscated apps can make debugging more difficult. This is because the code is more difficult to understand.
--	Can impact app performance: Obfuscation can impact the performance of your app. This is because the code is more complex and takes longer to execute.
--	Can be defeated: Obfuscation can be defeated by skilled reverse engineers. However, it can make it more difficult for them to do so.
+### Here are some of the drawbacks of using Android obfuscation:
+-	**Can make debugging more difficult:** Obfuscated apps can make debugging more difficult. This is because the code is more difficult to understand.
+-	**Can impact app performance:** Obfuscation can impact the performance of your app. This is because the code is more complex and takes longer to execute.
+-	**Can be defeated:** Obfuscation can be defeated by skilled reverse engineers. However, it can make it more difficult for them to do so.
 Overall, Android obfuscation is a valuable security tool that can help to protect your app from reverse engineering. However, it is important to weigh the benefits and drawbacks before deciding whether or not to use it.
 
-### Android WebView exploits
+## Android WebView exploits
 Answer: https://redfoxsec.com/blog/exploiting-android-webview-vulnerabilities/
 
-### Q. What is a WebView?  
+### Q. What is a Android WebView?  
 
 The WebView class, which is an extension of the View class in Android, can be used to show a web page as part of your activity layout. It doesn’t have navigation buttons or an address bar, which are two important parts of a web browser. By default, WebView’s only job is to show a web page. 
 
@@ -408,102 +424,91 @@ Besides, WebView poses a serious security risk to both the device and the applic
 
 The following are the WebView settings that are most commonly exploited by attackers:
 
-    setAllowContentAccess: This setting controls whether the WebView can access content from the internet. If this setting is enabled, an attacker can trick the WebView into loading a malicious file from a remote server.
+- `setAllowContentAccess`: This setting controls whether the WebView can access content from the internet. If this setting is enabled, an attacker can trick the WebView into loading a malicious file from a remote server.
     
-    setAllowFileAccess: This setting controls whether the WebView can access files on the device. If this setting is enabled, an attacker can trick the WebView into downloading a malicious file to the device.
+- `setAllowFileAccess`: This setting controls whether the WebView can access files on the device. If this setting is enabled, an attacker can trick the WebView into downloading a malicious file to the device.
     
-    setAllowFileAccessFromFileURLs: This setting controls whether the WebView can access files that are hosted on the same domain as the WebView itself. If this setting is enabled, an attacker can trick the WebView into loading a malicious file from a local file.
+- `setAllowFileAccessFromFileURLs`: This setting controls whether the WebView can access files that are hosted on the same domain as the WebView itself. If this setting is enabled, an attacker can trick the WebView into loading a malicious file from a local file.
     
-    setAllowUniversalAccessFromFileURLs: This setting controls whether the WebView can access files from any domain. If this setting is enabled, an attacker can trick the WebView into loading a malicious file from any website.
+- `setAllowUniversalAccessFromFileURLs`: This setting controls whether the WebView can access files from any domain. If this setting is enabled, an attacker can trick the WebView into loading a malicious file from any website.
     
-    SetJavaScriptEnabled: This setting controls whether the WebView can execute JavaScript code. If this setting is enabled, an attacker can inject malicious JavaScript code into the WebView, which can then be executed by the victim's browser.
+- `SetJavaScriptEnabled`: This setting controls whether the WebView can execute JavaScript code. If this setting is enabled, an attacker can inject malicious JavaScript code into the WebView, which can then be executed by the victim's browser.
 
-
-
-### Do you know Secure coding?
-Answer:
+## Do you know Secure coding?
 Yes, I do, Secure coding is a set of principles and practices that software developers can follow to write code that is resistant to security vulnerabilities. There are many different secure coding practices, like:
 
-- 1. **Input validation** is the process of ensuring that user input is valid and does not contain malicious code.
-- 2. **Output encoding** is the process of converting data into a format that is safe to display or transmit.
-- 3. **Authentication and password management** are the processes of verifying the identity of a user and managing their passwords.
-- 4. **Session management** is the process of tracking the state of a user's session and ensuring that they are only able to access resources that they are authorized to access.
-- 5. **Access control** is the process of restricting access to resources based on the user's permissions.
-- 6. **Cryptographic practices** are the principles and practices of using cryptography to protect data.
-- 7. **Error handling and logging** are the processes of handling errors and logging events that can be used to troubleshoot security incidents.
-- 8. **Data protection** is the process of protecting data from unauthorized access, disclosure, modification, or destruction.
-- 9. **Communication security** is the process of securing communication channels to prevent unauthorized interception or modification of data.
-- 10. **System configuration** is the process of configuring systems to be secure.
-- 11. **Database security** is the process of securing databases from unauthorized access, disclosure, modification, or destruction.
-- 12. **File management** is the process of managing files to prevent unauthorized access, disclosure, modification, or destruction.
-- 13. **Memory management** is the process of managing memory to prevent unauthorized access, disclosure, modification, or destruction.
+1. **Input validation** is the process of ensuring that user input is valid and does not contain malicious code.
+2. **Output encoding** is the process of converting data into a format that is safe to display or transmit.
+3. **Authentication and password management** are the processes of verifying the identity of a user and managing their passwords.
+4. **Session management** is the process of tracking the state of a user's session and ensuring that they are only able to access resources that they are authorized to access.
+5. **Access control** is the process of restricting access to resources based on the user's permissions.
+6. **Cryptographic practices** are the principles and practices of using cryptography to protect data.
+7. **Error handling and logging** are the processes of handling errors and logging events that can be used to troubleshoot security incidents.
+8. **Data protection** is the process of protecting data from unauthorized access, disclosure, modification, or destruction.
+9. **Communication security** is the process of securing communication channels to prevent unauthorized interception or modification of data.
+10. **System configuration** is the process of configuring systems to be secure.
+11. **Database security** is the process of securing databases from unauthorized access, disclosure, modification, or destruction.
+12. **File management** is the process of managing files to prevent unauthorized access, disclosure, modification, or destruction.
+13. **Memory management** is the process of managing memory to prevent unauthorized access, disclosure, modification, or destruction.
 
 Secure coding is an important part of software development, and following these principles can help to prevent security vulnerabilities.
 
-### Have you ever tried to break encryption? Which tool? How will you get key?
-Answer:
-Weak hash/encryption algorithms:
-```
-Symmetric-key encryption: DES, RC4, Triple DES, Blowfish, 80/112-bit 2TDEA (two key triple DES)
-Asymmetric-key encryption: 1024-bit RSA or DSA, 160-bit ECDSA (elliptic curves)
-Hashing: MD5, SHA1, SHA-2 , SHA-3
-```
+## Have you ever tried to break encryption? Which tool? How will you get key?
+
+Weak hash and encryption algorithms:
+- **Symmetric-key encryption:** DES, RC4, Triple DES, Blowfish, 80/112-bit 2TDEA (two key triple DES)
+- **Asymmetric-key encryption:** 1024-bit RSA or DSA, 160-bit ECDSA (elliptic curves)
+- **Hashing:** MD5, SHA1, SHA-2 , SHA-3
 
 Minimum Key length requirements:
-```
-  Key exchange: Diffie–Hellman key exchange with minimum 2048 bits
-  Message Integrity: HMAC-SHA2
-  Message Hash: SHA2 256 bits
-  Asymmetric encryption: RSA 2048 bits
-  Symmetric-key algorithm: AES 128 bits
-  Password Hashing: PBKDF2, Scrypt, Bcrypt
-  ECDH, ECDSA: 256 bits
-```
+- Key exchange: Diffie–Hellman key exchange with minimum 2048 bits  Message Integrity: HMAC-SHA2
+- Message Hash: SHA2 256 bits
+- Asymmetric encryption: RSA 2048 bits
+- Symmetric-key algorithm: AES 128 bits
+- Password Hashing: PBKDF2, Scrypt, Bcrypt
+- ECDH, ECDSA: 256 bits
 
-### Have you worked on payment gateway? How was the flow of that?
-### How does a payment gateway work?
-Answer:
-**What is a Payment gateway?**
+## Have you worked on payment gateway? How was the flow of that? How does a payment gateway work?
 
+### What is a Payment gateway?
 A payment gateway is an online service that allows businesses and individuals to accept payments from customers through their websites or mobile applications.
 
 It acts as a secure bridge between the customer’s payment method (such as a credit card or digital wallet) and the merchant’s bank account, facilitating the authorisation and processing of transactions.
 
-Types of Payment Gateways
+#### Types of Payment Gateways: 
 1. Hosted Payment Gateways
 2. Self-Hosted Payment Gateways
 3. API Payment Gateways
 4. Mobile Payment Gateways
 5. Local bank integration
 
-**How does a Payment gateway work?**
-
+### How does a Payment gateway work?
 A payment gateway works by securely transmitting payment information between a customer, a merchant, and the respective financial institutions involved. Here’s a clear breakdown of how it typically works:
 
-    Step 1: Customer places order and submits it on the website.
-    Step 2: Website directs customer to payment gateway where they enter bank/card details. Payment gateway then redirects to bank’s authorization page.
-    Step 3: Payment gateway verifies customer’s account balance.
-    Step 4: Payment gateway informs merchant based on bank’s response. If declined, merchant notifies customer of card/bank issue. If approved, merchant requests transaction from bank.
-    Step 5: Bank settles payment with payment gateway, which then settles with merchant.
+Steps: 
+1. Customer places order and submits it on the website.
+2. Website directs customer to payment gateway where they enter bank/card details. Payment gateway then redirects to bank’s authorization page.
+3. Payment gateway verifies customer’s account balance.
+4. Payment gateway informs merchant based on bank’s response. If declined, merchant notifies customer of card/bank issue. If approved, merchant requests transaction from bank.
+5. Bank settles payment with payment gateway, which then settles with merchant.
 
 Once this process is completed, the customer gets a confirmation message of the order being placed.
 
-**How does a Payment gateway keep information secure?**
+### How does a Payment gateway keep information secure?
 
 A Payment gateway ensures the security of the information you put in by encrypting the data. Now that you have a pretty good idea of what is payment gateway and how it works, let us look at a list of things that a PG does to keep your data safe:
 
-    Firstly, the payment gateway transaction flow occurs via an HTTPS web address, ensuring security.
-    A hash function is used to validate the transaction request, utilizing a secret word known only to the merchant and payment gateway.
-    The IP of the requesting server is verified to detect any potential malicious activity, securing the payment page result.
-    Virtual Payer Authentication (VPA) is supported by acquirers, issuers, and payment gateways to enhance security. VPA, part of the 3-D secure protocol, adds an extra layer of authentication for online buyers and sellers.
+1. Firstly, the payment gateway transaction flow occurs via an HTTPS web address, ensuring security.
+2. A hash function is used to validate the transaction request, utilizing a secret word known only to the merchant and payment gateway.
+3. The IP of the requesting server is verified to detect any potential malicious activity, securing the payment page result.
+4. Virtual Payer Authentication (VPA) is supported by acquirers, issuers, and payment gateways to enhance security. VPA, part of the 3-D secure protocol, adds an extra layer of authentication for online buyers and sellers.
 
 
-### How to do threat modelling using tool
-Answer:
+## How to do threat modelling using tool
 
 Threat modeling is a process of identifying and mitigating potential security threats to an asset or system. It can be done manually or using a tool.
 
-**Here are the steps on how to do threat modeling using a tool:**
+### Here are the steps on how to do threat modeling using a tool:
 
 1. **Choose a tool.** There are many different threat modeling tools available, such as the `Microsoft Threat Modeling Tool`, the `OWASP Threat Dragon`, and the `ThreatModeler`. Each tool has its own strengths and weaknesses, so it is important to choose one that is right for your needs.
 2. **Define your assets.** The first step in threat modeling is to identify the assets that you need to protect. This could include data, systems, applications, or even people.
@@ -511,14 +516,13 @@ Threat modeling is a process of identifying and mitigating potential security th
 4. **Identify mitigations.** For each threat, you need to identify mitigations that can be put in place to reduce the risk. Mitigations can include technical controls, such as firewalls and intrusion detection systems, as well as administrative controls, such as user training and password policies.
 5. **Validate your threat model.** Once you have created your threat model, you need to validate it to make sure that it is accurate and complete. This can be done by reviewing the model with security experts or by conducting penetration testing.
 
-**Here are some additional tips for threat modeling using a tool:**
+### Here are some additional tips for threat modeling using a tool:**
 
 - Use a template. Many threat modeling tools come with templates that can help you get started.
 - Involve stakeholders. It is important to involve stakeholders in the threat modeling process, such as developers, security engineers, and business owners.
 - Keep it up to date. Threat models should be kept up to date as your system or application changes.
 
-
-### How will you attack 'Inner HTML' and 'Inner Text'?
+## How will you attack 'Inner HTML' and 'Inner Text'?
 Answer:
 
 ### How will you exploit DOM XSS? 
@@ -545,34 +549,41 @@ Answer:
 ### What is SSL? How is the data in transit encrypted? Are there any keys involved? What can you do in case of MITM? Can you decrypt?
 Answer:
 
-### Difference between prepared statement and stored procedure
-Answer: **A prepared statement** is a type of SQL statement that is pre-compiled by the database. This means that the database can parse the statement once, and then reuse the compiled statement for subsequent executions. This can improve performance, especially for queries that are executed frequently.
+## Difference between prepared statement and stored procedure
+### Prepared Statement:
+A prepared statement is a type of SQL statement that is pre-compiled by the database. This means that the database can parse the statement once, and then reuse the compiled statement for subsequent executions. This can improve performance, especially for queries that are executed frequently.
 
 Prepared statements are also useful for security. This is because they prevent attackers from injecting malicious code into the query. For example, if a query is written as follows:
-`SELECT * FROM users WHERE username = 'admin' AND password = 'password';`
+```
+SELECT * FROM users WHERE username = 'admin' AND password = 'password';
+```
 
 An attacker could inject malicious code into the query by changing the value of the password parameter to something like this:
-
-`SELECT * FROM users WHERE username = 'admin' AND password = 'password'; OR 1=1; --';`
+```
+SELECT * FROM users WHERE username = 'admin' AND password = 'password'; OR 1=1; --';
+```
 This would cause the query to return all of the rows in the users table, even if the `password` did not match.
 
 However, if the query is written as a prepared statement, the attacker would not be able to inject malicious code. For example, the following query is a prepared statement:
-
-`SELECT * FROM users WHERE username = :username AND password = :password;`
-
+```
+SELECT * FROM users WHERE username = :username AND password = :password;
+```
 In this query, the username and password parameters are placeholders that are replaced with actual values when the query is executed. This prevents the attacker from injecting malicious code into the query.
 
-To create a prepared statement, you would use the PREPARE statement. For example, the following statement would create a prepared `statement called sp_select_user:`
-
-`PREPARE sp_select_user FROM 'SELECT * FROM users WHERE username = :username AND password = :password';`
+To create a prepared statement, you would use the PREPARE statement. For example, the following statement would create a prepared statement called `sp_select_user`:
+```
+PREPARE sp_select_user FROM 'SELECT * FROM users WHERE username = :username AND password = :password';
+```
 
 Once the prepared statement is created, you can execute it by using the EXECUTE statement. For example, the following statement would execute the sp_select_user prepared statement with the username `admin` and the password `password`:
-
-`EXECUTE sp_select_user 'admin', 'password';`
+```
+EXECUTE sp_select_user 'admin', 'password';
+```
 
 This would return all of the rows in the users table where the username is `admin` and the password is `password`
 
-**A stored procedure** is a group of SQL statements that are grouped together and stored in a database. Stored procedures can be used to perform a variety of tasks, such as:
+### Stored Procedure
+A stored procedure is a group of SQL statements that are grouped together and stored in a database. Stored procedures can be used to perform a variety of tasks, such as:
 
 Inserting, updating, or deleting data from a database
 Calculating complex values
@@ -587,12 +598,16 @@ Make code more reusable and easier to maintain
 
 Here is an example of a stored procedure that inserts a new row into a table:
 
-`CREATE PROCEDURE sp_insert_row@username VARCHAR(255),@password VARCHAR(255)ASBEGININSERT INTO users (username, password)VALUES (@username, @password);END;`
+```
+CREATE PROCEDURE sp_insert_row@username VARCHAR(255),@password VARCHAR(255)ASBEGININSERT INTO users (username, password)VALUES (@username, @password);END;
+```
 
 This stored procedure has two parameters: `username and password.` These parameters are used to specify the values for the `username and password` columns in the users table.
 
 To execute this stored procedure, you would use the following command:
-`EXEC sp_insert_row 'admin', 'password';`
+```
+EXEC sp_insert_row 'admin', 'password';
+```
 
 This command would insert a new row into the users table with the username `admin` and the password `password`.
 
