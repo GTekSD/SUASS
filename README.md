@@ -66,39 +66,36 @@ _(Note: CEH and Sec+ have a bad reputation with cyber professionals as they are 
 14. Loi Liang Yang
 
 🔱 Find good courses on [Udemy](https://www.udemy.com/) and [Coursera](https://www.coursera.org/).
+
 🔱 Find good books for the topic you want to specialize in and BUY them. DON'T steal good content but appreciate the people that put a lot of great work into something that will help you grow.
 
 ## Contents
 
-### CTF-Labs/TryHackMe
+#### CTF-Labs/TryHackMe
 
 Explore hands-on cybersecurity challenges and labs available on platforms like TryHackMe. Sharpen your skills in a practical environment.
 
-### Cloud Security
+#### Cloud Security
 
 Materials related to securing cloud environments, including best practices, tools, and resources for various cloud platforms.
 
-### Download
-
-A collection of downloadable resources relevant to cybersecurity learning, tools, eBooks, or other related content.
-
-### Mobile Security
+#### Mobile Security
 
 Study materials focusing on mobile device security, including guides, tools, and best practices.
 
-### Network Security
+#### Network Security
 
 Information and resources covering network security concepts, protocols, tools, and techniques.
 
-### Web Application Security
+#### Web Application Security
 
 Guides, tutorials, and resources addressing security concerns related to web applications, including vulnerabilities, testing methodologies, and mitigation strategies.
 
-### Wireless Security
+#### Wireless Security
 
 Explore the world of wireless security, covering topics such as Wi-Fi security, WEP Cracking, WPA2-PSK Cracking, and Post-Exploitation.
 
-### Additional Materials
+#### Additional Materials
 
 - **Bug Bounty Pro Tools.md:** Resources and tools utilized in bug bounty programs.
 - **Linux/Windows Commands You Should Learn.md:** Essential command-line operations for Linux and Windows systems.
