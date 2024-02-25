@@ -33,7 +33,7 @@ Cybersecurity is a critical field in today's digital world, and this repository 
 
 🔱 Start your journey into cybersecurity by reading the [CyBOK (Cybersecurity Body of Knowledge)](https://www.cybok.org/media/downloads/CyBOK_v1.1.0.pdf). | [MIRROR](./CyBOK_v1.1.0.pdf)
 
-🔱 Additionally, consider learning the following topics:
+#### 🔱 Additionally, consider learning the following topics:
 1. Computer Basics  
 2. Networking Basics
 3. Windows and Linux 
@@ -43,12 +43,13 @@ Cybersecurity is a critical field in today's digital world, and this repository 
 ⭕️ Use [TryHackMe](https://tryhackme.com/) for learning concepts, tools, and practicing at the same time. When you are confident, use [VulnHub](https://www.vulnhub.com/). Then head over to [Hack The Box](https://www.hackthebox.eu/).
 
 ⭕️ If you want a job in cybersecurity, most companies will require you to have some specific certifications. Some good certifications are:
-- [CISSP](https://www.isc2.org/Certifications/CISSP)
-- [BLT1](https://securityblue.team/certifications/) 
-- [OSCP](https://www.offensive-security.com/pwk-oscp/) 
-(Note: CEH and Sec+ have a bad reputation with cyber professionals as they are considered easy to obtain or can even be bought. However, some HR departments may still value them.)
+- [CISSP - Certified Information Systems Security Professional](https://www.isc2.org/Certifications/CISSP)
+- [BLT1 - Blue Team Level 1](https://securityblue.team/certifications/) 
+- [OSCP - OffSec Certified Professional](https://www.offensive-security.com/pwk-oscp/) 
 
-🔱 YouTube channels for free learning material:
+_(Note: CEH and Sec+ have a bad reputation with cyber professionals as they are considered easy to obtain or can even be bought. However, some HR departments may still value them.)_
+
+#### 🔱 YouTube channels for free learning material:
 1. Network Chuck
 2. Bitten Tech
 3. IppSec 
