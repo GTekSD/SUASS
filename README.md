@@ -1,6 +1,6 @@
 # SUASS - Secure ur Ass | Penetration Testing Notes
 
-![SUASS Logo](https://github.com/GTekSD/SUASS/assets/55411358/91eaf0d2-6c00-48e9-9dd1-b0e315230949) <!-- Optional: You can include a logo or banner here -->
+![SUASS Logo](https://github.com/GTekSD/SUASS/assets/55411358/91eaf0d2-6c00-48e9-9dd1-b0e315230949) <!-- logo or banner here -->
 
 Welcome to the "SUASS - Secure ur Ass | By Learning Cybersecurity" repository! This is a comprehensive resource for cybersecurity professionals, students, beginners, and anyone interested in the field of cybersecurity. Here, you'll find a wide range of cybersecurity study materials to help you enhance your knowledge and skills.
 
@@ -31,13 +31,13 @@ Cybersecurity is a critical field in today's digital world, and this repository 
 
 ## Getting Started in Cybersecurity
 
-🔱 Start your journey into cybersecurity by reading the [CyBOK (Cybersecurity Body of Knowledge)](https://www.cybok.org/media/downloads/CyBOK_v1.1.0.pdf).
+🔱 Start your journey into cybersecurity by reading the [CyBOK (Cybersecurity Body of Knowledge)](https://www.cybok.org/media/downloads/CyBOK_v1.1.0.pdf). | [MIRROR](./CyBOK_v1.1.0.pdf)
 
 🔱 Additionally, consider learning the following topics:
 1. Computer Basics  
 2. Networking Basics
 3. Windows and Linux 
-4. Programming Languages (e.g., Python, C)
+4. Programming Languages (e.g., Python, C, php, Javascript)
 5. CTFs (Capture the Flags) - [ctftime.org](https://ctftime.org/)
 
 ⭕️ Use [TryHackMe](https://tryhackme.com/) for learning concepts, tools, and practicing at the same time. When you are confident, use [VulnHub](https://www.vulnhub.com/). Then head over to [Hack The Box](https://www.hackthebox.eu/).
