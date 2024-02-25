@@ -4,8 +4,9 @@
 
 Welcome to the "SUASS - Secure ur Ass | By Learning Cybersecurity" repository! This is a comprehensive resource for cybersecurity professionals, students, beginners, and anyone interested in the field of cybersecurity. Here, you'll find a wide range of cybersecurity study materials to help you enhance your knowledge and skills.
 
-- ## Table of Contents
-- [Introduction](#introduction)ng
+## Table of Contents
+- [Introduction](#introduction)
+- [Getting Started in Cybersecurity](#getting-started-in-cybersecurity)
 - [Contents](#contents)
   - [CTF-Labs/TryHackMe](./CTF-Labs/TryHackMe)
   - [Cloud Security](./Cloud%20Security)
@@ -24,10 +25,47 @@ Welcome to the "SUASS - Secure ur Ass | By Learning Cybersecurity" repository! T
 - [Contributing](#contributing)
 - [License](#license)
 
-
 ## Introduction
 
 Cybersecurity is a critical field in today's digital world, and this repository aims to provide a centralized location for a wealth of knowledge and study materials. Whether you're just starting your journey in cybersecurity or you're an experienced professional, you'll find valuable resources here.
+
+## Getting Started in Cybersecurity
+
+🔱 Start your journey into cybersecurity by reading the [CyBOK (Cybersecurity Body of Knowledge)](https://www.cybok.org/media/downloads/CyBOK_v1.1.0.pdf).
+
+🔱 Additionally, consider learning the following topics:
+1. Computer Basics  
+2. Networking Basics
+3. Windows and Linux 
+4. Programming Languages (e.g., Python, C)
+5. CTFs (Capture the Flags) - [ctftime.org](https://ctftime.org/)
+
+⭕️ Use [TryHackMe](https://tryhackme.com/) for learning concepts, tools, and practicing at the same time. When you are confident, use [VulnHub](https://www.vulnhub.com/). Then head over to [Hack The Box](https://www.hackthebox.eu/).
+
+⭕️ If you want a job in cybersecurity, most companies will require you to have some specific certifications. Some good certifications are:
+- [CISSP](https://www.isc2.org/Certifications/CISSP)
+- [BLT1](https://securityblue.team/certifications/) 
+- [OSCP](https://www.offensive-security.com/pwk-oscp/) 
+(Note: CEH and Sec+ have a bad reputation with cyber professionals as they are considered easy to obtain or can even be bought. However, some HR departments may still value them.)
+
+🔱 YouTube channels for free learning material:
+1. Network Chuck
+2. Bitten Tech
+3. IppSec 
+4. Hackersploit
+5. NullByte
+6. John Hammond
+7. TheCyberMentor
+8. TechRaj
+9. HACKADAY
+10. LiveOverflow
+11. TechChip
+12. thenewboston
+13. Hacking Simplified
+14. Loi Liang Yang
+
+🔱 Find good courses on [Udemy](https://www.udemy.com/) and [Coursera](https://www.coursera.org/).
+🔱 Find good books for the topic you want to specialize in and BUY them. DON'T steal good content but appreciate the people that put a lot of great work into something that will help you grow.
 
 ## Contents
 
@@ -59,7 +97,6 @@ Guides, tutorials, and resources addressing security concerns related to web app
 
 Explore the world of wireless security, covering topics such as Wi-Fi security, WEP Cracking, WPA2-PSK Cracking, and Post-Exploitation.
 
-
 ### Additional Materials
 
 - **Bug Bounty Pro Tools.md:** Resources and tools utilized in bug bounty programs.
@@ -86,7 +123,6 @@ We encourage contributions from the cybersecurity community to make this reposit
 3. Create a pull request to merge your changes into this main repository.
 
 We appreciate your contributions and collaborative efforts to expand this resource.
-
 
 ## License
 
