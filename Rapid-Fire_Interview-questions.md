@@ -879,11 +879,6 @@ How many users will be affected?
 
 DREAD methodology can be customized to cater the needs of your application, during consultancy engagements it should be approved from the client before starting the security assessment so that after you perform the analysis the results produced by DREAD couldn’t be challenged.
 
-### Which WAF is implemented on billdesk?
-Answer:
-
-BIG-IP Local Traffic Manager (F5 Networks)
-
 ### You logged into the application, you just changed your name using JWT token and logged out. JWT token expiry is 15 mins, what attack will you perform?
 Answer:
 If I logged into an application, changed my name using a JWT token, and then logged out, I could perform a JWT token expiry attack. This attack would involve stealing the JWT token before it expires, and then using it to access the application as the victim.
