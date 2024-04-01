@@ -53,20 +53,21 @@ Cybersecurity is a critical field in today's digital world, and this repository 
 _(Note: CEH and Sec+ have a bad reputation with cyber professionals as they are considered easy to obtain or can even be bought. However, some HR departments may still value them.)_
 
 #### 🔱 YouTube channels for free learning material:
-1. Network Chuck
-2. Bitten Tech
-3. IppSec 
-4. Hackersploit
-5. NullByte
-6. John Hammond
-7. TheCyberMentor
-8. TechRaj
-9. HACKADAY
-10. LiveOverflow
-11. TechChip
-12. thenewboston
-13. Hacking Simplified
-14. Loi Liang Yang
+1. NetworkChuck | [Watch](https://www.youtube.com/@NetworkChuck)
+2. thenewboston | [Watch](https://www.youtube.com/@thenewboston)
+3. David Bombal | [Watch](https://www.youtube.com/@davidbombal)
+4. John Hammond | [Watch](https://www.youtube.com/@_JohnHammond)
+5. Loi Liang Yang | [Watch](https://www.youtube.com/@LoiLiangYang)
+6. NullByte | [Watch](https://www.youtube.com/@NullByteWHT)
+7. Hackersploit | [Watch](https://www.youtube.com/@HackerSploit)
+8. LiveOverflow | [Watch](https://www.youtube.com/@LiveOverflow)
+9. Tech Raj | [Watch](https://www.youtube.com/@TechRaj156)
+10. The Cyber Mentor | [Watch](https://www.youtube.com/@TCMSecurityAcademy)
+11. TechChip | [Watch](https://www.youtube.com/@techchipnet)
+12. Bitten Tech | [Watch](https://www.youtube.com/@BittenTech)
+13. IppSec | [Watch](https://www.youtube.com/@ippsec)
+14. HACKADAY | [Watch](https://www.youtube.com/@hackaday)
+15. Hacking Simplified | [Watch](https://www.youtube.com/@HackingSimplifiedAS)
 
 🔱 Find good courses on [Udemy](https://www.udemy.com/) and [Coursera](https://www.coursera.org/).
 
