@@ -5,36 +5,36 @@
 Welcome to the "SUASS - Secure ur Ass | By Learning Cybersecurity" repository! This is a comprehensive resource for cybersecurity professionals, students, beginners, and anyone interested in the field of cybersecurity. Here, you'll find a wide range of cybersecurity study materials to help you enhance your knowledge and skills.
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Getting Started in Cybersecurity](#getting-started-in-cybersecurity)
-- [Contents](#contents)
-  - [CTF-Labs/TryHackMe](./CTF-Labs/TryHackMe)
-  - [Cloud Security](./Cloud%20Security)
-    - [Amazon Web Services (AWS)](./Cloud%20Security/Amazon%20Web%20Services%20(AWS))
-    - [Google Cloud Platform (GCP)](./Cloud%20Security/Google%20Cloud%20Platform%20(GCP))
-  - [Mobile Security](./Mobile%20Security)
-    - [Android Application Pentesting](./Mobile%20Security/Android%20Application%20Pentesting)
-    - [iOS Application Pentesting](./Mobile%20Security/iOS%20Application%20Pentesting)
-  - [Network Security](./Network%20Security)
-  - [Red Teaming](./Red%20Team)
-  - [Web Application Security](./Web%20Application%20Security)
-  - [Wireless Security](./Wireless%20Security)
-  - [Additional Materials](#additional-materials)
-    - [Bug Bounty Pro Tools](./Bug-Bounty-Pro-Tools.md)
-    - [Linux/Windows Commands You Should Learn](./LinuxWin%20cmds%20u%20better%20learn.md)
-    - [Rapid-Fire Interview Questions](./Rapid-Fire_Interview-questions.md)
+
+* [Getting Started in Cybersecurity](#getting-started-in-cybersecurity)
+* [Contents](#contents)
+  * [CTF-Labs/TryHackMe](./CTF-Labs/TryHackMe)
+  * [Cloud Security](./Cloud%20Security)
+    * [Amazon Web Services (AWS)](./Cloud%20Security/Amazon%20Web%20Services%20(AWS))
+    * [Google Cloud Platform (GCP)](./Cloud%20Security/Google%20Cloud%20Platform%20(GCP))
+  * [Mobile Security](./Mobile%20Security)
+    * [Android Application Pentesting](./Mobile%20Security/Android%20Application%20Pentesting)
+    * [iOS Application Pentesting](./Mobile%20Security/iOS%20Application%20Pentesting)
+  * [Network Security](./Network%20Security)
+  * [Red Teaming](./Red%20Team)
+  * [Web Application Security](./Web%20Application%20Security)
+  * [Wireless Security](./Wireless%20Security)
+  * [Additional Materials](#additional-materials)
+    * [Bug Bounty Pro Tools](./Bug-Bounty-Pro-Tools.md)
+    * [Linux/Windows Commands You Should Learn](./LinuxWin%20cmds%20u%20better%20learn.md)
+    * [Rapid-Fire Interview Questions](./Rapid-Fire_Interview-questions.md)
     
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [License](#license)
+* [Getting Started](#getting-started)
+* [Contributing](#contributing)
+* [License](#license)
 
-## Introduction
-
-Cybersecurity is a critical field in today's digital world, and this repository aims to provide a centralized location for a wealth of knowledge and study materials. Whether you're just starting your journey in cybersecurity or you're an experienced professional, you'll find valuable resources here.
+--------------------------------------------------------------------------------------------------
 
 ## Getting Started in Cybersecurity
 
-🔱 Start your journey into cybersecurity by reading the [CyBOK (Cybersecurity Body of Knowledge)](https://www.cybok.org/media/downloads/CyBOK_v1.1.0.pdf). | [MIRROR](./CyBOK_v1.1.0.pdf)
+Cybersecurity is a critical field in today's digital world, and this repository aims to provide a centralized location for a wealth of knowledge and study materials. Whether you're just starting your journey in cybersecurity or you're an experienced professional, you'll find valuable resources here.
+
+🛡️ Start your journey into cybersecurity by reading the [CyBOK (Cybersecurity Body of Knowledge)](https://www.cybok.org/media/downloads/CyBOK_v1.1.0.pdf). | [MIRROR](./CyBOK_v1.1.0.pdf)
 
 #### 🔱 Additionally, consider learning the following topics:
 1. Computer Basics  
@@ -58,8 +58,8 @@ _(Note: CEH and Sec+ have a bad reputation with cyber professionals as they are 
 3. David Bombal | [Watch](https://www.youtube.com/@davidbombal)
 4. John Hammond | [Watch](https://www.youtube.com/@_JohnHammond)
 5. Loi Liang Yang | [Watch](https://www.youtube.com/@LoiLiangYang)
-6. NullByte | [Watch](https://www.youtube.com/@NullByteWHT)
-7. Hackersploit | [Watch](https://www.youtube.com/@HackerSploit)
+6. Null Byte | [Watch](https://www.youtube.com/@NullByteWHT)
+7. HackerSploit | [Watch](https://www.youtube.com/@HackerSploit)
 8. LiveOverflow | [Watch](https://www.youtube.com/@LiveOverflow)
 9. Tech Raj | [Watch](https://www.youtube.com/@TechRaj156)
 10. The Cyber Mentor | [Watch](https://www.youtube.com/@TCMSecurityAcademy)
