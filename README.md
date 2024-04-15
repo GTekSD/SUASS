@@ -6,26 +6,22 @@ Welcome to the Secure ur Ass By Learning Cybersecurity repository! This is a com
 
 ## Table of Contents
 
-* [Getting Started in Cybersecurity](#getting-started-in-cybersecurity)
-* [Contents](#contents)
-  * [CTF-Labs/TryHackMe](./CTF-Labs/TryHackMe)
-  * [Cloud Security](./Cloud%20Security)
-    * [Amazon Web Services (AWS)](./Cloud%20Security/Amazon%20Web%20Services%20(AWS))
-    * [Google Cloud Platform (GCP)](./Cloud%20Security/Google%20Cloud%20Platform%20(GCP))
-  * [Mobile Security](./Mobile%20Security)
-    * [Android Application Pentesting](./Mobile%20Security/Android%20Application%20Pentesting)
-    * [iOS Application Pentesting](./Mobile%20Security/iOS%20Application%20Pentesting)
-  * [Network Security](./Network%20Security)
-  * [Red Teaming](./Red%20Team)
-  * [Web Application Security](./Web%20Application%20Security)
-  * [Wireless Security](./Wireless%20Security)
-  * [Additional Materials](./MISC)
-    * [Bug Bounty Pro Tools](./MISC/Bug-Bounty-Pro-Tools.md)
-    * [Linux/Windows Commands You Should Learn](./MISC/LinuxWin%20cmds%20u%20better%20learn.md)
-    * [Rapid-Fire Interview Questions](./MISC/Rapid-Fire_Interview-questions.md)
- 
-* [Contributing](#contributing)
-* [License](#license)
+* [CTF-Labs/TryHackMe](./CTF-Labs/TryHackMe)
+* [Cloud Security](./Cloud%20Security)
+  * [Amazon Web Services (AWS)](./Cloud%20Security/Amazon%20Web%20Services%20(AWS))
+  * [Google Cloud Platform (GCP)](./Cloud%20Security/Google%20Cloud%20Platform%20(GCP))
+* [Mobile Security](./Mobile%20Security)
+  * [Android Application Pentesting](./Mobile%20Security/Android%20Application%20Pentesting)
+  * [iOS Application Pentesting](./Mobile%20Security/iOS%20Application%20Pentesting)
+* [Network Security](./Network%20Security)
+* [Red Teaming](./Red%20Team)
+* [Web Application Security](./Web%20Application%20Security)
+* [Wireless Security](./Wireless%20Security)
+* [Additional Materials](./MISC)
+  * [Bug Bounty Pro Tools](./MISC/Bug-Bounty-Pro-Tools.md)
+  * [Linux/Windows Commands You Should Learn](./MISC/LinuxWin%20cmds%20u%20better%20learn.md)
+  * [Rapid-Fire Interview Questions](./MISC/Rapid-Fire_Interview-questions.md)
+
 
 --------------------------------------------------------------------------------------------------
 
