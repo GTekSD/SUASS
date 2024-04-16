@@ -8,19 +8,24 @@ url: /htmli_get.php
 
 ### Security level: low
 
-Any HTML tags will work.
+Any HTML tags will work. (`<b></b>`, `<u></u>`, `<p></p>`, `<h></h>`)
 
 Payload:
 ```
-<h>asdf</h>
-<u>asdf</u>
-<b>asdf</b>
+First name: <h>asdf</h>
+Last name: <u>asdf</u>
 ```
 
 ### Security level: medium
 
+Payload should be encoded into url:
+ - `<u>asdf</u>` --> `%3c%75%3e%61%73%64%66%3c%2f%75%3e`
+ - `<u>asdf</u>` --> `%3c%75%3easdf%3c%2f%75%3e`
+
 Payload: 
 ```
+First name: %3c%75%3e%61%73%64%66%3c%2f%75%3e
+Last name: %3c%75%3easdf%3c%2f%75%3e
 ```
 
 ### Security level: high
