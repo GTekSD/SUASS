@@ -302,6 +302,11 @@ $ chmod o-rwx file.txt		: remove all permissions from other
  
 # Windows Commands
 
+#### RmDir - Remove Files and Directories
+```
+rd /s /q Directory_and_files					: To remove directory and inside files
+```
+
 #### Windows Package Manager
 ```
 $ winget search <appname>					: To search for a tool/ Find and show basic info of packages
