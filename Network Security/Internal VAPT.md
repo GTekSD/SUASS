@@ -11,21 +11,19 @@ Scope of work:
 Clients will share the list of internal IP addresses to test. Confirm the given scope before start scanning. Stay within the scope of the agreed-upon work! If the job scope includes only email servers, then test only email servers – do not go outside of that! Communicate regularly with client, asking questions and being willing to answer any of their questions. 
 
 #### Create SSH Key | ssh-keygen
-Create SSH Key and send it to a client so that they will configure in their sys to allow remote connection
+Create SSH Key and send your public key (ssh_key.pub) to a client so that they will configure in their sys to allow remote connection
 ```
-ssh-keygen -m PEM -t rsa -b 4096
+ssh-keygen -m PEM -t rsa -b 4096 -f ssh_key
 ```
-Where, [-m format] [-t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa] [-b bits]
+Where, [-m format] [-t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa] [-b bits] [-f output_keyfile]
 ```
-PS C:\Users> ssh-keygen -m PEM -t rsa -b 4096
 Generating public/private rsa key pair.
-Enter file in which to save the key (C:\Users/.ssh/id_rsa):
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in C:\Users/.ssh/id_rsa
-Your public key has been saved in C:\Users/.ssh/id_rsa.pub
+Enter passphrase (empty for no passphrase): empty
+Enter same passphrase again: empty
+Your identification has been saved in ssh_key
+Your public key has been saved in ssh_key.pub
 The key fingerprint is:
-SHA256:xcHgmrKKje9tNmq9UnDN4qcCTDoA0POLUgiYFUcc4pA anzentech\sdhole@ANZLAP024
+SHA256:gNPLhN4f6cAclDjr8cs3xCZ9Mgt3k5dnM4do5IcMo6I cyxac@GTekSD
 The key's randomart image is:
 +---[RSA 4096]----+
 |==+++.  .o.      |
