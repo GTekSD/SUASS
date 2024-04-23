@@ -2,10 +2,7 @@
 
 You conduct VAPT from inside of the client’s network. You act like an attacker who has internal access to a client's/ companie's network. Now, what will u do ? Monitoring, credential stealing, man in the middle attacks (MITM), privilege escalation, information leakage, malware infections, or any other malicious activity. This PT will show the organization’s entry points/weaknesses, and help assess an attack’s impact. Even if you are secure from external threats, internal testing is vital should an attacker access your network from the inside.
 
------- 
-
-
-Basic Pre-Engagement
+### Basic Pre-Engagement
 Client will ask u to do an internal penetration test and will gives u list of scope. To perform Internal PT, you need to get into client's network. 
 How? by Remote Desktop Protocol (RDP) or SSH, if client dosen't provide theses options then we have to walk to the client's location.
 
