@@ -37,3 +37,5 @@ The key's randomart image is:
 |o+**oo           |
 +----[SHA256]-----+
 ```
+
+https://www.threatintelligence.com/blog/internal-penetration-testing
