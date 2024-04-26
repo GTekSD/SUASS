@@ -38,4 +38,86 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
+
+-----------
+----------
+
+Internal VAPT 
+
+Internal VAPT – In this, only the internal network is in scope. Internal servers, firewalls and data components such as database servers or file servers are of key importance from vulnerability scanning perspective. Since the test is to be performed from within the network, only vulnerability assessment is performed, while penetration testing is not performed. Internal security assessment can be performed by physically being inside the network premises or by performing a remote session into the network. 
+
+ 
+
+Internal VAPT approach 
+
+First, we must take the final defined scope. 
+
+Provided systems IP should be whitelisted in internal network. 
+
+Then ping the defined scope and make sure all the IP are reachable. 
+
+If not, then raise the issue to the spoc person and make them reachable. 
+
+Then perform port scanning and observe if any port is filtered or not. 
+
+If some ports are filtered, convey the same to the spoc and get those ports open. 
+
+After this make batches of scope and put them on Nessus scan. 
+
+Set up the Nessus with required plugins and start the scan. 
+
+After the scan is complete fetch the reports and proceed to the false positive approach. 
+
+This can be done by using nmap nse scripts available online. 
+
+Take the POC of the actual findings, make the report and submit it to the spoc person. 
+
+ 
+
+Prerequisite for Internal VAPT 
+
+Defined scope should be provided. 
+
+Two systems should be provided with installed Kali Linux and Nessus. 
+
+Provided systems IP should be whitelisted in its internal network. 
+
+The above-mentioned requirements are necessary if internal VAPT is performed being physically inside the network premises. 
+
+Or if performing remotely, VPN credentials should be provided, and the assigned IP should be whitelisted in their internal network or static IP should be assigned.  
+
+Another way is by providing system with all the necessary configuration inside network premise along with VPN credentials and RDP credentials. 
+
+SSH key Whitelisting 
+
+Command for public key generation:  ssh-keygen -t rsa -b 4096 
+
+-t to specifies the algorithm used for key generation. 
+
+-b for bit length 
+
+The minimum and maximum values for RSA and DSA keys are 512 and 32768 bits respectively. 
+
+The default for RSA keys is 2048 bits, the default for DSA is 1024 and the default for ECDSA keys is 256. 
+
+ 
+
+A screenshot of a computer
+
+Description automatically generated 
+
+A screenshot of a computer
+
+Description automatically generated 
+
+A screenshot of a computer
+
+Description automatically generated 
+
+This public key to be sent to the spoc person so he will give permission to this key to access in its internal networks and he will provide ssh username, password, and IP address to connect to. 
+
+ ssh <Username>@<IP address> 
+
+Then it will ask for password, provide the password and you got the access. 
+
 https://www.threatintelligence.com/blog/internal-penetration-testing
