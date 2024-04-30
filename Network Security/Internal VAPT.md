@@ -10,12 +10,22 @@ How? by Remote Desktop Protocol (RDP) or SSH, if client dosen't provide theses o
 Scope of work:
 Clients will share the list of internal IP addresses to test. Confirm the given scope before start scanning. Stay within the scope of the agreed-upon work! If the job scope includes only email servers, then test only email servers – do not go outside of that! Communicate regularly with client, asking questions and being willing to answer any of their questions. 
 
-#### Create SSH Key | ssh-keygen
-Create SSH Key and send your public key (ssh_key.pub) to a client so that they will configure in their sys to allow remote connection
+#### SSH Key Whitelisting | ssh-keygen
+
+Command for public key generation:  `ssh-keygen -m <format> -t <dsa/rsa> -b <bits> -f <output_keyfile>`
+
+Where, 
+- [-m format] [-t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa] [-b bits] [-f output_keyfile]
+
+- The minimum and maximum values for RSA and DSA keys are 512 and 32768 bits respectively. 
+
+- The default for RSA keys is 2048 bits, the default for DSA is 1024 and the default for ECDSA keys is 256. 
+
+This public key to be sent to the Single Point Of Contact (SPOC) person so he will give permission to this key to access in its internal networks and he will provide ssh username, password, and IP address to connect to. 
+
 ```
 ssh-keygen -m PEM -t rsa -b 4096 -f ssh_key
 ```
-Where, [-m format] [-t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa] [-b bits] [-f output_keyfile]
 ```
 Generating public/private rsa key pair.
 Enter passphrase (empty for no passphrase): empty
@@ -38,8 +48,14 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
+Connect to client's internal network using ssh
+```powershell
+ssh <Username>@<IP_Address> 
+```
+Then it will ask for password, provide the password and you got the access. 
 
------------
+
+
 ----------
 
 Internal VAPT 
@@ -88,36 +104,6 @@ Or if performing remotely, VPN credentials should be provided, and the assigned 
 
 Another way is by providing system with all the necessary configuration inside network premise along with VPN credentials and RDP credentials. 
 
-SSH key Whitelisting 
 
-Command for public key generation:  ssh-keygen -t rsa -b 4096 
-
--t to specifies the algorithm used for key generation. 
-
--b for bit length 
-
-The minimum and maximum values for RSA and DSA keys are 512 and 32768 bits respectively. 
-
-The default for RSA keys is 2048 bits, the default for DSA is 1024 and the default for ECDSA keys is 256. 
-
- 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-This public key to be sent to the spoc person so he will give permission to this key to access in its internal networks and he will provide ssh username, password, and IP address to connect to. 
-
- ssh <Username>@<IP address> 
-
-Then it will ask for password, provide the password and you got the access. 
 
 https://www.threatintelligence.com/blog/internal-penetration-testing
