@@ -3,11 +3,14 @@
 You conduct VAPT from inside of the client’s network. You act like an attacker who has internal access to a client's/ companie's network. Now, what will u do ? Monitoring, credential stealing, man in the middle attacks (MITM), privilege escalation, information leakage, malware infections, or any other malicious activity. This PT will show the organization’s entry points/weaknesses, and help assess an attack’s impact. Even if you are secure from external threats, internal testing is vital should an attacker access your network from the inside.
 
 ### Basic Pre-Engagement
-Client will ask u to do an internal penetration test and will gives u list of scope. To perform Internal PT, you need to get into client's network. 
-How? by Remote Desktop Protocol (RDP) or SSH, if client dosen't provide theses options then we have to walk to the client's location.
+Client will ask u to do an internal penetration test and will gives u list of scope. The scope can be Firewalls, Database Servers, File Servers, Physical Server, eMail Server, etc. 
 
+Since the test is to be performed from within the network, only vulnerability assessment is performed, Penetration testing will performed only as per client's requirement.
 
-Scope of work:
+To perform Internal security assesment, you need to get into client's network. 
+How? by Remote Desktop Protocol (RDP) or SSH or VPN. if client dosen't provide you these options, then we have to walk to the client's location.
+
+### Scope of work:
 Clients will share the list of internal IP addresses to test. Confirm the given scope before start scanning. Stay within the scope of the agreed-upon work! If the job scope includes only email servers, then test only email servers – do not go outside of that! Communicate regularly with client, asking questions and being willing to answer any of their questions. 
 
 #### SSH Key Whitelisting | ssh-keygen
@@ -55,55 +58,43 @@ ssh <Username>@<IP_Address>
 Then it will ask for password, provide the password and you got the access. 
 
 
+### Remember
 
-----------
+1. Ask client to give final defined scope.
+2. Ask client to provide you two systems, installed Kali Linux and Nessus.
+3. Provided system's IP should be whitelisted in client's internal network.
+4. If your performing remotely, Ask to provide VPN credentials, RDP credentials or SSH credentials.
+5. The assigned IP should be whitelisted in their internal network or static IP should be assigned.
+6. Check the reachability of defined scope and make sure all the IP are reachable.
+   ```shell
+   ping -c 4 <IP_Address>
+   nmap -sn -iL <List_of_defined_scope>
+   ```
+7. If not, then raise the issue to the SPOC person and make them reachable.
+8. Then perform port scanning and observe if any port is filtered or not.
+   ```shell
+   nmap -Pn -p-65535 -iL <List_of_defined_scope>
+   ```
+9. If some ports are filtered, convey the same to the SPOC and get those ports open.
+10. Ask SPOC, when the scanning should be perform? In Buissness Hours or After Buissness Hours or on weekends.
+11. After this make batches of scope and put them on Nessus Advanced Scan:
+    Advanced Scan 
+> Settings
+  - DISCOVERY
+    - Host Discovery
+      -  - [x] UDP
+     
+    - Port Scanning
+      - Port scan range: 0-65535
+      -  - [x] UDP
+     
+> Plugins
+  - Backdoors: `DISABLED`
+  - Denial of Service: `DISABLED`
 
-Internal VAPT 
-
-Internal VAPT – In this, only the internal network is in scope. Internal servers, firewalls and data components such as database servers or file servers are of key importance from vulnerability scanning perspective. Since the test is to be performed from within the network, only vulnerability assessment is performed, while penetration testing is not performed. Internal security assessment can be performed by physically being inside the network premises or by performing a remote session into the network. 
-
- 
-
-Internal VAPT approach 
-
-First, we must take the final defined scope. 
-
-Provided systems IP should be whitelisted in internal network. 
-
-Then ping the defined scope and make sure all the IP are reachable. 
-
-If not, then raise the issue to the spoc person and make them reachable. 
-
-Then perform port scanning and observe if any port is filtered or not. 
-
-If some ports are filtered, convey the same to the spoc and get those ports open. 
-
-After this make batches of scope and put them on Nessus scan. 
-
-Set up the Nessus with required plugins and start the scan. 
-
-After the scan is complete fetch the reports and proceed to the false positive approach. 
-
-This can be done by using nmap nse scripts available online. 
-
-Take the POC of the actual findings, make the report and submit it to the spoc person. 
-
- 
-
-Prerequisite for Internal VAPT 
-
-Defined scope should be provided. 
-
-Two systems should be provided with installed Kali Linux and Nessus. 
-
-Provided systems IP should be whitelisted in its internal network. 
-
-The above-mentioned requirements are necessary if internal VAPT is performed being physically inside the network premises. 
-
-Or if performing remotely, VPN credentials should be provided, and the assigned IP should be whitelisted in their internal network or static IP should be assigned.  
-
-Another way is by providing system with all the necessary configuration inside network premise along with VPN credentials and RDP credentials. 
-
+12. After the scan is complete fetch the report into .cvs and proceed to the false positive approach.
+13. This can be done by using Nmap NSE scripts or testssl.
+14. Take the POC of the actual findings, make the report and submit it to the spoc person. 
 
 
 https://www.threatintelligence.com/blog/internal-penetration-testing
