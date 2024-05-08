@@ -34,7 +34,7 @@ Very important. End of testing is different from end of engagement. Testing ends
 
 Preferred timings of test Some client would want you to initiate the test when no one is in office (out of working hours). Few clients would ask you to initiate the test during working hours. You have to document this.
 
-# 1. Information gathering / Reconnaissance
+# Information gathering / Reconnaissance
 
 Many people have written lot about it. However, i have few points to mention here. Whether you have IP address or a domain name, you need to find ASN (Autonomous System Number) belonging to that company first. The benefit — it will help you find all the IP ranges that belong to the company. You can use below links to find ASN from a domain name or IP address.
 
