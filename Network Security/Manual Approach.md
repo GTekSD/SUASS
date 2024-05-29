@@ -25,7 +25,6 @@ Nginx v1.16.1 is vulnerable to Information Disclosure vulnerability
 nmap -Pn -sV <target ip>
 ```
 
-
 SSL/TLS Diffie-Hellman Modulus <= 1024 Bits (Logjam)	
 ```
 nmap --script ssl-dh-params <target ip>
@@ -58,12 +57,10 @@ HSTS Missing from HTTPS Server
 nmap --script http-security-headers <target ip>
 ```
 
-
 Microsoft SQL Server Unsupported Version Detection (remote check)
 ```
 nmap -p 1433 --script ms-sql-info <target ip>
 ```
-
 
 Unencrypted Telnet Server
 ```
@@ -95,14 +92,10 @@ MS17-010: Security Update for Microsoft Windows SMB Server
 smb-vuln-ms17-010
 ```
 
-
-
-
 NetScaler Unencrypted Web Management Interface
 ```
+testssl -p --quiet
 ```
-
-
 
 Remote Desktop Protocol Server Man-in-the-Middle Weakness
 ```
@@ -126,17 +119,10 @@ Terminal Services Encryption Level is Medium or Low
 nmap -Pn -sV --script rdp-enum-encryption
 ```
 
-
-
-
-
-
 Web Server HTTP Header Internal IP Disclosure
 ```
 nmap -Pn -sV --script http-internal-ip-disclosure
 ```
-
-
 
 ### Example
 
