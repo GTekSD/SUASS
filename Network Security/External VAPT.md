@@ -130,6 +130,7 @@ This is where we interact directly with the client infrastructure. The tools tha
 - [naabu](https://github.com/projectdiscovery/naabu) - A fast port scanner written in go with focus on reliability and simplicity.
 
 ## Nessus Vulnerability Scanner
+#### Ping Scan
 
 Advanced Scan 
 > Settings
@@ -140,6 +141,31 @@ Advanced Scan
     - Port Scanning
       - Port scan range: 0-65535
       -  - [x] UDP
+
+    - Service Disceovery
+      - General Settings
+        - Search for DTLS on = All UDP ports
+       
+> Plugins
+  - Backdoors: `DISABLED`
+  - Denial of Service: `DISABLED`
+
+#### No Ping Scan
+
+Advanced Scan 
+> Settings
+  - DISCOVERY
+    - Host Discovery
+      - Remote Host Ping
+      - - Ping the remote host = OFF
+     
+    - Port Scanning
+      - Port scan range: 0-65535
+      -  - [x] UDP
+
+    - Service Disceovery
+      - General Settings
+        - Search for DTLS on = All UDP ports
      
 > Plugins
   - Backdoors: `DISABLED`
