@@ -375,16 +375,21 @@ $ testssl 45.33.32.156:8080
 testssl dosen't allow you to scan a list of IP addresses line -iL in nmap.
 But here is the solution, [IRCMDUF.sh](https://github.com/GTekSD/fast/blob/main/IRCMDUF.sh)
 ```
-IRCMDUF.sh "testssl -E -s -p -S -h -U" list_of_ip_add.txt
+IRCMDUF.sh "testssl --quiet -E -s -p -S -h -U" list_of_ip:port.txt
 ```
 
 ### testssl Full Scan 
 ```
-$ testssl -E -s -p -S -h -U <target>:<port>
+$ testssl --quiet -E -s -p -S -h -U <target>:<port>
 ```
 This command will checks per protocol, standard cipher categories by strength, TLS/SSL protocols, certificate info, headers, and all of the following vulnerabilities.
 
 ```
+     -E, --cipher-per-proto        checks those per protocol
+     -s, --std, --categories       tests standard cipher categories by strength
+     -p, --protocols               checks TLS/SSL protocols (including SPDY/HTTP2)
+     -S, --server-defaults         displays the server's default picks and certificate info
+     -h, --header, --headers       tests HSTS, HPKP, server/app banner, security headers, cookie, reverse proxy, IPv4 address
      -U, --vulnerable              tests all (of the following) vulnerabilities (if applicable)
      -H, --heartbleed              tests for Heartbleed vulnerability
      -I, --ccs, --ccs-injection    tests for CCS injection vulnerability
