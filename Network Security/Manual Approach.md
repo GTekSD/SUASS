@@ -1,10 +1,10 @@
 #### Findings and their NSE scripts
 
-- BEAST Security vulnerability
-- Server vulnerable to SSL Lucky13 Attack
+- BEAST Security Vulnerability
+- Server Vulnerable to SSL Lucky13 Attack
 - SSL / TLS Versions Supported
 - SSL Cipher Suites Supported
-- SSL DROWN Attack vulnerability (Decrypting RSA with Obsolete and Weakened encryption)
+- SSL DROWN Attack Vulnerability (Decrypting RSA with Obsolete and Weakened encryption)
 - SSL Medium Strength Cipher Suites Supported (SWEET32)
 - SSL RC4 Cipher Suites Supported (Bar Mitzvah)
 - SSL Version 2 and 3 Protocol Detection
@@ -16,10 +16,13 @@
 nmap --script ssl-enum-ciphers <target ip>
 ```
 
-
-- Nginx v1.16.1 is vulnerable to Information Disclosure vulnerability
+Vulnerable OpenSSH 8.2 and 8.8 Version Detection
+Vulnerable OpenSSL 1.1.1t Version Detection
+Vulnerable VMware ESX / ESXi 6.7.0 Version Detection
+ManageEngine ADAudit Plus 7.0 Multiple Vulnerabilities
+Nginx v1.16.1 is vulnerable to Information Disclosure vulnerability
 ```
-nmap -sV <target ip>
+nmap -Pn -sV <target ip>
 ```
 
 
@@ -66,6 +69,104 @@ nmap -p 1433 --script ms-sql-info <target ip>
 ```
 nmap -p 23 --script telnet-encryption <target ip>
 ```
+
+Microsoft SQL Server Unsupported Version Detection
+```
+nmap -Pn --script ms-sql-info
+```
+
+NFS Sensitive Information Disclosure
+```
+nmap -sV --script=nfs-* -Pn -p 111 
+```
+
+Vulnerable Apache Version Detection
+```
+nmap -Pn -sV <target ip>
+```
+
+Microsoft Windows SMBv1 Multiple Vulnerabilities
+```
+smb-protocols
+```
+
+MS17-010: Security Update for Microsoft Windows SMB Server
+```
+smb-vuln-ms17-010
+```
+
+
+
+
+NetScaler Unencrypted Web Management Interface
+```
+```
+
+
+
+Remote Desktop Protocol Server Man-in-the-Middle Weakness
+```
+```
+
+SMB Signing not required
+```
+```
+
+SSH Terrapin Prefix Truncation Weakness
+```
+```
+
+SSH Weak Key Exchange Algorithms Enabled
+```
+```
+
+SSL Certificate Cannot Be Trusted
+```
+```
+
+SSL Certificate Expiry
+```
+```
+
+Terminal Services Doesn't Use Network Level Authentication (NLA) Only
+```
+```
+
+Terminal Services Encryption Level is Medium or Low
+```
+```
+
+
+SSL Certificate Signed Using Weak Hashing Algorithm
+```
+```
+
+
+HSTS Missing From HTTPS Server (RFC 6797)
+```
+```
+
+SSH Server CBC Mode Ciphers Enabled
+```
+```
+
+SSH Weak MAC Algorithms Enabled
+```
+```
+
+
+
+Terminal Services Encryption Level is not FIPS-140 Compliant
+```
+```
+
+Web Server HTTP Header Internal IP Disclosure
+```
+```
+
+
+
+
 
 ### Example
 
