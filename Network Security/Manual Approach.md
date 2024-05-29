@@ -1,17 +1,17 @@
 #### Findings and their NSE scripts
 
-- BEAST Security Vulnerability
-- Server Vulnerable to SSL Lucky13 Attack
-- SSL / TLS Versions Supported
-- SSL Cipher Suites Supported
-- SSL DROWN Attack Vulnerability (Decrypting RSA with Obsolete and Weakened encryption)
-- SSL Medium Strength Cipher Suites Supported (SWEET32)
-- SSL RC4 Cipher Suites Supported (Bar Mitzvah)
-- SSL Version 2 and 3 Protocol Detection
-- SSL Weak Cipher Suites Supported
-- SSLv3 Padding Oracle on Downgraded Legacy Encryption Vulnerability (POODLE)
-- TLS Version 1.0 Protocol Deprecated
-- TLS Version 1.1 Protocol Deprecated
+BEAST Security Vulnerability
+Server Vulnerable to SSL Lucky13 Attack
+SSL / TLS Versions Supported
+SSL Cipher Suites Supported
+SSL DROWN Attack Vulnerability (Decrypting RSA with Obsolete and Weakened encryption)
+SSL Medium Strength Cipher Suites Supported (SWEET32)
+SSL RC4 Cipher Suites Supported (Bar Mitzvah)
+SSL Version 2 and 3 Protocol Detection
+SSL Weak Cipher Suites Supported
+SSLv3 Padding Oracle on Downgraded Legacy Encryption Vulnerability (POODLE)
+TLS Version 1.0 Protocol Deprecated
+TLS Version 1.1 Protocol Deprecated
 ```
 nmap --script ssl-enum-ciphers <target ip>
 ```
@@ -26,46 +26,46 @@ nmap -Pn -sV <target ip>
 ```
 
 
-- SSL/TLS Diffie-Hellman Modulus <= 1024 Bits (Logjam)	
+SSL/TLS Diffie-Hellman Modulus <= 1024 Bits (Logjam)	
 ```
 nmap --script ssl-dh-params <target ip>
 ```
 
-
-- SSL Certificate Chain Contains RSA Keys Less Than 2048 bits
-- SSL Certificate Expiry
-- SSL Certificate Signed Using Weak Hashing Algorithm
-- SSL Self-Signed Certificate
+SSL Certificate Cannot Be Trusted
+SSL Certificate Chain Contains RSA Keys Less Than 2048 bits
+SSL Certificate Expiry
+SSL Certificate Signed Using Weak Hashing Algorithm
+SSL Self-Signed Certificate
 ```
 nmap --script ssl-cert <target ip>
 ```
 
-- Obsolete CBC ciphers Enabled
-- SSH Server CBC Mode Ciphers Enabled
-- SSH Weak Key Exchange Algorithms Enabled
-- SSH Weak MAC Algorithms Enabled
+Obsolete CBC ciphers Enabled
+SSH Server CBC Mode Ciphers Enabled
+SSH Weak Key Exchange Algorithms Enabled
+SSH Weak MAC Algorithms Enabled
 ```
 nmap --script ssh2-enum-algos <target ip>
 ```
 
-- HTTP TRACE / TRACK Methods Allowed
+HTTP TRACE / TRACK Methods Allowed
 ```
 nmap --script http-methods <target ip>
 ```
 
-- HSTS Missing from HTTPS Server
+HSTS Missing from HTTPS Server
 ```
 nmap --script http-security-headers <target ip>
 ```
 
 
-- Microsoft SQL Server Unsupported Version Detection (remote check)
+Microsoft SQL Server Unsupported Version Detection (remote check)
 ```
 nmap -p 1433 --script ms-sql-info <target ip>
 ```
 
 
-- Unencrypted Telnet Server
+Unencrypted Telnet Server
 ```
 nmap -p 23 --script telnet-encryption <target ip>
 ```
@@ -106,65 +106,35 @@ NetScaler Unencrypted Web Management Interface
 
 Remote Desktop Protocol Server Man-in-the-Middle Weakness
 ```
+nmap -Pn -sV --script rdp-enum-encryption
 ```
 
 SMB Signing not required
 ```
+nmap --script smb2-security-mode -Pn
 ```
 
 SSH Terrapin Prefix Truncation Weakness
 ```
-```
-
-SSH Weak Key Exchange Algorithms Enabled
-```
-```
-
-SSL Certificate Cannot Be Trusted
-```
-```
-
-SSL Certificate Expiry
-```
+nmap -Pn -sV --script ssh2-enum-algos
 ```
 
 Terminal Services Doesn't Use Network Level Authentication (NLA) Only
-```
-```
-
+Terminal Services Encryption Level is not FIPS-140 Compliant
 Terminal Services Encryption Level is Medium or Low
 ```
-```
-
-
-SSL Certificate Signed Using Weak Hashing Algorithm
-```
-```
-
-
-HSTS Missing From HTTPS Server (RFC 6797)
-```
-```
-
-SSH Server CBC Mode Ciphers Enabled
-```
-```
-
-SSH Weak MAC Algorithms Enabled
-```
+nmap -Pn -sV --script rdp-enum-encryption
 ```
 
 
 
-Terminal Services Encryption Level is not FIPS-140 Compliant
-```
-```
+
+
 
 Web Server HTTP Header Internal IP Disclosure
 ```
+nmap -Pn -sV --script http-internal-ip-disclosure
 ```
-
-
 
 
 
