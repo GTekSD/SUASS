@@ -40,6 +40,10 @@ nmap --script ssl-cert <target ip>
 ```
 
 Obsolete CBC ciphers Enabled
+```
+testssl --quiet --sneaky -s <ip:port>
+```
+
 SSH Server CBC Mode Ciphers Enabled
 SSH Weak Key Exchange Algorithms Enabled
 SSH Weak MAC Algorithms Enabled
