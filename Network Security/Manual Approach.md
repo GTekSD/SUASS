@@ -118,19 +118,22 @@ nmap --script ssl-dh-params <target ip>
 ```
 
 ### SSL Certificate Cannot Be Trusted
+```
+nmap --script ssl-cert <target ip>
+```
 
 ### SSL Certificate Chain Contains RSA Keys Less Than 2048 bits
-``
+```
 nmap --script ssl-cert <target ip>
 ```
 
 ### SSL Certificate Expiry
-``
+```
 nmap --script ssl-cert <target ip>
 ```
 
 ### SSL Certificate Signed Using Weak Hashing Algorithm
-``
+```
 nmap --script ssl-cert <target ip>
 ```
 
