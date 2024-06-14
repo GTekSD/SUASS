@@ -70,7 +70,15 @@ testssl --quiet --sneaky -O <ip:port>
 ```
 nmap --script ssl-enum-ciphers <target ip>
 ```
+
 ### TLS Version 1.0 Protocol Deprecated
+```
+testssl --quiet --sneaky -p <ip:port>
+```
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+
 ### TLS Version 1.1 Protocol Deprecated
 ```
 testssl --quiet --sneaky -p <ip:port>
@@ -80,9 +88,25 @@ nmap --script ssl-enum-ciphers <target ip>
 ```
 
 ### Vulnerable OpenSSH 8.2 and 8.8 Version Detection
+```
+nmap -Pn -sV <target ip>
+```
+
 ### Vulnerable OpenSSL 1.1.1t Version Detection
+```
+nmap -Pn -sV <target ip>
+```
+
 ### Vulnerable VMware ESX / ESXi 6.7.0 Version Detection
+```
+nmap -Pn -sV <target ip>
+```
+
 ### ManageEngine ADAudit Plus 7.0 Multiple Vulnerabilities
+```
+nmap -Pn -sV <target ip>
+```
+
 ### Nginx v1.16.1 is vulnerable to Information Disclosure vulnerability
 ```
 nmap -Pn -sV <target ip>
@@ -94,9 +118,22 @@ nmap --script ssl-dh-params <target ip>
 ```
 
 ### SSL Certificate Cannot Be Trusted
+
 ### SSL Certificate Chain Contains RSA Keys Less Than 2048 bits
+``
+nmap --script ssl-cert <target ip>
+```
+
 ### SSL Certificate Expiry
+``
+nmap --script ssl-cert <target ip>
+```
+
 ### SSL Certificate Signed Using Weak Hashing Algorithm
+``
+nmap --script ssl-cert <target ip>
+```
+
 ### SSL Self-Signed Certificate
 ```
 nmap --script ssl-cert <target ip>
@@ -108,7 +145,15 @@ testssl --quiet --sneaky -s <ip:port>
 ```
 
 ### SSH Server CBC Mode Ciphers Enabled
+```
+nmap --script ssh2-enum-algos <target ip>
+```
+
 ### SSH Weak Key Exchange Algorithms Enabled
+```
+nmap --script ssh2-enum-algos <target ip>
+```
+
 ### SSH Weak MAC Algorithms Enabled
 ```
 nmap --script ssh2-enum-algos <target ip>
@@ -180,7 +225,15 @@ nmap -Pn -sV --script ssh2-enum-algos
 ```
 
 ### Terminal Services Doesn't Use Network Level Authentication (NLA) Only
+```
+nmap -Pn -sV --script rdp-enum-encryption
+```
+
 ### Terminal Services Encryption Level is not FIPS-140 Compliant
+```
+nmap -Pn -sV --script rdp-enum-encryption
+```
+
 ### Terminal Services Encryption Level is Medium or Low
 ```
 nmap -Pn -sV --script rdp-enum-encryption
@@ -189,39 +242,4 @@ nmap -Pn -sV --script rdp-enum-encryption
 ### Web Server HTTP Header Internal IP Disclosure
 ```
 nmap -Pn -sV --script http-internal-ip-disclosure
-```
-
-### Example
-
-```
-root@Kali:~# nmap -sC 10.211.55.6
-..
-21/tcp   open   ftp
-| ftp-anon: Anonymous FTP login allowed (FTP code 230)
-|_Can't get directory listing: PASV failed: 550 Permission denied.
-| ftp-syst:
-|   STAT:
-| FTP server status:
-|      Connected to 10.211.55.4
-|      Logged in as ftp
-…
-|      vsFTPd 3.0.3 – secure, fast, stable
-|_End of status
-22/tcp   open   ssh
-| ssh-hostkey:
-|   2048 81:21:ce:a1:1a:05:b1:69:4f:4d:ed:80:28:e8:99:05 (RSA)
-|   256 5b:a5:bb:67:91:1a:51:c2:d3:21:da:c0:ca:f0:db:9e (ECDSA)
-|_  256 6d:01:b7:73:ac:b0:93:6f:fa:b9:89:e6:ae:3c:ab:d3 (ED25519)
-53/tcp   open   domain
-| dns-nsid:
-|   id.server: ATL
-|_  bind.version: dnsmasq-2.75
-80/tcp   open   http
-|_http-title: 404 Not Found
-…
-3306/tcp open   mysql
-| mysql-info:
-|   Protocol: 10
-|   Version: 5.7.12-0ubuntu1
-…
 ```
