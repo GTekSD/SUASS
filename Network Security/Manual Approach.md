@@ -1,129 +1,192 @@
 #### Findings and their NSE scripts
 
-BEAST Security Vulnerability
-Server Vulnerable to SSL Lucky13 Attack
-SSL / TLS Versions Supported
-SSL Cipher Suites Supported
-SSL DROWN Attack Vulnerability (Decrypting RSA with Obsolete and Weakened encryption)
-SSL Medium Strength Cipher Suites Supported (SWEET32)
-SSL RC4 Cipher Suites Supported (Bar Mitzvah)
-SSL Version 2 and 3 Protocol Detection
-SSL Weak Cipher Suites Supported
-SSLv3 Padding Oracle on Downgraded Legacy Encryption Vulnerability (POODLE)
-TLS Version 1.0 Protocol Deprecated
-TLS Version 1.1 Protocol Deprecated
+### BEAST Security Vulnerability
+```
+testssl --quiet --sneaky -A <ip:port>
+```
 ```
 nmap --script ssl-enum-ciphers <target ip>
 ```
 
-Vulnerable OpenSSH 8.2 and 8.8 Version Detection
-Vulnerable OpenSSL 1.1.1t Version Detection
-Vulnerable VMware ESX / ESXi 6.7.0 Version Detection
-ManageEngine ADAudit Plus 7.0 Multiple Vulnerabilities
-Nginx v1.16.1 is vulnerable to Information Disclosure vulnerability
+### Server Vulnerable to SSL Lucky13 Attack
+```
+testssl --quiet --sneaky -L <ip:port>
+```
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+
+### SSL / TLS Versions Supported
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+
+### SSL Cipher Suites Supported
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+
+### SSL DROWN Attack Vulnerability (Decrypting RSA with Obsolete and Weakened encryption)
+```
+testssl --quiet --sneaky -D <ip:port>
+```
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+
+### SSL Medium Strength Cipher Suites Supported (SWEET32)
+```
+testssl --quiet --sneaky -W <ip:port>
+```
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+
+### SSL RC4 Cipher Suites Supported (Bar Mitzvah)
+```
+testssl --quiet --sneaky -4 <ip:port>
+```
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+
+### SSL Version 2 and 3 Protocol Detection
+```
+testssl --quiet --sneaky -p <ip:port>
+```
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+
+### SSL Weak Cipher Suites Supported
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+
+### SSLv3 Padding Oracle on Downgraded Legacy Encryption Vulnerability (POODLE)
+```
+testssl --quiet --sneaky -O <ip:port>
+```
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+### TLS Version 1.0 Protocol Deprecated
+### TLS Version 1.1 Protocol Deprecated
+```
+testssl --quiet --sneaky -p <ip:port>
+```
+```
+nmap --script ssl-enum-ciphers <target ip>
+```
+
+### Vulnerable OpenSSH 8.2 and 8.8 Version Detection
+### Vulnerable OpenSSL 1.1.1t Version Detection
+### Vulnerable VMware ESX / ESXi 6.7.0 Version Detection
+### ManageEngine ADAudit Plus 7.0 Multiple Vulnerabilities
+### Nginx v1.16.1 is vulnerable to Information Disclosure vulnerability
 ```
 nmap -Pn -sV <target ip>
 ```
 
-SSL/TLS Diffie-Hellman Modulus <= 1024 Bits (Logjam)	
+### SSL/TLS Diffie-Hellman Modulus <= 1024 Bits (Logjam)	
 ```
 nmap --script ssl-dh-params <target ip>
 ```
 
-SSL Certificate Cannot Be Trusted
-SSL Certificate Chain Contains RSA Keys Less Than 2048 bits
-SSL Certificate Expiry
-SSL Certificate Signed Using Weak Hashing Algorithm
-SSL Self-Signed Certificate
+### SSL Certificate Cannot Be Trusted
+### SSL Certificate Chain Contains RSA Keys Less Than 2048 bits
+### SSL Certificate Expiry
+### SSL Certificate Signed Using Weak Hashing Algorithm
+### SSL Self-Signed Certificate
 ```
 nmap --script ssl-cert <target ip>
 ```
 
-Obsolete CBC ciphers Enabled
+### Obsolete CBC ciphers Enabled
 ```
 testssl --quiet --sneaky -s <ip:port>
 ```
 
-SSH Server CBC Mode Ciphers Enabled
-SSH Weak Key Exchange Algorithms Enabled
-SSH Weak MAC Algorithms Enabled
+### SSH Server CBC Mode Ciphers Enabled
+### SSH Weak Key Exchange Algorithms Enabled
+### SSH Weak MAC Algorithms Enabled
 ```
 nmap --script ssh2-enum-algos <target ip>
 ```
 
-HTTP TRACE / TRACK Methods Allowed
+### HTTP TRACE / TRACK Methods Allowed
 ```
 nmap --script http-methods <target ip>
 ```
 
-HSTS Missing from HTTPS Server
+### HSTS Missing from HTTPS Server
 ```
 nmap --script http-security-headers <target ip>
 ```
 
-Microsoft SQL Server Unsupported Version Detection (remote check)
+### Microsoft SQL Server Unsupported Version Detection (remote check)
 ```
 nmap -p 1433 --script ms-sql-info <target ip>
 ```
 
-Unencrypted Telnet Server
+### Unencrypted Telnet Server
 ```
 nmap -p 23 --script telnet-encryption <target ip>
 ```
 
-Microsoft SQL Server Unsupported Version Detection
+### Microsoft SQL Server Unsupported Version Detection
 ```
 nmap -Pn --script ms-sql-info
 ```
 
-NFS Sensitive Information Disclosure
+### NFS Sensitive Information Disclosure
 ```
 nmap -sV --script=nfs-* -Pn -p 111 
 ```
 
-Vulnerable Apache Version Detection
+### Vulnerable Apache Version Detection
 ```
 nmap -Pn -sV <target ip>
 ```
 
-Microsoft Windows SMBv1 Multiple Vulnerabilities
+### Microsoft Windows SMBv1 Multiple Vulnerabilities
 ```
 smb-protocols
 ```
 
-MS17-010: Security Update for Microsoft Windows SMB Server
+### MS17-010: Security Update for Microsoft Windows SMB Server
 ```
 smb-vuln-ms17-010
 ```
 
-NetScaler Unencrypted Web Management Interface
+### NetScaler Unencrypted Web Management Interface
 ```
 testssl -p --quiet
 ```
 
-Remote Desktop Protocol Server Man-in-the-Middle Weakness
+### Remote Desktop Protocol Server Man-in-the-Middle Weakness
 ```
 nmap -Pn -sV --script rdp-enum-encryption
 ```
 
-SMB Signing not required
+### SMB Signing not required
 ```
 nmap --script smb2-security-mode -Pn
 ```
 
-SSH Terrapin Prefix Truncation Weakness
+### SSH Terrapin Prefix Truncation Weakness
 ```
 nmap -Pn -sV --script ssh2-enum-algos
 ```
 
-Terminal Services Doesn't Use Network Level Authentication (NLA) Only
-Terminal Services Encryption Level is not FIPS-140 Compliant
-Terminal Services Encryption Level is Medium or Low
+### Terminal Services Doesn't Use Network Level Authentication (NLA) Only
+### Terminal Services Encryption Level is not FIPS-140 Compliant
+### Terminal Services Encryption Level is Medium or Low
 ```
 nmap -Pn -sV --script rdp-enum-encryption
 ```
 
-Web Server HTTP Header Internal IP Disclosure
+### Web Server HTTP Header Internal IP Disclosure
 ```
 nmap -Pn -sV --script http-internal-ip-disclosure
 ```
