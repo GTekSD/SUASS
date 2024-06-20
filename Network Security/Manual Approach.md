@@ -199,12 +199,12 @@ nmap -Pn -sV <target ip>
 
 ### Microsoft Windows SMBv1 Multiple Vulnerabilities
 ```
-smb-protocols
+nmap -sV --script smb-protocols <target ip>
 ```
 
 ### MS17-010: Security Update for Microsoft Windows SMB Server
 ```
-smb-vuln-ms17-010
+nmap -sV --script smb-vuln-ms17-010 <target ip>
 ```
 
 ### NetScaler Unencrypted Web Management Interface
