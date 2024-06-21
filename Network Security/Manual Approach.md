@@ -246,3 +246,8 @@ nmap -Pn -sV --script rdp-enum-encryption
 ```
 nmap -Pn -sV --script http-internal-ip-disclosure
 ```
+
+### Redis Server Unprotected by Password Authentication
+```
+nmap -Pn -sV --script redis-info <targert ip>
+```
