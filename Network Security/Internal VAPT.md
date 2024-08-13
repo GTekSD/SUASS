@@ -70,14 +70,18 @@ Then it will ask for password, provide the password and you got the access.
    ping -c 4 <IP_Address>
    nmap -sn -iL <List_of_defined_scope>
    ```
-7. If not, then raise the issue to the SPOC person and make them reachable.
-8. Then perform port scanning and observe if any port is filtered or not.
+   Automation for Big list of IPs
+   ```
+   BisB.sh "ping -c 4" <Big_batch.txt>
+   ```
+8. If not, then raise the issue to the SPOC person and make them reachable.
+9. Then perform port scanning and observe if any port is filtered or not.
    ```shell
    nmap -Pn -p-65535 -iL <List_of_defined_scope>
    ```
-9. If some ports are filtered, convey the same to the SPOC and get those ports open.
-10. Ask SPOC, when the scanning should be perform? In Buissness Hours or After Buissness Hours or on weekends.
-11. After this make batches of scope and put them on Nessus Advanced Scan:
+10. If some ports are filtered, convey the same to the SPOC and get those ports open.
+11. Ask SPOC, when the scanning should be perform? In Buissness Hours or After Buissness Hours or on weekends.
+12. After this make batches of scope and put them on Nessus Advanced Scan:
     Advanced Scan 
 > Settings
   - DISCOVERY
