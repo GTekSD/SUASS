@@ -399,9 +399,9 @@ $ testssl 45.33.32.156:8080
 ```
 ### Scan Using an Input File
 testssl dosen't allow you to scan a list of IP addresses line -iL in nmap.
-But here is the solution, [IRCMDUF.sh](https://github.com/GTekSD/fast/blob/main/IRCMDUF.sh)
+But here is the solution, [BisB](https://github.com/GTekSD/Batch-is-Better)
 ```
-IRCMDUF.sh "testssl --quiet -E -s -p -S -h -U" list_of_ip:port.txt
+BisB.sh "testssl --quiet -E -s -p -S -h -U" list_of_ip:port.txt
 ```
 
 ### testssl Full Scan 
