@@ -6,6 +6,7 @@ Welcome to the Git CLI Guide! This document will walk you through the essential 
 
 - [Getting Started](#getting-started)
 - [Setting Up Git](#setting-up-git)
+- [Generating a new SSH key](#Generating-a-new-SSH-key)
 - [Basic Git Commands](#basic-git-commands)
 - [Branching](#branching)
 - [Merging](#merging)
@@ -95,6 +96,24 @@ The key's randomart image is:
 5. Give a Title, Key type: Auth.. Key and Paste the copied key into the key.
 
 ## Basic Git Commands
+
+Create a New Repo on GitHub and ..
+### …or create a new repository on the command line
+```
+echo "# My New Repo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:username/My-New-repo.git
+git push -u origin main
+```
+### …or push an existing repository from the command line
+```
+git remote add origin git@github.com::username/My-New-repo.git
+git branch -M main
+git push -u origin main
+```
 
 ### Initializing a Repository
 
