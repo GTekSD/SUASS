@@ -17,6 +17,7 @@ Network penetration test commonly includes the following type of tests against t
 - Network penetration test helps the administrator to close unnecessary ports, services, hide or customize banners, troubleshoot services and calibrate firewall/IDS rules for robust security.
 - It helps organizations avoid huge fines for noncompliance, by helping them comply with the audit regulatory standards like Payment Card Industry Data Security Standard (PCI DSS), Health Insurance Portability and Accountability Act (HIPAA), and Gramm–Leach–Bliley Act (GLBA)
 - It helps organizations to identify and address the risks, thus avoids security breach and protects the organization from heavy financial falls
+
 Network penetration test can be conducted from inside or outside of the organization. Based on needs, there are two types of network penetration testing: external penetration testing and internal penetration testing. It is recommended that organizations should perform both internal and external network penetration testing for better results
 
 
