@@ -89,3 +89,5 @@ This repository is open-source and available under the [MIT License](LICENSE). F
 We hope "SUASS - Secure ur Ass | Penetration Testing Notes" becomes a valuable resource for your cybersecurity journey. If you have any questions, suggestions, or feedback, please don't hesitate to reach out.
 
 Happy learning and stay secure!
+
+_Jul 7, 2023 - Present_
