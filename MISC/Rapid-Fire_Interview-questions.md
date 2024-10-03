@@ -1,63 +1,61 @@
 # Cyber Security Interview Questions
 ------------------------------------
 
-### Q.1 Introduction as you’re an experienced application security consultant.
+### ⭐ Introduction as you’re an experienced application security consultant.
 
 I'll start by introducing myself. I'm working as an Application Security Consultant in ABC technologies for the past 3 years. With 3 years of experience in Application Security, I've done many security assessments of web applications and mobile applications, and that making me specialized in web and mobile security.
 I've handled many projects for various clients of different sectors like e-commerce, health care, finance, telecom etc.
 Currently I am working remotely with an e-commerce client handling their web and mobile applications and working on the closure of the reported vulnerabilities.
 
-### Q. What are the top 10 OWASP vulnerabilities?
-### Q. What are the risks associated with each vulnerability?
-### Q. How can these vulnerabilities be mitigated?
-### Q. What tools and techniques can be used to identify and prevent these vulnerabilities?
+### ⭐ What are the top 10 OWASP vulnerabilities?,What are the risks associated with each vulnerability?, How can these vulnerabilities be mitigated?, What tools and techniques can be used to identify and prevent these vulnerabilities?
 Answer:
 here are the top 10 OWASP vulnerabilities, the risks associated with each vulnerability, how they can be mitigated, and the tools and techniques that can be used to identify and prevent them:
-### Q.1. Broken Access Control
+
+#### 1. Broken Access Control
 -	**Risks:** This vulnerability allows attackers to gain unauthorized access to sensitive data or resources.
 -	**Mitigation:** Implement proper access control mechanisms, such as role-based access control (RBAC).
 -	**Tools and techniques:** Use static analysis tools to scan for access control vulnerabilities.
 -	Path Traversal, CSRF, IDOR, Forced Browsing.
-### Q.2. Cryptographic Failures
+#### 2. Cryptographic Failures
 -	**Risks:** This vulnerability allows attackers to steal sensitive data, such as passwords or credit card numbers, by decrypting it.
 -	**Mitigation:** Use strong cryptographic algorithms and properly implement cryptographic libraries.
 -	**Tools and techniques:** Use dynamic analysis tools to scan for cryptographic vulnerabilities.
 -	Cleartext Transmission of Sensitive Information, Weak Encoding for Password
-### Q.3. Injection
+#### 3. Injection
 -	**Risks:** This vulnerability allows attackers to inject malicious code into an application, which can then be executed by other users.
 -	**Mitigation:** Sanitize all user input before it is processed by the application.
 -	**Tools and techniques:** Use static analysis tools to scan for injection vulnerabilities.
-### Q.4. Insecure Design
+#### 4. Insecure Design
 -	**Risks:** This vulnerability allows attackers to exploit design flaws in an application, such as using hard-coded passwords or not properly validating user input.
 -	**Mitigation:** Design applications with security in mind.
 -	**Tools and techniques:** Use static analysis tools to scan for insecure design vulnerabilities.
-### Q.5. Security Misconfiguration
+#### 5. Security Misconfiguration
 -	**Risks:** This vulnerability allows attackers to exploit misconfigurations in an application's security settings, such as leaving default passwords in place or not properly securing sensitive data.
 -	**Mitigation:** Implement and enforce security best practices.
 -	**Tools and techniques:** Use dynamic analysis tools to scan for security misconfiguration vulnerabilities.
-### Q.6. Vulnerable and Outdated Components
+#### 6. Vulnerable and Outdated Components
 -	**Risks:** This vulnerability allows attackers to exploit vulnerabilities in third-party components that are used by an application.
 -	**Mitigation:** Keep all components up to date with the latest security patches.
 -	**Tools and techniques:** Use static analysis tools to scan for vulnerable components.
-### Q.7. Identification and Authentication Failures
+#### 7. Identification and Authentication Failures
 -	**Risks:** This vulnerability allows attackers to gain unauthorized access to an application by bypassing or abusing the authentication process.
 -	**Mitigation:** Implement strong authentication mechanisms, such as multi-factor authentication (MFA).
 -	**Tools and techniques:** Use dynamic analysis tools to scan for identification and authentication vulnerabilities.
-### Q.8. Software and Data Integrity Failures
+#### 8. Software and Data Integrity Failures
 -	**Risks:** This vulnerability allows attackers to modify or delete sensitive data, such as financial records or medical records.
 -	**Mitigation:** Implement data integrity checks to ensure that data is not modified or deleted without authorization.
 -	**Tools and techniques:** Use static analysis tools to scan for software and data integrity vulnerabilities.
-### Q.9. Security Logging and Monitoring Failures
+#### 9. Security Logging and Monitoring Failures
 -	**Risks:** This vulnerability allows attackers to evade detection by disabling or tampering with security logs.
 -	**Mitigation:** Implement effective security logging and monitoring practices.
 -	**Tools and techniques:** Use security information and event management (SIEM) tools to collect and analyze security logs.
-### Q.10. Server-Side Request Forgery (SSRF)
+#### 10. Server-Side Request Forgery (SSRF)
 -	**Risks:** This vulnerability allows attackers to force an application to make unauthorized requests to other servers.
 -	**Mitigation:** Implement proper input validation to prevent attackers from injecting malicious requests.
 -	**Tools and techniques:** Use static analysis tools to scan for SSRF vulnerabilities.
 
 
-### Q. Web applications assessment and threat modelling approach:
+### ⭐ Web applications assessment and threat modelling approach:
 Sir, for starting an assessment, 
 if it is asked to do a grey box testing. 
 we first take a positive walkthrough of an application as per developer point of view. This gives us an idea of architecture design or data flow of an application. 
@@ -84,7 +82,7 @@ _Find the attack scenario regarding the topics below and create test cases with 
 - 6. Business related
 - 7. Payment related
 
-### Q. Authenticated Related
+**1. Authenticated Related**
 -	Deep URL
 -	CSRF
 -	SQL Injection
@@ -93,7 +91,7 @@ _Find the attack scenario regarding the topics below and create test cases with 
 -	Captcha Related cases
 -	Cookie Management
 
-### Q. Unauthenticated Related
+**2. Unauthenticated Related**
 -	HTTPS/HTTP
 -	Login Bypass
 -	Password Autocomplete Enabled
@@ -116,10 +114,10 @@ _Find the attack scenario regarding the topics below and create test cases with 
 -	IDOR
 -	Directory Listing
 
-If any question is asked on threat modelling, make sure to mention STRIDE
+If any question is asked on **threat modelling**, make sure to mention STRIDE
 
-### Q. What is STRIDE?
-Ans: STRIDE is an acronym for the threat modeling system. It helps in categorizing all cyberattacks into the below techniques:
+### ⭐ What is STRIDE?
+STRIDE is an acronym for the threat modeling system. It helps in categorizing all cyberattacks into the below techniques:
 -	Spoofing = Authentication
 -	Tampering = Integrity
 -	Repudiation = Non-Repudiation
@@ -129,34 +127,34 @@ Ans: STRIDE is an acronym for the threat modeling system. It helps in categorizi
 
 For threat modelling practice a tool like **Microsoft threat modelling tool** can be used.
 
-## Q. Threat Type	Security Control	Mitigation Techniques
-### Q. Spoofing Identity	Authentication	-	Appropriate authentication
+## ⭐ Threat Type	Security Control	Mitigation Techniques
+### ⭐ Spoofing Identity	Authentication	-	Appropriate authentication
 -	Protect secret data.
 -	Don’t store secrets
 
-### Q. Tampering with data	Integrity	-	Appropriate authorization
+### ⭐ Tampering with data	Integrity	-	Appropriate authorization
 -	Hashes
 -	MACs
 -	Digital signatures
 -	Tamper resistant protocols
 
-### Q. Repudiation	Non-Repudiation	-	Digital signatures
+### ⭐ Repudiation	Non-Repudiation	-	Digital signatures
 -	Timestamps
 -	Audit trails
 
-### Q. Information Disclosure	Confidentiality	-	Authorization
+### ⭐ Information Disclosure	Confidentiality	-	Authorization
 -	Privacy-enhanced protocols
 -	Encryption
 -	Protect secrets.
 -	Don’t store secrets
 
-### Q. Denial of Service	Availability	-	Appropriate authentication
+### ⭐ Denial of Service	Availability	-	Appropriate authentication
 -	Appropriate authorization
 -	Filtering
 -	Throttling
 -	Quality of service
 
-### Q. Elevation of privilege	Authorization	-	Run with least privilege
+### ⭐ Elevation of privilege	Authorization	-	Run with least privilege
 
 The simplest and most basic form of identifying a web server is to look at the Server field in the HTTP response header.
 Servers:
@@ -171,7 +169,7 @@ Servers:
 -	Sun Java System Web Server
 
 
-## Q. Insecure Deserialization.
+## ⭐ Insecure Deserialization.
 Insecure Deserialization is a vulnerability which occurs when untrusted data is used to abuse the logic of an application, execute malicious code upon it being deserialized.
 
 ### Example:
@@ -408,7 +406,7 @@ Overall, Android obfuscation is a valuable security tool that can help to protec
 ## Android WebView exploits
 Answer: https://redfoxsec.com/blog/exploiting-android-webview-vulnerabilities/
 
-### Q. What is a Android WebView?  
+### ⭐ What is a Android WebView?  
 
 The WebView class, which is an extension of the View class in Android, can be used to show a web page as part of your activity layout. It doesn’t have navigation buttons or an address bar, which are two important parts of a web browser. By default, WebView’s only job is to show a web page. 
 
@@ -829,7 +827,7 @@ DREAD Risk = (Damage + Reproduciblity + Exploitability + Affected Users + Discov
 
 Following is a customized mathematical approach to implement DREAD methodology:-
 
-### Q. Damage Potential
+### ⭐ Damage Potential
 
 If a threat exploit occurs, how much damage will be caused?
 
@@ -840,7 +838,7 @@ If a threat exploit occurs, how much damage will be caused?
     10 = Complete system or data destruction.
     10 = Application unavailability.
 
-### Q. Reproducible
+### ⭐ Reproducible
 
 How easy is it to reproduce the threat exploit?
 
@@ -849,7 +847,7 @@ How easy is it to reproduce the threat exploit?
     7.5 = Easy steps for Authenticated user
     10 = Just a web browser and the address bar is sufficient, without authentication.
 
-### Q. Exploit-ability
+### ⭐ Exploit-ability
 
 What is needed to exploit this threat?
 
@@ -858,7 +856,7 @@ What is needed to exploit this threat?
     9 = A Web Application Proxy tool
     10 = Just a web browser
 
-### Q. Affected Users
+### ⭐ Affected Users
 
 How many users will be affected?
 
@@ -868,7 +866,7 @@ How many users will be affected?
     8 = Administrative users
     10 = All users
 
-### Q. Discover-ability
+### ⭐ Discover-ability
 
 · How easy is it to discover this threat?
 
