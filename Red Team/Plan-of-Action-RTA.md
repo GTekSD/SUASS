@@ -179,9 +179,7 @@ Red Team plan of action for the next stages based on the reconnaissance data, fo
 | Subdomain Scanning          | 3-5 hours           | 10:00 AM – 3:00 PM               |
 | Subdomain Takeover          | 2-4 hours           | 3:00 PM – 6:00 PM                |
 | IP Scanning & Exploitation  | 3-4 hours           | 9:00 PM – 12:00 AM               |
-| Password Spraying           | 2-3 hours
-
-           | 9:00 AM – 12:00 PM               |
+| Password Spraying           | 2-3 hours           | 9:00 AM – 12:00 PM               |
 | Spear Phishing              | 4-6 hours           | 2:00 PM – 5:00 PM                |
 | Privilege Escalation        | 3-5 hours           | 8:00 PM – 12:00 AM               |
 | Lateral Movement            | 3-5 hours           | 11:00 PM – 3:00 AM               |
