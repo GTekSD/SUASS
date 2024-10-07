@@ -1,12 +1,10 @@
 # RED TEAMING GUIDE
 ![logo_3_3440x1440](https://github.com/GTekSD/SUASS/assets/55411358/e6eae309-989a-4424-b56f-a8350a85b6b8)
 
-Imagine your house has a security guard (penetration test). They check the locks, windows, and alarm system to see if a robber can get in (find vulnerabilities).
+> Imagine your house has a security guard (penetration test). They check the locks, windows, and alarm system to see if a robber can get in (find vulnerabilities).
+> Red team engagement is like having a friend pretend to be a robber. They try everything to break in (phishing emails, hacking, sneaking in) to see how well your guard (security team) responds to a real attack. 
 
-Red team engagement is like having a friend pretend to be a robber. They try everything to break in (phishing emails, hacking, sneaking in) to see how well your guard (security team) responds to a real attack. 
-
-_The goal is not for the red team to win, but to test the blue team's ability to respond to an attack._
---------
+> _The goal is not for the red team to win, but to test the blue team's ability to respond to an attack._
 
 ### Red Teaming Plan of Action
 
