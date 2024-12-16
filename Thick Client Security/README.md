@@ -39,3 +39,4 @@ ____
 https://infosecwriteups.com/thick-client-pentest-modern-approaches-and-techniques-part-1-7bb0f5f28e8e
 https://www.cyberark.com/resources/threat-research-blog/thick-client-penetration-testing-methodology
 https://medium.com/@david.valles/security-testing-of-thick-client-application-15612f326cac
+https://payatu.com/blog/pentesting-linux-thick-client-applications/
