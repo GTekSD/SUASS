@@ -1,8 +1,4 @@
----
-
 # **Case Study: AI in Virtual Assistants – Cortana**
-
----
 
 ### **1. Introduction**
 
@@ -165,9 +161,7 @@ Cortana showcases the transformative potential of AI in personal and business pr
 ---  
 
 
-# **Detailed Case Study: AI in Recommendation Systems – YouTube**
-
----
+# **Case Study: AI in Recommendation Systems – YouTube**
 
 ### **1. Introduction**
 
@@ -328,9 +322,7 @@ YouTube’s recommendation system showcases how AI transforms user experience an
 
 
 
-# **Detailed Case Study: AI in Social Media – Instagram**
-
----
+# **Case Study: AI in Social Media – Instagram**
 
 ### **1. Introduction**
 
@@ -491,9 +483,7 @@ Instagram's integration of AI has transformed it into a personalized, engaging, 
 
 
 
-### **Detailed Case Study: Chatbots and Virtual Assistants – ChatGPT**
-
----
+# **Case Study: Chatbots and Virtual Assistants – ChatGPT**
 
 ### **1. Introduction**
 
@@ -668,9 +658,7 @@ ChatGPT represents a significant leap in conversational AI, offering vast possib
 
 
 
-### **Detailed Case Study: Code Generation and Debugging – GitHub Copilot**
-
----
+# **Detailed Case Study: Code Generation and Debugging – GitHub Copilot**
 
 ### **1. Introduction**
 
