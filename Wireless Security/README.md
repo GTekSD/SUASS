@@ -18,9 +18,9 @@ Wireless network provides extension to the organization's infrastructure perimet
 Wireless penetration testing is the process of actively evaluating information security measures in a wireless network. This process combines different attack techniques and methods to identify vulnerabilities in the perimeter of the target organization’s wireless network. It involves an active analysis of the information security measures for design weaknesses, vulnerabilities, and technical flaws and the results are documented in a report. Wireless penetration testing should be conducted separately and thoroughly. The report containing the results of security issues is delivered to executive, technical audiences, and management.  
 The wireless penetration testing involves the following factors: 
 
-- Security control auditing: To test and validate the efficiency of wireless security protections and controls.
-- Data theft detection: Find streams of sensitive data by sniffing the traffic. 
-- Information system management: Collect information on security protocols, network strength and connected devices, typically using network discovery, service identification modules, port scanner, and OS.
-- Risk prevention and response: Provide comprehensive approach of preparation steps that may be taken to prevent upcoming exploitation.
-- Upgrading infrastructure: Change or upgrade existing infrastructure of software, hardware, or network design.
-- Threat assessment: Identify the wireless threats on information assets of an organization.
+- **Security control auditing**: To test and validate the efficiency of wireless security protections and controls.
+- **Data theft detection**: Find streams of sensitive data by sniffing the traffic. 
+- **Information system management**: Collect information on security protocols, network strength and connected devices, typically using network discovery, service identification modules, port scanner, and OS.
+- **Risk prevention and response**: Provide comprehensive approach of preparation steps that may be taken to prevent upcoming exploitation.
+- **Upgrading infrastructure**: Change or upgrade existing infrastructure of software, hardware, or network design.
+- **Threat assessment**: Identify the wireless threats on information assets of an organization.
