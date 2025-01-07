@@ -117,3 +117,19 @@ The virus problem is not particular to RFID such that the tester is advised to a
 - Technology Solutions RFID Readers (https://www.tsl.com) 
 - TERTIUM RFID Readers (http://www.tertiumtechnology.com) 
 - ams NFC/HF RFID Reader (https://ams.com
+
+## Document the Result
+
+Documenting the results obtained during penetration testing is an essential step. You are advised to document the result obtained while conducting testing on WLAN, RFID devices, NFC devices, mobile devices, and IoT. After the completion of the steps, you are advised to combine and reconstruct the results in a detailed format. Note down the weaknesses found in the configuration of organization’s wireless infrastructure. The pen testing report from each section serves as a basis for creating a final report. The final documented report contains a detailed information on all the vulnerabilities, identified in each section,  
+such as: 
+
+- Weak encryption mechanisms 
+- Unencrypted flow of data 
+- Insecure device’s firmware/software 
+- Poor authentication mechanism 
+- Weak web interfaces 
+- Improper data storage mechanism 
+- Poor storage of encryption keys 
+- Enabled Universal Plug and Play UPnP service
+
+For every identified vulnerability, you need to provide detailed documentation that describes the security vulnerability and how it may be exploited. This makes the document transparent, understandable, and comprehensible for technical administration. Furthermore, this document may be used to make changes in the device configuration and overall security infrastructure to enhance the security of the target network.
