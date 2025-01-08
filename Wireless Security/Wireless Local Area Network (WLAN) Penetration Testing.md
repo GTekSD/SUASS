@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/f7227f1e-df82-4d65-b63c-b5e4b0db735c)# Wireless Local Area Network (WLAN) Penetration Testing
+# Wireless Local Area Network (WLAN) Penetration Testing
 
 Today organizations face several challenges in securing their wireless networks. There are several threats that are unique to wireless environment from rogue APs to weak encryption algorithms. WLAN penetration testing helps in identifying various possible threats and attacks on the target organization, such as sniffing, MAC filtering and spoofing, DoS, cracking encryption, and man-in-the-middle attack.
 
