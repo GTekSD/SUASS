@@ -6,6 +6,68 @@
 - Mount and run a firmware image 
 - Explore IoT exploitation
 
+### Table of Contents for [IoT Penetration Testing](https://github.com/GTekSD/SUASS/blob/main/IoT%20Security/IoT%20Penetration%20Testing.md)
+
+1. [IoT Penetration Testing](#iot-penetration-testing)
+   - [Objective](#objective)
+   
+2. [IoT Attacks and Threats](#iot-attacks-and-threats)
+   - [IoT](#iot)
+   - [Popular IoT Hacks](#popular-iot-hacks)
+     - [Phillips Smart Home](#phillips-smart-home)
+     - [LIFX Smart Bulb](#lifx-smart-bulb)
+     - [The Jeep Hack](#the-jeep-hack)
+     - [Jeep hack exploit code](#jeep-hack-exploit-code)
+     - [Belkin WeMo](#belkin-wemo)
+     - [Insulin Pump](#insulin-pump)
+     - [Smart Door Locks](#smart-door-locks)
+     - [Hacking Smart Guns and Rifles](#hacking-smart-guns-and-rifles)
+   - [IoT Challenges](#iot-challenges)
+
+3. [IoT Penetration Testing](#iot-penetration-testing-1)
+   - [Abstract IoT Testing Methodology](#abstract-iot-testing-methodology)
+     - [Step 1: Scope](#step-1--scope)
+     - [Step 2: Attack Surface Mapping](#step-2--attack-surface-mapping)
+     - [Step 3: Vulnerability Assessment and Exploitation](#step-3--vulnerability-assessment-and-exploitation)
+     - [Step 4: Documentation and Reporting](#step-4--documentation-and-reporting)
+   - [Attack Surface Mapping](#attack-surface-mapping)
+   - [IoT Architecture](#iot-architecture)
+   - [Typical IoT Vulnerabilities](#typical-iot-vulnerabilities)
+
+4. [Steps to Analyzing the IoT Hardware](#steps-to-analyzing-the-iot-hardware)
+   - [Step 1: Research the Device](#step-1--research-the-device)
+   - [Step 2: Identify the components](#step-2--identify-the-components)
+   - [Step 3: Identify the debugging ports](#step-3--identify-the-debugging-ports)
+   - [Step 4: Dump the flash](#step-4--dump-the-flash)
+   - [Step 5: Extract/analyze the firmware](#step-5--extractanalyze-the-firmware)
+
+5. [Example IoT Components](#example-iot-components)
+   - [Mobile Application](#mobile-application)
+   - [Web-Based Dashboard](#web-based-dashboard)
+   - [Network Interface](#network-interface)
+   - [Firmware](#firmware)
+     - [Firmware Attacks](#firmware-attacks)
+
+6. [Mobile Application](#mobile-application-1)
+7. [Web Application](#web-application)
+8. [Radio Communication](#radio-communication)
+   - [Attack Surface Map](#attack-surface-map)
+
+9. [The Firmware](#the-firmware)
+   - [Sample Firmware Analysis Process](#sample-firmware-analysis-process)
+     - [Step 1: Get a version of the firmware](#step-1--get-a-version-of-the-firmware)
+     - [Step 2: Reverse engineer and extract the file system and any components encountered](#step-2--reverse-engineer-and-extract-the-file-system-and-any-components-encountered)
+     - [Step 3: Attempt to run the firmware using tools or some form of emulation methods](#step-3--attempt-to-run-the-firmware-using-tools-or-some-form-of-emulation-methods)
+
+10. [Binwalk](#binwalk)
+    - [Binwalk to Extract the File System](#binwalk-to-extract-the-file-system)
+    - [Exploring the File System](#exploring-the-file-system)
+
+11. [Exploitation](#exploitation)
+    - [Firmware Emulation](#firmware-emulation)
+   
+-------
+
 ## IoT Attacks and Threats  
 ### IoT  
 Like anything else, the Internet of Things (IoT) is connected via a network interface. The most common method is a Layer 3 access that is via an IP address, then each device like any node on the network has an attack surface, this is represented by a port which is a Layer 4 interface, this is the same as any other target we go up against. These ports provide us a possible method of access, depending on how the device is setup. The problem is many of these devices have been designed and manufactured with default services running and the default configuration settings. Just as in the past, the manufactures placed these devices into circulation with ports and default credentials. This is how the Mirai botnet came to pass. Their home devices and everything else should be following the best practices principle of least services and privileges, like anything else. It is our job as testers to validate that the devices are not placed on the network with these weak configurations and do not present a vector for an attacker to leverage what is there as an attack surface that had not been changed from the defaults or at least modified to make the device a more challenging target.
