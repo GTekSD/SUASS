@@ -64,7 +64,8 @@
 
 - [Exploitation](#exploitation)
   - [Firmware Emulation](#firmware-emulation)
-   
+
+- [Reference](#reference)
 -------
 
 ## IoT Attacks and Threats  
@@ -536,3 +537,14 @@ This is the biggest challenge, and that is getting the firmware emulation to wor
 
 3. With user-mode QEMU emulation, chroot into the firmware image (optional), set LD_LIBRARY_PATH to contain the FIRMADYNE libnvram, and pass both the -L parameter with the correct path to the firmware /lib directory, and the binary of interest to QEMU. This is easiest to debug because you can attach directly to the process using gdb-multiarch, and interact directly with the process. Still, the system state may not be accurate since the host kernel is being used. It is also somewhat insecure because the emulated firmware can access the host filesystem and interact with the host kernel.
 
+-----
+
+## Reference
+
+#### Public sources:
+
+1. OWASP “[Firmware Security Testing Methodology](https://github.com/scriptingxss/owasp-fstm)”
+2. “[IoT Pentesting Guide](https://www.iotpentestingguide.com/)” by Aditya Gupta
+3. “[IoT Penetration Testing Cookbook](https://www.packtpub.com/product/iot-penetration-testing-cookbook/9781787280571)” by Aaron Guzman and Aditya Gupta
+4. “[The IoT Hacker’s Handbook](https://link.springer.com/book/10.1007/978-1-4842-4300-8)” by Aditya Gupta
+5. “[Practical IoT Hacking](https://nostarch.com/practical-iot-hacking)” by Fotios Chantzis, Ioannis Stais, Paulino Calderon, Evangelos Deirmentzoglou, and Beau Woods
