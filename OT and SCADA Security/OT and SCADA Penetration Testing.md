@@ -313,6 +313,8 @@ Nmap now has scripts for SCADA, and certain Nmap scripts such as “s7-info.nse�
 ## Nmap Scripting Engine  
 Quite a few scripts are available within the Nmap tool, and a tester should be aware of these.
 
+#### Scripts for SCADA, PLC enumeration and Modbus discovery
+
 | Script Name                      | Description                                                                                  |
 |----------------------------------|----------------------------------------------------------------------------------------------|
 | `BACnet-discover-enumerate.nse`  | Identify and enumerate BACnet devices.                                                       |
@@ -325,3 +327,131 @@ Quite a few scripts are available within the Nmap tool, and a tester should be a
 | `proconos-info.nse`              | Identify and enumerate ProConOS-enabled PLCs.                                                |
 | `S7-enumerate.nse`               | Identify and enumerate Siemens SIMATIC S7 PLCs.                                              |
 
+## Attack Modifications  
+- Review the diagrams and look for points that represent the client-to-server model.
+- Classify the communications according to the threat level.
+  - Ask the clients what the most critical components are.
+  - Determine them with your own research and assessment.
+- Prioritize the areas you are going to change.
+  - Alarms
+  - Commands to the alarms
+- Applications
+  - Test the binary and, if available, review the source code.
+  - Language: are protections such as address space layout randomization (ASLR) and no execute on stack enabled?
+
+Attack modification is an aspect where the rules of engagement are critical because the pen tester must have a detailed understanding of what they can and cannot test. Before sending one packet on the OT side of the network, the tester must ensure that every precaution has been taken and that they have adequately defined the boundaries of testing, which will be discussed later.
+
+The pen tester must create a detailed testing plan and review it with the most technical representative from the client. After reviewing the site, the plan should suggest methods of attacking the site and the associated threat level; it is common to select a medium-level threat. A critical aspect here is the assistance from the client. The pen tester must have a listing of the data requirements to conduct the test. If the client has a sample site or testbed, which is rare, then this aspect is not as critical; however, it is absolutely critical for testing a live site.
+
+With the above in mind, the tester must establish a recovery plan and a procedure to follow in case a system gets corrupted while testing. A well-defined assessment plan provides detailed directions to the team, eliminating confusion and wasted time.
+
+## OT Testing Tools  
+
+| Tool                    | Description                                                                                                             |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `arp-scan`              | Sends Address Resolution Protocol (ARP) requests and sniffs for replies.                                                |
+| `netdiscover`           | A network address discovery tool designed for wireless networks without DHCP servers, but also works on wired networks. |
+| `GRASSMARLIN`           | A passive network mapper released by NSA.                                                                               |
+| `Nipper Studio`         | Discovers vulnerabilities in firewalls, switches, and routers, automatically prioritizing risks to the organization.    |
+| `Nmap scripting engine` | Contains scripting engines for testing SCADA protocols.                                                                 |
+
+Many tools can be used within OT networks, several of which are the same as those used in IT networks. 
+
+### arping  
+arping (https://github.com/ThomasHabets/arping or https://github.com/iputils/iputils) can be used to identify live hosts and devices by sending a single Address Resolution Protocol (ARP) request to a single target. ARP traffic is a native occurrence on all Ethernet networks that communicate via IP. Any ICS device with an IP address receives ARP requests on a semiregular basis and can handle such requests using this technique in moderation. One IP address should be requested at a time, as shown next, and requests should be separated by reasonable time intervals. In other words, an ICS network should not be subjected to an “ARP storm.” Indeed, this can be tedious and time-consuming method; however, a script can be written to help automate the process.
+
+The following is an example of using a “one-liner” Bash script to automate requesting a list of IP addresses with pauses for 5 s after each request. The option `-i eth0` shows the interface, and `ipaddresses.txt` contains a list of IP addresses with one per line. The number of seconds to pause can be adjusted by changing `sleep 5` to any number of seconds as desired. 
+```
+while read ip; do arping -i eth0 -c 1 $ip; sleep 5; done < ipaddresses.txt
+```
+
+### arp-scan  
+The arp-scan tool can be used to “scan” the entire subnet that corresponds to the designated network interface. Note that this tool designates time in milliseconds, sending requests every 5000 ms (`-i 5000`), which can be changed as desired. 
+
+The `arp-scan` command can also specifically designate a network range to scan using the Classless Inter-Domain Routing (CIDR) notation (`192.168.50.0/ 24`), and it does not necessarily have to be configured on the local network interface. Therefore, this tool is very useful for scanning general network ranges without actually having an IP address on the target network. 
+
+See http://www.blackmoreops.com/2015/12/31/use-arp-scan-to-find-hidden-devices-in-your-network/ for a tutorial on the use of this tool to discover hidden devices. 
+
+One of the shortfalls of both arping and arp-scan is that they only reveal whether there is a live host or device using a particular IP address. To determine what type of host or device is using the address, the tester must look up its MAC address using online tools such as the Wireshark OUI lookup tool (https://www.wireshark.org/tools/oui-lookup.html). The tester can also write a script that can query the entire OUI database (http://standards-oui.ieee.org/oui.txt) and compare it to their results.
+
+### GRASSMARLIN  
+In early 2016, the U.S. National Security Agency released GRASSMARLIN, which is a free passive network mapper specifically intended for industrial networks. It has recently become open source (https://github.com/iadgov/GRASSMARLIN) under the GNU Lesser General Public License Version 3 licensing. GRASSMARLIN provides a “snapshot” of the ICS environment, including devices on the network, communications between these devices, and metadata extracted from these communications.
+
+### Nipper Studio  
+Nipper Studio is an excellent tool for reviewing the configuration of devices. It enables testing configurations in accordance with best practices as well as finding any vulnerabilities associated with the configuration.
+
+## BACnet  
+BACnet is a standard data communication protocol for building automation and control networks (https://bacnet.sourceforge.net/). It is an open protocol, which means that anyone can contribute to the standard and anyone may use it. The only caveat is that the BACnet standard document itself is copyrighted by ASHRAE, which sells the document to help defray the costs of developing and maintaining the standard (similar to IEEE, ANSI, or ISO). 
+
+For software developers, the BACnet protocol defines a standard way to communicate with other BACnet-compliant devices over a number of wires known as data link/physical layers: Ethernet, EIA-485, EIA-232, ARCNET, and LonTalk. The BACnet standard also defines a standard way to communicate using UDP, IP, and HTTP (web services).
+
+## Commercial SCADA Fuzzing Tool  
+With a sufficient budget, the Aegis tool is excellent to work with and has a large database of alerts for different ICS/SCADA architectures and protocols.  
+Supported Protocol: 
+- DNP3 (IEEE-1815)
+- Modbus TCP
+- IEC 60870-5-104
+- IEC 60870-5-101
+
+## Special Testing Consideration  
+- Danger of port scanning
+  - Nmap examples
+  - Sample scans
+- Vulnerability scanning
+  - Types of scans
+    - Low-risk scan
+
+As mentioned previously, there are special considerations when scanning embedded systems. The penetration tester cannot use any of the default scan options, and all of the scanning they perform must be well bounded and tested in a lab environment thoroughly before implementation in a production environment. With vulnerability scanners, this is even more of a concern because the default profiles and policies are too intrusive on these networks. Therefore, it is best to not use any vulnerability scanner; it is recommended to create a custom scan instead. However, the tester should be guided by their testing and exploration research. Further, they should discuss with the client if possible; if not, then it is best to always error on the side of caution.
+
+## Danger of Port Scanning 
+- There is a possibility that the scan will crash the system.
+- Never use the default scans, especially `-O ` and `-A `
+- Use connect scans only (`-T ` in nmap).
+- Use the nmap `–T2 ` setting.
+- Do not scan UDP (`-sU `).
+- Use `–sV ` selectively.
+
+As discussed previously, at the other end of these client–server relationships is often a device that controls equipment. If the penetration tester scans this device, it can quickly become very dangerous; therefore, it is best to avoid scanning it at all costs and use slow and methodical scans of one or two ports at a time. Although such a scan will take a long time, it avoids crashing network components.
+
+Recall that, when on the same subnet, Nmap does not use the Internet Control Message Protocol (ICMP) and instead uses ARP; therefore, there should be no problem with this since it uses the MAC address to identify the devices. Connect scans should be used because these systems are not designed for the `–sS` or SYN/stealth/half-open scan. When a destination receives a packet with the SYN flag set, the socket enters the SYN-RECEIVE state, also known as the half-open state. Subsequently, when the corresponding ACK flag that would send the socket into the ESTABLISHED state is not received, the connection maintains that open queue in memory. As a result, the connection consumes resources; the more resources it consumes, the more likely it is to crash the machine. Again, this is something to avoid. Therefore, a connect scan has a much lower chance of crashing the machines and/or devices. 
+
+The timing should be set with thorough consideration as well; penetration testers once scanned a telephone provider network at their request, and their bill payment machines all crashed from a simple Nmap default scan with nothing set other than `–sS`. Consequently, the telephone provider’s machines all over the country stopped working, their customers could not make payments or perform other actions, and their help desk was completely overwhelmed with calls. To make matters worse, penetration testers had to write a report and submit it to the application developer to show what penetration testers did and the results. To be fair, most of the scans were against an old OS, but when the client gave penetration testers a sample of the new machine with the latest OS, it failed as well. As a result, they had to do a complete code rewrite. Again, this is the job of testers, but the client did not define that the instructions they gave was for a scan of all the “live” machines in the country. In hindsight, it would have been best to avoid this situation with a test scan of one machine, but this was a very large project with many team members. Therefore, penetration testers must always ensure that the team is well briefed. Another option is to set `--scan-delay` to, say, 0.1 or to use `–max-parallelism 1` to scan one port at a time per host. 
+
+Scanning UDP ports with null payloads can affect ICS software on Windows and Linux as well. Service fingerprinting is usually safe, but it should first be tested, and in lieu of `–sV`, `--script=banner` can be used.
+
+### Low-risk Scan 
+- ```
+  nmap –n –PR –sn
+  ```
+- ```
+  nmap –n –sn
+  ```
+- ```
+  nmap –n –sn --scan-delay 0.1 –top-ports 100
+  ```
+- ```
+  nmap -n –sT –scan-delay 0.1 –p (selected port range)
+  ```
+
+Always run Nmap with the sudo command when working on *nix, e.g., `sudo –sT`. As with any scan, Nmap should be examined at the packet level. Further, although verbose should be enabled, it should not be relied upon. 
+```
+nmap –n –PR –sn
+```
+This forces Nmap to only use ARP requests to find live hosts. Therefore, if the host answers, a live machine has been identified. ARP occurs so frequently in networks that it is considered normal and should not cause any problems. However, on large subnets, this could generate a large amount of noise and a possible ARP storm; thus, it is advisable to exercise caution. Moreover, this scan must be on an internal network since it uses ARP. Additionally, no DNS lookup or port scan should be performed; only the target should be scanned. 
+
+**ARP Storm**  
+The ARP traffic on a network can be around 10% of the network traffic during normal times and up to 85% of the network traffic during abnormal network conditions caused by an ARP broadcast storm. Basically, ARP requests are broadcast multiple times or to multiple systems (occasionally more than a thousand requests within a second) during an ARP broadcast storm, thereby consuming a lot of network bandwidth and making normal network communications difficult. 
+
+A large unsegmented network is especially susceptible to excessive ARP broadcasts/broadcast storms. Hence, it is always a good practice to sub-divide a large network into various segments. This limits the broadcast domain to a limited number of systems. 
+```
+nmap –n –sn --scan-delay 0.1 –top-ports 100
+```
+Since there is no port scan (`-sn`), this command only sends the ICMP and TCP 80/443 ping requests. This will scan the ports in a serial manner with delays of 1 s in between.
+```
+Nmap -n –sT –scan-delay 0.1 –p ??? ...
+```
+Unlike the previous one, the above scan will cover all of the 1000 default ports serially and, again, with delay of 1 s in between. However, the concern here is that the scan might overwhelm a low-powered or fragile device. Therefore, this scan should be used with discretion. The –p option can be used to control how many ports the scanner scans, whereas in the previous example, the scan was for the list of the top 100 ports.
+
+### Medium-risk Scan
+nmap –n -sT --max-parallelism 1 -p (selected port range)
+nmap –n -sT --max-parallelism 1 -p-nmap –n -sT --max-parallelism 1 -p--sV 
