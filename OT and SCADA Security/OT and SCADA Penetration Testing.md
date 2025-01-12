@@ -453,5 +453,117 @@ Nmap -n –sT –scan-delay 0.1 –p ??? ...
 Unlike the previous one, the above scan will cover all of the 1000 default ports serially and, again, with delay of 1 s in between. However, the concern here is that the scan might overwhelm a low-powered or fragile device. Therefore, this scan should be used with discretion. The –p option can be used to control how many ports the scanner scans, whereas in the previous example, the scan was for the list of the top 100 ports.
 
 ### Medium-risk Scan
+- ```
+  nmap –n -sT --max-parallelism 1 -p (selected port range)
+  ---
+- ```
+  nmap –n -sT --max-parallelism 1 -p-
+  ```
+- ```
+  nmap –n -sT --max-parallelism 1 -p- -sV
+  ```
+
+```
 nmap –n -sT --max-parallelism 1 -p (selected port range)
-nmap –n -sT --max-parallelism 1 -p-nmap –n -sT --max-parallelism 1 -p--sV 
+```
+The above scan is considered a medium-risk port scan since it scans only one port at a time and the range can be controlled. This is the power of using custom scans. Based on the initial planning and research, the penetration tester can identify what to scan or not to scan; accordingly, they can run this scan while avoiding critical sectors and anything other than the low-risk scans discussed previously. 
+
+```
+-min-parallelism <numprobes>; --max-parallelism <numprobes> (Adjust probe parallelization)
+```
+The above options control the total number of probes that may be outstanding for a host group. They are used for port scanning and host discovery. By default, Nmap calculates an ever-changing ideal parallelism based on network performance. If packets are being dropped, Nmap slows down and allows fewer outstanding probes. The ideal probe number slowly increases as the network proves itself worthy. These options place minimum or maximum bounds on that variable. By default, the ideal parallelism can drop to one if the network is unreliable or increase to several hundred under perfect conditions.
+
+The most common usage is to set `--min-parallelism` to a number higher than one to speed up scans of poorly performing hosts or networks. This is a risky option to modify, as setting it too high may affect accuracy. Setting this also reduces Nmap’s ability to control parallelism dynamically based on network conditions. A value of 10 might be reasonable, but this value should only be adjusted as a last resort. The `--max-parallelism` option is sometimes set to one to prevent Nmap from sending more than one probe at a time to hosts, which is how it is used when scanning these networks. 
+```
+nmap –n -sT --max-parallelism 1 -p-
+```
+
+### High-risk Scan 
+- ```
+  nmap –n -sT -p--A
+  ```
+- ```
+  nmap –n -sT -sU -p--A
+  ```
+- Any illegal flag combination scans such as `FIN`, `NULL`, `XMAS`
+
+```
+nmap –n -sT -p--A 
+```
+The above scan should never be used as it will more than likely crash old systems. It scans all possible ports and is of high risk. Additionally, it fingerprints everything and runs the Nmap scripting engine. 
+```
+nmap –n -sT -sU -p- -A
+```
+Again, the above scan should not be used. Instead of just the TCP ports, the UDP ones have been added here. 
+
+### Illegal flag combinations  
+While illegal flag combinations are popular to discuss, they should not be used against any OT network assets, because they violate the RFC. Furthermore, OT networks can have old legacy systems that are not equipped with the defenses available today. Even simple attacks with illegal flag combinations such as the ping of death should never be attempted on OT networks and/or devices.
+
+## Types of Vulnerability Scans
+- Network scans
+  - Live systems
+  - Ports
+- Service fingerprinting
+  - They read the service reply to compare to a database of vulnerabilities.
+- Vulnerability probes
+  - They apply database data to targets to check whether they get a match.
+  - Example: Wanna Cry looks for the SMBv1 vulnerable function.
+- Authentication
+  - Local file systems cannot be read without it.
+
+Most vulnerability scanners rely on a database of vulnerabilities. As such, they only find the types of vulnerabilities that are known. Additionally, these scanners do not go through filters very well. They work best when used for internal testing, with the exception of web scanners, which scan the attack surface represented by the server and any applications that are running on that server; as a result, web scanners are designed for testing from perimeter locations. Another aspect of vulnerability scanners is their capability to read the local file system, for which they need credentials. For *nix systems, the scanners mostly use SSH, while for Windows-based systems, they use the Server Message Block (SMB) protocol to gain access. Even web scanners perform better once they have authentication capability; without it, only the first layers of the web logic can be tested. Recall that, for authentication, three levels of permission are required: 
+- None 
+- Authenticated as a normal user 
+- Administrator or super user access
+
+### Example Nessus Scan
+- Nessus has SCADA modules.
+  - Nessus is continuously changing them.
+  - Ensure that they are tested explicitly before use in the pen test.
+    - Analyze them at the packet level.
+    - Review the policy settings and customize.
+- Start with disabling all scanning of all protocols.
+  - Leave netstat and ping scan enabled.
+  - Only enable Window/*nix compliance checks.
+  - Test it.
+
+Nessus scans decrease risk by removing TCP/UDP port scans and vulnerability probes. To use Nessus audit checks, the tester must create a new scan profile and disable all Nessus TCP, SYN, UDP, and SNMP port scans. Netstat and Ping port scans can be left open, but all Nessus plugins must be disabled, except for Windows/Linux compliance checks. After creating a new scan, it should be configured to use the new profile. As some of the included profiles might be dated, they should be thoroughly reviewed. However, Nessus constantly updates its profiles. Therefore, the tool must be kept updated, and all policies must be reviewed after an update to determine any changes. 
+
+Because Nessus is not free for commercial use, an open-source alternative called OpenVAS, which is actually a fork of Nessus, was started by the creator of Nessus. However, note that OpenVAS’s code is in a continuously changing state, and its scans are much slower than those of Nessus. Nevertheless, it does work and is free.
+
+## Device Separation 
+#### A data diode is common between OT and IT networks.
+- Test for the capability to bypass the diode.
+- Test for the proper configuration of the data diode.
+  - Strong filter rules
+  - Compliance with best practices
+- If there is a backup or failover, test it with the same methodology as that for the device.
+- If well bounded, test to determine whether the data diode can be forced to fail; then, review the incident response.
+
+Owing to some well-publicized attacks, some organizations deploy a data diode. Testers must be aware of this and must research the testing plan once these are installed because they require extensive testing. Both the Ukrainian Power Grid compromise and other attacks would have been prevented with a well-configured deterministic data diode. Note the emphasis on well configured: the configuration must be tested when performing penetration tests.
+
+### Implementation of Deterministic Unidirectional  
+Devices In any organization, separating the business network from the operational network should be of high priority, especially for critical infrastructure entities. Installing a data diode between IT and OT networks is an effective solution to thwarting cyber-attacks seeking to utilize a hard-wired network threat vector to target ICSs for exploitation. A properly installed and configured data diode offers a deterministic unidirectional solution to protect OT systems and equipment. However, it is important to note that a data diode is not the solution to all cyber-attack vectors. Documented cyber-attacks, originating from nearly anywhere in the world, have made use of multiple threat vectors to accomplish their goals. 
+
+A properly installed and configured data diode effectually protects upstream networks by allowing data communications to flow in one direction only. Functionally, data diodes may require special configurations in a TCP/IP environment where both send and receive packets are required. Many industries are not eager to employ deterministic unidirectional devices owing to the annulment of remote connectivity, specifically affecting vendors and after-hours support. With cyber-attacks continuing to increase in sophistication, the definitive protection of OT networks from exploitation should become a business requirement instead of a recommendation. The risk appetite of an organization usually affects whether unidirectional communication is acceptable.
+
+The Nuclear Reactors, Materials, and Waste Sector of the critical infrastructure of the United States includes a regulatory requirement for unidirectional data flow between the IT and OT networks of commercial nuclear reactors.
+
+As a result, during testing, there is a chance of encountering a data diode, which is not encountered in IT testing. Therefore, before testing any network with this type of device between IT and OT networks, data diodes must be thoroughly researched.
+
+Pen testing a data diode from the IT side of the network should confirm that the diode is installed and configured appropriately to block communications that could be attempting to access OT equipment through the wired network. The architecture of the diode should be examined ahead of pen testing. If the data diode utilizes fiber optics, pen testing efforts would be voided. Additionally, the identification of bypasses around the diode requires different tactics (e.g., network sniffing) that should be performed in addition to pen testing.
+
+## ICS Cyber Test Impact
+- Pen testing can make the system unstable.
+- Damage can be irreversible.
+- Pen testing can result in collateral damage.
+- Pen testing can lead to the following:
+  - Loss of life
+  - Damage to equipment
+  - Environmental damage
+- Exercise extreme caution when testing.
+
+ICSs are an integral part of critical infrastructure, helping facilitate operations in vital sectors such as energy, oil and gas, water, transportation, and chemical manufacturing. The growing issue of cyber security and its impact on ICSs highlight the fundamental risks to a nation’s critical infrastructure. Efficiently addressing ICS cyber security issues requires a clear understanding of current security challenges and specific defensive countermeasures. A professional tester must exercise caution when testing in an IT network, but an OT network requires even more due diligence before performing any testing. The tester must always proceed with caution and crawl to conclusions.
+
+---
+# LAB SCADA Pen Testing 
