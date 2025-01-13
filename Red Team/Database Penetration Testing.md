@@ -210,7 +210,7 @@ The following commands will help you to check whether a hacker can determine the
 
 ### Enumerating Oracle SID: 
 - OraclePwGuess  
-  Use the OraclePwGuess present in the Oracle Auditing Tools (OAT) to enumerate SID/multiple SIDs containing default usernames and passwords.
+  Use the OraclePwGuess present in the Oracle Auditing Tools (OAT) to enumerate SID/multiple SIDs containing default usernames and passwords.  
   ![Enumerating Oracle Database SID using OraclePwGuess](https://github.com/user-attachments/assets/c78405bf-f25d-4769-b71d-a5cde0347b31)
 
 - Metasploit  
@@ -376,6 +376,150 @@ phpMyAdmin is a free software tool written in PHP, intended to handle the admini
 You may also use tools such as phpMyadmin to access the user tables when you have access to the database administrator account.  
 You can also use tools such as Nmap and Metasploit to enumerate the MySQL server database.
 
+## Vulnerability and Exploit Research
+As a tester, we recommend you to know the process of performing extensive research about the database vulnerabilities and exploits. In this module, you will learn the process of finding vulnerabilities related to different databases.
 
+### Conduct Exploit Research for Known Vulnerabilities
+We recommend the testers to find the exploits for known vulnerabilities of a database. You must find the OS, servers, open ports, services, version, and other details of the target database. Use the gathered database information as queries across search engines, such as Google, to find known vulnerabilities, publicly accessible events, and other details related to a specific version of database. 
+
+You may also use the information to search for exploits across vulnerability databases, such as Google Hacking Database, CVE Details, and Exploit-DB.
+
+### Perform Vulnerability Scanning on Target Database
+In case you are not able to find the known vulnerabilities of the database, we recommend you to use online and offline vulnerability scanning tools and applications to find the unknown vulnerabilities.
+
+- **Scuba Database Vulnerability Scanner**  
+  Source: https://www.imperva.com  
+  Scuba Database Vulnerability Scanner allows you to:
+  - Find vulnerabilities and misconfigurations by scanning the enterprise database
+  - Identify the uncertainties associated with database
+  - Know best practices for mitigating the risks
+
+- **McAfee Vulnerability Manager**  
+  Source: http://www.mcafee.com  
+  McAfee Vulnerability Manager uses various techniques to detect weak and shared passwords including hashed passwords, such as SHA-1, MD5, and DES, by downloading data for local analysis to avoid affecting database performance. McAfee's Database Security Scanner (DSS) performs ad hoc database vulnerability scans to find potential security risks. It’s primarily used by the internal or external auditors who performs ad hoc database vulnerability scans.
+
+### Database Vulnerability Assessment Tool: 
+#### AppDetectivePro 
+  Source: https://www.trustwave.com  
+  AppDetectivePro is a solution to database scanning and vulnerability assessment. It is a big data store scanner. Due to its simple setup and in-built interface anybody can use it and there is no need to be a database expert. It can immediately identify the configuration mistakes, access control issues, missing patches, or any toxic combination of settings that might lead to denial-of-service cyberattack, unauthorized modification of data, or data leakage.  
+  It also reports on the risk, security, or compliance of any big data or database store within an environment. It reports either in the cloud or on premise within no time.
+- **Features**
+  - **Review** - It continuously makes survey of the environment’s accessible assets, security feature usages, and user access levels.
+  - **Inventory** - It is very quick at identifying and highlighting the recent missing, added, or rogue data store installations and objections.
+  - **Verification** - It is used to quickly verify the configuration state of all data stores.
+  - **Customization** - Due to its built-in features and personal policies, it is very easy to find out the issues related to misconfiguration, vulnerabilities, and user rights.
+  - **Visibility** - User can view all the vulnerabilities, risks, threats, and compliance efforts across various data store environments via dashboards and reports.
+  - **Empowerment** - It allows you to document the current status and demonstrates progress.
+
+## Database Exploitation: Oracle
+In this section, you will learn the process of exploiting an Oracle database using different vulnerabilities as well as known and unknown exploits. The process includes finding default accounts, passwords, and execution of different privileges.
+
+### Try to Log in using Default Account Passwords
+Manufacturers incorporate default accounts into the databases during their creation. Some database creation tools may also create default accounts with preset usernames and passwords. As a tester, you need to scan the database for finding these default accounts (username/password) for Oracle Database as these indicate lack of basic security measures and may allow the hackers to gain unauthorized access to the database. This damage can be severe if these default accounts have higher-level access privileges. 
+
+Oracle databases have default accounts, such as SYS, SYSTEM, and DBSNMP. These accounts are more vulnerable to cyberattacks as administrators often use weak passwords (password = user name) for the user and technical accounts. 
+
+The image shows the list of default account details for different databases. We recommend that you check if these accounts exist on the related databases. Try to sign in into the databases using these default usernames and passwords.  
+![List of default usernames and passwords for an Oracle database](https://github.com/user-attachments/assets/21435dcc-330d-4434-9fd7-bc79307a2d79)
+
+### Try to Brute Force Oracle Logins 
+To ensure the database security, the testers need to check for weak user sign in(s) and try to gain unauthorized access over the database without violating the organization’s policies. You can find weak sign in(s) by performing Brute force attempts on the Oracle database. Use tools such as Metasploit or NMAP to perform Brute force of the Oracle user accounts. 
+- **Metasploit**  
+  Source: https://www.metasploit.com  
+  Metasploit is an exploit development tool for writing, testing, and using exploit code in an open-source platform. It provides a concrete platform for pen testing, shell code development, and vulnerability research. Written in Perl, Metasploit runs on Windows, Linux, BSD, and Mac OS X. It includes the following features:
+  - Supports various networking options and protocols to develop protocol dependent code.
+  - Includes tools and libraries to support features such as debugging, encoding, logging, timeouts, and SSL.
+  - Presence of supplementary exploits to help in testing of exploitation techniques and sample exploits produced.
+In the below example, the tester performs Brute force cyberattack on an Oracle database whose SID is ORCL and finds the username and password to be SCOTT and TIGER, respectively.
+  ![Brute force account details of an Oracle database](https://github.com/user-attachments/assets/e958c0a1-39e5-4e00-9c1c-dbb8c219d85b)
+
+### Test whether Execution of Privileges is Allowed  
+Oracle consists of built-in DBMS packages that allow the users to create Oracle applications. These packages extend Oracle's core functionality. The UTL file in Oracle enables the users to read and write any operating system flat file present on the database server. It also offers flexibility of PL/SQL.
+
+The UTL and DBMS packages allow the users to gain access to Oracle databases or perform unauthorized functions on them. utl_* and dbms_* packages are powerful and allow network access using utl_tcp, utl_http, and utl_udp and file access using dbms_advisor, utl_file, and dbms_random, or other powerful operations (e.g., dbms_obfuscation_toolkit). Therefore, we recommend the testers to check if the database has provided the execution privileges of these packages to the public. 
+
+Use the following command to check the execute privileges of these packages:
+```
+Select grantee, table_name, privilege from dba_tab_privs where table_name = 'UTL_HTTP';
+```
+![Checking for executable privileges in Oracle Database](https://github.com/user-attachments/assets/9c14cb28-1b22-4d48-8ba6-a3ef9f843ea5)  
+![Checking for executable privileges in Oracle Database](https://github.com/user-attachments/assets/28eaf85e-29ee-4d57-aeb2-6559354aca71)  
+
+### Try to Bypass the Protections Provided by the Oracle Database Vault
+Although the database vault acts as a protective shield, it is also vulnerable to few cyberattacks. Most known cyberattacks through which the adversaries try to bypass the database vault are: 
+- **OS access:** This technique allows the hacker to bypass/disable the database vault and alter the SYS password. There are several possible ways for a hacker to get OS access, such as calling an external procedure, exploiting certain vulnerabilities, such as buffer overflow, calling stored procedures in Java, defining a DIRECTORY object, etc. The slide displays the commands that testers may use to create a procedure that calls to the system() or exec() functions and helps in bypassing the database vault.
+- **Impersonating MACSYS:** To implement this cyberattack, the hackers need owner privileges and must be able to both create and execute any procedure in the database. Impersonating SYS user using SQL injection can bypass DB vault. We recommend the testers to create a procedure in Database Owner schema (MACSYS) that executes with owner privileges as a default behavior. Database vault uses realms for revoking the necessary privileges and thereby protecting the database against MACSYS cyberattack.
+- **SYS user considerations:** Exploiting other DB vault specific vulnerabilities is one of the methods attackers employ. SYS is the owner of Oracle Data Dictionary Realm and has no administrator privileges over the database vault. The hackers try to obtain these privileges to access the database.
+
+We recommend you to check if you can disable the Oracle Database Vault using the following commands:
+#### On Unix: Disabling Oracle Database Vault on Unix 
+```
+cd
+$ORACLE_HOME/rdbms/1ib
+make —f ins_rdbms . mk
+dv_off
+cd $ORACLE_HOME/bin
+relink all
+```
+#### On Windows: Disabling Oracle Database Vault on Windows 
+```
+ren %ORACLE_HOME%\bin\oradv{release_number}.dll oradv{release_number}_.d11
+```
+
+## Database Exploitation: MS SQL Server
+In this section, you will learn the process of exploiting MS SQL Server database using different vulnerabilities as well as known and unknown exploits. The process includes finding different vulnerabilities including Buffer overflow functions, standard procedures, etc.
+
+### Test the Stored Procedure to Run Web Tasks
+MS SQL Servers support use of stored procedures to run web tasks. The malicious hackers may use these stored procedures to run web tasks and perform larger cyberattacks.
+
+We recommend that you check if the target database allows these hackers to manipulate the stored procedures and run malicious web tasks. Perform the following steps to check the stored procedures: 
+- Sign into a SQL server
+- Run the stored procedure for web tasks
+- Attempt to delete, update, or insert new web tasks to escalate privileges
+
+### Brute Force SA Account  
+SA is a built-in database administrator sign in in the MS SQL databases. The malicious hackers
+try to Brute force this account to gain administrator privilege to the target database. A brute-force attack tries every possible combination of characters as the password until the correct password is found. As a tester, we recommend you check if you can perform a Brute force cyberattack on the SA account of the database. Use password cracking tools, such as THC Hydra, to Brute force the SA sign in password.
+
+#### THC Hydra 
+Source: https://github.com  
+Hydra is a Brute force tool that can perform Dictionary cyberattacks against more than 50 protocols, including telnet, ftp, http, https, smb, several databases, and much more.  
+You may use the THC Hydra tool to perform Brute force cyberattack on the SA account of the MS SQL database.  
+![image](https://github.com/user-attachments/assets/00e8933e-5435-4945-936f-d41b16bbd96b)
+
+#### Using Nmap  
+Source: https://www.nmap.org  
+We recommend the testers determine the accounts using weak passwords by performing different cyberattacks to gain account information and perform the Brute force cyberattack on the weak MS SQL accounts using Nmap. Use Dictionary cyberattack techniques to Brute force SA accounts.
+
+The following command will help you to perform Brute force cyberattack on the target database:
+```
+nmap -p 1433 --script ms-sql-brute --script-args userdb=/var/usernames.txt,passdb=/var/passwords.txt [Target IP Address]
+``` 
+
+## Database Exploitation: MySQL
+MySQL is one of the widely used databases across organizations to store data and offer services. Therefore, as testers, we recommend you to be able to exploit the MySQL database using different techniques. This module will acquaint you with different MySQL exploits and the process of finding them.
+
+### Try to Log in Using Default/Common Passwords  
+Most of the apps run on popular commercial or open source software that the administrators may install on servers with minimal configuration or customization. The hardware appliances, such as network routers and database servers also offer web-based configurations or administrative interfaces.  
+
+Often these apps and devices come with default usernames and passwords for initial authentications. The system administrators use these default usernames and passwords for easy access into the app and forget to change the default credentials, which can provide an unauthorized person with access to the app. 
+
+We recommend the testers to check if the target devices are using the default passwords and usernames. The following table lists out various manufacturers, their products, versions, and default usernames and passwords. Try all the default passwords such as admin, administrator, sa, password, etc. and default usernames to gain access to the database server.
+
+Manufacturer 	|	Product 	|	Version 	|	Protocol 	|	User ID	|	Password	|	Access 	|
+-------	|	-------	|	-------	|	-------	|	-------	|	-------	|	-------	|
+Zcom	|	Wireless	|		|	SNMP	|	root	|	admin	|	Admin	|
+Zoom	|	ADSL Modem	|		|	Console	|	admin	|	zoomadsl	|	Admin	|
+Zeus	|	Admin Server	|	4.1r2 	|	HTTP	|	admin	|		|		|
+Zyxel	|	ADSL routers	|	ZyNOS	|	Multi	|	admin	|	1234	|	Admin	|
+Zyxel	|	Prestige	|		|	HTTP	|	n/a	|	1234	|	Admin	|
+Zyxel	|	Prestige	|		|	FTP	|	root	|	1234	|	Admin	|
+Zyxel	|	Prestige	|		|	Telnet	|	(none)	|	1234	|	Admin	|
+Zyxel	|	Prestige 100IH	|		|	Console	|	n/a	|	1234	|	Admin	|
+Zyxel	|	Prestige 324	|		|	Multi	|	n/a	|	(none) 	|	Admin	|
+Zyxel	|	Prestige 643	|		|	Console	|	(none)	|	1234	|	Admin	|
+Zyxel	|	Prestige 65 0	|		|	Multi	|	1234	|	1234	|	Admin	|
+Zyxel	|	Prestige 652HW-31 ADSL Router	|	HTTP 	|	admin	|	1234	|	Admin	|		|
+Zyxel	|	ZyWall 2	|	HTTP 	|	n/a	|	(none)	|	Admin	|		|
 
 
