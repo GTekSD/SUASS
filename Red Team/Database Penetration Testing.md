@@ -1,5 +1,4 @@
-#
-Database Penetration Testing
+#Database Penetration Testing
 ### Module Objective 
 This module will help you learn various techniques of a comprehensive penetration testing
 methodology for assessing security of database servers and instances in a target network. It will discuss the various database penetration techniques such as sniffing database traffic, retrieving the database information, etc.
@@ -170,8 +169,9 @@ The Oracle TNS Listener is the intermediary between a user/web server offering c
 
 - `$ORACLE_ HOME/bin/lsnrctl`: This is the actual TNS Listener control program.
 - `$ORACLE_HOME/network/admin/listener.ora`: This is the actual TNS Listener configuration file.
-- `$ORACLE_ HOME/bin/tnslnsr`: This is the actual listening process. Figure 
-![TNS Listener](https://github.com/user-attachments/assets/29a7183b-2d08-4e7a-b246-1953f79a3cf8)
+- `$ORACLE_ HOME/bin/tnslnsr`: This is the actual listening process.
+ 
+![TNS Listener](https://github.com/user-attachments/assets/29a7183b-2d08-4e7a-b246-1953f79a3cf8)  
 
 ### Enumerate the Database
 Using the version of database, the testers can find if the client has failed to update the database and detect any known vulnerabilities that hackers can exploit. You can use the utility, such as TNSPING to find the version of the database and check if the listener is running.
@@ -181,7 +181,7 @@ TNSPING utility will help to detect the version of Oracle Database running on th
 ```
 tnsping [target] 
 ```
-![Using TNSPING to identify version](https://github.com/user-attachments/assets/74ed6968-d142-44c3-88e0-8fa2e213f490)
+![Using TNSPING to identify version](https://github.com/user-attachments/assets/74ed6968-d142-44c3-88e0-8fa2e213f490)  
 
 - Tnscmd
 Tnscmd directly communicates with the TNS Listener without any need of client and connection strings. Download and run tnscmd.pl script to gather Oracle TNS Listener information. You can use it to discover the Oracle version running on the target. Encoded in decimal, the VSNNUM field denotes the version of Oracle Database in use. You need to convert it into hex to determine the version of the database. For example, 186646784 = B200100=11.2.0.1.0.
@@ -193,9 +193,9 @@ Even if the user does not provide commands to tnscmd tool, it will ping the stat
 
 **Note:** tnscmd.pl script is available at http://www.red-database-security.com/scripts/tnscmd10g.pl.txt
 
-![Using tnscmd to identify version](https://github.com/user-attachments/assets/a3b18f27-f4ee-4104-a4a6-2a18d5536897)
+![Using tnscmd to identify version](https://github.com/user-attachments/assets/a3b18f27-f4ee-4104-a4a6-2a18d5536897)  
 
-![Decimal to hex conversion](https://github.com/user-attachments/assets/5254aa94-453d-4915-b756-f647bdde03bc)
+![Decimal to hex conversion](https://github.com/user-attachments/assets/5254aa94-453d-4915-b756-f647bdde03bc)  
 
 - Metasploit  
   Source: https://www.metasploit.com
@@ -205,18 +205,19 @@ The following commands will help you to check whether a hacker can determine the
 - **RHOSTS**: Represents the address range of target systems.
 - **RPORT**: Indicates the target port.
 - **THREADS**: Denotes the number of threats that are running in parallel on the target system.
-![Using tns mixin to discover Oracle Database version](https://github.com/user-attachments/assets/b8d8ad75-9783-4232-8520-4db41de60e9e)
+
+![Using tns mixin to discover Oracle Database version](https://github.com/user-attachments/assets/b8d8ad75-9783-4232-8520-4db41de60e9e)  
 
 ### Enumerating Oracle SID: 
 - OraclePwGuess  
   Use the OraclePwGuess present in the Oracle Auditing Tools (OAT) to enumerate SID/multiple SIDs containing default usernames and passwords.
-![Enumerating Oracle Database SID using OraclePwGuess](https://github.com/user-attachments/assets/c78405bf-f25d-4769-b71d-a5cde0347b31)
+  ![Enumerating Oracle Database SID using OraclePwGuess](https://github.com/user-attachments/assets/c78405bf-f25d-4769-b71d-a5cde0347b31)
 
 - Metasploit  
 In the older version of Oracle (before 9.2.0.8), testers may obtain the Service ID (SID) of the database by sending a simple request. For all new versions of Oracle, you have to guess, Brute force, or determine the SID in other ways. Hence, we recommend the tester to guess the SID or determine it by using Metasploit.
-![Enumerating Oracle Database SID using Metasploit](https://github.com/user-attachments/assets/5f3cf2a2-19f2-4533-9fd4-c1785701aa33)
-You may use the Service ID (SID) obtainedto perform a Dictionary cyberattack.
-![Brute forcing the Oracle Database using SIDs](https://github.com/user-attachments/assets/d9d4cd81-b791-4e21-86c6-6041fb717268)
+![Enumerating Oracle Database SID using Metasploit](https://github.com/user-attachments/assets/5f3cf2a2-19f2-4533-9fd4-c1785701aa33)  
+You may use the Service ID (SID) obtainedto perform a Dictionary cyberattack.  
+![Brute forcing the Oracle Database using SIDs](https://github.com/user-attachments/assets/d9d4cd81-b791-4e21-86c6-6041fb717268)  
 
 ### Using Error Messages  
 In vulnerable apps, it is possible to retrieve database information via error messages. You may use the following SQL injection queries to retrieve version, usernames, user tables, etc. from the target Oracle Database. 
