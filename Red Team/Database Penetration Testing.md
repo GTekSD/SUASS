@@ -269,3 +269,112 @@ To establish a connection to a remote server, go to the command prompt and type 
 Then from the SQL> prompt, type the following commands: 
 `@c:\sql\sql`  
 (In this example, the script is located at c:\sql and is called sql.sql)
+
+
+## Database Enumeration: MS SQL Server  
+In this section, you will learn various methods of enumerating the MS SQL Server databases to
+gather information about it. The process of enumerating the MS SQL Server includes scanning of the target with nmap tool, use of standard SQL queries, etc.
+
+### Scan for Other Default Ports Used by the SQL Server Database 
+Databases use different default purposes for different services. We recommend the testers to scan the database to identify its default ports and the services running on it. A list of default ports and their services of a MS SQL Server database is as follows:
+
+Default Ports | Services
+--------------|---------
+TCP 1434 	|	Used for Dedicated Admin Connection 
+UDP 1434 	|	Used for SQL Server named instances 
+TCP 2383 	|	Used for SQL Server Analysis Services
+TCP 2382	|	Used for Connection requests to a named instance of Analysis Services
+TCP 135	|	Used to start, stop, and control SQL Server Integration, Transact-SQL debugger
+TCP 80 and 443 	|	Used for report server access
+TCP 4022	|	Used for SQL Server Service Broker 
+
+### Enumerate the Database using Nmap Scripts  
+Databases reveal critical information, such as version, type, port, and port status on scanning with the nmap tools. This information will help in finding existing vulnerabilities and exploits in the database server. Therefore, the testers must extract the MS SQL Server database information, such as port, state, service, etc.
+
+- Nmap  
+  Source: https://www.nmap.org  
+  Nmap (Network Mapper) is a free and open-source (license) utility for network discovery and security auditing.  
+  You may use the following nmap command to extract SQL Server database information:  
+  ```
+  nmap –sU -p 1434 --script ms-sql-info [Target IP address]
+  ```
+
+### Nmap Commands List  
+We recommend the testers to use different commands with the nmap tool to gather different database data. You may use the following table of commands to find the required output from the database.
+
+Command | Output
+--------|-------
+broadcast-ms-sql-discover | Discovers Microsoft SQL Servers in the same broadcast domain 
+ms-sql-brute | Performs password guessing against Microsoft SQL Server 
+ms-sql-config | Queries Microsoft SQL Server (ms-sql) instances for a list of databases, linked servers, and configuration settings
+ms-sql-dac | Queries the Microsoft SQL Browser service for the DAC (Dedicated Admin Connection) port of a given (or all) SQL Server instance
+ms-sql-dump-hashes | Dumps the password hashes from an MS SQL server in a format suitable for cracking by tools such as John the Ripper
+ms-sql-empty-password | Attempts to authenticate Microsoft SQL Servers using an empty password for the sysadmin (sa) account
+ms-sql-hasdbaccess | Queries Microsoft SQL Server (ms-sql) instances for a list of databases a user has access to
+ms-sql-info | Attempts to determine configuration and version information for Microsoft SQL Server instances
+ms-sql-ntlm-info | This script enumerates information from remote Microsoft SQL services with NTLM authentication enabled
+ms-sql-query | Runs a query against Microsoft SQL Server (ms-sql) 
+ms-sql-tables | Queries Microsoft SQL Server (ms-sql) for a list of tables per database
+ms-sql-xp-cmdshell | Attempts to run a command using the command shell of Microsoft SQL Server (ms-sql)
+
+### Enumerate the Database using Standard SQL Queries  
+We recommend the testers to check if the target MS SQL Server Database reveals information about the user accounts. You may test the target database using the following queries: 
+- Execute the following SQL query to extract all Sign in accounts on MS SQL Server Database:
+  ```
+  SELECT name AS Login_Name, type_desc AS Account_Type FROM sys.server_principals WHERE TYPE IN ('U', 'S', 'G') and name not like '%##%' ORDER BY name, type_desc
+  ```
+- Execute the following SQL query to extract all SQL Sign in accounts:
+  ```
+  SELECT name FROM sys.server_principals WHERE TYPE = 'S' and name not like '%##%‘
+  ```
+- Execute the following SQL query to extract all Windows Sign in accounts:
+  ```
+  SELECT name FROM sys.server_principals WHERE TYPE = 'U‘
+  ```
+- Execute the following SQL query to extract all Windows Group Sign in accounts:
+  ```
+  SELECT name FROM sys.server_principals WHERE TYPE = 'G'
+  ```
+Hackers try to gain direct or ad hoc access to the MS SQL database as it provides access to the underlying data structures. As testers, we recommend you to check if the target database allows hackers to gain direct access. We recommend you to write special queries using asterisks (*) to directly interrogate the database.
+
+### Enumerate the Database using SQL Server Resolution Service (SSRS)  
+SQL Server Resolution Service (SSRS) in the Microsoft SQL Server 2000 is introduced to offer referral services for multiple server instances running on the single machine. Scan UDP port 1434 for SQL Server Resolution Service (SSRS). The users can also send request to the UDP port 1434, which will confirm SRSS and return the IP address and port number of the SQL server that may provide access to the requested database. 
+
+The testers may use this service to find the servers running on the same machine. This helps to find if it provides details of the SQL server that provides access to the database. It will also help in finding the vulnerable servers that can indirectly provide access to the database. 
+
+You may enumerate SQL Server details through the SSRS port (UDP 1434) using the sqlping Win32 command-line utility. The command line will provide server name, instance name, version of server, and TCP port related to the instance. We recommend you to identify if this vulnerability exists on the server as it makes the server vulnerable to Buffer overflow cyberattacks and allows hackers to run arbitrary codes using specially crafted UDP port 1434. 
+
+Check the hidden database instances and probe deeper into the system using this command: 
+```
+sqlping3cl.exe -scantype [range, list, stealth] -StartIP [IP] -EndIP [IP]-IPList [FileName] -UserList [FileName] -PassList [FileName] - Output [FileName] 
+```
+You may also perform the test by running the SQLPing tool to look for SQL Server systems and find their version numbers.
+
+## Database Enumeration: MySQL
+This section will discuss the process of enumerating a MySQL server database using different techniques, which will help the tester to find the vulnerabilities and exploits present in the database.
+
+### Enumerate the Database 
+#### SQLVer  
+Written entirely in T-SQL with no external dependencies, the SQLVer can extract the version of a MS SQL Server by querying the file ssnetlib.dll without signing into the servers. This tool does not send a UDP packet to port 1434 packet to enumerate server version info but sends a TCP packet to port 1433. It also automatically tracks and logs all DDL changes to a SQL database, and comprises tools that help users to review version changes and revert to older versions. 
+
+We recommend the testers to find all the information a target MYSQL database reveals on enumeration and about the target database through enumeration using the SQLVer utility. The syntax for this utility is
+```
+sqlver <ip _ address/hostname> <port _ number>
+```
+
+#### Enumerate MySQL User Tables
+MySQL databases use user tables to store information, such as host, user names, passwords, and user privilege information. Hackers use different methods to gain access to these user tables and extract the stored information.
+
+We recommend the testers to verify if the target MySQL database allows the users to gain access to the user tables and find different ways of accessing it. You may extract system and user tables from the user administration section of the database administration panel if you have access to it.
+
+#### phpMyadmin 
+Source: https://www.phpmyadmin.net  
+
+phpMyAdmin is a free software tool written in PHP, intended to handle the administration of MySQL over the web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB. Frequently used operations (managing databases, tables, columns, relations, indexes, users, permissions, etc.) can be performed via the user interface while you still have the ability to directly execute any SQL statement.
+
+You may also use tools such as phpMyadmin to access the user tables when you have access to the database administrator account.  
+You can also use tools such as Nmap and Metasploit to enumerate the MySQL server database.
+
+
+
+
