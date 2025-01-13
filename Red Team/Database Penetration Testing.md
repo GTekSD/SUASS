@@ -159,7 +159,113 @@ OEM Agent 	|	3872	|	Oem-agent
 Oracle RTC-PM port 	|	3891 	|	rtc-pm-port 
 Oracle dbControl Agent 	|	3938	|	dbcontrol_agent 
 
+### Check the Status of the TNS Listener Running at the Oracle Server  
+The TNS Listener process is an independent process that connects to the database and resides in the software layers of both the client and server. TNS Listener establishes connections between the Oracle Server and a client app, allowing valid users who have permissions to control the database and OS to execute the arbitrary code.
 
+To find the TNS Listener, testers can use port scanners such as Nmap. If the TNS Listener is not password protected, use the following command to get the SID:
+```
+tnscmd10g.pl status –h <ip-address>
+```
+The Oracle TNS Listener is the intermediary between a user/web server offering connection and the back-end database. The following files control the Listener: 
 
+- `$ORACLE_ HOME/bin/lsnrctl`: This is the actual TNS Listener control program.
+- `$ORACLE_HOME/network/admin/listener.ora`: This is the actual TNS Listener configuration file.
+- `$ORACLE_ HOME/bin/tnslnsr`: This is the actual listening process. Figure 
+![TNS Listener](https://github.com/user-attachments/assets/29a7183b-2d08-4e7a-b246-1953f79a3cf8)
 
+### Enumerate the Database
+Using the version of database, the testers can find if the client has failed to update the database and detect any known vulnerabilities that hackers can exploit. You can use the utility, such as TNSPING to find the version of the database and check if the listener is running.
 
+- TNSPING  
+TNSPING utility will help to detect the version of Oracle Database running on the target. This utility also helps in confirming that Oracle Listener is up and running. TNS (Transparent Network Substrate) is a listener used to establish and maintain remote connections. Run tnsping [target] command from command prompt.
+```
+tnsping [target] 
+```
+![Using TNSPING to identify version](https://github.com/user-attachments/assets/74ed6968-d142-44c3-88e0-8fa2e213f490)
+
+- Tnscmd
+Tnscmd directly communicates with the TNS Listener without any need of client and connection strings. Download and run tnscmd.pl script to gather Oracle TNS Listener information. You can use it to discover the Oracle version running on the target. Encoded in decimal, the VSNNUM field denotes the version of Oracle Database in use. You need to convert it into hex to determine the version of the database. For example, 186646784 = B200100=11.2.0.1.0.
+
+Even if the user does not provide commands to tnscmd tool, it will ping the stated host by default and establish a bidirectional conversation. Use the following tnscmd script: 
+- `(CONNECT_DATA=(COMMAND=services)` is the tns command. o “writing 91 bytes” represents the raw tns packet that is being sent to the TNS Listener.
+- The `“=(DESCRIPTION=(ERR= etc.”` is the raw tns reply that is received from the tns listener.
+- The attribute `VSNNUM` carries the version number of the Oracle Server in decimals. You can convert this value into hexadecimal to know the actual version number.
+
+**Note:** tnscmd.pl script is available at http://www.red-database-security.com/scripts/tnscmd10g.pl.txt
+
+![Using tnscmd to identify version](https://github.com/user-attachments/assets/a3b18f27-f4ee-4104-a4a6-2a18d5536897)
+
+![Decimal to hex conversion](https://github.com/user-attachments/assets/5254aa94-453d-4915-b756-f647bdde03bc)
+
+- Metasploit  
+  Source: https://www.metasploit.com
+We recommend you to determine Oracle Database version using tns mixin added to the Metasploit framework. Metasploit is the most popular tool used to develop as well as execute the exploit code against the remote target machine. Metasploit includes an Oracle version scanner that uses tns mixing, which will help the testers in finding the version of target database.
+
+The following commands will help you to check whether a hacker can determine the Oracle version of their client’s system or not. The basic options required to execute this process are as follows: 
+- **RHOSTS**: Represents the address range of target systems.
+- **RPORT**: Indicates the target port.
+- **THREADS**: Denotes the number of threats that are running in parallel on the target system.
+![Using tns mixin to discover Oracle Database version](https://github.com/user-attachments/assets/b8d8ad75-9783-4232-8520-4db41de60e9e)
+
+### Enumerating Oracle SID: 
+- OraclePwGuess  
+  Use the OraclePwGuess present in the Oracle Auditing Tools (OAT) to enumerate SID/multiple SIDs containing default usernames and passwords.
+![Enumerating Oracle Database SID using OraclePwGuess](https://github.com/user-attachments/assets/c78405bf-f25d-4769-b71d-a5cde0347b31)
+
+- Metasploit  
+In the older version of Oracle (before 9.2.0.8), testers may obtain the Service ID (SID) of the database by sending a simple request. For all new versions of Oracle, you have to guess, Brute force, or determine the SID in other ways. Hence, we recommend the tester to guess the SID or determine it by using Metasploit.
+![Enumerating Oracle Database SID using Metasploit](https://github.com/user-attachments/assets/5f3cf2a2-19f2-4533-9fd4-c1785701aa33)
+You may use the Service ID (SID) obtainedto perform a Dictionary cyberattack.
+![Brute forcing the Oracle Database using SIDs](https://github.com/user-attachments/assets/d9d4cd81-b791-4e21-86c6-6041fb717268)
+
+### Using Error Messages  
+In vulnerable apps, it is possible to retrieve database information via error messages. You may use the following SQL injection queries to retrieve version, usernames, user tables, etc. from the target Oracle Database. 
+
+- Use this SQL injection query in the URL to throw an error message that will reveal the Oracle Database version used at the back end:
+  ```
+  ' or 1 = utl_inaddr.get_host_address((select banner from v$version where rownum=1))-
+  ```
+- Use this SQL injection query in URL to throw an error message that will reveal a list of all usernames in Oracle Database (11g):
+  ```
+  or 1=utl_inaddr.get_host_address((select sys.stragg (distinct username||chr(32)) from all_users))--
+  ```
+- Use this SQL injection query in URL to throw an error message that will reveal a list of all user tables and the number of rows in Oracle Database (11g):
+  ```
+  or 1=utl_inaddr.get_host_address((select sys.stragg (distinct username||chr(32)) from all_users))--
+  ```
+
+### Access Home Page  
+The following steps will help you to access the home page of the Oracle Database. 
+- Open web browser and enter the URL in the following format:  
+  https://hostname:portnumber/em
+
+- Where the hostname should be name of the host computer on which the database was installed and the portnumber will be the Enterprise Manager Console HTTP port number provided by installer. It helps you to enumerate version number and other sensitive information. While using a LUNIX or UNIX operating system, find the database control’s port number by navigating to the following path:
+  `$ORACLE_HOME/install/portlist.ini file`
+
+- If you are using Windows OS, then go to the Database Control Properties window through the following path:  
+  `$ORACLE_HOME/Oracle_sid/sysman/config/emd.properties`
+
+- Where Oracle_sid is your database instance’s system identifier, search for the `REPOSITORY_URL` to find your database control’s port number.
+
+- After entering the URL, you will see a Sign in page. If you see Startup/Shutdown option on your database control, it represents that your database is down. Perform the following activities in such a case:
+  - Click on the Startup/Shutdown option and enter host credentials followed by your database sign in credentials to start the database (by default, the database username will be SYS)
+  - Now, click OK to start the database instance and then approve it by clicking on the YES option on the confirmation page.
+
+- In the sign in page, enter the authorized user credentials that provide full access to the database.
+
+  ![Accessing the Oracle Database home page](https://github.com/user-attachments/assets/898bd9df-34d0-411e-bb47-1d3ac7a1e186)
+
+  **Note:** View Oracle_home/install/portlist.ini file to find port number for Database Control on Linux and Unix systems whereas view Database Control Properties window to find port number in Windows system.
+
+### Access System Tables
+The testers must check if any system tables of the Oracle Database are accessible, as it contains details about the database objects, users, errors, indexes, etc. You can enumerate the system tables using the SQL *Plus.
+
+SQL *Plus runs .sql scripts against Oracle. We recommend you to run WinSID or a similar tool to look for the service name.  
+Example: `SERVICE_NAME=test.domain`
+
+To establish a connection to a remote server, go to the command prompt and type the following:  
+`sqlplus user/password@test.domain` 
+
+Then from the SQL> prompt, type the following commands: 
+`@c:\sql\sql`  
+(In this example, the script is located at c:\sql and is called sql.sql)
