@@ -522,4 +522,48 @@ Zyxel	|	Prestige 65 0	|		|	Multi	|	1234	|	1234	|	Admin	|
 Zyxel	|	Prestige 652HW-31 ADSL Router	|	HTTP 	|	admin	|	1234	|	Admin	|		|
 Zyxel	|	ZyWall 2	|	HTTP 	|	n/a	|	(none)	|	Admin	|		|
 
+### Brute Force Accounts Using Dictionary Attack
+We recommend the testers to check if the databases are vulnerable to the Dictionary cyberattacks and test the password-based security systems and accounts by using all common words as possible passwords. You may either use the manual process or use Brute force software with a database that contains millions of possible words. These methods will help you to determine the decryption key as well as probe and break password mechanisms of the database.
 
+## Database Password Cracking Tool: Cain & Abel 
+Cain & Abel Source: http://www.oxid.it  
+Cain & Abel is a password-recovery tool that runs on the Microsoft OS. It allows you to recover various kinds of passwords by sniffing the network, cracking encrypted passwords using a Dictionary, Brute force, and cryptanalysis attacks, recording VoIP conversations, decoding scrambled passwords, recovering wireless network keys, revealing password boxes, uncovering cached passwords, and analyzing routing protocols. The Cain & Abel tool recovers passwords and credentials from various sources easily. 
+
+It consists of APR (ARP Poison Routing) that enables sniffing on switched LANs and man-in-middle attacks. Its sniffer is also capable of analyzing encrypted protocols such as HTTPS and SSH-1––and contains filters to capture credentials from a wide range of authentication mechanisms.
+
+![Cain & Able Tool](https://github.com/user-attachments/assets/305032e4-335d-487a-927c-0fbc0a82537c)  
+![image](https://github.com/user-attachments/assets/72d83306-5d67-4b60-aad5-0f8a70ea0c4f)  
+
+## Database Password Cracking Tool: HexorBase 
+HexorBase Source: https://github.com  
+HexorBase is a database app that is mainly designed for auditing the various database servers simultaneously from a centralized location. The main feature of the HexorBase is performing Brute force cyberattacks and SQL queries against common database servers such as Microsoft SQL Server, POstgre SQL, Oracle, MySQL, and SQLite. HexorBase allows packet routing through proxies or even metasploit pivoting antics to communicate with remotely unreachable servers that are hidden within the local subnets.
+![Use Cain and Abel to crack database passwords](https://github.com/user-attachments/assets/517fec4a-951c-4340-b885-a0c66010bee3)
+
+## Document the Result 
+Note down the weaknesses found in the configuration of database servers and instances.
+## Databases Security Countermeasures and Recommendations 
+Databases security countermeasures and recommendations: 
+- Ensure the physical security of your server 
+- Arrange a firewall between the internet and your server 
+- Always use multiple firewalls to create screened subnets in a multitier environment
+- Always block TCP port 1433 and UDP port 1434 around your firewall 
+- Isolate services to reduce the risk of a compromised service that may be used to compromise others
+- Create a security threat checklist based on your product 
+- Analyze separate component-by-component security threats of your product 
+- Install MSDE using "Windows security mode" as the default 
+- Relevant security training is required for all developers and testers 
+- Assign every user of the app server a valid Windows sign in on the database server and enable delegation
+- Do not allow direct catalog updates 
+- Assign permissions to roles rather than to the users directly 
+- Verify all the safety stored procedures that have been marked for AutoStart 
+- Never install SQL Server on a domain controller 
+- Scan all your accounts regularly with NULL passwords and remove them or assign them strong passwords
+- Install a certificate to enable SSL connections 
+- Use the SQL Server service account to encrypt database files with EFS 
+- Certificates should use the fully qualified DNS name of the server 
+- Allow linked server access only to those sign in(s) that need it 
+- Allow ad hoc data access only on trusted providers 
+- Never grant permissions to the public database role 
+- Ensure that you use complex passwords for all SQL Server accounts 
+- Learn to work with the SQL Server security model 
+- Remove sample databases from production servers
