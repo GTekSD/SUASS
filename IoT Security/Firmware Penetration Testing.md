@@ -1,5 +1,4 @@
 # Firmware Penetration Testing
-
 ## How to get the firmware
 - Vendors website
 - Support groups
@@ -16,14 +15,28 @@
 
 ### Is the firmware encrypted?
 - What kind of encryption is being used?
-  - `hexdump -C firmware.bin`
-  - `strings firmware.bin`
-  - `binwalk -E firmware.bin` to figure out the entropy
+  - ```console
+    hexdump -C firmware.bin
+    ```
+  - ```console
+    strings firmware.bin
+    ```
+  - To figure out the entropy:
+    ```console
+    binwalk -E firmware.bin
+    ```
 - Where can you find the encryption keys?
 - How can you get a copy of the decrypted firmware?
 
 ### Extracting components from the firmware
-- Extract the file system (`binwalk -e firmware.bin`)
+- Extract the file system
+  ```console
+  binwalk -e firmware.bin
+  ```
+- Does the extracted firmware have sensitive files? Search it!
+  ```console
+  ./firmwalker.sh path/to/extracted/firmware
+  ```
 - Does the file system has hardcoded credentials (`grep` is your friend)
   - API keys
   - Private certificates
@@ -34,6 +47,9 @@
 ### Emulating the firmware
 - Identify the architecture
 - Emulate the firmware using Qemu and Chroot or FAT (`python fat.py` - FAT available from [GitHub](https://github.com/attify/firmware-analysis-toolkit) )
+  ```console
+  sudo python3 ./fat.py filename.img --qemu 2.5.0
+  ```
 - Perform analysis and exploitation via emulation
 
 ### Reverse engineering firmware binaries
