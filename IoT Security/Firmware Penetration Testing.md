@@ -15,14 +15,14 @@
 
 ### Is the firmware encrypted?
 - What kind of encryption is being used?
-  - ```console
+  - ```zsh
     hexdump -C firmware.bin
     ```
-  - ```console
+  - ```zsh
     strings firmware.bin
     ```
   - To figure out the entropy:
-    ```console
+    ```zsh
     binwalk -E firmware.bin
     ```
 - Where can you find the encryption keys?
@@ -30,24 +30,47 @@
 
 ### Extracting components from the firmware
 - Extract the file system
-  ```console
+  ```zsh
   binwalk -e firmware.bin
   ```
 - Does the extracted firmware have sensitive files? Search it!
-  ```console
-  ./firmwalker.sh path/to/extracted/firmware
+  ```zsh
+  ./firmwalker.sh /path/to/extracted/firmware
   ```
 - Does the file system has hardcoded credentials (`grep` is your friend)
   - API keys
+    ```zsh
+    grep -r "api_key" /path/to/extracted/firmware
+    grep -r "apikey" /path/to/extracted/firmware
+    grep -r "API_KEY" /path/to/extracted/firmware
+    ```
   - Private certificates
+    ```zsh
+    grep -r "-----BEGIN PRIVATE KEY-----" /path/to/extracted/firmware
+    grep -r "-----BEGIN CERTIFICATE-----" /path/to/extracted/firmware
+    ```
   - Backdoors
+    ```zsh
+    grep -r "backdoor" /path/to/extracted/firmware
+    grep -r "malicious_code" /path/to/extracted/firmware
+    ```
   - Sensitive URLs
+    ```zsh
+    grep -r "http://" /path/to/extracted/firmware
+    grep -r "https://" /path/to/extracted/firmware
+    grep -r "ftp://" /path/to/extracted/firmware
+    ```
   - Config files revealing useful information
+    ```zsh
+    grep -r "password" /path/to/extracted/firmware
+    grep -r "username" /path/to/extracted/firmware
+    grep -r "secret" /path/to/extracted/firmware
+    ```
 
 ### Emulating the firmware
 - Identify the architecture
 - Emulate the firmware using Qemu and Chroot or FAT (`python fat.py` - FAT available from [GitHub](https://github.com/attify/firmware-analysis-toolkit) )
-  ```console
+  ```zsh
   sudo python3 ./fat.py filename.img --qemu 2.5.0
   ```
 - Perform analysis and exploitation via emulation
