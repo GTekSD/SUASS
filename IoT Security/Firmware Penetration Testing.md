@@ -89,3 +89,23 @@
 4.	Firmadyne (https://github.com/firmadyne/firmadyne)	
 5.	Fact core (https://github.com/fkie-cad/FACT_core)
 
+---
+# SBOM Analysis
+
+**Software Bill of Materials**: A nested description of software artifact components and metadata. This information can also include licensing information, persistent references, and other auxiliary information.
+
+## Tools:
+#### Dependency-Track (https://github.com/DependencyTrack/dependency-track)
+```zsh
+docker run -d -m 8192m -p 8080:8080 --name dependency-track -v dependency-track:/data dependencytrack/bundled
+```
+
+#### Grype (https://github.com/anchore/grype)
+```zsh
+grype <image>
+```
+
+#### Bomber (https://github.com/devops-kung-fu/bomber)
+```zsh
+bomber scan cyclonedx.sbom.json
+```
