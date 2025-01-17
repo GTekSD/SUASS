@@ -80,3 +80,12 @@
 - Identifying Buffer overflows and other software binary specific vulns and exploitation
   - what all security protections are there in place?
   - Bypassing the security protections.
+
+---
+## Firmware Analysis Tools
+1.	Binwalk (https://github.com/ReFirmLabs/binwalk)	
+2.	Firmwalker (https://github.com/craigz28/firmwalker)	
+3.	Firmware analysis toolkit (https://github.com/attify/firmware-analysis-toolkit)	
+4.	Firmadyne (https://github.com/firmadyne/firmadyne)	
+5.	Fact core (https://github.com/fkie-cad/FACT_core)
+
