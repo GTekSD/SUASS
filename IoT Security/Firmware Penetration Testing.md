@@ -92,9 +92,9 @@
 ---
 # SBOM Analysis
 
-**Software Bill of Materials**: A nested description of software artifact components and metadata. This information can also include licensing information, persistent references, and other auxiliary information.
+**Software Bill of Materials** is a nested description of software artifact components and metadata. This information can also include licensing information, persistent references, and other auxiliary information.
 
-## Tools:
+### Tools:
 #### Dependency-Track (https://github.com/DependencyTrack/dependency-track)
 ```zsh
 docker run -d -m 8192m -p 8080:8080 --name dependency-track -v dependency-track:/data dependencytrack/bundled
