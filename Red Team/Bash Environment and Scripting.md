@@ -116,11 +116,81 @@ Again, these are standard items for all languages.
   - Easier to troubleshoot
 ```
 # The function total files reports a total number of files for a given directory.
-  function total files {
-                 find $1 -type f | wc -l
-                 }
+function total files {
+          find $1 -type f | wc -l
+}
 ```
 Functions allow a programmer to organize and reuse code, thus increasing the efficiency, execution speed, as well as readability of the entire script.  
 It is possible to avoid using functions and write a script without including a single function in it. However, the outcome is likely to be a chunky, inefficient, and hard-to-troubleshoot code.  
 The function can be understood as a way to group a number of different commands into a single command. This can be extremely useful if the required output or calculation consists of multiple commands, and is expected multiple times throughout the script execution. Functions are defined by using the function keyword and followed by the function body enclosed in curly brackets. This is the same across languages.  
 We have defined a new function called **total_files**. The function utilized the **find** and **wc** commands to determine the number of files located within a directory supplied to it during the function call.
+
+## Numeric and String Comparisons Description
+Description	|	Numeric Comparison 	|	String Comparison 
+---	|	---	|	---
+less than	|	-lt	|	<
+greater than	|	-gt	|	>
+equal	|	-eq	|	=
+not equal	|	-ne	|	!=
+less or equal	|	-le	|	N/A
+greater or equal	|	-ge	|	N/A
+Shell comparison example	|	-[100 -eq 50]; echo $?	|	[“GNU”=”UNIX]; echo $?
+
+This is another reference table that is quite similar to the other languages. Therefore, this is not expanded upon in more detail, as you can learn more in labs about these comparison methods.
+
+Using string comparison operators, we can also compare strings similar to how we compare numeric values. 
+
+#### Simple code: 
+```bash
+#!/bin/bash
+string_a="UNIX"
+string_b="GNU"
+echo "Are $string_a and $string_b strings equal?"
+[ $string_a = $string_b ]
+echo $?
+num_a=100
+num_b=100
+echo "Is $num_a equal to $num_b ?"
+[ $num_a -eq $num_b ]
+echo $?
+```
+Apart from educational value, the above script does not serve any other purpose.
+
+## Conditional Statements
+- As others
+  - If
+  - then
+  - else
+- Syntax is the one change that all these statements have in common.
+```
+#!/bin/bash
+
+num_a=100
+num_b=200
+
+if [ $num_a=100 -lt $num_b=200 ]; then
+    echo "$num_a is less than $num_b"
+  fi
+```
+Conditionals allow the programmer to make decisions within a shell script based on certain conditions or events. This is the same in BASH as in any other language or script that uses if, then, and else conditionals.
+
+## Positional Parameters
+- Assigned via command line arguments
+- Accessible using the `$` sign
+```
+#!/bin/bash
+echo $1 $2 $3
+echo $#
+echo $*
+```
+```
+┌──(kali㉿kali)-[~]
+└─$ bash param.sh 
+1 2 3
+4
+1 2 3 4
+```
+
+Positional parameters are assigned via command line arguments and are accessible within a script as $1, $2...$N variables. During the script execution, any additional items supplied after the program name are considered as arguments and are available during the script execution.  
+In the first echo, we print the 1st, 2nd, and 4th positional parameters in the exact order as they are supplied during the script's execution.  
+$# prints the number of the arguments, and the last one prints all the arguments. This allows us to pass data into the program from the command line.
