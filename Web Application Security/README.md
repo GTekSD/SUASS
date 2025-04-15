@@ -27,7 +27,8 @@ Gray-box testing refers to a mixed type of testing, wherein the testers will hav
 ## Web Application Security Frame
 The web application security relies on its security frame. Web Application Security Frame is a set of categories that define security of an application. Organizations use this frame as fundamental to design, develop, and maintain a secure application. Using the web application security frame as criteria for secure application, the penetration testers can verify the security of the application.
 
-Various categories of the web application security frame include:  
+Various categories of the web application security frame include detailed web application security control areas that we check as part of a complete web application security testing, unless otherwise agreed with the client:
+
 - **Input validation:** A web application acting as an interface will receive inputs from the user, execute them on servers and process the requested information. If the users provide a code or a script in the input section and the application passes it to the server, then executing it can lead to server compromise. Therefore, the web application must validate the inputs before passing them to the server.
 
 - **Authentication and authorization:** Authentication is the process of identifying genuine users by verifying the credentials provided for accessing the resources. Authorization is the process of allocating specific resources to users based on their respective privileges. A web application must have proper authentication and authorization mechanisms to restrict the access and limit the resources, respectively, to genuine users only.
@@ -43,7 +44,7 @@ Various categories of the web application security frame include:
 As a penetration tester, you should focus and try to exploit vulnerabilities in all the mentioned areas of web security to confirm that these are secure, robust, and inevasible.
 
 ---------
-Below are detailed web application security control areas that we check as part of a complete web application security testing, unless otherwise agreed with the client:
+
 
 ## Information gathering
 Web applications may inadvertently disclose information that is useful to the attacker by means of verbose response headers, error messages etc . or by using common conventions, such as an admin interface being located in “/admin/”. Furthermore, some of these error messages may be cached by search engines long after the message has been remedied in the application. The first phase in a security assessment is focused on collecting as much  information as possible about a target application.
