@@ -184,12 +184,12 @@ nmap -p 23 --script telnet-encryption <target ip>
 
 ### Microsoft SQL Server Unsupported Version Detection
 ```
-nmap -Pn --script ms-sql-info
+nmap -Pn --script ms-sql-info <targert ip>
 ```
 
 ### NFS Sensitive Information Disclosure
 ```
-nmap -sV --script=nfs-* -Pn -p 111 
+nmap -sV --script=nfs-* -Pn -p 111 <targert ip>
 ```
 
 ### Vulnerable Apache Version Detection
@@ -209,45 +209,60 @@ nmap -sV --script smb-vuln-ms17-010 <target ip>
 
 ### NetScaler Unencrypted Web Management Interface
 ```
-testssl -p --quiet
+testssl -p --quiet <targert ip>
 ```
 
 ### Remote Desktop Protocol Server Man-in-the-Middle Weakness
 ```
-nmap -Pn -sV --script rdp-enum-encryption
+nmap -Pn -sV --script rdp-enum-encryption <targert ip>
 ```
 
 ### SMB Signing not required
 ```
-nmap --script smb2-security-mode -Pn
+nmap -Pn --script smb2-security-mode <targert ip>
 ```
 
 ### SSH Terrapin Prefix Truncation Weakness
 ```
-nmap -Pn -sV --script ssh2-enum-algos
+nmap -Pn -sV --script ssh2-enum-algos <targert ip>
 ```
 
 ### Terminal Services Doesn't Use Network Level Authentication (NLA) Only
 ```
-nmap -Pn -sV --script rdp-enum-encryption
+nmap -Pn -sV --script rdp-enum-encryption <targert ip>
 ```
 
 ### Terminal Services Encryption Level is not FIPS-140 Compliant
 ```
-nmap -Pn -sV --script rdp-enum-encryption
+nmap -Pn -sV --script rdp-enum-encryption <targert ip>
 ```
 
 ### Terminal Services Encryption Level is Medium or Low
 ```
-nmap -Pn -sV --script rdp-enum-encryption
+nmap -Pn -sV --script rdp-enum-encryption <targert ip>
 ```
 
 ### Web Server HTTP Header Internal IP Disclosure
 ```
-nmap -Pn -sV --script http-internal-ip-disclosure
+nmap -Pn -sV --script http-internal-ip-disclosure <targert ip>
 ```
 
 ### Redis Server Unprotected by Password Authentication
 ```
 nmap -Pn -sV --script redis-info <targert ip>
+```
+
+### Microsoft Windows LAN Manager SNMP LanMan Shares Disclosure
+```
+nmap -Pn --script snmp-win32-shares <targert ip>
+```
+
+### Microsoft Windows LAN Manager SNMP LanMan Users Disclosure
+```
+nmap -Pn --script snmp-win32-users <targert ip>
+```
+
+### SMTP Service Cleartext Login Permitted
+```
+nmap -Pn --script smtp-commands <targert ip>
 ```
