@@ -59,6 +59,7 @@ If you want to contribute, create a PR or contact me [@ottosulin](https://twitte
 * [rebuff](https://github.com/woop/rebuff) - _Prompt Injection Detector_
 * [langkit](https://github.com/whylabs/langkit) - _LangKit is an open-source text metrics toolkit for monitoring language models. The toolkit various security related metrics that can be used to detect attacks_
 * [StringSifter](https://github.com/fireeye/stringsifter) - _A machine learning tool that ranks strings based on their relevance for malware analysis_
+* [CircleGuardBench](https://github.com/whitecircle-ai/circle-guard-bench) - _CircleGuardBench is a full-fledged benchmark for evaluating protection capabilities of AI models_
 
 ### Privacy and confidentiality
 * [Python Differential Privacy Library](https://github.com/OpenMined/PyDP)
