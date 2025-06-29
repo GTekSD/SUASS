@@ -316,7 +316,15 @@ $ winget upgrade						: Update a software package.
 $ winget upgrade all						: Updates all available packages to the latest application.
 $ winget list							: List all installed apps on Windows.
 
+$ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force	: Set execution policy to allow running downloaded scripts (run once)
+$ Install-Module -Name PSWindowsUpdate -Force			: Install the PSWindowsUpdate module from PowerShell Gallery (run once)
+$ Import-Module -Name PSWindowsUpdate				: Import the module into your current PowerShell session (run in each new session)
+$ Get-WindowsUpdate						: Check for available Windows updates
+$ Install-WindowsUpdate						: Install all available Windows updates (use -AcceptAll and -AutoReboot for unattended installation)
+								: Example for unattended installation:
+								: Install-WindowsUpdate -AcceptAll -AutoReboot
 ```
+
 
 #### Networking
 ```powershell
