@@ -1,3 +1,5 @@
+##  How to use !
+
 1. Install UMU * Hack.sisx. After installation, run the program.
 2. We accept connection question (Wifi can be used).
 3. We accept the Trial key.
