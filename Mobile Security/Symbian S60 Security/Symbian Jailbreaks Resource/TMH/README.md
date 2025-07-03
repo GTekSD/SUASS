@@ -12,4 +12,5 @@
   - installserver to be able to install unsigned applications,
 If necessary, add patches to the autostart.
 if you can't enable installserver, find one for your phone (for nokia 6650d it's installserver934) and copy it to Z\sys\bin or C\sys\bin (for nokia 6650d i think it's Z, but you can try C if that doesn't work) 
+
 Note: in X-plore you have to open configuration from tools and check the 2 top options to see Z drive
