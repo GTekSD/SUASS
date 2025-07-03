@@ -1,0 +1,14 @@
+1)Hack your phone
+2)after you hacked your phone, install ngage app (1.40 version is recommended)
+3)put game files with .n-gage extesion in N-Gage folder on the memory card (E: drive on most phones)
+4)turn on patches in rompatcher, and open the ngage app
+5)wait for it to initialize games, and then istall them
+6)after you installed games, turn off patches in rompatcher
+
+and that's it, you should now have working ngage 2.0 games!
+
+If it didn't work, try reinstalling the app, or try different version. If that didn't work, join the eka2l1 discord server and we should be able to help you out
+https://discord.gg/HHRereYkEG
+
+all ngage 2.0 files can be found here https://archive.org/details/Dance.Fabulous.nGage
+for bounce, install smartoffice (fixes the error with levels not loading)

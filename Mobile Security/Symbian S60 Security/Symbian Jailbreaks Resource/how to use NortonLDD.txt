@@ -1,0 +1,4 @@
+1) set date to 2011
+2) install NortonSymbianHackLDD.sis
+3) Launch the Norton application from the menu and select AntiVirus and then Quarantine list, select Options and then Restore All and confirm the action
+4) Install rompatcher+ and enjoy your hacked device

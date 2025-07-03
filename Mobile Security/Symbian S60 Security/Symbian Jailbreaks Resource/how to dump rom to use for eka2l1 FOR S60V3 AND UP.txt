@@ -1,0 +1,12 @@
+step 1:Hack your phone using any method (for nokia devices i recommend tmh, for non-nokia: quick hack kit beta)
+
+step 2:Install rompatcherplus + dumber (required) and x-plore (optional)
+
+step 3:In rompatcher, enable installserver and open4all, after that go to options, advanced, dump rom
+
+step 4:Now install and open dumber, let it dump, and after that you should have 2 files, one dmp, one rpkg, change the .dmp file extension to .rom and optionally, 
+change the file names to the device that you dumped.
+
+And that's it, after that you should have a working rom for EKA2L1, if you want to, you can upload it to mega, google drive or any other file sharing service.
+
+if you have any problems join the EKA2L1 discord and you should be able to resolve them https://discord.gg/SbaG2hca89. you can also check here for all dumped roms https://mega.nz/folder/Z5cx3IgS#hOtuN-6OOtWW5_Pvj_fUuQ
