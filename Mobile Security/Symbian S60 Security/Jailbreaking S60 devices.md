@@ -111,3 +111,137 @@ You should now see: `C:/tmquarantine` with 4 files inside.
 - Use **CapsOff** to see hidden folders
 - Use **CapsOn** to hide them again
 - Set date back and try installing unsigned apps
+
+---
+
+# Symbian^3 Research and Development
+---
+
+## 🛡️ Security & Hacking Perspectives
+
+### 🔐 1. **Certificate System Exploits**
+
+* Symbian relies on **Symbian Signed** certificates for app validation.
+* The **main hack vector** is bypassing this by:
+
+  * Installing a **custom installserver.exe**
+  * Exploiting **antivirus quarantines** (unsafe restore paths)
+  * Overwriting `swicertstore.dat` to trust fake root CAs
+
+> ❗ Teaching point: Even an old system like Symbian had a strong PKI-based app signing model — it’s a good study for understanding mobile security models.
+
+---
+
+### 🧬 2. **System Partition Access via Antivirus Quarantine**
+
+* Files in quarantine were typically moved to `C:/tmquarantine`, `C:/shared/`, etc.
+* These quarantine paths **bypassed Symbian Platform Security (PlatSec)**.
+* This was exploited to place LDD drivers and installserver binaries in `C:/sys/bin/`.
+
+> ✅ A clever attack chain example:
+> Untrusted app → Antivirus → Restore LDD to `sys/bin` → Kernel-level patch applied.
+
+---
+
+### 📁 3. **File System Hierarchy of Symbian^3**
+
+Understand important directories:
+
+| Path           | Purpose                           |
+| -------------- | --------------------------------- |
+| `C:/sys/bin/`  | Kernel-level binaries, drivers    |
+| `C:/private/`  | App sandboxed data                |
+| `C:/resource/` | Certificates, UI resources        |
+| `E:/`          | User-accessible storage (microSD) |
+| `Z:/`          | ROM (read-only), core OS files    |
+
+> 🔐 **Security insight**: Symbian enforced **capabilities** (e.g., AllFiles, DiskAdmin).
+> A hacked device bypasses these restrictions — **any app can access everything**.
+
+---
+
+### 🦠 4. **Malware Risks in Java ME (J2ME) Apps**
+
+* Many `.jar` games and apps send **premium-rate SMS** silently.
+* These are hard to detect without analyzing the `.jar` or using a proxy to monitor SMS traffic.
+
+> 📌 Tip: Decompile suspicious `.jar` using `JD-GUI`, `CFR`, or `jadx`.
+
+---
+
+### ⚠️ 5. **Risks of Persistent Modding**
+
+* Modifying system files (e.g., `installserver.exe`, `swicertstore.dat`) can:
+
+  * Cause bootloops
+  * Break app installations
+  * Lead to inability to reset the phone normally
+
+> ✅ Tip: Keep a backup of the working state and always have a reset combo (3-finger or JAF box if possible)
+
+---
+
+### 🧠 6. **Useful SysMods & Patches for ROMPatcher+**
+
+| Patch               | Use                                                           |
+| ------------------- | ------------------------------------------------------------- |
+| `InstallServer RP+` | Install unsigned apps                                         |
+| `Open4All RP+`      | Access all file system areas                                  |
+| `NoBatteryWarning`  | Removes low battery popups                                    |
+| `C2Z`               | Redirects `Z:/` calls to `C:/`, allowing modding of ROM files |
+| `DisableCPC`        | Stops capability checks by apps                               |
+| `Auto Rotate`       | Forces auto screen rotation                                   |
+| `Disable Logs`      | Disables call/SMS logs for privacy (e.g., burner usage)       |
+
+> 📌 Some patches may require custom `.ldd` drivers. Always match with firmware version.
+
+---
+
+### 🛠️ 7. **Tools You Should Know**
+
+| Tool                  | Purpose                                                 |
+| --------------------- | ------------------------------------------------------- |
+| **ROMPatcher+**       | Kernel-level patch loader                               |
+| **HelloCarbide**      | Memory patch tool (used for privilege escalation)       |
+| **SafeManager**       | Secure file manager that can bypass system restrictions |
+| **X-plore**           | Advanced file manager with system access                |
+| **SISContents (PC)**  | Extract/edit `.sis/.sisx` installers, re-sign apps      |
+| **SISEditor (phone)** | Sign apps with custom certs directly on device          |
+
+> ✅ Tip: Use SISContents to insert `installserver.exe` into legit-looking installers (like games) for stealthy mods.
+
+---
+
+## 🎨 Modding & Personalization
+
+### 🖼️ 1. **UI Skinning via MIF Editing**
+
+* `.mif` files are vector-based image containers
+* You can theme your phone by editing icons, menus, transitions
+* Tools: `mifconv`, `SVG-to-MIF`, Hex editors
+
+### 🎨 2. **Fonts Mod**
+
+* Drop custom font files into `C:/resource/fonts/`
+* Use `.ttf` fonts like Roboto, Ubuntu, or even Comic Sans (if you're brave)
+
+> ⚠️ **Warning**: Bad fonts can cause a bootloop. Keep a backup font in `E:/fonts/` to recover if needed.
+
+---
+
+### 🎵 3. **Startup/Shutdown Custom Sounds**
+
+* Replace files in:
+
+  * `Z:/data/sounds/startup.mp3`
+  * `Z:/data/sounds/shutdown.mp3`
+* Use `C2Z` patch or move to `C:/data/...` and override with custom patch
+
+---
+
+## 💡 Hidden Features & Tips
+
+* **USB OTG support** on some models (like Nokia N8)
+* You can **launch `.sisx` files via file managers** from SD card
+* Boot into Safe Mode: hold `Menu` during power-on
+* `*#92702689#` → view total usage time (good for verifying used phones)
