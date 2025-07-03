@@ -1,3 +1,5 @@
+##  How to use !
+
 1. Connect phone with PC, or memory card to cardreader, or memory card to other non-nokia device (need access to private folder)
    - If you will use E memory (mass storage, or memory card in devices without mass storage memory) download QuarantineDriversLDD.zip
    - If you will use F memory (memory card in devices with mass storage memory) download QuarantineF.zip
