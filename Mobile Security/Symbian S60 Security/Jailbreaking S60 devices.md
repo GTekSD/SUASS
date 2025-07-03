@@ -1,9 +1,5 @@
 # Jailbreaking Symbian S60 Devices
 
-> **Note:** If you have **Nokia Belle Feature Pack 2**, such as on the [Nokia 808 PureView](https://en.wikipedia.org/wiki/Nokia_808_PureView), go to [its dedicated page](https://example.com/Jailbreaking_Nokia_Belle_FP2_devices).
-
----
-
 This guide will show you how to **jailbreak** or hack your [Symbian S60](https://en.wikipedia.org/wiki/S60_platform) device.
 
 All the files needed are shown throughout the tutorial, but you can also find everything [here on MEGA](https://mega.nz/folder/jH4QAL5J#jUQJTDDSmU-5z_GJBCMJAg).
