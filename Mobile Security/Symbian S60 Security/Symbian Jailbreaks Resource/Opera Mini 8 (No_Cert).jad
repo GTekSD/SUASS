@@ -1,0 +1,21 @@
+MIDlet-Version: 8.0
+MIDlet-1: Opera Mini, /i.png, Browser
+MIDlet-Description: Opera Mini
+MIDlet-Icon: /i.png
+MIDlet-Info-URL: http://mini.opera.com/
+MIDlet-Install-Notify: http://m.opera.com/n/35626Ahernskifers_en-in?vid=0xec0b4ef9eef29805
+MIDlet-Jar-Size: 319114
+MIDlet-Jar-URL: http://m.opera.com/dl/K8bisd3DhQV8TTnsHoUAep0qKh0AZGVmYXVsdF8yMDEyLnBuZw==/mini.jar?vid=0xec0b4ef9eef29805
+MIDlet-Name: Opera Mini
+MIDlet-Permissions: javax.microedition.io.Connector.http
+MIDlet-Permissions-Opt: javax.microedition.io.Connector.sms, javax.wireless.messaging.sms.send, javax.microedition.io.Connector.socket, javax.microedition.io.Connector.file.write, javax.microedition.io.Connector.file.read, javax.microedition.pim.ContactList.read
+MIDlet-Vendor: Opera Software ASA
+Content-Folder: Applications
+MicroEdition-Configuration: CLDC-1.0
+MicroEdition-Profile: MIDP-2.0
+Nokia-MIDlet-No-Exit: true
+Nokia-MIDlet-On-Screen-Keypad: no
+OM-Install-Referrer: utmcsr=google.com|utmccn=(referral)|utmcmd=referral|utmcct=/|vid=0xec0b4ef9eef29805
+OM-UA: Nokia100/2.0 (2.0423.0_rc02) SymbianOS/7.0s Series60/2.1 Profile/MIDP-2.0 Configuration/CLDC-1.0
+OM-Upgrade: u=A2NEvn9gcxFRsVh1D*nrymUHiG3lRxpUHru*cXZtEufB
+
