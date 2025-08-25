@@ -1350,4 +1350,6 @@
 | 1024 | tcp | Reserved | Reserved |
 | 1024 | tcp | Trojan | NetSpy |
 | 1024 | udp | Reserved | Reserved |
-<img width="746" height="32401" alt="image" src="https://github.com/user-attachments/assets/d1e4aafa-2b38-4539-a338-24f57403734c" />
+
+
+Reference: https://www.vmaxx.net/techinfo/ports.htm
