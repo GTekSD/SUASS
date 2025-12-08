@@ -15,7 +15,10 @@ c:\ > net user                          : Return the users on the machine.
 c:\ > whoami                            : Shows the current user associated with the AD who is logged in  
 c:\ > whoami /groups                    : Shows the current group  
 c:\ > net user /domain                  : All users from any group in the AD Shows  
-c:\ > net user [username] domain        : Shows every user’s group  
+c:\ > net user [username] domain        : Shows every user’s group
+c:\ > net group /domain                 : Shows the groups of the domain
+c:\ > net group "<group_name>" /domain  : Shows membership to a group
+c:\ > net accounts /domain              : Shows the password policy of the domain
 ```
 
 ## ADRecon  
