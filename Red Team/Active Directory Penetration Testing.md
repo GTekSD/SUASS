@@ -10,7 +10,8 @@
 - Brute Force Active Directory (AD)
   
 ## Reconnaissance
-```powershell
+### Enumeration through Command Prompt
+```console
 c:\ > net user                          : Return the users on the machine.   
 c:\ > whoami                            : Shows the current user associated with the AD who is logged in  
 c:\ > whoami /groups                    : Shows the current group  
@@ -20,6 +21,30 @@ c:\ > net group /domain                 : Shows the groups of the domain
 c:\ > net group "<group_name>" /domain  : Shows membership to a group
 c:\ > net accounts /domain              : Shows the password policy of the domain
 ```
+
+### Enumeration through PowerShell
+
+[ActiveDirectory Module](https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) : The Active Directory module for Windows PowerShell
+```powershell
+PS C:\> Get-ADUser -Identity <username> -Server <domain.controller.com> -Properties *                                    : Enumerate AD users
+PS C:\> Get-ADUser -Filter 'Name -like "*stevens"' -Server za.tryhackme.com | Format-Table Name,SamAccountName -A
+PS C:\> Get-ADUser -Filter 'Name -like "*"' -Server za.tryhackme.com                                                     : Enumerate all AD users
+PS C:\> Get-ADUser -Filter 'Name -like "*"' -Server za.tryhackme.com | Format-Table Name,SamAccountName -A               : Enumerate all AD users, Names
+
+PS C:\> Get-ADGroup -Identity Administrators -Server za.tryhackme.com                                                    : Enumerate AD groups
+PS C:\> Get-ADGroupMember -Identity Administrators -Server za.tryhackme.com                                              : Enumerate group membership
+
+PS C:\> $ChangeDate = New-Object DateTime(2022, 02, 28, 12, 00, 00)                                                      : Search for any AD objects 
+PS C:\> Get-ADObject -Filter 'whenChanged -gt $ChangeDate' -includeDeletedObjects -Server za.tryhackme.com
+
+PS C:\> Get-ADObject -Filter 'badPwdCount -gt 0' -Server za.tryhackme.com        : If we wanted to, for example, perform a password spraying attack without locking out accounts, we can use this to enumerate accounts that have a badPwdCount that is greater than 0, to avoid these accounts in our attack.
+
+PS C:\> Get-ADDomain -Server za.tryhackme.com                        : Retrieve additional information about the specific domain
+
+PS C:\> Set-ADAccountPassword -Identity gordon.stevens -Server za.tryhackme.com -OldPassword (ConvertTo-SecureString -AsPlaintext "old" -force) -NewPassword (ConvertTo-SecureString -AsPlainText "new" -Force)                   : Force changing the password of our AD user
+
+```
+
 
 ## ADRecon  
 ADRecon is a tool that extracts and combines various artefacts (as described below) from an Active Directory (AD) environment. The information can be presented in a specially formatted Microsoft Excel report that includes summary views with metrics to facilitate analysis and provide a holistic picture of the current state of the target AD environment. The tool is useful for various classes of security professionals such as auditors, DFIR, students, and administrators. It can also act as an invaluable post-exploitation tool for a penetration tester.
