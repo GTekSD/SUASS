@@ -15,4 +15,7 @@ Bug bounty mimics real-world penetration testing but with publicly known program
  - [Synack](https://www.synack.com/solutions/go-beyond-bug-bounty/)
  - [INTIGRITI](https://www.intigriti.com/researchers/bug-bounty-programs)
 
-
+### Essential Tools
+- Kali Linux ([latest version](https://www.kali.org/get-kali/#kali-platforms))
+- Burp Suite ([Professional / Community](https://portswigger.net/burp/releases))
+- Firefox ([Latest Builds](https://www.firefox.com/en-US/download/all/)) or [Chromium](https://www.chromium.org/getting-involved/download-chromium/) with extensions
