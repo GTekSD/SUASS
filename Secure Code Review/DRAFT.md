@@ -6,7 +6,9 @@ horusec start -p . -D
 insider -tech ios -target .
 firefox report.html
 ```
-
+```
+semgrep --config=auto
+```
 
 # SonarQube Community Edition – Windows Setup Guide (Updated 2026)
 
