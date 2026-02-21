@@ -3,18 +3,18 @@
 This guide walks through **real execution steps**, real commands, and clear visuals.
 If you follow this inside a Windows VM, you’ll be able to reproduce everything.
 
-* [Test Case 1 — Initial Recon & Binary Identification](02-Thick-Client-Pentesting-Practical.md#test-case-1--initial-recon--binary-identification)
-* [Test Case 2 — Extract Hardcoded Credentials](02-Thick-Client-Pentesting-Practical.md#test-case-2--extract-hardcoded-credentials)
-* [Test Case 3 — Analyze Network Communication](02-Thick-Client-Pentesting-Practical.md#test-case-3--analyze-network-communication)
-* [Test Case 4 — DLL Hijacking](02-Thick-Client-Pentesting-Practical.md#test-case-4--dll-hijacking)
-* [Test Case 5 — Insecure File Permissions](02-Thick-Client-Pentesting-Practical.md#test-case-5--insecure-file-permissions)
-* [Test Case 6 — Registry Analysis](02-Thick-Client-Pentesting-Practical.md#test-case-6--registry-analysis)
-* [Test Case 7 — IFEO Injection](02-Thick-Client-Pentesting-Practical.md#test-case-7--ifeo-injection)
-* [Test Case 8 — Memory Analysis](02-Thick-Client-Pentesting-Practical.md#test-case-8--memory-analysis)
-* [Test Case 9 — CSV Injection](02-Thick-Client-Pentesting-Practical.md#test-case-9--csv-injection)
-* [Test Case 10 — Weak TLS Configuration](02-Thick-Client-Pentesting-Practical.md#test-case-10--weak-tls-configuration)
-* [Test Case 11 — Local Privilege Escalation](02-Thick-Client-Pentesting-Practical.md#test-case-11--local-privilege-escalation)
-* [Test Case 12 — Authentication Bypass](02-Thick-Client-Pentesting-Practical.md#test-case-12--authentication-bypass)
+* [Test Case 1 — Initial Recon & Binary Identification](#test-case-1--initial-recon--binary-identification)
+* [Test Case 2 — Extract Hardcoded Credentials](#test-case-2--extract-hardcoded-credentials)
+* [Test Case 3 — Analyze Network Communication](#test-case-3--analyze-network-communication)
+* [Test Case 4 — DLL Hijacking](#test-case-4--dll-hijacking)
+* [Test Case 5 — Insecure File Permissions](#test-case-5--insecure-file-permissions)
+* [Test Case 6 — Registry Analysis](#test-case-6--registry-analysis)
+* [Test Case 7 — IFEO Injection](#test-case-7--ifeo-injection)
+* [Test Case 8 — Memory Analysis](#test-case-8--memory-analysis)
+* [Test Case 9 — CSV Injection](#test-case-9--csv-injection)
+* [Test Case 10 — Weak TLS Configuration](#test-case-10--weak-tls-configuration)
+* [Test Case 11 — Local Privilege Escalation](#test-case-11--local-privilege-escalation)
+* [Test Case 12 — Authentication Bypass](#test-case-12--authentication-bypass)
 
 ---
 
