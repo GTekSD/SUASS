@@ -1,6 +1,4 @@
-![image](https://github.com/user-attachments/assets/b074eb7c-169f-4f70-a9c5-095fda1b4d32)
-![image](https://github.com/user-attachments/assets/aea5d680-0a4c-40ea-8946-e83c342b5d43)
-
+![symbian_devices](https://github.com/user-attachments/assets/5258f340-0f01-4552-b2bf-54f5e20056db)
 
 # Symbian^3 Research and Development
 
@@ -162,3 +160,32 @@ A modern theme based on Belle FP2 textures with classic dark UI. Uses transparen
 > _(ɔ) Max << Crazy | Doctor, Symbian Developer, GTekSD, All Rites Reversed_
 
 Licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+## Do u Know?
+During the peak era of Symbian OS (mid-2000s to early 2010s), specific Nokia and Sony Ericsson devices were widely adopted by hackers, security researchers, and mobile modders. Symbian's combination of native C++ access, Python runtime support (PyS60), integrated connectivity, and permissive hardware stacks made specific models ideal for wardriving, Bluetooth exploitation, and operating system reverse-engineering.
+
+---
+
+### Key Symbian Devices Popular in the Hacking Scene
+
+* **Nokia N95 / N95 8GB (S60 3rd Edition)**
+Regarded as the ultimate mobile platform of its era. It combined integrated Wi-Fi, GPS, 3D hardware acceleration, and PyS60 support, making it the primary device for mobile wardriving (mapping Wi-Fi access points via GPS), packet capturing, and running mobile Python scripts.
+* **Nokia 6600 (S60 2nd Edition)**
+The ground zero for early mobile security research and wireless attacks. Its ubiquitous adoption made it the primary choice for testing Bluetooth vulnerabilities (Bluejacking, Bluesnarfing via tools like *Blooover*) and analyzing early proof-of-concept mobile malware like the *Cabir* worm and *Skulls* trojan.
+* **Nokia E71 / E90 Communicator (S60 3rd Edition)**
+Favored by penetration testers, sysadmins, and terminal users due to their full physical QWERTY keyboards, strong build quality, and native Wi-Fi stacks. They were heavily utilized for SSH tunneling (via PuTTY for Symbian), remote network administration, and packet analysis.
+* **Nokia N-Gage / N-Gage QD (S60 1st Edition)**
+Widely used in homebrew development, game modification, and binary cracking. Its lack of strict signature verification made it simple to execute unsigned C++ binaries and bypass software copy protections.
+* **Nokia N8 / 808 PureView (Symbian^3 / Belle)**
+The final hardware flagships of the platform. Security researchers and modders used their USB On-The-Go (OTG) host controllers, micro-HDMI output, and hardware interfaces for payload delivery, flashing custom firmware (CFW), and hardware debugging.
+* **Sony Ericsson P900 / P910 / P1i (UIQ Platform)**
+Popular among reverse engineers focused on Symbian kernel analysis. The UIQ platform allowed researchers to extract physical memory (ROM dumping), reverse-engineer Symbian base libraries, and audit hardware interface layers.
+
+---
+
+### Common Hacking Activities on Symbian
+
+1. **Bluetooth Exploitation:** Tools like *Blooover*, *BT Browser*, and *CarWhisperer* were deployed on Symbian handsets to execute Bluejacking (unsolicited message pushing), Bluesnarfing (data theft over Bluetooth), and device hijacking.
+2. **Mobile Wardriving:** PyS60 (Python for S60) scripts linked cellular base station IDs and Wi-Fi signal scanning with internal GPS logs to map surrounding wireless access points.
+3. **OS Jailbreaking & Firmware Flashing:** Exploits such as *HelloOX*, *SecMan*, and *RomPatcher+* were created to disable Nokia’s Symbian Signed verification system, allowing deep filesystem access (`/sys/` and `/private/` directories) and execution of unsigned kernel drivers.
+4. **Mobile Terminal & Shell Usage:** Apps like *PuTTY for Symbian*, *X-plore* (hex viewer and filesystem driver bypass), and PyS60 transformed smartphones into pocket-sized command-line tools.
