@@ -4,17 +4,17 @@
 
 ## Table of Contents
 
-1. [Web Application Security & Vulnerabilities (#1 – #20)](#1.-web-application-security-&-vulnerabilities)
-2. [Browser Security, Same-Origin Policy & Security Headers (#21 – #29)](https://www.google.com/search?q=%232-browser-security-same-origin-policy--security-headers)
-3. [Authentication, Session Management & Access Control (#30 – #36)](https://www.google.com/search?q=%233-authentication-session-management--access-control)
-4. [Active Directory & Identity Security (#37 – #54)](https://www.google.com/search?q=%234-active-directory--identity-security)
-5. [Network, Protocols & Infrastructure Security (#55 – #72)](https://www.google.com/search?q=%235-network-protocols--infrastructure-security)
-6. [Mobile Application Security (#73 – #78)](https://www.google.com/search?q=%236-mobile-application-security)
-7. [Thick Client Application Security (#79 – #83)](https://www.google.com/search?q=%237-thick-client-application-security)
-8. [Wireless Security (#84 – #86)](#8.-wireless-security)
-9. [Functional & Business Logic Test Cases (#87 – #91)](https://www.google.com/search?q=%239-functional--business-logic-test-cases)
-10. [Secure Architecture, API & Data Protection (#92 – #94)](https://www.google.com/search?q=%2310-secure-architecture-api--data-protection)
-11. [Pentesting Methodology, Governance & Experience-Based Questions (#95 – #107)](https://www.google.com/search?q=%2311-pentesting-methodology-governance--experience-based-questions)
+1. [Web Application Security & Vulnerabilities (#1 – #20)](#1-web-application-security--vulnerabilities)
+2. [Browser Security, Same-Origin Policy & Security Headers (#21 – #29)](#2-browser-security-same-origin-policy--security-headers)
+3. [Authentication, Session Management & Access Control (#30 – #36)](#3-authentication-session-management--access-control)
+4. [Active Directory & Identity Security (#37 – #54)](#4-active-directory--identity-security)
+5. [Network, Protocols & Infrastructure Security (#55 – #72)](#5-network-protocols--infrastructure-security)
+6. [Mobile Application Security (#73 – #78)](#6-mobile-application-security)
+7. [Thick Client Application Security (#79 – #83)](#7-thick-client-application-security)
+8. [Wireless Security (#84 – #86)](#8-wireless-security)
+9. [Functional & Business Logic Test Cases (#87 – #91)](#9-functional--business-logic-test-cases)
+10. [Secure Architecture, API & Data Protection (#92 – #94)](#10-secure-architecture-api--data-protection)
+11. [Pentesting Methodology, Governance & Experience-Based Questions (#95 – #107)](#11-pentesting-methodology-governance--experience-based-questions)
 
 ---
 
