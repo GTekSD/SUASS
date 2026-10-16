@@ -1,6 +1,6 @@
 # Kubernetes Penetration Testing & Security Assessment Guide
 
----
+<img width="1678" height="937" alt="Kubernetes Hacking Guide_ Cat in Charge" src="https://github.com/user-attachments/assets/ee22bb51-5a99-4ed5-8ca6-dce9e1e8e1a0" />
 
 ## 1. Overview & Audience Requirements
 
