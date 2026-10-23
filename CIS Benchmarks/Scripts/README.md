@@ -1,132 +1,247 @@
-# GTekSD CIS Windows Compliance Automation Framework
+# GTekSD Tenable CIS Report Generator
 
-**Author:** Suhas Dhole
-**Organization:** GTekSD
-**Version:** Enterprise Edition
-**License:** Proprietary — All Rights Reserved (see [License](#license))
+![Platform](https://img.shields.io/badge/platform-Microsoft%20Excel-217346)
+![Language](https://img.shields.io/badge/language-VBA-blue)
+![Version](https://img.shields.io/badge/version-4.0-informational)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
 
-A VBA macro for Microsoft Excel that automates the generation of **CIS (Center for Internet Security) Windows compliance reports**. It ingests a raw compliance scan CSV, cross-references it against a control template workbook, and produces a fully formatted, color-coded, multi-host compliance report — one output sheet per template sheet.
+An Excel VBA macro that turns a raw **Tenable CIS compliance scan export** into a clean, audit-ready, multi-host compliance report, with OS-specific status overrides for **RHEL 8, RHEL 9, RHEL 10 and Windows Server 2025**.
 
----
-
-## What It Does
-
-Given:
-- A **scan results file** (`scan.csv`) containing per-host, per-control compliance data
-- A **template workbook** (`Temp.xlsx`) containing one sheet per CIS benchmark category, each listing controls (Control No, Control Name, Description, Impact, Remediation)
-
-The macro will:
-1. Parse `scan.csv` and build lookup tables of hosts, actual values, and pass/fail status per control.
-2. For each sheet in `Temp.xlsx`, generate a new output sheet (`CIS_<TemplateSheetName>`) containing:
-   - A copyright/confidentiality banner row
-   - Standard control columns (Control No, Control Name, Description, Impact, Remediation)
-   - One pair of columns **per host** (`Compliant/Non-Compliant` status + `Actual Value`), grouped/collapsible
-   - Color-coded compliance cells: 🟩 green = Compliant, 🟥 red = Non-Compliant
-3. Auto-fit rows/columns, apply borders and word-wrap for a print/share-ready report.
-4. Display a completion message box when finished.
+> Part of the [SUASS](https://github.com/GTekSD/SUASS) collection by **GTekSD**.
 
 ---
 
-## Repository Structure
+## Table of Contents
+
+- [Why use this tool](#why-use-this-tool)
+- [Features](#features)
+- [Supported operating systems](#supported-operating-systems)
+- [Requirements](#requirements)
+- [Input format](#input-format)
+- [Installation](#installation)
+- [How to use](#how-to-use)
+- [Output](#output)
+- [Status legend](#status-legend)
+- [OS-specific overrides](#os-specific-overrides)
+- [Customising the override lists](#customising-the-override-lists)
+- [Adding a new OS](#adding-a-new-os)
+- [Troubleshooting](#troubleshooting)
+- [FAQ](#faq)
+- [Roadmap](#roadmap)
+- [Security and macro notes](#security-and-macro-notes)
+- [Disclaimer](#disclaimer)
+- [License and copyright](#license-and-copyright)
+- [Developer](#developer)
+
+---
+
+## Why use this tool
+
+A Tenable compliance scan export lists one row per host per check. For a fleet of servers that means thousands of rows, with the control title, description, remediation and actual value all packed into one text column. Turning that into something an auditor or system owner can read takes hours of copy-and-paste.
+
+This macro does it in seconds:
+
+- **One row per control**, one column group per host, so you can compare servers side by side.
+- **Description, remediation and actual value** split into their own columns.
+- **Consistent statuses** (Compliant, Non-Compliant, Exception, Not Applicable, Manual Review) instead of raw PASSED/FAILED/WARNING.
+- **Known exceptions and manual checks are applied automatically**, so every report follows the same rules and nobody has to re-mark them by hand.
+- **Repeatable output** that looks the same on every run.
+
+## Features
+
+- Parses the Tenable `Description` field into Control No., Control Name, Description, Remediation Procedure and Actual Value.
+- Builds a multi-host matrix. Each host gets three columns: the raw result, the status and the actual value.
+- Removes `.audit` rows and other non-control rows.
+- Status overrides per OS (see [OS-specific overrides](#os-specific-overrides)).
+- Colour-coded statuses, frozen header row, filters, wrapped text and borders.
+- Report footer, print header and footer, document properties and an `About_GTekSD` sheet in the output.
+- Saves the finished report as a separate `.xlsx` file, with a timestamp so nothing is overwritten.
+- Matching is tolerant: it ignores case, level tags such as `(L1)`, and suffixes such as `(Automated)` or `(MS only)`.
+
+## Supported operating systems
+
+| OS | Macro to run | Overrides applied |
+|---|---|---|
+| Any other OS (generic) | `Generate_Tenable_CIS_Report` | None |
+| RHEL 8 | `Generate_Tenable_CIS_Report_RHEL8` | Exception |
+| RHEL 9 | `Generate_Tenable_CIS_Report_RHEL9` | Not Applicable, Exception, Manual Review |
+| RHEL 10 | `Generate_Tenable_CIS_Report_RHEL10` | Manual Review, Not Applicable |
+| Windows Server 2025 | `Generate_Tenable_CIS_Report_WIN2025` | Four Manual Review variants |
+| Windows Server 2022 | Planned | |
+| Windows Server 2019 | Planned | |
+
+## Requirements
+
+- Windows PC with **Microsoft Excel** (Microsoft 365, 2019 or later recommended).
+- Macros enabled in Excel.
+- A Tenable compliance scan result exported to CSV or Excel (see [Input format](#input-format)).
+
+The macro uses `Scripting.Dictionary`, which is available on Windows. It is **not supported on Excel for Mac or Excel Online**.
+
+## Input format
+
+Open your Tenable export in Excel. The first row must contain these headers (not case sensitive):
+
+| Header | Purpose |
+|---|---|
+| `Risk` | Scan result. Only `PASSED`, `FAILED` and `WARNING` rows are processed. |
+| `Host` | Host name or IP. One column group is created per unique host. |
+| `Description` | The Tenable compliance text that holds the control title, remediation and actual value. |
+
+Other columns are ignored. If any of the three required headers is missing, the macro shows an error and stops.
+
+## Installation
+
+1. Download `GTekSD_Tenable_CIS_Report_v4.bas` from this folder.
+2. Open Excel and press **Alt + F11** to open the VBA editor.
+3. Choose **File → Import File…** and select the `.bas` file.
+4. If you have an older version of this script, remove it first so no routine is declared twice.
+5. Run **Debug → Compile VBAProject** to confirm there are no errors.
+6. Save your workbook as **Excel Macro-Enabled Workbook (`.xlsm`)**.
+
+> **Important:** reports are saved in the same folder as the workbook that holds the macro. Save that workbook somewhere first (for example `C:\CIS\`). An unsaved workbook has no folder, and a workbook in Excel's personal macro folder would save reports there.
+
+## How to use
+
+1. Open the workbook that contains the macro, and open your Tenable export in Excel (or copy its data into a sheet in the same workbook).
+2. Click the sheet that holds the scan data so it is the **active sheet**.
+3. Press **Alt + F8**, choose the macro that matches your OS, and click **Run**.
+   - RHEL 9 scan: `Generate_Tenable_CIS_Report_RHEL9`
+   - Windows Server 2025 scan: `Generate_Tenable_CIS_Report_WIN2025`
+4. Wait a few seconds. A message box shows the path of the finished report.
+5. Open the generated `.xlsx` file.
+
+Tip: assign a macro to a button on the sheet (**Developer → Insert → Button**) for one-click use.
+
+Run **one OS per export**. If a single export mixes OS versions, split it by OS first, because overrides apply to the whole sheet.
+
+## Output
+
+The report file is named:
 
 ```
-.
-├── CIS_Windows_2025_GTekSD_Automation.bas   # The VBA module (source in this repo)
-├── Temp.xlsx                                # Control template workbook (you provide/maintain)
-├── scan.csv                                 # Raw compliance scan export (you provide, per run)
-└── README.md
+GTekSD_CIS_Report_<OS>_<yyyymmdd_hhmmss>.xlsx
 ```
 
-> **Note:** `Temp.xlsx` and `scan.csv` are runtime inputs and are typically *not* committed to the repo if they contain sensitive host/scan data. Consider adding them to `.gitignore` and instead committing a sanitized sample/template.
+It contains two sheets.
 
----
+**`Formatted_Report`**
 
-## Prerequisites
+| Control No. | Control Name | Description | Remediation Procedure | *Host A* | Status | Actual Value | *Host B* | Status | Actual Value | ... |
+|---|---|---|---|---|---|---|---|---|---|---|
 
-- Microsoft Excel (Windows), with **macros enabled**
-- `Temp.xlsx` must be **open in the same Excel session** as the macro is run (the macro references it by workbook name: `Workbooks("Temp.xlsx")`)
-- `scan.csv` must be located in the **same folder as the workbook running the macro** (`ThisWorkbook.Path`)
-- The scan CSV must have, at minimum:
-  - Column **D**: Risk/Status (`FAILED`, `WARNING`, or other)
-  - Column **E**: Hostname
-  - Column **J**: Control number + result text (e.g., `"1.1.1 ... Actual Value: ..."` or `"... Error: ..."`)
-- Each template sheet in `Temp.xlsx` must have data starting in row 2, with columns A–E populated as `Control No, Control Name, Description, Impact, Remediation`
+- Sorted by control number.
+- Under each host: the raw Tenable result, the final status, and the actual value found.
+- Header row is frozen and filterable.
 
----
+**`About_GTekSD`**: report scope, generation time, user, and copyright notice.
 
-## How to Run in Microsoft Excel
+The `Formatted_Report` sheet is also added to your source workbook, and replaced on each run.
 
-### Step 1 — Prepare your files
-Place the following in the **same folder**:
-- The workbook you'll run the macro from (this is `ThisWorkbook`)
-- `scan.csv` (your compliance scan export)
+## Status legend
 
-Also have `Temp.xlsx` (the control template) **open** in Excel before running the macro.
+| Status | Colour | Meaning |
+|---|---|---|
+| Compliant | Green | The check passed. |
+| Non-Compliant | Red | The check failed or returned a warning. |
+| Not Applicable | Grey | The control does not apply to this OS or build. |
+| Exception | Amber | A known, accepted deviation. |
+| Manual Review required | Light blue | Needs a person to verify; the scan cannot decide. |
+| Manual Review required (HKU Controls) | Light purple | Per-user registry (HKU) settings that need manual review. |
+| Manual Review required ('wincollect' Controls) | Light teal | User-rights settings checked through the wincollect process. |
+| Manual Review required (Workgroup servers) | Light orange | Settings that need manual review on workgroup (non-domain) servers. |
 
-### Step 2 — Enable macros
-1. Open Excel.
-2. Go to **File → Options → Trust Center → Trust Center Settings → Macro Settings**.
-3. Select **"Enable all macros"** (or **"Disable with notification"** and click *Enable Content* when prompted later).
-4. Also enable **"Trust access to the VBA project object model"** under **Developer Macro Settings** if you plan to import/run modules programmatically.
+An override **replaces** Compliant or Non-Compliant. The raw Tenable result stays visible in the host column, so nothing is hidden.
 
-### Step 3 — Import the macro
-1. Open the workbook you want to run the macro from.
-2. Press **Alt + F11** to open the VBA Editor (VBE).
-3. In the VBE, go to **File → Import File…**
-4. Select `CIS_Windows_2025_GTekSD_Automation.bas` and import it as a new module.
-5. Close the VBA Editor (**Alt + Q** or **Alt + F11** again).
+## OS-specific overrides
 
-### Step 4 — Save as a macro-enabled workbook
-- Save the workbook using **File → Save As**, and choose file type **Excel Macro-Enabled Workbook (\*.xlsm)** — a `.xlsx` file cannot store macros.
+| OS | Not Applicable | Exception | Manual Review (all variants) |
+|---|---|---|---|
+| RHEL 8 | | 19 | |
+| RHEL 9 | 4 | 19 | 16 |
+| RHEL 10 | 4 | | 17 |
+| Windows Server 2025 | | | 30 (3 standard, 11 HKU, 13 wincollect, 3 workgroup) |
 
-### Step 5 — Run the macro
-1. Make sure `Temp.xlsx` is already open.
-2. Ensure `scan.csv` is present in the same folder as your `.xlsm` workbook.
-3. Press **Alt + F8** to open the Macro dialog.
-4. Select **`CIS_Windows_2025_GTekSD_Automation`**.
-5. Click **Run**.
-6. Wait for the confirmation message box:
-   > *"Boom!!! Windows CIS with Actual Value Completed Successfully ;)"*
+The full lists are in the `LoadOverrides` routine inside the script.
 
-### Step 6 — Review the output
-- New sheets named `CIS_<TemplateSheetName>` will appear in `Temp.xlsx`, one per original template sheet, with per-host compliance data filled in and color-coded.
-- Save `Temp.xlsx` to preserve the generated report.
+## Customising the override lists
 
----
+1. Open the VBA editor (**Alt + F11**) and find `LoadOverrides`.
+2. Locate the `Case` block for your OS.
+3. Add or remove control names in the matching `AddList` call. Use the title text, for example:
+
+```vba
+"Ensure AIDE is installed", _
+```
+
+Matching ignores case, a leading `(L1)` or `(L2)` tag, and a trailing `(Automated)`, `(Manual)` or `(MS only)`. Keep a comma and the `_` line continuation at the end of every line except the last one in each list.
+
+## Adding a new OS
+
+1. Add an entry macro:
+
+```vba
+Sub Generate_Tenable_CIS_Report_WIN2022()
+    BuildReport "WIN2022"
+End Sub
+```
+
+2. Add a matching `Case "WIN2022"` block in `LoadOverrides`, with its lists.
+3. If you need a new status, add a constant such as `ST_NEW`, give it a colour in the "Colour status" section, and use it in `AddList`.
 
 ## Troubleshooting
 
-| Issue | Likely Cause |
+| Problem | Cause and fix |
 |---|---|
-| `Run-time error 9: Subscript out of range` on `Workbooks("Temp.xlsx")` | `Temp.xlsx` isn't open, or was opened with a different filename/version suffix (e.g. `Temp1.xlsx`) |
-| `scan.csv` not found | The CSV isn't in the same folder as the workbook running the macro |
-| Blank "Actual Value" columns | Column J in `scan.csv` doesn't contain the literal text `Actual Value:` or `Error:` |
-| No host columns generated | Column E (hostname) in `scan.csv` is empty for all rows |
-| Macro button/option missing | Macros are disabled, or the file was saved as `.xlsx` instead of `.xlsm` |
+| `Sub or Function not defined` | A routine is missing. Import the whole `.bas` file, remove older copies, and run **Debug → Compile VBAProject**. |
+| `Risk, Host or Description column not found` | Row 1 must hold those exact headers. Check for extra title rows above them. |
+| Report saved in an unexpected folder | Reports go beside the workbook that holds the macro. Save that workbook in a known folder first. |
+| A control was not overridden | Compare its text in the `Control Name` column with the list in `LoadOverrides`. A small wording difference prevents a match. |
+| Nothing happens, or macros are blocked | Enable macros: **File → Options → Trust Center → Trust Center Settings → Macro Settings**. If the file came from the internet, right-click it, open **Properties**, and tick **Unblock**. |
+| `Integrity check failed` message | The brand constant was edited. Re-download the original script. |
+| Slow on very large exports | Close other workbooks, and keep the export to the hosts you need. |
 
----
+## FAQ
 
-## License
+**Does it change my original scan data?**
+No. It reads the active sheet and writes to a new `Formatted_Report` sheet and a new `.xlsx` file.
 
-```
-Copyright © 2026 GTekSD, Suhas Dhole. All Rights Reserved.
+**Does it connect to the internet or send data anywhere?**
+No. It runs entirely inside Excel, and it does not make network calls.
 
-CONFIDENTIAL AND PROPRIETARY
+**Why are some controls blank for a host?**
+That host's scan did not include the control, or the row was filtered out (non-control rows and `.audit` rows are removed).
 
-This source code and all associated components are proprietary assets of
-GTekSD and Suhas Dhole. Unauthorized access, disclosure, copying,
-redistribution, modification, reverse engineering, decompilation,
-publication, commercial exploitation, reselling, sublicensing, or
-transmission of this source code, in whole or in part, is strictly
-prohibited without prior written authorization.
+**Can I use it for CIS benchmarks of other operating systems?**
+Yes. The generic `Generate_Tenable_CIS_Report` macro works on any export that follows the same format, with no overrides.
 
-This software is intended solely for authorized internal business use.
-```
+## Roadmap
 
-If publishing this repository publicly on GitHub, ensure your intended license terms are reflected accurately — a public repo with an "All Rights Reserved" proprietary notice typically means visitors may view but **not reuse, copy, or redistribute** the code without your explicit permission. Consider adding a formal `LICENSE` file matching the terms above for clarity.
+- [ ] Windows Server 2022
+- [ ] Windows Server 2019
+- [ ] Summary sheet with compliance percentage per host
+- [ ] Optional separate sheet listing only Non-Compliant controls
 
----
+## Security and macro notes
 
-## Contributing
+- Review any macro before running it. This script is plain VBA and contains no network, file-deletion or system calls beyond saving the report next to your workbook.
+- Do not enable macros for files from sources you do not trust.
+- Scan exports contain host names and configuration details. Handle generated reports according to your organisation's data policy.
 
-This is proprietary internal tooling. External contributions are not accepted unless explicitly authorized by GTekSD / Suhas Dhole.
+## Disclaimer
+
+This tool is provided **as is**, without warranty of any kind. The override lists reflect a specific reporting policy and are not part of the official CIS Benchmarks or of Tenable's output. Check the lists against your own policy before using a report for an audit or sign-off. CIS and Tenable are trademarks of their respective owners; this project is not affiliated with or endorsed by either.
+
+## License and copyright
+
+Copyright (c) 2026 **GTekSD**. All rights reserved.
+
+Copying, redistributing, rebranding or removing the copyright notice without written permission from GTekSD is prohibited. See the `LICENSE` file in the repository, if present, for the full terms.
+
+## Developer
+
+**Сухас Дхолз**
+GitHub: [github.com/GTekSD](https://github.com/GTekSD)
+Project: [github.com/GTekSD/SUASS](https://github.com/GTekSD/SUASS)
+
+Found a bug or want another OS added? Open an [issue](https://github.com/GTekSD/SUASS/issues) in the repository.
