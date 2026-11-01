@@ -1,12 +1,17 @@
 # 🚀 Universal Guide: Running a Fully Offline AI Assistant
 
-> Learn how to set up a 100% private, local AI assistant on your computer for **everyday tasks**, **studies**, **reasoning**, **cybersecurity**, and **coding** — with **zero subscription fees**, **no rate limits**, **no data leaks**, and **no internet connection required**!
+> Learn how to set up a 100% private, local AI assistant on your computer for **everyday tasks**, **studies**, **reasoning**, **cybersecurity**, and **coding** — with **zero subscription fees**, **no rate limits**, **no data leaks**, and **no internet connection required**! You can even carry it on a **USB pendrive**.
 
 ---
 
 ## 📌 Overview
 
-This guide provides a complete roadmap for running artificial intelligence locally on your PC or Mac. Whether you are a student writing essays, a cybersecurity analyst querying logs, a everyday user looking for a private assistant, or a developer coding in VS Code, you can run powerful open-source AI models without sending a single byte of data to the cloud.
+This guide provides a complete roadmap for running artificial intelligence locally on your PC or Mac. Whether you are a student writing essays, a cybersecurity analyst querying logs, an everyday user looking for a private assistant, or a developer coding in VS Code, you can run powerful open-source AI models without sending a single byte of data to the cloud.
+
+It covers two approaches:
+
+* **Ollama** (Sections 1, 2): installed on your computer, best for daily use and VS Code integration.
+* **Llamafile on a USB pendrive** (Section 3): a portable, no-install setup you can plug into a Windows PC and run anywhere.
 
 ---
 
@@ -16,6 +21,7 @@ This guide provides a complete roadmap for running artificial intelligence local
 * ⚡ **Zero Cloud Latency & Unlimited Use**: No rate limits, no daily prompt caps, and no monthly API bills.
 * ✈️ **Works Completely Offline**: Use your AI on airplanes, during internet outages, or in high-security environments.
 * 💰 **100% Free & Open-Source**: Powered by community models with no hidden fees or subscriptions.
+* 💾 **Portable**: Run the AI straight from a USB pendrive, with nothing installed on the host PC.
 * 🕵️ **Auditable Security**: Includes live network monitoring tools to verify zero external data transmission.
 
 ---
@@ -46,9 +52,11 @@ Match your computer's RAM (memory) to the right AI model for your specific needs
 
 1. [General Setup: Running a Fully Offline AI Assistant](#1-running-a-fully-offline-ai-assistant)
 2. [Coder Guide: Running a Fully Offline AI Coding Assistant in VS Code](#2-running-a-fully-offline-ai-coding-assistant-in-vs-code)
-3. [Network Security & Privacy Monitoring](#3-🛡️-network-security--privacy-monitoring)
-4. [Hardened Docker Container Setup](#4-🐳-advanced-setup-hardened-docker-container)
-5. [Ollama CLI Commands Cheat Sheet](#5-💡-ollama-cli-cheat-sheet)
+3. [Portable Setup: Running an Offline AI from a USB Pendrive](#3-running-an-offline-ai-from-a-usb-pendrive-llamafile)
+4. [Network Security & Privacy Monitoring](#4-️-network-security--privacy-monitoring)
+5. [Hardened Docker Container Setup](#5--advanced-setup-hardened-docker-container)
+6. [Essential VS Code Shortcuts for Continue](#6-️-essential-vs-code-shortcuts-for-continue)
+7. [Ollama CLI Commands Cheat Sheet](#7--ollama-cli-cheat-sheet)
 
 ---
 
@@ -58,7 +66,7 @@ Follow these steps to set up a universal AI assistant for general use, writing, 
 
 ### Step 1: Install Ollama (Backend LLM Runner)
 
-Ollama is the engine that runs AI models directly on your hardware background service on `http://localhost:11434`.
+Ollama is the engine that runs AI models directly on your hardware as a background service on `http://localhost:11434`.
 
 1. Download the installer for your operating system:
    * 🖥️ **Windows / macOS / Linux**: [https://ollama.com/download](https://ollama.com/download)
@@ -179,7 +187,165 @@ Open your terminal and pull a dedicated coding model:
 
 ---
 
-## 3. 🛡️ Network Security & Privacy Monitoring
+## 3. 💾 Running an Offline AI from a USB Pendrive (Llamafile)
+
+Prefer a portable setup that needs no installation? With **Llamafile**, you can keep the runner and the AI model on a USB pendrive and start it on any Windows PC by double-clicking a single file.
+
+### Step 1: Prepare the USB Pendrive
+
+1. Connect your USB pendrive to your PC.
+2. Format the pendrive.
+3. Select **exFAT** as the file system.
+4. Make sure the pendrive has enough free space for the AI model. The required storage depends on the model you choose.
+
+### Step 2: Download Llamafile
+
+1. Search for **Llamafile GitHub**.
+2. Open the official repository/release page.
+3. Download the required Windows `.exe` file.
+
+For example: `llamafile-0.10.5.exe`
+
+### Step 3: Download an AI Model
+
+Download a compatible **GGUF model**.
+
+For example: `qwen3-4b-thinking-2507.Q4_K_M.gguf`
+
+Keep the `.gguf` file in the **same folder** as the llamafile executable. Your folder should look like:
+
+```text
+Pendrive
+│
+├── llamafile-0.10.5.exe
+└── qwen3-4b-thinking-2507.Q4_K_M.gguf
+```
+
+### Step 4: Create the `Start.bat` File
+
+1. Right-click inside the folder.
+2. Select **New → Text Document**.
+3. Open the new text file in Notepad.
+4. Add this command:
+
+   ```bat
+   .\llamafile-0.10.5.exe --server --model "qwen3-4b-thinking-2507.Q4_K_M.gguf" --ctx-size 2048
+   ```
+
+5. Click **Save As**.
+6. Change **Save as type** to **All Files**.
+7. Name the file `Start.bat`.
+
+> ⚠️ Make sure Windows does not save it as `Start.bat.txt`.
+
+### Step 5: Final Folder Structure
+
+Your pendrive should now look like this:
+
+```text
+Pendrive
+│
+├── llamafile-0.10.5.exe
+├── qwen3-4b-thinking-2507.Q4_K_M.gguf
+└── Start.bat
+```
+
+### Step 6: Start the AI
+
+Simply double-click `Start.bat`.
+
+1. A Command Prompt window will open and the model will start loading.
+2. Wait until the server successfully starts.
+3. Open the local address shown by the server in your browser. Usually: [http://localhost:8080](http://localhost:8080)
+
+### Step 7: Understanding `--ctx-size`
+
+The `--ctx-size` option controls the **context size** of the AI. In simple words, it controls approximately how much text/conversation the model can keep in its active context.
+
+For example, in `--ctx-size 2048`, the value `2048` is the context size. You can change it depending on your available RAM.
+
+| Value | Description |
+| :--- | :--- |
+| `1024` | Uses less memory but provides a smaller context. |
+| `2048` | A good lightweight option. |
+| `4096` | Provides more context but requires more memory. |
+| `8192` | Useful for longer conversations and larger prompts, but requires more memory. |
+| `16384` | Requires significantly more memory. |
+| `32768` | Very large context and considerably higher memory requirements. |
+
+> **Important:** There is no single value that works for every PC. A higher context size generally requires more memory. If you get an insufficient memory error, reduce the context size.
+
+### Step 8: Recommended Settings
+
+Start with `--ctx-size 2048`. If your PC handles it successfully, try `4096`, then `8192`. Use the highest value that your computer can run reliably. For a low-RAM computer, `2048` is a safer starting point.
+
+### Step 9: Changing the AI Model
+
+You can replace the model file with another compatible GGUF model. For example, if your model is `my-model.Q4_K_M.gguf`, change:
+
+```text
+--model "qwen3-4b-thinking-2507.Q4_K_M.gguf"
+```
+
+to:
+
+```text
+--model "my-model.Q4_K_M.gguf"
+```
+
+The model name in the command must exactly match the actual file name.
+
+### Step 10: Changing the Llamafile Version
+
+If you download a different version of llamafile, change `.\llamafile-0.10.5.exe` to the actual `.exe` file name. For example, `.\llamafile-0.10.6.exe` or `.\llamafile-0.10.7.exe`.
+
+### Complete `Start.bat` Examples
+
+For the Qwen model used in this setup:
+
+```bat
+.\llamafile-0.10.5.exe --server --model "qwen3-4b-thinking-2507.Q4_K_M.gguf" --ctx-size 2048
+```
+
+If you want a larger context:
+
+```bat
+.\llamafile-0.10.5.exe --server --model "qwen3-4b-thinking-2507.Q4_K_M.gguf" --ctx-size 4096
+```
+
+Or:
+
+```bat
+.\llamafile-0.10.5.exe --server --model "qwen3-4b-thinking-2507.Q4_K_M.gguf" --ctx-size 8192
+```
+
+### ✅ Important Notes
+
+* Keep the `.exe`, `.gguf`, and `Start.bat` in the correct locations.
+* The model filename in `Start.bat` must match the actual filename.
+* Use `.\` instead of `./` in a normal Windows `.bat` file.
+* `--ctx-size` controls the context size and affects memory usage.
+* If you get an insufficient memory error, lower the `--ctx-size` value.
+* A larger context does **not** automatically make the model more intelligent.
+* The AI model itself can run locally without an internet connection.
+* Keep the Command Prompt window open while using the AI server.
+* Do not run unknown `.exe` files from untrusted sources.
+
+### 🏁 Final Setup
+
+```text
+Pendrive
+│
+├── llamafile-0.10.5.exe
+├── qwen3-4b-thinking-2507.Q4_K_M.gguf
+└── Start.bat
+```
+
+**Double-click `Start.bat` → Wait for the model → Open [http://localhost:8080](http://localhost:8080) → Start chatting.**
+
+---
+
+## 4. 🛡️ Network Security & Privacy Monitoring
 
 Want absolute mathematical proof that your AI (whether DeepSeek, Nemotron, or Qwen) isn't sending data across the internet? You can continuously monitor Ollama's network sockets using native terminal scripts *(inspired by NetworkChuck)*.
 
@@ -224,7 +390,7 @@ ss -np | grep ollama
 
 ---
 
-## 4. 🐳 Advanced Setup: Hardened Docker Container
+## 5. 🐳 Advanced Setup: Hardened Docker Container
 
 For enterprise, financial, or corporate environments requiring strict isolation, run Ollama inside a restricted Docker container. This sandboxes the AI, drops kernel privileges, caps system memory, and mounts the container filesystem as **read-only**.
 
@@ -240,7 +406,7 @@ docker run -d   --name ollama   --gpus all   -v ollama:/root/.ollama   -p 11434:
 
 ---
 
-## 5. ⌨️ Essential VS Code Shortcuts for Continue
+## 6. ⌨️ Essential VS Code Shortcuts for Continue
 
 | Windows / Linux | macOS | Function |
 | :--- | :--- | :--- |
@@ -251,7 +417,7 @@ docker run -d   --name ollama   --gpus all   -v ollama:/root/.ollama   -p 11434:
 
 ---
 
-## 6. 💡 Ollama CLI Cheat Sheet
+## 7. 💡 Ollama CLI Cheat Sheet
 
 Manage your local models easily using terminal commands:
 
@@ -285,6 +451,12 @@ Yes. When executed locally through Ollama, the model files consist purely of mat
 ### 3. What if my computer has no dedicated graphics card (GPU)?
 Ollama will automatically run on your system CPU and RAM. While slightly slower than a dedicated GPU, standard CPU execution works great for 1.5B, 3B, and 7B models.
 
+### 4. Should I use Ollama or the USB pendrive (Llamafile) setup?
+Use **Ollama** for daily use on your own computer and for VS Code integration. Use the **USB pendrive** setup when you want a portable AI that runs on any Windows PC without installing anything.
+
+### 5. Do I need internet for the USB pendrive setup?
+Only to download the Llamafile `.exe` and the GGUF model once. After that, the AI runs fully offline.
+
 ---
 
 ## 🔗 Useful Reference & Download Links
@@ -295,7 +467,8 @@ Ollama will automatically run on your system CPU and RAM. While slightly slower 
 * 🟢 **NVIDIA Nemotron Models**: [ollama.com/library/nemotron-3.5-lightning](https://ollama.com/library/nemotron-3.5-lightning)
 * 🐳 **Ollama Docker Hub Image**: [hub.docker.com/r/ollama/ollama](https://hub.docker.com/r/ollama/ollama)
 * 📹 **Security & Privacy Network Audit Inspiration**: *NetworkChuck - "Is DeepSeek Safe To Run (locally)"*
-* **Other**: [https://lmstudio.ai/](https://lmstudio.ai/)  
+* 💾 **Llamafile (USB setup)**: search "Llamafile GitHub" and use the official releases page
+* **Other**: [https://lmstudio.ai/](https://lmstudio.ai/)
 
 ---
 
