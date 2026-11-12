@@ -1,0 +1,5 @@
+Crawlwise
+136
+I decided to delve deeper into AI and ML implementations, and Python seemed like the ideal language for the task. As part of my learning journey, I've curated this repository as a collection of personal notes and code snippets. Since I believe in the value of sharing knowledge, I've made the source code publicly accessible. I hope it helps others discover something new and valuable today.
+
+https://github.com/Winja-Events/CrawlWise

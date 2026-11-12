@@ -1,0 +1,8 @@
+Faulty Portal
+350
+I'm aware of a bug within the present website configuration, but unfortunately, the developers aren't available to address it. Can you find the flag before they fix it
+
+http://faultyportal.winja.org
+
+Unlock Hint for 0 points
+Are you trying to bruteforce Please dont because your answer lies in the documentation )

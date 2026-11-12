@@ -1,0 +1,8 @@
+SculptAI
+350
+Discover the magic of real-time interactions as you construct a webpage that effortlessly fetches and presents data from a dynamic database. Unleash your creativity using HTML, CSS, and JavaScript to craft an engaging user interface that comes to life with information. Are you ready to view a seamless and interactive web experience
+
+http://sculptai.winja.org
+
+Unlock Hint for 0 points
+Why does the page load and wait for 3 seconds after opening the page does it connect to the backend

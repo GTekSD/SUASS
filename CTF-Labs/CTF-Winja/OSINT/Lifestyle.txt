@@ -1,0 +1,8 @@
+Lifestyle
+119
+With the arrival of the New Year comes a fresh beginning, and it is considered an excellent time for making purchases. Numerous websites offer discounts, gifts, and exchange offers. Can you provide me with the tagline used for the kid’s cloth section on the website having motto “When it comes to great style and personal expression, there should never be any regrets” on that day?
+
+Flag format is flag{}. character case will be same as obtained and have space in between.
+
+Hint:
+It's time to travel back.

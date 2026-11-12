@@ -1,0 +1,7 @@
+Memento
+100
+Megan, who tends to be forgetful, embarked on a journey to an unfamiliar destination. While capturing memories through photographs, she encountered an unfortunate incident where one of her pictures became distorted. Now, she is eager to share this particular picture with a friend, but alas, she has completely forgotten the name of the place she visited. Would you be kind enough to assist her in recalling the forgotten location?
+
+Flag Format is flag{NAME_OF_THE_PLACE}. All words in Caps seperated by underscore.
+
+challenge»icture.png

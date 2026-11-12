@@ -1,0 +1,5 @@
+Black and White
+350
+GenAI is now developing full fledged apps, although it doesn't care much for UI/UX. The intern seemingly used code as is they got from their AI model for their training bootcamp about java and spring concepts about collections, expressions and controllers.
+
+http://blackandwhite.winja.org/

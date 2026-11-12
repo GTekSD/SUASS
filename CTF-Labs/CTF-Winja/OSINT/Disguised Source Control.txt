@@ -1,0 +1,5 @@
+Disguised Source Control
+200
+The AI has started hiding public repositories to hide its secrets however there is still a way to access them, put your investigative skills to the test by uncovering hidden secrets within a GitHub repository using some clever Git maneuvers.
+
+https://github.com/iam-pyro/CTF
