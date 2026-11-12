@@ -1,0 +1,7 @@
+Gitted (user)
+350
+Gitted takes you on an extraordinary journey where you'll navigate Git repositories, unearth vulnerabilities, and harness the power of traversing. Your mission is to infiltrate the system, escalate privileges, and ultimately conquer the root.
+
+https://tryhackme.com/jr/gittedwinjactfnullcon2023c5
+View Hint
+Use a large wordlist to uncover an endpoint.

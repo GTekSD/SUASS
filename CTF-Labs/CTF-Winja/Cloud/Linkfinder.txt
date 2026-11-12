@@ -1,0 +1,5 @@
+Linkfinder
+350
+Hmmm 🤔, A site that can access any URL and find out links. This looks very useful, I wonder if someone can do something malicious with it. We asked an AI to fix this site but it left some loopholes, can you go deep into the cloud to find that magical flag?
+
+http://43.205.192.198/

@@ -1,0 +1,7 @@
+Foto (user)
+349
+Embark on a quest to unveil secrets in FotoMystery, a photography website shrouded in mystery.
+
+https://tryhackme.com/jr/fotofbebfjkwbefwnke
+Unlock Hint for 0 points
+We hired a German intern to create our photosec website but apparently his English is week.
